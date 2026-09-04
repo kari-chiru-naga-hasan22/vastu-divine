@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+    <radialGradient id="sunGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff8f0"/>
+      <stop offset="100%" stop-color="#fdf0df"/>
+    </radialGradient>
+    <radialGradient id="planetGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#8e1e35"/>
+      <stop offset="100%" stop-color="#3d0510"/>
+    </radialGradient>
+    <radialGradient id="planetGrad2" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#d69b3e"/>
+      <stop offset="100%" stop-color="#805411"/>
+    </radialGradient>
+  </defs>
+  <g transform="translate(300, 300)">
+    <g id="ambient-elements">
+      <circle cx="290" cy="0" r="1" fill="#B3791E" opacity="0.4"/>
+      <circle cx="205" cy="205" r="1" fill="#B3791E" opacity="0.4"/>
+      <circle cx="0" cy="290" r="1" fill="#B3791E" opacity="0.4"/>
+      <circle cx="-205" cy="205" r="1" fill="#B3791E" opacity="0.4"/>
+      <circle cx="-290" cy="0" r="1" fill="#B3791E" opacity="0.4"/>
+      <circle cx="-205" cy="-205" r="1" fill="#B3791E" opacity="0.4"/>
+      <circle cx="0" cy="-290" r="1" fill="#B3791E" opacity="0.4"/>
+      <circle cx="205" cy="-205" r="1" fill="#B3791E" opacity="0.4"/>
+    </g>
+    <g id="geometric-orbits">
+      <circle r="280" fill="none" stroke="#6D0A1D" stroke-width="0.3" stroke-dasharray="2 4" opacity="0.3"/>
+      <circle r="270" fill="none" stroke="#B3791E" stroke-width="0.4" stroke-dasharray="4 6" opacity="0.4"/>
+      <circle r="260" fill="none" stroke="#6D0A1D" stroke-width="0.3" stroke-dasharray="1 3" opacity="0.3"/>
+      <line x1="0" y1="-280" x2="0" y2="280" transform="rotate(0)" stroke="#6D0A1D" stroke-width="0.2" opacity="0.3"/>
+      <line x1="0" y1="-280" x2="0" y2="280" transform="rotate(45)" stroke="#6D0A1D" stroke-width="0.2" opacity="0.3"/>
+      <line x1="0" y1="-280" x2="0" y2="280" transform="rotate(90)" stroke="#6D0A1D" stroke-width="0.2" opacity="0.3"/>
+      <line x1="0" y1="-280" x2="0" y2="280" transform="rotate(135)" stroke="#6D0A1D" stroke-width="0.2" opacity="0.3"/>
+    </g>
+    <g id="outer-ring">
+      <circle r="240" fill="rgba(109,10,29,0.02)" stroke="#B3791E" stroke-width="0.5"/>
+      <circle r="200" fill="none" stroke="#B3791E" stroke-width="0.5"/>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(0)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="56.9" y="-212.5" transform="rotate(15, 56.9, -212.5)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♈</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(30)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="155.5" y="-155.5" transform="rotate(45, 155.5, -155.5)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♉</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(60)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="212.5" y="-56.9" transform="rotate(75, 212.5, -56.9)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♊</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(90)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="212.5" y="56.9" transform="rotate(105, 212.5, 56.9)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♋</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(120)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="155.5" y="155.5" transform="rotate(135, 155.5, 155.5)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♌</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(150)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="56.9" y="212.5" transform="rotate(165, 56.9, 212.5)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♍</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(180)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="-56.9" y="212.5" transform="rotate(195, -56.9, 212.5)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♎</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(210)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="-155.5" y="155.5" transform="rotate(225, -155.5, 155.5)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♏</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(240)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="-212.5" y="56.9" transform="rotate(255, -212.5, 56.9)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♐</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(270)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="-212.5" y="-56.9" transform="rotate(285, -212.5, -56.9)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♑</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(300)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="-155.5" y="-155.5" transform="rotate(315, -155.5, -155.5)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♒</text>
+      <line x1="0" y1="-240" x2="0" y2="-200" transform="rotate(330)" stroke="#B3791E" stroke-width="0.5"/>
+      <text x="-56.9" y="-212.5" transform="rotate(345, -56.9, -212.5)" font-family="serif" font-size="20" fill="#6D0A1D" text-anchor="middle" dominant-baseline="central">♓</text>
+    </g>
+    <g id="inner-ring">
+      <circle r="180" fill="rgba(109,10,29,0.04)" stroke="#6D0A1D" stroke-width="1"/>
+      <circle r="140" fill="none" stroke="#6D0A1D" stroke-width="1"/>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(0)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="41.4" y="-154.5" transform="rotate(15, 41.4, -154.5)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♎</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(30)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="113.1" y="-113.1" transform="rotate(45, 113.1, -113.1)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♏</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(60)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="154.5" y="-41.4" transform="rotate(75, 154.5, -41.4)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♐</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(90)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="154.5" y="41.4" transform="rotate(105, 154.5, 41.4)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♑</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(120)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="113.1" y="113.1" transform="rotate(135, 113.1, 113.1)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♒</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(150)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="41.4" y="154.5" transform="rotate(165, 41.4, 154.5)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♓</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(180)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="-41.4" y="154.5" transform="rotate(195, -41.4, 154.5)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♈</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(210)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="-113.1" y="113.1" transform="rotate(225, -113.1, 113.1)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♉</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(240)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="-154.5" y="41.4" transform="rotate(255, -154.5, 41.4)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♊</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(270)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="-154.5" y="-41.4" transform="rotate(285, -154.5, -41.4)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♋</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(300)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="-113.1" y="-113.1" transform="rotate(315, -113.1, -113.1)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♌</text>
+      <line x1="0" y1="-180" x2="0" y2="-140" transform="rotate(330)" stroke="#6D0A1D" stroke-width="0.5"/>
+      <text x="-41.4" y="-154.5" transform="rotate(345, -41.4, -154.5)" font-family="serif" font-size="24" fill="#B3791E" text-anchor="middle" dominant-baseline="central">♍</text>
+    </g>
+    <g id="central-sun">
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(0)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(12)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(24)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(36)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(48)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(60)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(72)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(84)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(96)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(108)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(120)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(132)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(144)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(156)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(168)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(180)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(192)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(204)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(216)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(228)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(240)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(252)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(264)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(276)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(288)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(300)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(312)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(324)" opacity="0.8"/>
+      <polygon points="-4,-110 0,-140 4,-110" fill="#B3791E" transform="rotate(336)"/>
+      <polygon points="-3,-110 0,-125 3,-110" fill="#B3791E" transform="rotate(348)" opacity="0.8"/>
+      <circle r="110" fill="url(#sunGrad)" stroke="#B3791E" stroke-width="2" filter="url(#glow)"/>
+      <circle r="100" fill="none" stroke="#B3791E" stroke-width="0.5" stroke-dasharray="2 4"/>
+      <path d="M -35 -15 Q -20 -30 -5 -15 Q -20 -10 -35 -15" fill="none" stroke="#6D0A1D" stroke-width="1.5"/>
+      <circle cx="-20" cy="-17" r="3" fill="#6D0A1D"/>
+      <path d="M 5 -15 Q 20 -30 35 -15 Q 20 -10 5 -15" fill="none" stroke="#6D0A1D" stroke-width="1.5"/>
+      <circle cx="20" cy="-17" r="3" fill="#6D0A1D"/>
+      <path d="M 0 -5 C -5 10, -5 20, 0 25 M 0 25 C -5 28, -5 32, -10 32 M 0 25 C 5 28, 5 32, 10 32" fill="none" stroke="#6D0A1D" stroke-width="1.5"/>
+      <path d="M -20 45 Q 0 55 20 45" fill="none" stroke="#6D0A1D" stroke-width="2"/>
+      <circle cx="0" cy="-45" r="4" fill="#B3791E"/>
+      <circle cx="0" cy="-45" r="1.5" fill="#fff"/>
+    </g>
+    <g id="planets">
+      <circle cx="190.9" cy="-190.9" r="12" fill="url(#planetGrad)" stroke="#B3791E" stroke-width="1"/>
+      <path d="M 207.9 -206.9 Q 207.9 -202.9 211.9 -202.9 Q 207.9 -202.9 207.9 -198.9 Q 207.9 -202.9 203.9 -202.9 Q 207.9 -202.9 207.9 -206.9" fill="#B3791E"/>
+      <circle cx="225.2" cy="130.0" r="8" fill="url(#planetGrad2)" stroke="#B3791E" stroke-width="1"/>
+      <circle cx="-140.0" cy="242.5" r="14" fill="url(#planetGrad)" stroke="#B3791E" stroke-width="1"/>
+      <path d="M -121.0 223.5 Q -121.0 227.5 -117.0 227.5 Q -121.0 227.5 -121.0 231.5 Q -121.0 227.5 -125.0 227.5 Q -121.0 227.5 -121.0 223.5" fill="#B3791E"/>
+      <circle cx="-244.3" cy="-88.9" r="10" fill="url(#planetGrad2)" stroke="#B3791E" stroke-width="1"/>
+      <circle cx="-135.0" cy="-233.8" r="9" fill="url(#planetGrad)" stroke="#B3791E" stroke-width="1"/>
+    </g>
+  </g>
+</svg>

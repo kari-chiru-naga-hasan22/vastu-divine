@@ -1,0 +1,1261 @@
+[
+  {
+    "tool_id": "plot-vastu-analyzer",
+    "tool_name": "Plot Vastu Analyzer (Bhūmi-Parīkṣā & Kṣetra-Vinyāsa)",
+    "tradition": "Classical Vedic Vastu",
+    "source": {
+      "text": "Mānasāra, Mayamata, Bṛhat Saṃhitā, Samarāṅgaṇa Sūtradhāra, Viśvakarma Prakāśa, Vāstuśāstra (D. N. Shukla)",
+      "author_translator": "P. K. Acharya (Mānasāra), Bruno Dagens (Mayamata), Varāhamihira (Bṛhat Saṃhitā), King Bhoja (Samarāṅgaṇa Sūtradhāra), D. N. Shukla (Vāstuśāstra)",
+      "chapter": "Mānasāra Ch. 3 (Bhūmi-Parīkṣā), Ch. 4 (Bhūmi-Saṃskāra), Ch. 5 (Śaṅku-Sthāpana); Mayamata Ch. 3 (Bhū-Parīkṣā), Ch. 4 (Dig-Pariccheda); Bṛhat Saṃhitā Ch. 53 (Vāstuvidyā); Samarāṅgaṇa Sūtradhāra Ch. 8, 9, 38; Viśvakarma Prakāśa Ch. 1",
+      "verse": "Mānasāra III.1-45, IV.1-38, V.1-96; Mayamata III.1-36, IV.1-30; Bṛhat Saṃhitā LIII.13-17, 85-95; Samarāṅgaṇa VIII.1-65; Viśvakarma Prakāśa I.25-60"
+    },
+    "sources": [
+      {
+        "text_name": "Mānasāra",
+        "translator": "Prasanna Kumar Acharya",
+        "chapters_cited": [
+          {
+            "chapter_num": 3,
+            "chapter_title": "Bhūmi-Parīkṣā (Examination of the Site)",
+            "verses": "III.1 - III.45",
+            "topics": "Examination of ground by tactile feel, sound, color, smell, taste, slope (Plava), and compaction (Garta-pūraṇa). Method of digging a 1-cubit pit and refilling with soil; testing water absorption overnight.",
+            "sanskrit_reference": "arocanīyā bhūmir varṇair gandhai rasaiḥ padaiḥ | parīkṣya kuryāt sarveṣāṃ vāstūnāṃ lakṣaṇaṃ viduḥ ||"
+          },
+          {
+            "chapter_num": 4,
+            "chapter_title": "Bhūmi-Saṃskāra (Preparation of Ground) & Garbha-Vinyāsa",
+            "verses": "IV.1 - IV.38",
+            "topics": "Ritual ploughing (Karṣaṇa) with white bulls, offering of oblations (Bali), soil levelling, extraction of subterranean debris (Śalya-śodhana: bones, charcoal, roots)."
+          },
+          {
+            "chapter_num": 5,
+            "chapter_title": "Śaṅku-Sthāpana (Gnomon and Cardinal Orientation)",
+            "verses": "V.1 - V.96",
+            "topics": "Mathematical determination of True East-West (Prācī) and North-South (Udīcī) using shadow-circle intersections (Chāyā-bhramaṇa) of a 12-angula or 24-angula gnomon. Distinction between cardinal plots (Sama-dig) and tilted/diagonal plots (Vidiśa)."
+          }
+        ]
+      },
+      {
+        "text_name": "Mayamata",
+        "translator": "Bruno Dagens",
+        "chapters_cited": [
+          {
+            "chapter_num": 3,
+            "chapter_title": "Bhū-Parīkṣā (Examination of the Site)",
+            "verses": "III.1 - III.36",
+            "topics": "Slope categorization: Supraśastā (declining East or North) vs Apasavyā and Adhama. 16 Canonical plot shapes: Caturasra (Square), Āyatasra (Rectangle), Gomukha (Cow-face), Śārdūlamukha (Lion-face), Trikoṇa (Triangle), Vṛtta (Circle), Hastipṛṣṭha (Elephant-back), Kūrmapṛṣṭha (Tortoise-back), Daityapṛṣṭha (Demon-back).",
+            "sanskrit_reference": "prāg-udaṅ-nimnā supraśastā savya-nimnā ca śasyate | viparītā tu na śastā sarva-sampatti-nāśinī ||"
+          },
+          {
+            "chapter_num": 4,
+            "chapter_title": "Dig-Pariccheda (Orientation of the Ground)",
+            "verses": "IV.1 - IV.30",
+            "topics": "Method of establishing the cardinal axes using gnomonic shadows, corrections for solar declination (Kṣiti-valaya), and ensuring plot orthogonality."
+          }
+        ]
+      },
+      {
+        "text_name": "Bṛhat Saṃhitā",
+        "author": "Varāhamihira",
+        "chapters_cited": [
+          {
+            "chapter_num": 53,
+            "chapter_title": "Vāstuvidyā (Architecture and Building Science)",
+            "verses": "LIII.13 - LIII.17, LIII.85 - LIII.95",
+            "topics": "Classification of soil characteristics for social groups (Varnas/Guṇas); Garta-pūraṇa compaction test; Jala-parīkṣā; Plot slopes (Indra-vīthi, Yama-vīthi, Varuṇa-vīthi, Soma-vīthi); Street thrusts (Vīthi-śūla) and surrounding road networks.",
+            "sanskrit_reference": "śveta-raktā-pīta-kṛṣṇā brāhmaṇāder hitā mahī | madhura-kaṣāyāmlā-katu-rasā kramāc ca smṛtā || gartaṃ pūrayet tadvad dravyādhikya-samam hīnam |"
+          }
+        ]
+      },
+      {
+        "text_name": "Samarāṅgaṇa Sūtradhāra",
+        "author": "King Bhoja of Dhārā",
+        "chapters_cited": [
+          {
+            "chapter_num": 8,
+            "chapter_title": "Bhūmi-Parīkṣā (Site Testing and Contours)",
+            "verses": "VIII.1 - VIII.65",
+            "topics": "Four classical topographic profiles: Gajapṛṣṭha (Elephant back - high in SW/S/W, low in NE/N/E, yields maximum longevity and wealth), Kūrmapṛṣṭha (Tortoise back - elevated center, gentle perimeter slope, grants stability and spiritual peace), Daityapṛṣṭha (Demon back - high in NE, low in SW, leads to ruin and lineage extinction), Nāgapṛṣṭha (Serpent back - undulating, high E-W, low N-S, causes constant wandering and demise)."
+          },
+          {
+            "chapter_num": 38,
+            "chapter_title": "Purasya Niveśanam & Vīthi-Vinyāsa",
+            "verses": "XXXVIII.1 - XXXVIII.48",
+            "topics": "Street layouts, avoidance of Marma-vedha, road frontal hierarchy, and environmental wind channelization."
+          }
+        ]
+      },
+      {
+        "text_name": "Viśvakarma Prakāśa",
+        "author": "Sage Viśvakarmā",
+        "chapters_cited": [
+          {
+            "chapter_num": 1,
+            "chapter_title": "Bhūmi-Lakṣaṇa & Plava-phala (Characteristics of Land and Results of Slope)",
+            "verses": "I.25 - I.60",
+            "topics": "Exhaustive consequences of slopes in 8 directions: Pūrva-plavā (growth), Uttara-plavā (wealth), Īśāna-plavā (all perfections), Dakṣiṇa-plavā (death), Paścima-plavā (destruction of sustenance), Āgneya-plavā (fire hazard), Nairṛtya-plavā (lineage extinction), Vāyavya-plavā (restlessness and exile).",
+            "sanskrit_reference": "pūrva-plavā vṛddhikarī dhanadā cottarā plavā | īśāna-plavanā bhūmiḥ sarvasiddhividhāyinī || dakṣiṇa-plavā mṛtyukārī vartanāśī ca paścimā | āgneyyāṃ dāha-santāpo vāyavyāṃ roga-uccāṭam | nairṛtyāṃ ca duryogaḥ kulanāśaḥ prajāyate ||"
+          }
+        ]
+      },
+      {
+        "text_name": "Vāstuśāstra: Hindu Canons of Indian Architecture",
+        "author": "Dr. D. N. Shukla",
+        "chapters_cited": [
+          {
+            "chapter_num": 2,
+            "chapter_title": "Bhūmi-Parīkṣā & Topography (Vol. I, Part II)",
+            "topics": "Scholarly comparative synthesis of Aparājitapṛcchā, Samarāṅgaṇa Sūtradhāra, and Mayamata; geotechnical load-bearing interpretations of classical soil compaction tests; cosmological and solar rationale behind North-East decline."
+          }
+        ]
+      }
+    ],
+    "inputs": [
+      {
+        "field_id": "plot_shape",
+        "name": "Plot Geometry / Shape",
+        "type": "string",
+        "options": [
+          "square",
+          "rectangular",
+          "gomukhi_cow_face",
+          "shermukhi_lion_face",
+          "triangular",
+          "circular",
+          "semicircular_bow",
+          "oval_egg_shaped",
+          "trapezoidal_irregular",
+          "polygonal_multisided",
+          "l_shaped_corner_cut",
+          "t_shaped",
+          "cart_shaped_shakata",
+          "hourglass_damaru",
+          "pot_shaped_kumbha"
+        ],
+        "description": "Geometric morphology of the boundary perimeter as surveyed on site.",
+        "classical_term": "Kṣetra-Saṃsthāna (क्षेत्रसंस्थान)",
+        "criticality": "Mandatory"
+      },
+      {
+        "field_id": "length_width_ratio",
+        "name": "Length to Width Ratio (Proportion)",
+        "type": "float",
+        "range": "1.0 to 4.0",
+        "default": 1.25,
+        "description": "Proportion of plot length to width (Length / Width). Ideal is 1:1 (Square) or 1:1.25 to 1:1.5 (Auspicious Rectangle). Ratios beyond 1:2.0 represent Dirgha-shala / excessive elongation.",
+        "classical_term": "Ayāma-Vistāra-Pramāṇa (आयामविस्तारप्रमाण)",
+        "criticality": "Mandatory"
+      },
+      {
+        "field_id": "slope_gradient",
+        "name": "Natural Slope / Terrain Gradient",
+        "type": "string",
+        "options": [
+          "north_east_ishanya",
+          "east_purva",
+          "north_uttara",
+          "south_dakshina",
+          "west_pascima",
+          "south_east_agneya",
+          "north_west_vayavya",
+          "south_west_nairritya",
+          "center_elevated_kurmaprishtha",
+          "center_sunken_garta_raurava"
+        ],
+        "description": "Dominant natural downward slope of the terrain surface.",
+        "classical_term": "Plava-Lakṣaṇa (प्लवलक्षण)",
+        "criticality": "Mandatory"
+      },
+      {
+        "field_id": "topography_profile",
+        "name": "Broad Geological Contour (Bhūmi-Pṛṣṭha)",
+        "type": "string",
+        "options": [
+          "gajaprishtha_elephant_back",
+          "kurmaprishtha_tortoise_back",
+          "daityaprishtha_demon_back",
+          "nagaprishtha_serpent_back"
+        ],
+        "description": "Macro-topography of the terrain according to classical taxonomy: Gajapṛṣṭha (high in S/W/SW, low in N/E/NE), Kūrmapṛṣṭha (high center, low periphery), Daityapṛṣṭha (high in N/E/NE, low in S/W/SW), Nāgapṛṣṭha (undulating E-W ridges).",
+        "classical_term": "Bhūmi-Pṛṣṭha (भूमिपृष्ठ)",
+        "criticality": "Recommended"
+      },
+      {
+        "field_id": "soil_color",
+        "name": "Soil Color (Excavated Strata)",
+        "type": "string",
+        "options": [
+          "white_shveta",
+          "red_rakta",
+          "yellow_pita",
+          "black_krishna",
+          "mixed_pebbly_mishrita"
+        ],
+        "description": "Color of virgin subsoil at 1 cubit depth. Classically associated with Guṇa and suitability.",
+        "classical_term": "Bhūmi-Varṇa (भूमि decay / वर्ण)",
+        "criticality": "Recommended"
+      },
+      {
+        "field_id": "soil_odor",
+        "name": "Soil Odor / Smell",
+        "type": "string",
+        "options": [
+          "fragrant_lotus_ghee",
+          "blood_metallic",
+          "grain_honey_rice",
+          "foul_sewer_ammonia"
+        ],
+        "description": "Olfactory test of moist virgin soil. Foul odors indicate decomposing organic matter, shallow water table, or toxic chemical strata.",
+        "classical_term": "Bhūmi-Gandha (भूमिगन्ध)",
+        "criticality": "Recommended"
+      },
+      {
+        "field_id": "soil_compaction_pit_test",
+        "name": "Compaction Pit Test (Garta-Pūraṇa)",
+        "type": "string",
+        "options": [
+          "surplus_overflow_adhika",
+          "level_flush_sama",
+          "deficit_sunken_hina"
+        ],
+        "description": "A 1-cubit (approx. 18-24 inches) cubic pit is dug and the excavated soil is poured back without manual tamping. Surplus earth indicates dense preconsolidated soil (high bearing capacity); sunken deficit indicates loose, porous, collapsable soil.",
+        "classical_term": "Garta-Pūraṇa-Parīkṣā (गर्तपूरणपरीक्षा)",
+        "criticality": "Highly Recommended"
+      },
+      {
+        "field_id": "soil_percolation_water_test",
+        "name": "Water Percolation & Retention Test (Jala-Parīkṣā)",
+        "type": "string",
+        "options": [
+          "water_retained_overnight",
+          "muddy_moist_sediment",
+          "completely_drained_cracked"
+        ],
+        "description": "The excavated pit is filled with water at sunset and inspected at dawn. Substantial retained water demonstrates cohesive impermeable strata; bone-dry cracked ground indicates excessive void ratio, fissures, or subterranean cavities.",
+        "classical_term": "Jala-Parīkṣā (जलपरीक्षा)",
+        "criticality": "Highly Recommended"
+      },
+      {
+        "field_id": "road_facing",
+        "name": "Primary Road Facing / Frontage",
+        "type": "string",
+        "options": [
+          "all_four_sides_sarvatobhadra",
+          "north_and_east_corner",
+          "north",
+          "east",
+          "west",
+          "south",
+          "south_and_west_corner",
+          "three_sides"
+        ],
+        "description": "Direction from which primary access road fronts the property.",
+        "classical_term": "Vīthi-Mukha (वीथीमुख)",
+        "criticality": "Mandatory"
+      },
+      {
+        "field_id": "road_thrust_vithi_shula",
+        "name": "Street Focus / T-Junction Thrust (Vīthi-Śūla)",
+        "type": "string",
+        "options": [
+          "none",
+          "north_of_northeast_uchha",
+          "east_of_northeast_uchha",
+          "east_of_southeast_nicha",
+          "south_of_southeast_nicha",
+          "south_of_southwest_maha_shula",
+          "west_of_southwest_maha_shula",
+          "west_of_northwest_nicha",
+          "north_of_northwest_uchha"
+        ],
+        "description": "Presence and orientation of an oncoming road terminating directly perpendicular to the plot boundary.",
+        "classical_term": "Vīthi-Śūla (वीथीशूल)",
+        "criticality": "Mandatory"
+      },
+      {
+        "field_id": "cardinal_tilt_angle_degrees",
+        "name": "Deviation Angle from Geographic North (Śaṅku Dig-Nirṇaya)",
+        "type": "float",
+        "range": "0.0 to 45.0",
+        "default": 0.0,
+        "description": "Angular tilt of the plot's primary axis relative to true magnetic/geographic North. Plots with 0-5° are Cardinal (Sama-dig); >15° are Vidiśa (Diagonal).",
+        "classical_term": "Dig-Bhrama / Vidiśā (दिक्भ्रम / विदिशा)",
+        "criticality": "Recommended"
+      },
+      {
+        "field_id": "corner_morphology",
+        "name": "Corner Extensions & Cuts (Koṇa-Vṛddhi / Kartana)",
+        "type": "string",
+        "options": [
+          "all_90_degree_orthogonal",
+          "northeast_extended_ishanya_vriddhi",
+          "southeast_extended_agneya_vriddhi",
+          "southwest_extended_nairritya_vriddhi",
+          "northwest_extended_vayavya_vriddhi",
+          "northeast_cut_ishanya_kartana",
+          "southwest_cut_nairritya_kartana",
+          "southeast_cut_agneya_kartana",
+          "northwest_cut_vayavya_kartana"
+        ],
+        "description": "Structural deviation from 90° orthogonality at the plot corners.",
+        "classical_term": "Koṇa-Vṛddhi-Cheda (कोणवृद्धि-छेद)",
+        "criticality": "Mandatory"
+      }
+    ],
+    "formula_logic": {
+      "model_name": "Composite Plot Vastu Suitability Index (CPVSI)",
+      "mathematical_formula": "CPVSI = Clamp[0, 100, (w_shape * S_shape + w_slope * S_slope + w_soil * S_soil + w_orient * S_orient + w_road * S_road) * Product(M_penalties)]",
+      "weights": {
+        "w_shape": 0.2,
+        "w_slope": 0.25,
+        "w_soil": 0.2,
+        "w_orient": 0.15,
+        "w_road": 0.2
+      },
+      "penalty_multipliers": {
+        "southwest_extended": 0.6,
+        "northeast_cut": 0.55,
+        "southwest_maha_vithi_shula": 0.5,
+        "daityaprishtha_slope": 0.5,
+        "center_sunken_garta": 0.45,
+        "length_width_ratio_exceeds_2_5": 0.75,
+        "foul_sewer_odor_and_hina_soil": 0.6
+      },
+      "scoring_scale": {
+        "90_100": "Uttamottama (Supremely Auspicious / Devavāstu)",
+        "75_89": "Uttama (Highly Auspicious / Śubha)",
+        "60_74": "Madhyama (Acceptable / Neutral / Requires minor rectification)",
+        "40_59": "Adhama (Inauspicious / Major remedial intervention required)",
+        "0_39": "Varjita (Prohibited / Defective / Unfit for residence without complete re-structuring)"
+      }
+    },
+    "rules_matrix": [
+      {
+        "category": "plot_shape",
+        "value": "square",
+        "direction_zone": "Universal / All Quadrants",
+        "element_mahabhuta": "Prithvi & Akasha (Equilibrium of all five Mahābhūtas)",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Mayamata Ch. 3 v. 12; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 14; Bṛhat Saṃhitā Ch. 53 v. 85",
+        "classical_sloka": "caturaśrā sarveṣāṃ vāstūnāṃ śubhadā sadā | sarva-kāma-phalā nṝṇāṃ dhana-dhānya-vivardhinī ||",
+        "plain_language_explanation": "A square plot has four equal sides and four 90° right angles. It establishes complete energetic symmetry and balance of the cardinal poles, granting holistic health, mental clarity, and enduring wealth.",
+        "engineering_physical_rationale": "Perfect geometric symmetry eliminates torsional moments during seismic events, ensures equal daylight distribution, and optimizes structural load paths.",
+        "classical_remedy": "None required. Consecrate the central Brahmasthāna as an open-to-sky courtyard or lightweight zone."
+      },
+      {
+        "category": "plot_shape",
+        "value": "rectangular",
+        "direction_zone": "Universal / Cardinal Alignment",
+        "element_mahabhuta": "Prithvi (Earth / Sthiratva)",
+        "score_impact": 90,
+        "status": "auspicious",
+        "classical_source": "Mayamata Ch. 3 v. 13; Mānasāra Ch. 3 v. 22; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 16",
+        "classical_sloka": "āyatā śubhadā nityaṃ catur-varga-phala-pradā | dīrghatve dvy-ardha-mātraṃ tu śastam āhur manīṣiṇaḥ ||",
+        "plain_language_explanation": "An oblong rectangular plot with length-to-width ratio between 1:1.25 and 1:1.50, aligned North-South or East-West, is highly auspicious, bestowing success in worldly affairs and long life.",
+        "engineering_physical_rationale": "Optimal aspect ratio facilitates natural cross-ventilation, clear spatial zoning between public and private domains, and efficient plumbing distribution.",
+        "classical_remedy": "Ensure the ratio does not exceed 1:2. If ratio is greater than 2:1, divide the plot physically or energetically using compound walls or hedging."
+      },
+      {
+        "category": "plot_shape",
+        "value": "gomukhi_cow_face",
+        "direction_zone": "Front facing East or North; Broad in Rear (West/South)",
+        "element_mahabhuta": "Prithvi (Accumulation & Retention)",
+        "score_impact": 95,
+        "status": "highly_auspicious_residential",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 34; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 24",
+        "classical_sloka": "gomukhaṃ tu sadā śastaṃ gṛheṣu dhanavardhanam | paścādvistīrṇamagre tu saṅkṣiptaṃ gomukhaṃ smṛtam ||",
+        "plain_language_explanation": "Narrow in the front (road side) and broad in the back. When the narrow front faces East or North and the broad back rests in South or West, it forms the sacred Gomukhi configuration, accumulating and preserving family wealth and harmony.",
+        "engineering_physical_rationale": "Funnel geometry acts as an acoustic and aerodynamic buffer against front street dust and noise while maximizing quiet, private open space in the rear.",
+        "classical_remedy": "If the front faces South or West, it reverses the polarity; correct by planting dense bamboo/ficus hedges in the front and keeping the rear open."
+      },
+      {
+        "category": "plot_shape",
+        "value": "shermukhi_lion_face",
+        "direction_zone": "Front facing North/East; Narrow in Rear",
+        "element_mahabhuta": "Agni & Surya (Outward Radiance / Authority)",
+        "score_impact": 75,
+        "status": "auspicious_commercial_only",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 35; Mayamata Ch. 3 v. 16",
+        "classical_sloka": "vyāghra-vaktre tu vāṇijyaṃ rāja-saṃsevane hitam | vāsārthaṃ naiva kartavyaṃ putradāra-vināśanam ||",
+        "plain_language_explanation": "Broad at the front and narrow at the rear. Auspicious for commercial ventures, corporate headquarters, public retail, or administrative buildings, but prohibited for domestic residences as it disperses domestic tranquility.",
+        "engineering_physical_rationale": "Wide street frontage provides excellent visual exposure, branding frontage, and ingress capacity for commercial foot traffic, but compromises residential privacy.",
+        "classical_remedy": "For residential use on a Shermukhi plot, construct a straight boundary wall to partition off the irregular triangular side wedges, rendering the habitable plot a true rectangle."
+      },
+      {
+        "category": "plot_shape",
+        "value": "triangular",
+        "direction_zone": "Universal / Agni Focus",
+        "element_mahabhuta": "Agni (Fire / Dagdha-Vāstu)",
+        "score_impact": -80,
+        "status": "inauspicious",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 87; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 28; Mayamata Ch. 3 v. 17",
+        "classical_sloka": "trikoṇe vahnibhītiḥ syād rāja-daṇḍas tathaiva ca | kulanāśo bhavet tatra na kuryāt tatra mandiram ||",
+        "plain_language_explanation": "Triangular plots generate aggressive angular convergence (Agni-koṇa dynamics), predisposing occupants to constant litigation, fire accidents, internal bickering, and royal/governmental penalties.",
+        "engineering_physical_rationale": "Acute corner angles (<60°) produce severe internal stress concentrations, dead unusable corners with stagnant air, and complicated structural roof framing.",
+        "classical_remedy": "Erect internal perimeter walls or heavy evergreen hedges to carve out an internal square or rectangle, relegating the triangular acute corners to external landscaped gardens with a dedicated Agni yantra."
+      },
+      {
+        "category": "plot_shape",
+        "value": "circular",
+        "direction_zone": "Universal / Centralized",
+        "element_mahabhuta": "Vāyu & Ākāśa (Centrifugal Dissipation)",
+        "score_impact": -50,
+        "status": "prohibited_residential_auspicious_sacred",
+        "classical_source": "Mānasāra Ch. 3 v. 30; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 18; Mayamata Ch. 3 v. 14",
+        "classical_sloka": "vṛttā tu yā mahī loke sā śastā suraveśmani | narāṇāṃ na hitā sā hi dāridrya-maraṇāvahā ||",
+        "plain_language_explanation": "Circular plots lack stabilizing cardinal corners. Classical treatises permit circular plots solely for circular temples, Buddhist stupas, civic amphitheaters, or ascetic hermitages; residential use causes poverty and lack of foundation.",
+        "engineering_physical_rationale": "Curvilinear boundaries make standard orthogonal construction uneconomical and generate unstable acoustic reflections focusing sound towards the center.",
+        "classical_remedy": "Square off the living compound inside the circle by creating four corner landscape gardens."
+      },
+      {
+        "category": "plot_shape",
+        "value": "trapezoidal_irregular",
+        "direction_zone": "Viṣama-bāhu (Unequal axes)",
+        "element_mahabhuta": "Asura / Chotic mixture",
+        "score_impact": -70,
+        "status": "inauspicious",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 8 v. 32; Viśvakarma Prakāśa Ch. 1 v. 38",
+        "classical_sloka": "viṣama-bāhuṣu nityaṃ śatrubhītiḥ prajāyate | dravyasaṅkṣayaḥ kalahaḥ syād vāstudoṣeṇa sarvadā ||",
+        "plain_language_explanation": "Plots with unequal non-parallel sides and asymmetric corner angles cause chaotic energy distribution, leading to perpetual enemy fear, unexpected financial drain, and discord among partners.",
+        "engineering_physical_rationale": "Irregular boundaries generate asymmetric seismic torsional shears and complicate structural alignment.",
+        "classical_remedy": "Survey the plot, establish an orthogonal rectangle inside, and surrender the residual irregular margins to outer compound greenery or parking."
+      },
+      {
+        "category": "plot_shape",
+        "value": "cart_shaped_shakata",
+        "direction_zone": "Pinched Center, Flared Ends",
+        "element_mahabhuta": "Vāyu (Instability / Transience)",
+        "score_impact": -85,
+        "status": "inauspicious",
+        "classical_source": "Mayamata Ch. 3 v. 20; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 26",
+        "classical_sloka": "śakaṭākṛti-yā bhūmiḥ sā sarvārtha-vināśinī | nṛṇāṃ dāridryadā nityaṃ pravāsa-maraṇa-pradā ||",
+        "plain_language_explanation": "Shaped like a bullock cart (narrow in middle, wide at front and back), it forces continuous wandering, severe financial penury, and premature loss of family heads.",
+        "engineering_physical_rationale": "Constricted central waist restricts airflow, utilities, and emergency egress routes between front and back zones.",
+        "classical_remedy": "Straighten the waist with compound boundary adjustments or partition into two separate self-contained rectangular units."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "north_east_ishanya",
+        "direction_zone": "North-East (Īśāna)",
+        "element_mahabhuta": "Jala & Ākāśa (Cosmic Receptivity)",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 30; Mayamata Ch. 3 v. 5; Bṛhat Saṃhitā Ch. 53 v. 88",
+        "classical_sloka": "īśāna-plavanā bhūmiḥ sarvasiddhividhāyinī | āyur-ārogya-sampattir vijayo vṛddhir uttamā ||",
+        "plain_language_explanation": "A plot sloping down towards the North-East (Īśāna-plava) is the supreme topographical contour. It allows uninterrupted absorption of early morning ultraviolet-enriched solar radiation and magnetic flux, bestowing health, intellect, and spiritual and material abundance.",
+        "engineering_physical_rationale": "Natural surface runoff discharges towards the NE corner, allowing clean stormwater gravity disposal without contaminating southern living zones.",
+        "classical_remedy": "None needed. Keep this lowest quadrant clean, open, and free of massive masonry loads."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "east_purva",
+        "direction_zone": "East (Indra)",
+        "element_mahabhuta": "Agni-Surya & Akasha (Solar Vitality)",
+        "score_impact": 90,
+        "status": "auspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 30; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 45",
+        "classical_sloka": "pūrva-plavā vṛddhikarī sarva-sampat-pradāyinī | sūrya-tejo-samāyuktā kuloddhāra-karī sadā ||",
+        "plain_language_explanation": "An Eastward slope (Pūrva-plava / Indra-vīthi) welcomes the rising sun across the site, promoting physical vitality, professional status, enlightenment, and harmonious governance.",
+        "engineering_physical_rationale": "Maximizes passive solar heat gain in winter mornings while enabling rapid drying of nocturnal dampness.",
+        "classical_remedy": "Maintain low boundary wall on East and higher boundary wall on West."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "north_uttara",
+        "direction_zone": "North (Kubera / Soma)",
+        "element_mahabhuta": "Jala (Magnetic Abundance)",
+        "score_impact": 90,
+        "status": "auspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 30; Mayamata Ch. 3 v. 6",
+        "classical_sloka": "dhanadā cottarā plavā vidyā-dhana-samṛddhidā | kauberasya prasādena kīrti-sampad-vivardhinī ||",
+        "plain_language_explanation": "A Northward slope (Uttara-plava / Soma-vīthi) draws the Earth's geomagnetic lines of force freely across the plot, conferring wealth, career advancements, intellectual sharpness, and commercial success.",
+        "engineering_physical_rationale": "Shielded from harsh southern glare while receiving continuous diffused ambient northern light (ideal for studies and studios).",
+        "classical_remedy": "Keep Northern perimeter open with light permeable railings."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "south_west_nairritya",
+        "direction_zone": "South-West (Nairṛtya)",
+        "element_mahabhuta": "Prithvi & Asura (Void in Earth Element)",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 31; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 49; Mayamata Ch. 3 v. 8",
+        "classical_sloka": "nairṛtyāṃ ca duryogaḥ kulanāśaḥ prajāyate | dāridryaṃ vyādhi-saṃpāto mṛtyur vā maraṇāntikam ||",
+        "plain_language_explanation": "A downward slope towards the South-West (Nairṛtya-plava / Daityapṛṣṭha) is a catastrophic defect. It exposes the vulnerable southwest to drainage erosion while depressing the earth element, resulting in chronic health crises, bankruptcy, addiction, and premature demise of the head of the house.",
+        "engineering_physical_rationale": "Causes heavy stormwater to pool in the SW, weakening foundation soils under maximum afternoon thermal expansion and leading to differential settlement.",
+        "classical_remedy": "Extensive civil engineering earthwork: fill the SW quadrant with compacted gravel/earth to make it the highest elevation; construct heavy retaining walls and terrace slopes toward the North-East."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "south_dakshina",
+        "direction_zone": "South (Yama)",
+        "element_mahabhuta": "Yama (Decay / Loss)",
+        "score_impact": -80,
+        "status": "inauspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 31; Bṛhat Saṃhitā Ch. 53 v. 89",
+        "classical_sloka": "dakṣiṇa-plavā mṛtyukārī vartanāśī vināśinī | vyādhi-śokākulā nityaṃ nārīṇāṃ ca vināśanī ||",
+        "plain_language_explanation": "Sloping down to the South drains vital life force into the realm of Yama, causing chronic illnesses, blood disorders, legal persecution, and premature decline of female family members.",
+        "engineering_physical_rationale": "Southern drainage often leads to thermal overheating and excessive desiccation of exposed soil slopes during summer months.",
+        "classical_remedy": "Build a high, massive southern compound wall; install heavy landscaping boulders in the South to artificially elevate and anchor the terrain."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "west_pascima",
+        "direction_zone": "West (Varuṇa)",
+        "element_mahabhuta": "Varuṇa (Depletion of Sustenance)",
+        "score_impact": -65,
+        "status": "inauspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 31; Mayamata Ch. 3 v. 7",
+        "classical_sloka": "vartanāśī ca paścimā putrahāni-karī smṛtā | dravyasaṅkṣaya-kāriṇī pravāsa-jananī sadā ||",
+        "plain_language_explanation": "A Westward slope causes ongoing financial drain, delayed achievements, and children abandoning home.",
+        "engineering_physical_rationale": "Direct exposure of downward slopes to blazing western afternoon infrared radiation creates severe microclimate heat buildup.",
+        "classical_remedy": "Elevate western plinth with retaining walls and plant tall shade trees (e.g. Ashoka, Neem) along the western boundary."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "south_east_agneya",
+        "direction_zone": "South-East (Āgneya)",
+        "element_mahabhuta": "Agni (Fire Hazard / Conflict)",
+        "score_impact": -75,
+        "status": "inauspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 31; Bṛhat Saṃhitā Ch. 53 v. 90",
+        "classical_sloka": "āgneyyāṃ dāha-santāpo rājadveṣas tathaiva ca | putra-mitra-kalatraiś ca virodho jāyate mahān ||",
+        "plain_language_explanation": "Sloping down to the South-East fuels unrestrained fire energy, leading to accidental fires, electrical breakdowns, anger issues, and high medical expenses.",
+        "engineering_physical_rationale": "Creates an undesirable drainage runoff trap adjacent to kitchen/utility zones.",
+        "classical_remedy": "Backfill SE to make it higher than the NE/North; install a copper swastika or copper rod grid in the SE corner."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "north_west_vayavya",
+        "direction_zone": "North-West (Vāyavya)",
+        "element_mahabhuta": "Vāyu (Instability / Displacement)",
+        "score_impact": -65,
+        "status": "inauspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 v. 31; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 51",
+        "classical_sloka": "vāyavyāṃ roga-uccāṭam aśāntir dhana-saṅkṣayaḥ | cañcalā sampado nityaṃ bāndhava-dveṣa eva ca ||",
+        "plain_language_explanation": "Sloping down to the North-West causes wind-element instability, mental restlessness, insomnia, strained neighborly ties, and chronic respiratory or nervous conditions.",
+        "engineering_physical_rationale": "Funneling of chilly prevailing northwest winter winds into a depression causes dampness and energy loss.",
+        "classical_remedy": "Level the NW; plant wind-breaking trees and install brass/silver energy harmonizers."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "center_elevated_kurmaprishtha",
+        "direction_zone": "Central Brahmasthāna",
+        "element_mahabhuta": "Akasha & Prithvi (Pyramidal Equilibrium)",
+        "score_impact": 85,
+        "status": "auspicious",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 8 v. 40; Mayamata Ch. 3 v. 10",
+        "classical_sloka": "kūrmapṛṣṭhā samākhyātā madhye tūnnatasaṃsthitā | sarva-sampat-karī nṝṇāṃ sthirāyur-dhana-vardhinī ||",
+        "plain_language_explanation": "Center elevated with gentle slopes outward like a tortoise shell (Kūrmapṛṣṭha). Promotes longevity, emotional stability, and robust financial accumulation.",
+        "engineering_physical_rationale": "Prevents stormwater from ponding near the building foundation, draining natural runoff outward to municipal perimeters.",
+        "classical_remedy": "Channel the perimeter drainage so that it collects and exits predominantly through the North-East."
+      },
+      {
+        "category": "slope_gradient",
+        "value": "center_sunken_garta_raurava",
+        "direction_zone": "Central Brahmasthāna",
+        "element_mahabhuta": "Akasha (Depression / Void in Heart)",
+        "score_impact": -95,
+        "status": "fatal_defect",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 8 v. 42; Bṛhat Saṃhitā Ch. 53 v. 92",
+        "classical_sloka": "madhye nimnā mahī yā syād gartā sarvavināśinī | tasyāṃ vāso na kartavyo dāridrya-kalanāvahaḥ ||",
+        "plain_language_explanation": "Center sunken with perimeter elevated creates a basin or crater (Raurava / Garta). It collapses the Brahmasthāna, inflicting crushing poverty, mental depression, and total family ruin.",
+        "engineering_physical_rationale": "Water ponds directly beneath or around the core building, saturating foundations and generating rising damp and mold.",
+        "classical_remedy": "Must be mechanically backfilled with clean compacted red or river soil until the center is level or slightly higher than the perimeter."
+      },
+      {
+        "category": "topography_profile",
+        "value": "gajaprishtha_elephant_back",
+        "direction_zone": "SW/S/W High, NE/N/E Low",
+        "element_mahabhuta": "Prithvi & Jala Harmony",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 8 v. 38; Mayamata Ch. 3 v. 9",
+        "classical_sloka": "dakṣiṇa-paścimonnata-bhūmir gajapṛṣṭheti kīrtitā | āyur-dhana-kulodbhūtā sarvasaukhyakarī nṛṇām ||",
+        "plain_language_explanation": "Elevated in the South, South-West, and West; descending gently toward North, East, and North-East. Emulates an elephant's back (Gajapṛṣṭha), granting immense strength, social honor, long lifespan, and enduring prosperity.",
+        "engineering_physical_rationale": "Shields the dwelling from southwest storms and afternoon solar glare while admitting morning sun and northern breezes.",
+        "classical_remedy": "Maintain this natural contour without excavating the southern or western shoulders."
+      },
+      {
+        "category": "topography_profile",
+        "value": "daityaprishtha_demon_back",
+        "direction_zone": "NE/N/E High, SW/S/W Low",
+        "element_mahabhuta": "Inversion of Natural Forces",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 8 v. 41; Mayamata Ch. 3 v. 11",
+        "classical_sloka": "īśāna-pūrva-saṃsthitir unnatā daityapṛṣṭhakā | dravyāyuḥ-suta-nāśāya nityaṃ roga-bhayāvahā ||",
+        "plain_language_explanation": "Elevated in the North-East and North; plunging down toward the South and South-West. Designated Daityapṛṣṭha (Demon back), it reverses cosmic polarity, annihilating wealth, lifespan, and progeny.",
+        "engineering_physical_rationale": "Blocks morning sunlight and geomagnetic flux while channeling all runoff into the high-heat SW corner.",
+        "classical_remedy": "Extensive civil earth re-engineering: cut down the NE ridge and use it to fill the SW depression."
+      },
+      {
+        "category": "soil_compaction_pit_test",
+        "value": "surplus_overflow_adhika",
+        "direction_zone": "Subterranean Geotechnical Strata",
+        "element_mahabhuta": "Prithvi (Dense Solid Compaction)",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Mānasāra Ch. 3 v. 15-18; Bṛhat Saṃhitā Ch. 53 v. 15",
+        "classical_sloka": "aratni-mātre khāte tu pūrite tair mṛdādibhiḥ | adhike dravyam uddiṣṭaṃ same madhyamadhīmatā | hīne dāridryam ākhyātaṃ tasmāt hīnaṃ vivarjayet ||",
+        "plain_language_explanation": "Digging a 1-cubit pit and refilling it with the dug earth leaves surplus soil overflowing. Indicates densely preconsolidated soil with low void ratio and high safe bearing capacity; guarantees domestic durability and wealth.",
+        "engineering_physical_rationale": "High relative compaction, low void ratio ($e < 0.5$), minimal risk of settlement under structural foundations.",
+        "classical_remedy": "None required. Standard shallow isolated footing is sufficient."
+      },
+      {
+        "category": "soil_compaction_pit_test",
+        "value": "deficit_sunken_hina",
+        "direction_zone": "Subterranean Geotechnical Strata",
+        "element_mahabhuta": "Loose Air/Void Pockets",
+        "score_impact": -80,
+        "status": "inauspicious",
+        "classical_source": "Mānasāra Ch. 3 v. 18; Bṛhat Saṃhitā Ch. 53 v. 16",
+        "classical_sloka": "hīne dāridryam āpnoti kṣayaṃ vā samupāgatam |",
+        "plain_language_explanation": "Excavated earth fails to fill back the pit, sinking into a depression. Indicates porous, highly compressible, loose soil liable to differential structural settlement; causes financial ruin.",
+        "engineering_physical_rationale": "High void ratio ($e > 1.0$), collapsable or organic soil matrix; acute danger of foundation cracking.",
+        "classical_remedy": "Excavate down to hard bedrock or dense stratum; replace loose topsoil with compacted engineered sand/gravel; design raft foundation or under-reamed piles."
+      },
+      {
+        "category": "soil_percolation_water_test",
+        "value": "water_retained_overnight",
+        "direction_zone": "Subterranean Hydrological Strata",
+        "element_mahabhuta": "Jala & Prithvi Cohesion",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 16; Mānasāra Ch. 3 v. 20",
+        "classical_sloka": "jala-pūrṇa-karte dṛṣṭe prātar dravya-samṛddhidā |",
+        "plain_language_explanation": "Water poured into the test pit at sunset remains standing at dawn. Confirms cohesive, impermeable subsoil capable of holding foundation loads without rapid leaching.",
+        "engineering_physical_rationale": "Cohesive clayey-silt matrix preventing subterranean erosion or piping failures under water-table fluctuations.",
+        "classical_remedy": "Provide adequate peripheral subsoil plinth drainage to prevent surface dampness."
+      },
+      {
+        "category": "soil_percolation_water_test",
+        "value": "completely_drained_cracked",
+        "direction_zone": "Subterranean Hydrological Strata",
+        "element_mahabhuta": "Air / Subterranean Fissures",
+        "score_impact": -70,
+        "status": "inauspicious",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 17; Mayamata Ch. 3 v. 25",
+        "classical_sloka": "kṣīṇe toye vināśaḥ syāt paribhramaṇa-kārakam |",
+        "plain_language_explanation": "Water in the test pit drains away completely, leaving cracked dry mud. Reveals subterranean fissures, excessive macropores, or subterranean sinkholes; drives occupants into wandering and financial exhaustion.",
+        "engineering_physical_rationale": "High hydraulic conductivity, loose gravel/karst cavities, high vulnerability to washouts.",
+        "classical_remedy": "Grout subterranean cavities with cement-bentonite slurry; install deep foundation piers down to non-porous strata."
+      },
+      {
+        "category": "road_thrust_vithi_shula",
+        "value": "north_of_northeast_uchha",
+        "direction_zone": "North-East (NNE - Īśāna)",
+        "element_mahabhuta": "Jala & Kubera (Magnetic Pranic Thrust)",
+        "score_impact": 95,
+        "status": "highly_auspicious",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 94; Viśvakarma Prakāśa Ch. 1 v. 50",
+        "classical_sloka": "īśāne vīthi-śūlaṃ tu sarva-sampatti-kārakam | vidyā-dhana-samṛddhiḥ syāt kīrti-vardhana-m-uttamam ||",
+        "plain_language_explanation": "An oncoming street focus hitting the plot from the North of North-East (Uchha Vīthi-śūla). Accelerates cosmic magnetic and water energy into the plot, fostering academic genius, financial growth, and family renown.",
+        "engineering_physical_rationale": "Provides an unobstructed light and air ventilation corridor from the cool, glare-free northern sector.",
+        "classical_remedy": "Keep entrance gate wide, install low landscaping, and ensure front driveway is clean and welcoming."
+      },
+      {
+        "category": "road_thrust_vithi_shula",
+        "value": "east_of_northeast_uchha",
+        "direction_zone": "East-North-East (ENE - Īśāna)",
+        "element_mahabhuta": "Surya & Jala (Solar Pranic Thrust)",
+        "score_impact": 90,
+        "status": "highly_auspicious",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 94; Viśvakarma Prakāśa Ch. 1 v. 50",
+        "classical_sloka": "aīndre ca śubhadaṃ viddhi putrapautra-vivardhanam |",
+        "plain_language_explanation": "A street thrust hitting from the East of North-East. Channels unhindered morning solar radiation, conferring vitality, public prestige, and noble lineage.",
+        "engineering_physical_rationale": "Direct unimpeded solar penetration into the compound, sterilizing pathogenic dampness.",
+        "classical_remedy": "No remedy needed. Frame the entry with pleasant flowering plants or a water basin."
+      },
+      {
+        "category": "road_thrust_vithi_shula",
+        "value": "south_of_southwest_maha_shula",
+        "direction_zone": "South-South-West (SSW - Nairṛtya)",
+        "element_mahabhuta": "Prithvi & Yama (Destructive Spear Thrust)",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 95; Viśvakarma Prakāśa Ch. 1 v. 52",
+        "classical_sloka": "nairṛtye vīthi-śūle tu gṛhapater maraṇaṃ bhavet | vyādhayaḥ śatru-vṛddhiś ca dāridryaṃ caiva dāruṇam ||",
+        "plain_language_explanation": "An oncoming road thrusting directly into the South of South-West (Maha Vīthi-śūla). The kinetic vehicular and wind momentum pierces the vital anchor of the site, causing fatal accidents, severe physical handicaps, sudden bankruptcy, and death of the householder.",
+        "engineering_physical_rationale": "Direct line-of-sight for oncoming high-beam traffic glare, brake-failure vehicular impact risk, and continuous acoustic vibration assaulting the master bedroom.",
+        "classical_remedy": "Build a heavy reinforced concrete barrier wall; offset the entrance gate completely away from the thrust axis; install a large convex mirror, a defensive row of dense Ashoka/Ficus trees, and a consecrated lead yantra."
+      },
+      {
+        "category": "road_thrust_vithi_shula",
+        "value": "west_of_southwest_maha_shula",
+        "direction_zone": "West-South-West (WSW - Nairṛtya)",
+        "element_mahabhuta": "Varuṇa-Nairṛtya (Violent Inertia)",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 95; Samarāṅgaṇa Sūtradhāra Ch. 38 v. 30",
+        "classical_sloka": "paścima-nairṛte śūle strī-vināśo dhana-kṣayaḥ |",
+        "plain_language_explanation": "A street thrust hitting from the West of South-West. Inflicts acute depression, financial collapse, long-term lawsuits, and loss of life.",
+        "engineering_physical_rationale": "Extreme vulnerability to head-on collision from vehicles exiting highway/road tangents; dust storms and thermal wind blast.",
+        "classical_remedy": "Construct a curved offset compound wall, plant a buffer thicket of leaden-rooted trees, and place defensive quartz pyramids along the impact line."
+      },
+      {
+        "category": "corner_morphology",
+        "value": "northeast_extended_ishanya_vriddhi",
+        "direction_zone": "North-East (Īśāna)",
+        "element_mahabhuta": "Jala & Ākāśa (Divine Expansion)",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Mayamata Ch. 3 v. 32; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 58; Viśvakarma Prakāśa Ch. 1 v. 55",
+        "classical_sloka": "īśānasya ca vṛddhau tu sarva-sampatti-vardhanam | putrapautra-samṛddhiḥ syāj jñāna-dharmābhivṛddhidā ||",
+        "plain_language_explanation": "An extension or projection in the North-East corner (Īśāna-vṛddhi) where the corner angle is acute (<90°), drawing extra perimeter into the NE. Magnifies divine grace, spiritual wisdom, academic eminence, and sustained financial abundance.",
+        "engineering_physical_rationale": "Maximizes the surface area capturing morning diffuse sunlight and geomagnetic flux while increasing open garden area.",
+        "classical_remedy": "None required. Maintain this extended space for light gardening, meditation gazebo, or water feature."
+      },
+      {
+        "category": "corner_morphology",
+        "value": "northeast_cut_ishanya_kartana",
+        "direction_zone": "North-East (Īśāna)",
+        "element_mahabhuta": "Amputation of Head / Spiritual Void",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Mayamata Ch. 3 v. 33; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 59; Viśvakarma Prakāśa Ch. 1 v. 56",
+        "classical_sloka": "īśāne khaṇḍite gehe santater nāśam ādiśet | dāridryaṃ caiva rogaś ca buddhi-bhranśo bhaved dhruvam ||",
+        "plain_language_explanation": "A missing or cut North-East corner (Īśāna-kartana). In Vedic anthropomorphism, this represents the severing of the head of the Vāstu Puruṣa; leads to neurological disorders, mental confusion, loss of progeny, and utter financial stagnation.",
+        "engineering_physical_rationale": "Deprives the building of morning sunlight and cross-ventilation breezes, creating gloomy interiors.",
+        "classical_remedy": "Energetically restore the missing corner by installing full-length mirrors on the truncated walls, embedding copper/zinc energy rods in the soil along the virtual rectangular boundary, or installing a consecrated Īśāna Yantra."
+      },
+      {
+        "category": "corner_morphology",
+        "value": "southwest_extended_nairritya_vriddhi",
+        "direction_zone": "South-West (Nairṛtya)",
+        "element_mahabhuta": "Asura / Demonic Expansion",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 8 v. 60; Viśvakarma Prakāśa Ch. 1 v. 57",
+        "classical_sloka": "nairṛtyāṃ tu yadā vṛddhir dāridryaṃ maraṇaṃ tathā |",
+        "plain_language_explanation": "An extension of the South-West corner (Nairṛtya-vṛddhi). Expands negative terrestrial inertia and demonic influences, triggering unchecked egoism, catastrophic lawsuits, severe disease, and unexpected ruin.",
+        "engineering_physical_rationale": "Excessive mass and area in the SW trap late-afternoon thermal radiation, creating thermal discomfort across the living quarters.",
+        "classical_remedy": "Erect an interior partition wall or fence to sever the extended SW wedge; treat the severed wedge as an external separate zone or service driveway, leaving the primary plot rectangular."
+      }
+    ],
+    "interpretation": "In classical Sthāpatya Veda, the plot (Bhūmi) is not an inert physical surface, but a living bio-energetic organism known as the Vāstu Puruṣa. Analysis of a plot synthesizes macroscopic topography (Bhūmi-Pṛṣṭha: Gajapṛṣṭha vs Daityapṛṣṭha), precise boundary geometry (Kṣetra-Saṃsthāna), geotechnical load-bearing capacity (Garta-pūraṇa and Jala-parīkṣā), solar geometry (Plava / natural slope towards North and East), and street kinetic vectors (Vīthi-śūla). The primary objective is to maximize the absorption of early morning solar ultraviolet-A rays and geomagnetic lines of force (Jaiva-ūrjā) descending from the North-East, while grounding and shielding the dwelling against the harsh infrared thermal and tectonic stresses of the South-West.",
+    "variation_note": "Classical regional treatises demonstrate deliberate geographical adaptations: 1. Northern & Rajasthani tradition (Viśvakarma Prakāśa, Aparājitapṛcchā) emphasizes high protective boundary walls, deep square compounds, and defense against abrasive desert sandstorms and severe southern heat. 2. Southern Drāviḍa tradition (Mānasāra, Mayamata) focuses on exact mathematical orientation via gnomonic shadow circles (Śaṅku-dig-nirṇaya) and proportional modularity using the Āyādi-ṣaḍvarga formulas. 3. Kerala tradition (Manuṣyālaya Candrikā) is adapted to torrential tropical rainfall; it mandates that natural drainage must slope North-East, enforces uncompromised central open-air courtyards (Nālukettu), and relaxes certain rigid soil color constraints due to ubiquitous laterite soil."
+  },
+  {
+    "tool_id": "water-vastu",
+    "tool_name": "Water Vastu Analyzer (Jala-Vinyāsa & Dakārgala)",
+    "tradition": "Classical Vedic Vastu",
+    "source": {
+      "text": "Bṛhat Saṃhitā, Viśvakarma Prakāśa, Mayamata, Samarāṅgaṇa Sūtradhāra, Manuṣyālaya Candrikā, Vāstuśāstra (D. N. Shukla)",
+      "author_translator": "Varāhamihira (Bṛhat Saṃhitā), Sage Viśvakarmā (Viśvakarma Prakāśa), Bruno Dagens (Mayamata), King Bhoja (Samarāṅgaṇa Sūtradhāra), D. N. Shukla",
+      "chapter": "Bṛhat Saṃhitā Ch. 53 (Vāstuvidyā) & Ch. 54 (Dakārgala); Viśvakarma Prakāśa Ch. 1 & 2; Mayamata Ch. 3 & 9; Samarāṅgaṇa Sūtradhāra Ch. 8 & 38; Manuṣyālaya Candrikā Ch. 3",
+      "verse": "Bṛhat Saṃhitā LIII.85-92, LIV.1-125; Viśvakarma Prakāśa II.12-25; Mayamata III.20-30, IX.1-40; Samarāṅgaṇa XXXVIII.1-48; Manuṣyālaya Candrikā III.18-24"
+    },
+    "sources": [
+      {
+        "text_name": "Bṛhat Saṃhitā",
+        "author": "Varāhamihira",
+        "chapters_cited": [
+          {
+            "chapter_num": 53,
+            "chapter_title": "Vāstuvidyā (Building Architecture)",
+            "verses": "LIII.85 - LIII.92",
+            "topics": "Directional locations of wells (Kūpa) and reservoirs; consequences of water bodies in eight quadrants; fatal dangers of wells in the South-East, South-West, and Center.",
+            "sanskrit_reference": "āgneyyāṃ diśi kūpe sthite vidadhyāt sadā gṛhadāham | nairṛtyāṃ bālakṣayo vāte rogāś ca vāyavye || īśāne sarva-sampattiḥ pūrve samṛddhir uttamā | kaubere dhanavṛddhiḥ syāt sarvanāśo hi madhyame ||"
+          },
+          {
+            "chapter_num": 54,
+            "chapter_title": "Dakārgala (Groundwater Hydrology & Springs)",
+            "verses": "LIV.1 - LIV.125",
+            "topics": "Subterranean hydrologic veins (Sirās); directional underground aquifers; eco-botanical indicators for locating subterranean sweet water (Arjuna, Jambu, Vetasa, Bilva, termite mounds); ancient water purification recipes using Kataka seeds, Mustā, and Uśīra.",
+            "sanskrit_reference": "dharmyāṃ yaśasyāṃ ca vadāmy ato'haṃ vidyāṃ prapañcena dakārgalākhyām | eko raso yā ruci-bhedam eti nānā-deśeṣu mahī-viśeṣāt ||"
+          }
+        ]
+      },
+      {
+        "text_name": "Viśvakarma Prakāśa",
+        "author": "Sage Viśvakarmā",
+        "chapters_cited": [
+          {
+            "chapter_num": 2,
+            "chapter_title": "Kūpa-Vāpī-Taḍāga-Nirṇaya (Excavation of Wells and Water Bodies)",
+            "verses": "II.12 - II.25",
+            "topics": "Prescription of auspicious deity padas for domestic wells; disastrous outcomes of digging pits in Yama, Agni, Nirṛti, and Brahma zones.",
+            "sanskrit_reference": "īśāne śubhado jñeyaḥ pūrve samṛddhikārakaḥ | āgneyyāṃ putranāśaḥ syād dakṣiṇe strī-vināśanaḥ || nairṛtye svāmino hāniḥ paścime dravyasaṅkṣayaḥ | vāyavye śatru-vṛddhiḥ syān madhye sarva-vināśanam ||"
+          }
+        ]
+      },
+      {
+        "text_name": "Mayamata",
+        "translator": "Bruno Dagens",
+        "chapters_cited": [
+          {
+            "chapter_num": 3,
+            "chapter_title": "Bhū-Parīkṣā",
+            "verses": "III.20 - III.30",
+            "topics": "Gradient of water runoff (Prāg-udañ-nimna); natural water bodies and moats (Parikhā) surrounding settlements."
+          },
+          {
+            "chapter_num": 9,
+            "chapter_title": "Vāpī-Kūpa-Taḍāgādi-Vidhāna",
+            "verses": "IX.1 - IX.40",
+            "topics": "Construction techniques for stone-lined wells, step-wells (Vāpī), and hydraulic drainage channels."
+          }
+        ]
+      },
+      {
+        "text_name": "Manuṣyālaya Candrikā",
+        "author": "Nīlakaṇṭha Mūsat (Kerala Tradition)",
+        "chapters_cited": [
+          {
+            "chapter_num": 3,
+            "chapter_title": "Kūpa-Sthāna-Nirṇaya",
+            "verses": "III.18 - III.24",
+            "topics": "The mandatory Kerala rule to dig the domestic well before laying the house foundation; precise placement in Parjanya or Pūṣan padas; absolute prohibition of water boring across the diagonal Marma-sūtras (Karṇa-sūtra)."
+          }
+        ]
+      },
+      {
+        "text_name": "Samarāṅgaṇa Sūtradhāra",
+        "author": "King Bhoja",
+        "chapters_cited": [
+          {
+            "chapter_num": 38,
+            "chapter_title": "Jala-Vinyāsa & Marma-Parirakṣaṇa",
+            "verses": "XXXVIII.1 - XXXVIII.48",
+            "topics": "Protection of the subtle energetic nodes (Marmas) of the Vāstu Puruṣa from piercing by subterranean wells; civic water management."
+          }
+        ]
+      }
+    ],
+    "inputs": [
+      {
+        "field_id": "water_feature_type",
+        "name": "Water Installation Type",
+        "type": "string",
+        "options": [
+          "underground_borewell",
+          "underground_sump_tank",
+          "open_dug_well_kupa",
+          "overhead_water_tank_roof",
+          "swimming_pool_surface_pond",
+          "septic_tank_sewage",
+          "rainwater_harvesting_recharge_pit",
+          "decorative_fountain_aquarium",
+          "drainage_outflow_pipe"
+        ],
+        "description": "Physical nature, purpose, and construction mechanics of the water feature.",
+        "classical_term": "Jala-Vinyāsa-Bheda (जलविन्यासभेद)",
+        "criticality": "Mandatory"
+      },
+      {
+        "field_id": "compass_zone_16",
+        "name": "16-Direction Compass Zone",
+        "type": "string",
+        "options": [
+          "north_north_east_nne",
+          "north_east_ishanya",
+          "east_north_east_ene",
+          "east_purva",
+          "east_south_east_ese",
+          "south_east_agneya",
+          "south_south_east_sse",
+          "south_dakshina",
+          "south_south_west_ssw",
+          "south_west_nairritya",
+          "west_south_west_wsw",
+          "west_varuna",
+          "west_north_west_wnw",
+          "north_west_vayavya",
+          "north_north_west_nnw",
+          "north_uttara_soma",
+          "center_brahmasthana"
+        ],
+        "description": "Directional zone where the water installation is situated relative to the plot/building centroid.",
+        "classical_term": "Dik-Sthāna (दिक्स्थान)",
+        "criticality": "Mandatory"
+      },
+      {
+        "field_id": "padavinyasa_pada_32",
+        "name": "Vāstu Puruṣa Maṇḍala Pada (32 Outer Deities)",
+        "type": "string",
+        "options": [
+          "parjanya_pada_2_auspicious",
+          "apas_apavatsa_inner_ne_auspicious",
+          "jayanta_pada_3_auspicious",
+          "indra_pada_4_auspicious",
+          "surya_pada_5",
+          "satya_pada_6",
+          "bhrisha_pada_7",
+          "antariksha_pada_8",
+          "agni_pada_9_inauspicious",
+          "pushan_pada_10",
+          "vitatha_pada_11",
+          "grihakshata_pada_12",
+          "yama_pada_13_inauspicious",
+          "gandharva_pada_14",
+          "bhrinjraja_pada_15",
+          "mriga_pada_16",
+          "pitri_pada_17_fatal",
+          "dauvarika_pada_18",
+          "sugriva_pada_19",
+          "pushpadanta_pada_20_auspicious",
+          "varuna_pada_21",
+          "asura_pada_22",
+          "sosha_pada_23",
+          "papyakshma_pada_24",
+          "roga_pada_25_septic_only",
+          "naga_pada_26",
+          "mukhya_pada_27_auspicious",
+          "bhallata_pada_28_auspicious",
+          "soma_pada_29_auspicious",
+          "charaki_diti_pada_30",
+          "brahma_center_fatal"
+        ],
+        "description": "Exact deity pada in 81-pada Paramaśāyika or 64-pada Maṇḍūka Maṇḍala.",
+        "classical_term": "Devatā-Pada (देवतापद)",
+        "criticality": "Highly Recommended"
+      },
+      {
+        "field_id": "elevation_level",
+        "name": "Vertical Position Relative to Ground Floor Plinth",
+        "type": "string",
+        "options": [
+          "subterranean_cavity_below_ground",
+          "at_grade_ground_surface",
+          "elevated_superstructure_roof"
+        ],
+        "description": "Vertical relationship: Subterranean (excavated depression), At-grade (surface), or Elevated (roof deadweight load).",
+        "classical_term": "Tala-Pramāṇa (तलप्रमाण)",
+        "criticality": "Mandatory"
+      },
+      {
+        "field_id": "water_condition",
+        "name": "Water Purity and Bio-Chemical State",
+        "type": "string",
+        "options": [
+          "potable_clean_sweet_fresh",
+          "aerated_dynamic_flowing",
+          "stagnant_contained_storage",
+          "contaminated_blackwater_septic"
+        ],
+        "description": "Biological and chemical quality of the water.",
+        "classical_term": "Jala-Guṇa (जलगुण)",
+        "criticality": "Recommended"
+      },
+      {
+        "field_id": "marma_line_clearance",
+        "name": "Clearance from Diagonal Marma-Sūtras",
+        "type": "string",
+        "options": [
+          "clear_of_marma_lines",
+          "directly_piercing_marma_sutra_vedha"
+        ],
+        "description": "Whether the well/boring cuts through the vital diagonal cords (Karṇa-sūtra / Vāstu-puruṣa Marma). Piercing a Marma line creates acute energetic disharmony.",
+        "classical_term": "Marma-Vedha (मर्मवेध)",
+        "criticality": "Mandatory"
+      }
+    ],
+    "formula_logic": {
+      "model_name": "Water Elemental & Gravitational Compatibility Matrix (WEGCM)",
+      "mathematical_formula": "Score_water = Matrix[Water_Feature, Compass_Zone] * Marma_Factor",
+      "polarity_laws": [
+        {
+          "rule": "Subterranean Water (Negative Mass / Depression)",
+          "favorable_zones": "North-East (Īśāna), North (Soma), East (Indra)",
+          "forbidden_zones": "South-West (Nairṛtya - Fatal), South-East (Agni - Fire Clash), Center (Brahmasthāna - Fatal), South (Yama)",
+          "physical_principle": "Excavation creates a low-density zone. North-East requires lightness and magnetic receptivity (+100). South-West requires maximum density and mass (-100)."
+        },
+        {
+          "rule": "Overhead Water Storage (Positive Mass / Structural Deadweight)",
+          "favorable_zones": "South-West (Nairṛtya - Anchor), West (Varuṇa), South (Yama)",
+          "forbidden_zones": "North-East (Īśāna - Crushes Head of Puruṣa), Center (Brahmasthāna - Chest Compression), North, East",
+          "physical_principle": "Thousands of kilograms of water stored overhead generate massive static loads. Placing weight in SW stabilizes the building's center of mass (+100); placing weight in NE suppresses pranic and mental clarity (-95)."
+        },
+        {
+          "rule": "Septic Sewage / Contaminated Effluent",
+          "favorable_zones": "West of North-West (WNW / Roga/Pāpayakṣmā), South of South-East (SSE)",
+          "forbidden_zones": "North-East (Catastrophic Poisoning), South-West, Center, East, North",
+          "physical_principle": "Anaerobic pathogens and foul odors must reside solely in classical zones of disposal/elimination, never in solar, magnetic, or anchor zones."
+        }
+      ],
+      "marma_multiplier": {
+        "clear_of_marma_lines": 1.0,
+        "directly_piercing_marma_sutra_vedha": 0.4
+      }
+    },
+    "rules_matrix": [
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "north_east_ishanya",
+        "pada_deity": "Parjanya / Apas / Apavatsa",
+        "element_mahabhuta": "Jala (Water & Divine Amṛta)",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 85; Viśvakarma Prakāśa Ch. 2 v. 12",
+        "classical_sloka": "īśāne śubhado jñeyaḥ sarva-sampat-karaḥ smṛtaḥ | amṛtābhaṃ jalaṃ tatra putrapautra-vivardhanam ||",
+        "plain_language_explanation": "Digging a borewell, underground sump, or open well in the North-East (Īśāna) quadrant is the most auspicious water placement in Vedic architecture. It attracts health, spiritual enlightenment, family harmony, and continuous prosperity.",
+        "scientific_environmental_rationale": "Keeps the NE sector low in mass and open to morning solar radiation and geomagnetic flow, while providing clean subsoil recharge away from kitchen and sewage contaminants.",
+        "classical_remedy": "None required. Maintain the area pristine, clean, and unencumbered by heavy concrete structures."
+      },
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "north_uttara_soma",
+        "pada_deity": "Soma / Bhallāṭa / Mukhya",
+        "element_mahabhuta": "Jala & Kubera (Financial Influx)",
+        "score_impact": 90,
+        "status": "auspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 2 v. 13; Bṛhat Saṃhitā Ch. 53 v. 86",
+        "classical_sloka": "kaubere dhanavṛddhiḥ syāt kīrtir jaya-vivardhinī |",
+        "plain_language_explanation": "Underground water in the North expands liquid financial resources, brings commercial growth, and fosters intellectual sharpness.",
+        "scientific_environmental_rationale": "Diffused cool northern exposure keeps underground water chilled and free from excessive algae growth.",
+        "classical_remedy": "Ensure manhole covers are flush with ground level and water pipes are insulated."
+      },
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "east_purva",
+        "pada_deity": "Indra / Jayanta",
+        "element_mahabhuta": "Surya & Jala (Vitality and Status)",
+        "score_impact": 85,
+        "status": "auspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 2 v. 12; Bṛhat Saṃhitā Ch. 53 v. 86",
+        "classical_sloka": "pūrve samṛddhir uddiṣṭā santater hitakāriṇī |",
+        "plain_language_explanation": "Underground water in the East enhances the vitality of children, bestows societal respect, and maintains steady career progress.",
+        "scientific_environmental_rationale": "Allows open morning light infiltration across the water zone.",
+        "classical_remedy": "Ensure proper surface runoff slope towards the North-East."
+      },
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "south_east_agneya",
+        "pada_deity": "Agni",
+        "element_mahabhuta": "Agni vs Jala (Fire-Water Clash)",
+        "score_impact": -90,
+        "status": "inauspicious",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 85; Viśvakarma Prakāśa Ch. 2 v. 12",
+        "classical_sloka": "āgneyyāṃ diśi kūpe sthite vidadhyāt sadā gṛhadāham | āgneyyāṃ putranāśaḥ syāt santāpo dravyasaṅkṣayaḥ ||",
+        "plain_language_explanation": "Digging an underground water body in the South-East triggers a violent elemental conflict between Fire and Water. Induces recurrent fire and electrical accidents, gastrointestinal diseases, chronic bickering, and heavy financial losses.",
+        "scientific_environmental_rationale": "High moisture immediately adjacent to electrical wiring and thermal kitchen appliances increases short-circuit hazards and dampness.",
+        "classical_remedy": "Decommission the sump or borewell if feasible; fill with dry sand and seal with a consecrated copper plate. If continued use is unavoidable, install a primary borewell in the North-East to overpower the SE deficit, encircle the SE well head with a copper wire ring, and paint the pump casing red/terracotta."
+      },
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "south_west_nairritya",
+        "pada_deity": "Pitṛ / Nirṛti",
+        "element_mahabhuta": "Prithvi (Earth Anchor Void)",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 85; Viśvakarma Prakāśa Ch. 2 v. 13",
+        "classical_sloka": "nairṛtyāṃ bālakṣayo vāte nairṛtye svāmino hāniḥ | dāridryaṃ maraṇaṃ rogo dāruṇo jāyate dhruvam ||",
+        "plain_language_explanation": "An underground water pit, borewell, or sump in the South-West is among the most catastrophic defects in Vāstu. It creates a vacuum in the foundational Earth element, precipitating severe accidents, chronic debilitating sickness, paralysis, bankruptcy, and premature death of the master of the house.",
+        "scientific_environmental_rationale": "Excavating the SW compromises foundational subsoil stability where structural dead loads and wind-induced shear stresses are typically highest.",
+        "classical_remedy": "Mandatory closure: drill a replacement borewell in the North-East, then thoroughly backfill the SW well with layers of river gravel, yellow clay, and energized lead rods. If the well cannot be abandoned immediately, construct a heavy, towering overhead water tank or storehouse directly over the SW sector to impose massive downward ballast."
+      },
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "south_dakshina",
+        "pada_deity": "Yama",
+        "element_mahabhuta": "Yama (Destruction of Women / Legal Enmity)",
+        "score_impact": -80,
+        "status": "inauspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 2 v. 13; Bṛhat Saṃhitā Ch. 53 v. 86",
+        "classical_sloka": "dakṣiṇe strī-vināśanaḥ kalaho nṛpa-bhopadravaḥ |",
+        "plain_language_explanation": "Underground water in the South causes severe health issues for the women of the household, frequent legal tangles, and depletion of vitality.",
+        "scientific_environmental_rationale": "High summer thermal gradient creates condensation cycles in southern subterranean chambers, causing damp intrusion.",
+        "classical_remedy": "Surround the well rim with heavy red sandstone slabs, place lead-embedded pyramids, and cultivate dense Tulasi or Ashoka trees to absorb excess moisture."
+      },
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "west_varuna",
+        "pada_deity": "Puṣpadanta (Pada 20) vs Asura/Dauvārika",
+        "element_mahabhuta": "Varuṇa (Ocean / Mixed)",
+        "score_impact": 50,
+        "status": "neutral_to_auspicious",
+        "classical_source": "Viśvakarma Prakāśa Ch. 2 v. 14; Bṛhat Saṃhitā Ch. 53 v. 87",
+        "classical_sloka": "paścime puṣpadante tu śubhadaṃ vāruṇe'pi vā | anyatra dravyasaṅkṣayaḥ pravāsa-kārakas tathā ||",
+        "plain_language_explanation": "Underground water in the West is moderately auspicious only when placed precisely in the pada of Puṣpadanta or Varuṇa. In adjacent padas (Asura or Dauvārika), it causes continuous financial attrition.",
+        "scientific_environmental_rationale": "Acceptable if constructed with impervious RCC walls to prevent water table salinization from afternoon thermal evaporation.",
+        "classical_remedy": "If placed in an unfavorable western pada, encase the perimeter with copper wire and install a bronze Surya plate facing East."
+      },
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "north_west_vayavya",
+        "pada_deity": "Vāyu / Roga",
+        "element_mahabhuta": "Vāyu (Restlessness and Debt)",
+        "score_impact": -70,
+        "status": "inauspicious",
+        "classical_source": "Bṛhat Saṃhitā Ch. 53 v. 85; Viśvakarma Prakāśa Ch. 2 v. 14",
+        "classical_sloka": "vāyavye śatru-vṛddhiḥ syān manastāpaḥ sadā nṛṇām | rogāś ca vāta-saṃbhūtā vāyavye toya-saṃsthitau ||",
+        "plain_language_explanation": "Underground water in the North-West destabilizes mental equilibrium, bringing nervous strain, enemy hostility, unmanageable debts, and continuous travel.",
+        "scientific_environmental_rationale": "Chilly winter winds over cold underground water exacerbate domestic dampness and airborne mold spores.",
+        "classical_remedy": "Construct a raised white marble border around the opening, bind with a silver strip, and restrict water usage to irrigation/cleaning."
+      },
+      {
+        "feature_type": "underground_borewell_or_sump",
+        "zone_16": "center_brahmasthana",
+        "pada_deity": "Brahma (Nābhi / Hṛdaya of Vāstu Puruṣa)",
+        "element_mahabhuta": "Akasha (Cosmic Core Rupture)",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Viśvakarma Prakāśa Ch. 2 v. 14; Samarāṅgaṇa Sūtradhāra Ch. 38 v. 22",
+        "classical_sloka": "madhye sarva-vināśanam | nābhau vāstunarasyāpi kūpe sarvaṃ vinaśyati ||",
+        "plain_language_explanation": "Excavating an underground water body, well, or sump in the Brahmasthāna (central heart/navel of the plot) is completely forbidden. It punctures the core vitality of the Vāstu Puruṣa, causing total collapse of the family, business destruction, and dispersion of descendants.",
+        "scientific_environmental_rationale": "Excavation at the building's structural centroid creates catastrophic differential settlement under symmetrical perimeter building loads.",
+        "classical_remedy": "Must be permanently sealed. Pump out standing water, fill completely with compacted clean gravel, sand, and sacred clay, and seal with a consecrated granite or marble slab."
+      },
+      {
+        "feature_type": "overhead_water_tank_roof",
+        "zone_16": "south_west_nairritya",
+        "pada_deity": "Pitṛ / Nirṛti",
+        "element_mahabhuta": "Prithvi (Maximum Gravitational Ballast)",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Vāstuśāstra (D. N. Shukla) Vol. I, Part IV; Samarāṅgaṇa Sūtradhāra Ch. 38",
+        "classical_sloka": "nairṛtye cottuṅga-sthānaṃ bhāravat-sthāpanaṃ hitam | sthiratvaṃ labhate sarvaṃ dhanam āyuḥ sutānvaye ||",
+        "plain_language_explanation": "An overhead water storage tank placed atop the roof in the South-West quadrant is the ideal placement. The massive weight of stored water acts as a gravitational anchor, reinforcing the Earth element, steadying finances, and protecting the longevity of the patriarch.",
+        "scientific_environmental_rationale": "High deadweight over the SW balances seismic lateral resistance and provides passive shading against intense late-afternoon solar heating.",
+        "classical_remedy": "Elevate tank on masonry or concrete piers (1-2 feet) so the roof slab underneath can be cleaned and maintained."
+      },
+      {
+        "feature_type": "overhead_water_tank_roof",
+        "zone_16": "west_varuna",
+        "pada_deity": "Varuṇa",
+        "element_mahabhuta": "Varuṇa & Prithvi",
+        "score_impact": 85,
+        "status": "auspicious",
+        "classical_source": "Vāstuśāstra (D. N. Shukla) Vol. I, Part IV",
+        "classical_sloka": "paścimāyāṃ sthito bhāro varuṇasyānukūlataḥ |",
+        "plain_language_explanation": "An overhead tank in the West is an excellent alternative, providing beneficial structural weight and acting as a thermal buffer against evening heat.",
+        "scientific_environmental_rationale": "Buffers the building envelope against intense western solar thermal loads.",
+        "classical_remedy": "Ensure proper waterproofing under the tank base."
+      },
+      {
+        "feature_type": "overhead_water_tank_roof",
+        "zone_16": "south_dakshina",
+        "pada_deity": "Yama",
+        "element_mahabhuta": "Prithvi & Yama",
+        "score_impact": 80,
+        "status": "auspicious",
+        "classical_source": "Vāstuśāstra (D. N. Shukla) Vol. I, Part IV",
+        "classical_sloka": "dakṣiṇe bhāravad yuktam āyuṣyaṃ dhanavardhanam |",
+        "plain_language_explanation": "An overhead tank in the South imparts beneficial dead load to the southern perimeter, shading the roof and checking negative energy.",
+        "scientific_environmental_rationale": "Absorbs harsh midday sun, improving the thermal comfort of the floors below.",
+        "classical_remedy": "Paint the exterior of the tank off-white or cream to minimize excessive heat gain."
+      },
+      {
+        "feature_type": "overhead_water_tank_roof",
+        "zone_16": "north_east_ishanya",
+        "pada_deity": "Īśāna (Head of Vāstu Puruṣa)",
+        "element_mahabhuta": "Crushing Weight on Akasha/Ether",
+        "score_impact": -95,
+        "status": "severe_defect",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 38; Viśvakarma Prakāśa Ch. 2",
+        "classical_sloka": "īśāne bhāravat sarvaṃ śirasīva mahāśilā | buddhi-bhraṃśo bhavet tatra śiro-rogāś ca dāruṇāḥ ||",
+        "plain_language_explanation": "An overhead water tank on the roof in the North-East is a severe defect. In classical morphology, it places a crushing boulder atop the head of the Vāstu Puruṣa, inflicting chronic migraines, neurological illnesses, mental depression, and severe financial stagnation.",
+        "scientific_environmental_rationale": "Imposes asymmetric structural mass on what should be the lightest, most daylit corner of the building.",
+        "classical_remedy": "Relocate the tank to the South-West or West. If relocation is structurally impossible, raise the tank on high steel stilts so daylight passes underneath, paint the tank glossy white, and suspend a brass dome or pyramid below the slab."
+      },
+      {
+        "feature_type": "overhead_water_tank_roof",
+        "zone_16": "center_brahmasthana",
+        "pada_deity": "Brahma",
+        "element_mahabhuta": "Crushing of Cosmic Heart",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 38; Bṛhat Saṃhitā Ch. 53",
+        "classical_sloka": "hṛdaye bhāravān dehe sarva-prāṇa-vināśakaḥ | madhye toya-sthitir nityaṃ gṛhe dāridrya-kāriṇī ||",
+        "plain_language_explanation": "Placing an overhead water tank directly over the center of the house compresses the chest and heart of the Vāstu Puruṣa, leading to unbearable stress, cardiac disorders, and business ruin.",
+        "scientific_environmental_rationale": "Severe structural concentrated dead load on long central floor/roof spans, creating structural sag and deflection.",
+        "classical_remedy": "Must be relocated immediately towards the South or South-West corner."
+      },
+      {
+        "feature_type": "septic_tank_sewage",
+        "zone_16": "west_north_west_wnw",
+        "pada_deity": "Roga / Pāpayakṣmā",
+        "element_mahabhuta": "Vāyu (Safe Biological Elimination)",
+        "score_impact": 90,
+        "status": "highly_auspicious",
+        "classical_source": "Vāstuśāstra (D. N. Shukla) Vol. I, Part IV; Viśvakarma Prakāśa Ch. 1",
+        "classical_sloka": "roge vā pāpayakṣme vā kuryān mala-visarjanam | vāyu-sthāne viśuddhaṃ syād doṣair muktaṃ bhaved gṛham ||",
+        "plain_language_explanation": "The septic tank is ideally excavated in the West of North-West (WNW, between West and North-West, covering Roga or Pāpayakṣmā padas). This is the classical zone of depression and biological detox, allowing foul waste to break down without polluting beneficial prāṇic currents.",
+        "scientific_environmental_rationale": "Downwind from primary living areas under prevailing southwest/northeast wind patterns, preventing sewer gas intrusion into habitable rooms.",
+        "classical_remedy": "Ensure septic tank walls are fully waterproofed and do not touch the main building foundation."
+      },
+      {
+        "feature_type": "septic_tank_sewage",
+        "zone_16": "north_east_ishanya",
+        "pada_deity": "Īśāna / Parjanya / Apas",
+        "element_mahabhuta": "Sacrilegious Poisoning of Sanctum",
+        "score_impact": -100,
+        "status": "fatal_defect",
+        "classical_source": "Viśvakarma Prakāśa Ch. 1 & 2; Bṛhat Saṃhitā Ch. 53",
+        "classical_sloka": "īśāne mala-bhāṇḍaṃ tu sarva-nāśa-karam dhruvam | kulanāśo bhavet tatra mṛtyur vyādhiḥ pade pade ||",
+        "plain_language_explanation": "A septic tank in the North-East is a catastrophic defect. Storing human excrement and anaerobic bacteria in the holiest quadrant poisons the mind of the household, causing incurable degenerative diseases, cancer, mental collapse, and extinction of the lineage.",
+        "scientific_environmental_rationale": "Direct contamination of the purest subterranean water table and morning air currents with high concentrations of pathogenic coliform bacteria and methane.",
+        "classical_remedy": "Immediate decommissioning: drain, sanitize with lime, fill with fresh clean earth, and relocate the septic tank to WNW. No ritual yantra can substitute for physical removal of fecal sewage from the North-East."
+      },
+      {
+        "feature_type": "septic_tank_sewage",
+        "zone_16": "south_west_nairritya",
+        "pada_deity": "Pitṛ / Nirṛti",
+        "element_mahabhuta": "Corruption of Root Anchor",
+        "score_impact": -95,
+        "status": "severe_defect",
+        "classical_source": "Samarāṅgaṇa Sūtradhāra Ch. 38; Viśvakarma Prakāśa Ch. 2",
+        "classical_sloka": "nairṛtye ca mala-sthāne pitṝṇāṃ kopa eva ca |",
+        "plain_language_explanation": "Excavating a septic cavity in the South-West destabilizes the Earth element, bringing severe marital breakdown, chronic lumbar/spine disorders, and heavy financial losses.",
+        "scientific_environmental_rationale": "Cavity at the highest stress point of building foundation undermines soil shear strength.",
+        "classical_remedy": "Relocate to WNW; fill cavity with compacted quarry dust and yellow clay."
+      },
+      {
+        "feature_type": "drainage_outflow_pipe",
+        "zone_16": "north_east_ishanya",
+        "pada_deity": "Parjanya / Īśāna",
+        "element_mahabhuta": "Jala (Natural Hydraulic Gradient)",
+        "score_impact": 100,
+        "status": "highly_auspicious",
+        "classical_source": "Mayamata Ch. 3 v. 5; Samarāṅgaṇa Sūtradhāra Ch. 8 v. 45",
+        "classical_sloka": "prāg-udaṅ-nimna-mārgeṇa jala-nirgamanaṃ śubham | dhana-dhānya-karī nityaṃ sarva-roga-haraṃ nṛṇām ||",
+        "plain_language_explanation": "Stormwater and greywater drainage sloping from South/West across the site and discharging out through the North-East or North boundary. Confers health, sustained wealth, and cleanliness.",
+        "scientific_environmental_rationale": "Follows the natural geomagnetic and solar drainage slope, preventing stagnant backflows and soil saturation.",
+        "classical_remedy": "Maintain clear, covered inspection chambers."
+      },
+      {
+        "feature_type": "drainage_outflow_pipe",
+        "zone_16": "south_west_nairritya",
+        "pada_deity": "Pitṛ",
+        "element_mahabhuta": "Drainage of Wealth into the Abyss",
+        "score_impact": -90,
+        "status": "inauspicious",
+        "classical_source": "Mayamata Ch. 3 v. 8; Viśvakarma Prakāśa Ch. 1 v. 31",
+        "classical_sloka": "nairṛtye jala-niryāṇe dravyāṇāṃ saṅkṣayo bhavet |",
+        "plain_language_explanation": "Discharging site drainage or plumbing waste out towards the South-West drains away the accumulated wealth and stability of the family.",
+        "scientific_environmental_rationale": "Creates saturated foundation soils in the quadrant that requires highest bearing capacity.",
+        "classical_remedy": "Re-route underground drainage pipes to exit via the North or East perimeters."
+      },
+      {
+        "feature_type": "botanical_hydrology_bioindicator",
+        "zone_16": "all_quadrants",
+        "pada_deity": "Varuṇa / Bhūmi-Sirās",
+        "element_mahabhuta": "Prithvi & Jala Subterranean Veins",
+        "score_impact": 95,
+        "status": "classical_dakargala_science",
+        "classical_source": "Bṛhat Saṃhitā Ch. 54 (Dakārgala) v. 9-15",
+        "classical_sloka": "yadi dṛśyate'rjuna-vṛkṣo valmīka-yutaḥ pradeśa-mātreṇa | tasmāt paścād gamyā sirā bhavaty amṛta-sannibhā ||",
+        "plain_language_explanation": "Varāhamihira's Dakārgala bio-indicators for locating underground aquifers: 1. Arjuna or Jambu tree with a termite mound (Valmīka) to its North indicates sweet water at shallow depth (3-5 Puruṣas / 18-30 ft) to the East or West. 2. Vetasa (reed cane) thriving in dry land confirms an active subterranean vein directly underneath.",
+        "scientific_environmental_rationale": "Phreatophytic tree roots (Arjuna, Jamun) penetrate deeply into subsoil aquifers; subterranean termite colonies require constant high relative humidity (90%+) and construct mounds directly above moisture veins.",
+        "classical_remedy": "Utilize these natural bio-indicators to site domestic wells rather than drilling blindly."
+      },
+      {
+        "feature_type": "water_purification_ayurvedic",
+        "zone_16": "all_quadrants",
+        "pada_deity": "Agastya / Varuṇa",
+        "element_mahabhuta": "Jala-Śuddhi (Natural Coagulation)",
+        "score_impact": 95,
+        "status": "classical_water_purification",
+        "classical_source": "Bṛhat Saṃhitā Ch. 54 v. 121-122",
+        "classical_sloka": "añjana-mustā-uśīraiḥ sa-lodhra-katakaiḥ kṛtaḥ ślakṣṇaḥ | yoge'nena payāṃsi bhavanti vimalāni sugandhīni ||",
+        "plain_language_explanation": "Classical water clarification and purification formula: Combine powdered Kataka seeds (Strychnos potatorum / clearing nut), Mustā root (Cyperus rotundus), Uśīra root (Vetiveria zizanioides / vetiver), Lodhra bark, and Añjana. Added to turbid, brackish, or foul-smelling well water, it clears suspended matter, neutralizes odor, and makes the water sparkling clear, sweet, and safe.",
+        "scientific_environmental_rationale": "Kataka seed proteins act as natural polyelectrolyte coagulants that bind colloidal clay particles within minutes (matching modern alum coagulants); Vetiver and Mustā possess powerful antimicrobial essential oils that adsorb volatile sulfides and inhibit bacterial growth.",
+        "classical_remedy": "Treat stagnant tanks or wells periodically with Kataka and Vetiver root sachets to maintain biological freshness naturally."
+      }
+    ],
+    "interpretation": "In the classical canon of Vedic architecture, water (Jala-tattva) is treated as the primary carrier of prāṇic vitality and financial liquidity. The science of Jala-Vinyāsa operates under a rigorous dual-polarity principle balancing mass and elemental qualities: 1. Subterranean excavations (wells, sumps, borewells) create cavities of low gravitational density, which harmonize with the light, receptive, divine sectors of the North-East, North, and East, but create catastrophic vacuums if dug into the heavy foundational Earth zone of the South-West or the central navel (Brahmasthāna). 2. Conversely, overhead water tanks represent massive static loads (structural deadweight), which harmonize with the South-West and West where ballast is required to anchor the structure, but crush mental and spiritual well-being if placed atop the North-East. 3. Biological sewage (septic tanks) must be strictly isolated to the disposal zones of the West-North-West (WNW), preventing contamination of sacred and magnetic sectors. Furthermore, Varāhamihira's Dakārgala provides an empirically validated science of subterranean hydrology, bio-indicators, and natural coagulation.",
+    "variation_note": "Significant geographical and regional traditions govern water vāstu: 1. Kerala tradition (Manuṣyālaya Candrikā): In Kerala's high-rainfall maritime climate, digging the domestic well (Kūpa) in the Parjanya or Pūṣan pada is the mandatory first ritual preceding all construction; complex rainwater harvesting channels direct sloped-roof runoff into granite cisterns (Kulam), with strict avoidance of the Karṇa-sūtra (diagonal cords). 2. Western Indian / Rajasthani tradition (Viśvakarma Prakāśa, Samarāṅgaṇa Sūtradhāra): In arid climates, subterranean step-wells (Vāpī/Bāoli) and shaded courtyard water cisterns (Taṅkā) were engineered with thick sandstone walls to prevent evaporation. 3. Eastern / Bengal tradition: Village ponds (Pukur) were strategically excavated to the North-East or East of homesteads, serving dual roles as fish nurseries and morning solar reflectors."
+  }
+]

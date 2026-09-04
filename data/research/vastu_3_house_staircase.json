@@ -1,0 +1,1056 @@
+{
+  "schema_version": "1.0.0",
+  "subagent_metadata": {
+    "subagent_id": "vastu-research-subagent-3",
+    "role": "Classical Vedic Architecture Scholar & Vastu Shastra Researcher",
+    "mission": "Research and document mathematically and textually defensible rules from classical Sanskrit treatises",
+    "assigned_tools": [
+      "house-vastu-analyzer",
+      "staircase-vastu"
+    ],
+    "primary_authorities_cited": [
+      {
+        "text": "Manuṣyālaya Candrikā",
+        "author": "Thirumangalathu Neelakanthan Musath",
+        "editors_translators": [
+          "T. Ganapati Sastri (TSS No. 56)",
+          "Dr. N.E. Muthuswamy"
+        ],
+        "key_chapters": [
+          "Chapter 2: Pada-vinyāsa-vidhi (Paramaśāyika 81-pada and Maṇḍūka 64-pada grids, Brahma-sūtra, Yama-sūtra, and Marma-rakṣā)",
+          "Chapter 3: Śālā-vinyāsa & Sopānavidhi (Positioning of domestic chambers, orientation according to sun/wind, and staircase rules)"
+        ]
+      },
+      {
+        "text": "Śilparatna",
+        "author": "Śrīkumāra",
+        "editor_translator": [
+          "K. Sāmbaśiva Śāstrī (Trivandrum Sanskrit Series)",
+          "Prof. P.R. Sharma"
+        ],
+        "key_chapters": [
+          "Part I, Chapter 16: Sopāna-lakṣaṇa-vidhi / Sopānavidhi (Rules for stairways, orientation, clockwise rotation, odd step counts, quadrant allocation, prohibition in NE and Brahmasthāna)"
+        ]
+      },
+      {
+        "text": "Bṛhat Saṃhitā",
+        "author": "Varāhamihira",
+        "editor_translator": [
+          "M. Ramakrishna Bhat",
+          "Subrahmanya Sastri"
+        ],
+        "key_chapters": [
+          "Chapter 53: Vāstuvidyā (Verses 42-70: 45 Devatās of the Paramaśāyika Maṇḍala, Marma-saṃrakṣaṇa, Brahmasthāna sanctity; Verses 85-88: Directional allocation of chambers)"
+        ]
+      },
+      {
+        "text": "Mayamata",
+        "author": "Maya (Attributed)",
+        "editor_translator": [
+          "Bruno Dagens (Indira Gandhi National Centre for the Arts / Motilal Banarsidass)"
+        ],
+        "key_chapters": [
+          "Chapter 25: Dvibhūmi-vidhi & Bahubhūmi-vidhi (Multi-storey residential structures and vertical circulation)",
+          "Chapter 29: Antaḥpura-vinyāsa & Śālā-vidhi (Spatial distribution of residential quarters according to the 81-pada grid)"
+        ]
+      },
+      {
+        "text": "Vāstuśāstra: Hindu Science of Architecture (Vol. I: Civil Architecture)",
+        "author": "Dr. D.N. Shukla",
+        "editor_translator": [
+          "D.N. Shukla (Vastu Vangmaya Prakashan)"
+        ],
+        "key_chapters": [
+          "Part III, Chapter II: Planning of Residential Houses (pp. 248-285, synthesizing Samarāṅgaṇa Sūtradhāra Ch. 38 & 55 and Viśvakarma Prakāśa Ch. 2 & 7 on 8 directions and 16 zones)"
+        ]
+      },
+      {
+        "text": "Samarāṅgaṇa Sūtradhāra",
+        "author": "Mahārājādhirāja Bhojadeva of Dhārā",
+        "editor_translator": [
+          "T. Ganapati Sastri (Gaekwad's Oriental Series)",
+          "Dr. D.N. Shukla"
+        ],
+        "key_chapters": [
+          "Chapter 38: Gṛha-vinyāsa (Room distribution)",
+          "Chapter 55: Sopāna-vinyāsa (Staircase design and psycho-biomechanical ascent)"
+        ]
+      },
+      {
+        "text": "Viśvakarma Prakāśa",
+        "author": "Viśvakarma",
+        "editor_translator": [
+          "Khemraj Shrikrishnadas edition",
+          "Pt. Vasudeva Shastri"
+        ],
+        "key_chapters": [
+          "Chapter 2: Gṛhārambha & Sūryodayādi-gṛha-vibhāga (Verses 60-108: Directional division of domestic spaces and effects of room placement)",
+          "Chapter 7: Dvāra-bhedāḥ & Śālā-lakṣaṇa"
+        ]
+      }
+    ]
+  },
+  "tools": [
+    {
+      "tool_id": "house-vastu-analyzer",
+      "tool_name": "House Vastu Analyzer (Full 16 Zones / 8 Directions Comprehensive House Evaluation)",
+      "tradition": "Classical Vedic Vastu",
+      "source": {
+        "text": "Manuṣyālaya Candrikā, Bṛhat Saṃhitā, Mayamata & Vāstuśāstra Vol. I (D.N. Shukla)",
+        "author_translator": "Neelakanthan Musath (ed. T. Ganapati Sastri), Varāhamihira (trans. M. Ramakrishna Bhat), Bruno Dagens, D.N. Shukla",
+        "chapter": "Manuṣyālaya Candrikā Ch. 2 & 3; Bṛhat Saṃhitā Ch. 53; Mayamata Ch. 25 & 29; D.N. Shukla Vol. I Part III Ch. II",
+        "verse": "Manuṣyālaya Candrikā 2.1-38, 3.1-42; Bṛhat Saṃhitā 53.42-70, 53.85-88; Mayamata 29.1-45; Viśvakarma Prakāśa 2.60-108"
+      },
+      "inputs": [
+        {
+          "name": "plot_orientation_degrees",
+          "type": "float",
+          "range": "0.0 to 360.0",
+          "unit": "degrees",
+          "description": "Magnetic compass orientation of the primary plot/house frontage (0° = True North, 90° = East, 180° = South, 270° = West). Used to establish the angular reference for the 16 directional zones."
+        },
+        {
+          "name": "length_width_ratio",
+          "type": "float",
+          "range": "1.0 to 2.0",
+          "unit": "ratio (L:W)",
+          "description": "Geometric proportion of the house footprint. Classical texts stipulate Caturasra (1:1 square, most auspicious) or Āyata (1:1.25 to 1:1.5 rectangle). Ratios exceeding 1:2 (Kumbha/Vṛtta deformity) suffer severe pranic dissipation."
+        },
+        {
+          "name": "brahmasthana_status",
+          "type": "enum",
+          "options": [
+            "completely_open",
+            "lightly_loaded",
+            "obstructed_by_wall",
+            "obstructed_by_pillar",
+            "heavily_encumbered_by_toilet_or_stairs"
+          ],
+          "description": "Status of the central 9 padas in the 81-pada Paramaśāyika grid (or central 4 padas in the 64-pada Maṇḍūka grid). Must remain unencumbered, light-filled, and devoid of vertical shear loads (Marmasthāna protection)."
+        },
+        {
+          "name": "floor_slope_gradient",
+          "type": "enum",
+          "options": [
+            "sloping_north_east",
+            "sloping_north",
+            "sloping_east",
+            "flat_level",
+            "sloping_south",
+            "sloping_west",
+            "sloping_south_west"
+          ],
+          "description": "Overall elevation gradient of the site floor levels. Classical canon mandates natural slope downward toward North-East (Jala-vīthī), preserving elevation in South-West (Pṛthvī-tattva)."
+        },
+        {
+          "name": "room_allocations",
+          "type": "array_of_objects",
+          "schema": {
+            "room_type": "string (master_bedroom | guest_bedroom | kitchen_cooktop | puja_mandir | dining_room | living_room | cash_safe_treasury | study_library | toilet_wc | bathroom_shower | staircase | overhead_water_tank | underground_water_sump | septic_tank | balcony_verandah)",
+            "assigned_zone": "string (N | NNE | NE | ENE | E | ESE | SE | SSE | S | SSW | SW | WSW | W | WNW | NW | NNW | BRAHMASTHANA)",
+            "notes": "string (optional specific details)"
+          },
+          "description": "Complete assignment mapping of residential functions to the 16 radial zones of the building plan."
+        },
+        {
+          "name": "aperture_distribution",
+          "type": "object",
+          "properties": {
+            "north_east_openings_percentage": "float (0.0 to 100.0)",
+            "south_west_openings_percentage": "float (0.0 to 100.0)"
+          },
+          "description": "Ratio of fenestration (windows, verandas, skylights) in North/East sectors vs South/West sectors. North/East should maintain >= 60% of total fenestration to allow morning solar UV and magnetic pranic flow."
+        }
+      ],
+      "formula_and_matrix_logic": {
+        "angular_division_method": "Centroid Radial Projection (360° / 16 = 22.5° per zone). The house center (Nābhi) is computed from geometric bounds: C = ((Xmin + Xmax)/2, (Ymin + Ymax)/2). With magnetic tilt θ0, Zone k spans [θ0 + k*22.5° - 11.25°, θ0 + k*22.5° + 11.25°].",
+        "pada_vinyasa_correspondence": "81-Pada Paramaśāyika Maṇḍala where the 32 perimeter cells (Paiśāca/Mānuṣa vīthī) and 12 outer intermediate cells are aggregated into 16 directional spokes of 22.5° each, centering on Brahmā (central 9 padas).",
+        "scoring_algorithm": {
+          "evaluation_weights": {
+            "brahmasthana": 20,
+            "kitchen_cooktop": 15,
+            "master_bedroom": 15,
+            "puja_mandir": 12,
+            "water_sump_borewell": 10,
+            "toilets_and_septic": 10,
+            "staircase": 8,
+            "treasury_cash_safe": 5,
+            "study_room": 5
+          },
+          "grade_multipliers": {
+            "optimal_exalted": 1.0,
+            "acceptable_neutral": 0.5,
+            "inauspicious_defect": -0.5,
+            "fatal_maha_dosa": -1.0
+          },
+          "composite_formula": "Vastu_Index_Percentage = (Sum(w_i * grade_multiplier_i) / Sum(w_i)) * 100. Scaled from 0% (Fatal Dosa throughout) to 100% (Fully aligned classical masterpiece)."
+        },
+        "marma_protection_doctrine": "Bṛhat Saṃhitā 53.55-57: Direct diagonal cords (Vamśas) connecting opposite corners (NE-SW, NW-SE) intersect at 9 Mahā-marmas in Brahmasthāna and 24 secondary marmas. No structural column (Stambha), cross-wall, or waste pipe may intersect these coordinates within a tolerance radius of 1/8th of a pada width."
+      },
+      "rules_matrix": [
+        {
+          "zone_code": "N",
+          "direction_name": "North (Uttara)",
+          "angular_range": "348.75° to 11.25° (Center: 0.0° / 360.0°)",
+          "presiding_deity": "Kubera (Lord of Wealth) & Soma (Elixir of Vitality) / Bhallāṭa",
+          "element": "Water (Jala-tattva)",
+          "planetary_ruler": "Mercury (Budha) & Moon (Candra)",
+          "cosmic_attribute": "Kriyā-śakti, monetary liquidity, new career avenues, client acquisition, financial reserves.",
+          "optimal_functions": [
+            "Cash safe / Treasury room (facing North)",
+            "Executive home office / Study desk",
+            "Primary residential entrance (Bhallāṭa / Soma pada)",
+            "Living room / Reception parlour",
+            "Open garden / Low-height green vegetation"
+          ],
+          "acceptable_functions": [
+            "Balcony / Verandah",
+            "Guest bedroom",
+            "Library"
+          ],
+          "prohibited_functions": [
+            "Kitchen / Cooktop (Agni burns Jala, drying up liquidity)",
+            "Toilet / Commode (Flushes away incoming prosperity and career opportunities)",
+            "Heavy monolithic staircase (Crushes Kubera's gateway, stunting growth)",
+            "Overhead heavy water tank (Reverses natural gradient)",
+            "Master bedroom (Induces financial restlessness)"
+          ],
+          "classical_verse_citation": "Viśvakarma Prakāśa 2.68: 'Uttare dravya-sañcayaḥ' (In the North, preserve and accumulate wealth). Bṛhat Saṃhitā 53.86.",
+          "consequence_of_defect": "Stagnant business, frozen cash flow, loss of wealth, blocked promotions, kidney and circulatory issues."
+        },
+        {
+          "zone_code": "NNE",
+          "direction_name": "North-North-East",
+          "angular_range": "11.25° to 33.75° (Center: 22.5°)",
+          "presiding_deity": "Āpa (Divine Water) & Āpavatsa / Carakī",
+          "element": "Water (Jala-tattva)",
+          "planetary_ruler": "Jupiter (Guru) & Sun (Sūrya)",
+          "cosmic_attribute": "Ārogya (Health, immunity, biological rejuvenation, cellular resilience, medicinal efficacy).",
+          "optimal_functions": [
+            "Medicine cabinet / Healing chamber",
+            "Yoga / Prāṇāyāma / Convalescence room",
+            "Fresh drinking water filter / Dispenser",
+            "Open light-filled reading corner"
+          ],
+          "acceptable_functions": [
+            "Quiet study",
+            "Prayer / Contemplation alcove",
+            "Children's bedroom"
+          ],
+          "prohibited_functions": [
+            "Toilet / Septic tank (Poisons immune vitality; causes refractory autoimmune illnesses)",
+            "Kitchen (Excess thermal inflammation)",
+            "Junk storage / Heavy scrap yard (Blocks vital healing prāṇa)",
+            "Staircase (Imposes severe structural load on biological recovery)"
+          ],
+          "classical_verse_citation": "Manuṣyālaya Candrikā 3.8: Āpa-pada sanctification for pristine water and nourishment. D.N. Shukla Part III Ch. II.",
+          "consequence_of_defect": "Chronic illness, lowered white-blood-cell resistance, sluggish disease recovery, lingering metabolic disorders."
+        },
+        {
+          "zone_code": "NE",
+          "direction_name": "North-East (Īśāna)",
+          "angular_range": "33.75° to 56.25° (Center: 45.0°)",
+          "presiding_deity": "Īśāna (Śiva - Supreme Consciousness) / Śikhi & Parjanya",
+          "element": "Water & Ether (Jala & Ākāśa)",
+          "planetary_ruler": "Jupiter (Bṛhaspati / Guru)",
+          "cosmic_attribute": "Jñāna-śakti, divine communion, supreme intellect (Buddhi), mental lucidity, spiritual elevation, moral integrity.",
+          "optimal_functions": [
+            "Pūjā mandir / Meditation sanctum (facing East or North)",
+            "Underground water sump / Pristine borewell (Soma-sūtra alignment)",
+            "Sunken open courtyard / Light portico",
+            "Sacred library / Philosophical study",
+            "Main entrance in Jayanta / Parjanya pada"
+          ],
+          "acceptable_functions": [
+            "Living room seating (light furniture only)",
+            "Elderly contemplation room (devoid of heavy bed)"
+          ],
+          "prohibited_functions": [
+            "Toilet / Commode (Severe Mahā-Doṣa: Insult to the head of Vāstupuruṣa; loss of progeny, brain illness, psychiatric distress)",
+            "Kitchen / Cooktop (Severe Mahā-Doṣa: Fire in water zone; relentless mental agitation, headaches, neurological strain)",
+            "Staircase / Heavy pillars (Crushes the skull of Vāstupuruṣa; financial ruin, mental paralysis)",
+            "Master bedroom (Induces detachment, sannyāsa-bhāva, lack of marital sexual harmony)",
+            "Overhead water tank (Reverses cosmic polarity; creates severe downward head trauma)"
+          ],
+          "classical_verse_citation": "Manuṣyālaya Candrikā 3.12: 'Īśāne deva-gṛham' (In the North-East establish the divine temple). Bṛhat Saṃhitā 53.54: Śikhi-pada must remain unblemished. Viśvakarma Prakāśa 2.65.",
+          "consequence_of_defect": "Loss of clarity, mental depression, psychiatric breakdown, loss of ancestral lineage/progeny (Vaṃśa-kṣaya), catastrophic financial bankruptcy."
+        },
+        {
+          "zone_code": "ENE",
+          "direction_name": "East-North-East",
+          "angular_range": "56.25° to 78.75° (Center: 67.5°)",
+          "presiding_deity": "Jayanta (The Victorious / Indra's Son) & Indra",
+          "element": "Air & Light (Vāyu & Tejas)",
+          "planetary_ruler": "Jupiter (Guru) & Venus (Śukra)",
+          "cosmic_attribute": "Ānanda (Joy, recreation, social rejuvenation, aesthetic pleasure, mental decompression).",
+          "optimal_functions": [
+            "Family lounge / Informal recreation room",
+            "Music room / Creative art studio",
+            "Children's play area / Hobby workshop",
+            "Verandah / Morning sunlight seating"
+          ],
+          "acceptable_functions": [
+            "Guest sitting room",
+            "Reading lounge",
+            "Dining area"
+          ],
+          "prohibited_functions": [
+            "Toilet / Commode (Drains joy; causes chronic melancholy, loss of celebration in family)",
+            "Heavy dump / Junk store (Stifles mental renewal, causing domestic boredom)",
+            "Kitchen (Overheats recreation and provokes temper tantrums)"
+          ],
+          "classical_verse_citation": "Mayamata 29.18-20: Zones of Jayanta for joyous congregation and musical recreation.",
+          "consequence_of_defect": "Persistent domestic gloom, absence of festivity, chronic fatigue, anhedonia, strained interpersonal warmth."
+        },
+        {
+          "zone_code": "E",
+          "direction_name": "East (Pūrva)",
+          "angular_range": "78.75° to 101.25° (Center: 90.0°)",
+          "presiding_deity": "Sūrya (The Sun God) & Indra / Ravi",
+          "element": "Solar Fire & Prāṇa (Tejas / Prāṇa-tattva)",
+          "planetary_ruler": "Sun (Sūrya)",
+          "cosmic_attribute": "Prāṇa-śakti, leadership, government connections, societal prestige, administrative honor, vitality of the patriarch.",
+          "optimal_functions": [
+            "Primary residential entrance (Indra / Jayanta pada)",
+            "Main formal living room / Drawing hall",
+            "Morning sunbathing verandah / Portico",
+            "Study desk / Civil services preparation room",
+            "Open lawn / Low terrace"
+          ],
+          "acceptable_functions": [
+            "Dining room",
+            "Meeting room / Consultation office",
+            "Prayer annex"
+          ],
+          "prohibited_functions": [
+            "Toilet / Commode (Brings public humiliation, legal penalties, loss of royal/government favor, ocular diseases)",
+            "Heavy storage / Solid windowless wall (Blocks life-giving morning ultraviolet prāṇa)",
+            "Master bedroom (Over-energizing solar radiation disrupts deep delta sleep)",
+            "Staircase (Casts long dark morning shadows, diminishing household fame)"
+          ],
+          "classical_verse_citation": "Viśvakarma Prakāśa 2.66: 'Pūrve śānti-gṛhaṃ kuryāt snāna-veśma ca pūrvake' (In the East establish a hall of peace or ablution pavilion). Bṛhat Saṃhitā 53.85.",
+          "consequence_of_defect": "Loss of societal status, estrangement from authorities, eye diseases, cardiovascular weakness in the patriarch, social isolation."
+        },
+        {
+          "zone_code": "ESE",
+          "direction_name": "East-South-East",
+          "angular_range": "101.25° to 123.75° (Center: 112.5°)",
+          "presiding_deity": "Satya (Truth) & Bhṛśa (Intense Reflection)",
+          "element": "Churning Fire & Air (Manthan Agni)",
+          "planetary_ruler": "Mars (Maṅgala) & Sun (Sūrya)",
+          "cosmic_attribute": "Manthana (Deep analytical reflection, intellectual churning, scrutiny of details, strategic calculation).",
+          "optimal_functions": [
+            "Analytical workroom / Data analysis workstation",
+            "Conference / Deliberation room",
+            "Washing machine / Laundry area (Mechanical churning matches energy signature)",
+            "Reading / Research study"
+          ],
+          "acceptable_functions": [
+            "Library / Document scrutiny desk",
+            "Exercise / Treadmill space"
+          ],
+          "prohibited_functions": [
+            "Master bedroom (Triggers chronic overthinking, insomnia, incessant spousal bickering, anxiety neurosis)",
+            "Pūjā mandir (Restless churning prevents meditative concentration)",
+            "Toilet (Turns analytical intellect into cynism and destructive self-criticism)"
+          ],
+          "classical_verse_citation": "Samarāṅgaṇa Sūtradhāra 38.45: Bhṛśa-pada governance of discernment and mental deliberation. D.N. Shukla Vol. I.",
+          "consequence_of_defect": "Chronic anxiety disorders, obsessiveness, marital dispute over petty trivia, inability to make decisive commitments."
+        },
+        {
+          "zone_code": "SE",
+          "direction_name": "South-East (Agni)",
+          "angular_range": "123.75° to 146.25° (Center: 135.0°)",
+          "presiding_deity": "Agni (God of Fire) / Hutāśana & Savitṛ",
+          "element": "Fire (Agni-tattva)",
+          "planetary_ruler": "Venus (Śukra)",
+          "cosmic_attribute": "Tejas, metabolic digestion (Jāṭharāgni), female health, cash liquidity, passion, vitality, radiant beauty.",
+          "optimal_functions": [
+            "Kitchen / Cooktop (facing East while cooking - Pāka-sthāna)",
+            "Electrical main distribution panel / Meter board / Inverter",
+            "Boiler / Geyser / Thermal heating appliances",
+            "Diesel generator room / Transformer yard"
+          ],
+          "acceptable_functions": [
+            "Security guard quarters (energetic alertness)",
+            "Gymnasium / High-intensity workout space",
+            "Pantry for dry cooking supplies"
+          ],
+          "prohibited_functions": [
+            "Underground water sump / Borewell (Severe Mahā-Doṣa: Water in Agni zone; triggers uterine disorders, financial burn-out, bankruptcy)",
+            "Master bedroom (Excessive thermal excitation; fiery marital arguments, hypertension, insomnia)",
+            "Toilet / Commode (Extinguishes cash liquidity; triggers chronic gynecological illnesses in women)",
+            "Pūjā room (Fosters aggressive religious dogmatism rather than peace)"
+          ],
+          "classical_verse_citation": "Manuṣyālaya Candrikā 3.10: 'Pāka-sthānaṃ tathāgneye' (The place for cooking must be established in the South-East). Bṛhat Saṃhitā 53.85: 'Āgneye pāka-śālā'. Viśvakarma Prakāśa 2.66.",
+          "consequence_of_defect": "Chronic female reproductive issues, sudden cash depletion, kitchen accidents, electrical short-circuits, digestive pathology."
+        },
+        {
+          "zone_code": "SSE",
+          "direction_name": "South-South-East",
+          "angular_range": "146.25° to 168.75° (Center: 157.5°)",
+          "presiding_deity": "Pūṣan (The Nourisher) & Vitatha",
+          "element": "Fire & Earth (Agni & Pṛthvī)",
+          "planetary_ruler": "Mars (Maṅgala)",
+          "cosmic_attribute": "Balam (Physical strength, mental resolve, courage, bodily stamina, muscular endurance, self-confidence).",
+          "optimal_functions": [
+            "Gymnasium / Weight-training studio",
+            "Martial arts / Physical training room",
+            "Security office / Armory / Sports equipment storage",
+            "Bedroom for athletic youth"
+          ],
+          "acceptable_functions": [
+            "Staff quarters",
+            "Electrical battery backup / Solar inverters",
+            "Staircase"
+          ],
+          "prohibited_functions": [
+            "Toilet / Commode (Flushes bodily confidence; breeds constant inner terror, phobias, muscular weakness)",
+            "Underground water reservoir (Undermines martial stamina and bodily resistance)",
+            "Pūjā room (Renders mind aggressive and agitated)"
+          ],
+          "classical_verse_citation": "Mayamata 29.24: Vitatha-Pūṣan axis for physical discipline, guard units, and structural vigor.",
+          "consequence_of_defect": "Loss of self-worth, chronic cowardice, muscular atrophy, persistent fatigue, vulnerability to bullying or intimidation."
+        },
+        {
+          "zone_code": "S",
+          "direction_name": "South (Dakṣiṇa)",
+          "angular_range": "168.75° to 191.25° (Center: 180.0°)",
+          "presiding_deity": "Yama (Lord of Justice & Dharma) & Bṛhatkṣata",
+          "element": "Earth & Fire (Pṛthvī & Agni)",
+          "planetary_ruler": "Mars (Maṅgala) & Saturn (Śani)",
+          "cosmic_attribute": "Yaśa (Fame, public repute), legal rectitude, administrative order, profound deep sleep, discipline.",
+          "optimal_functions": [
+            "Bedroom (headboard to South for optimal cardiovascular geomagnetic sleep)",
+            "Staircase (heavy monolithic concrete flight)",
+            "Executive office cabin / Conference hall",
+            "Overhead water tank (elevated on solid columns)"
+          ],
+          "acceptable_functions": [
+            "Store room for heavy household equipment",
+            "Dining room",
+            "Entrance (strictly in Viṭatha or Bṛhatkṣata pada)"
+          ],
+          "prohibited_functions": [
+            "Underground water tank / Well (Fatal Mahā-Doṣa: Premature mortality, legal prosecution, severe debt, loss of peace)",
+            "Pūjā mandir (Severe conflict between Yama and sattvic meditation)",
+            "Main entrance in Yama-pada (Triggers unexpected bereavement and legal lawsuits)",
+            "Large open sunken terrace (Violates the law of southern elevation)"
+          ],
+          "classical_verse_citation": "Manuṣyālaya Candrikā 3.11: 'Śayana-sthānaṃ dakṣiṇe' (South is praised for sleeping chambers). Viśvakarma Prakāśa 2.67. Bṛhat Saṃhitā 53.86.",
+          "consequence_of_defect": "Loss of public reputation, litigation, police or regulatory harassment, insomnia, blood pressure volatility."
+        },
+        {
+          "zone_code": "SSW",
+          "direction_name": "South-South-West",
+          "angular_range": "191.25° to 213.75° (Center: 202.5°)",
+          "presiding_deity": "Gandharva & Bhṛṅgarāja (Nirṛti's emissaries)",
+          "element": "Earth (Nirṛti / Pṛthvī)",
+          "planetary_ruler": "Rahu & Saturn (Śani)",
+          "cosmic_attribute": "Visarjana (Disposal, elimination of metabolic waste, letting go of useless baggage, excretion).",
+          "optimal_functions": [
+            "Toilet / Water closet commode (The absolute best zone in the house for waste elimination)",
+            "Septic tank / Sewage outflow pipe",
+            "Trash bin / Scrap disposal depot",
+            "Changing room for discarded laundry"
+          ],
+          "acceptable_functions": [
+            "General inert storage for unwanted items",
+            "Servants' utility washing station"
+          ],
+          "prohibited_functions": [
+            "Master bedroom (Severe Dosa: Drains the occupant's vitality; leads to debilitating anemia, chronic wasting disease, early burnout)",
+            "Study desk / Children's bedroom (Disposes of memory; results in poor retention and academic failure)",
+            "Pūjā room / Cash safe (Eliminates spiritual merit and dissolves savings)",
+            "Kitchen (Flushes family nourishment, leading to severe nutritional deficiencies)"
+          ],
+          "classical_verse_citation": "Samarāṅgaṇa Sūtradhāra 38.48: Bhṛṅgarāja-pada specifically designated for waste elimination and impurity extraction.",
+          "consequence_of_defect": "If bedroom or safe placed here: financial bankruptcy, extreme physical weakness, chronic fatigue syndrome, mental drain."
+        },
+        {
+          "zone_code": "SW",
+          "direction_name": "South-West (Nairṛtya)",
+          "angular_range": "213.75° to 236.25° (Center: 225.0°)",
+          "presiding_deity": "Nirṛti (Goddess of Dissolution / Ancestral Pitṛs) & Dauvārika",
+          "element": "Earth (Pṛthvī-tattva / Bhūmi)",
+          "planetary_ruler": "Rahu (Tamoguṇa node) & Saturn",
+          "cosmic_attribute": "Sthiratā (Absolute stability, patriarchal authority, marital longevity, mastery, decision-making grounding).",
+          "optimal_functions": [
+            "Master bedroom for the head of household (highest ceiling, heaviest furniture)",
+            "Primary cash vault / Property deed safe (opening toward North)",
+            "Heaviest structural massing / Highest roof parapet",
+            "Overhead water tank (maximum height on roof)",
+            "Main vertical staircase core"
+          ],
+          "acceptable_functions": [
+            "Heavy archive / Document vault",
+            "Armory / Tool storage"
+          ],
+          "prohibited_functions": [
+            "Underground water sump / Borewell / Well (The most fatal defect in Vāstuśāstra: Nairṛtya-jala-doṣa; triggers sudden death, bankruptcy, family extinction)",
+            "Toilet / Commode (Erodes master's authority, triggers chronic liver/bone diseases, marital separation)",
+            "Kitchen (Agni in Nairṛtya destroys patriarchal peace and brings chronic unrest)",
+            "Main entrance (Dauvārika / Nirṛti entrance causes debt, insolvency, criminal deception)",
+            "Balcony / Large low windows (Causes prāṇic drain and instability)"
+          ],
+          "classical_verse_citation": "Manuṣyālaya Candrikā 3.10: 'Śayanaṃ nairṛte bhāge' (Sleeping chamber in the South-West). Śilparatna I.16.2: Staircases placed in Nairṛtya impart required weight. Viśvakarma Prakāśa 2.67.",
+          "consequence_of_defect": "Loss of family leadership, sudden unnatural deaths, catastrophic commercial bankruptcy, severe bone/joint afflictions, divorce."
+        },
+        {
+          "zone_code": "WSW",
+          "direction_name": "West-South-West",
+          "angular_range": "236.25° to 258.75° (Center: 247.5°)",
+          "presiding_deity": "Sugrīva (The Keen Disciple) & Pitṛ",
+          "element": "Space & Earth (Ākāśa & Pṛthvī)",
+          "planetary_ruler": "Mercury (Budha) & Rahu",
+          "cosmic_attribute": "Vidyā & Abhyāsa (Knowledge acquisition, academic focus, technical craftsmanship, skill development, memory).",
+          "optimal_functions": [
+            "Study room / Children's academic desk (facing East or North)",
+            "School library / Textbook storage",
+            "Craftsmanship workshop / Engineering drawing studio",
+            "Musical instruments practice room"
+          ],
+          "acceptable_functions": [
+            "Children's bedroom",
+            "Accounts department study",
+            "Archive"
+          ],
+          "prohibited_functions": [
+            "Toilet / Commode (Flushes intellect; causes attention deficit, poor exam results, study blockage)",
+            "Kitchen / Cooktop (Burns concentration, causing children to become rebellious)",
+            "Junk dump (Clogs intellectual clarity with confusion)"
+          ],
+          "classical_verse_citation": "Mayamata 29.28: Sugrīva-pada allocation for study of śāstras and apprentice craftsmanship.",
+          "consequence_of_defect": "Academic failure among children, inability to retain technical skills, loss of intellectual focus, learning disabilities."
+        },
+        {
+          "zone_code": "W",
+          "direction_name": "West (Paścima)",
+          "angular_range": "258.75° to 281.25° (Center: 270.0°)",
+          "presiding_deity": "Varuṇa (Lord of Oceans & Cosmic Order) / Puṣpadanta & Mitra",
+          "element": "Space & Water (Ākāśa & Jala)",
+          "planetary_ruler": "Saturn (Śani)",
+          "cosmic_attribute": "Lābha (Material profits, fulfillment of desires, prosperous commerce, long-term business returns, harvest).",
+          "optimal_functions": [
+            "Dining room (Bhojana-sthāna - ideal zone for family dining)",
+            "Commercial accounts office / Sales closing desk",
+            "Secondary master bedroom / Elderly parents' suite",
+            "Overhead water storage tank",
+            "Solid staircase"
+          ],
+          "acceptable_functions": [
+            "Living room / Sitting area",
+            "Main entrance (strictly in Puṣpadanta or Varuṇa pada - highly auspicious for wealth)",
+            "Pantry for finished food items"
+          ],
+          "prohibited_functions": [
+            "Underground water tank / Borewell (in inappropriate pada causes financial erosion)",
+            "Kitchen (Reduces profit margins; money leaves as quickly as it arrives)",
+            "Large sunken opening / Balcony (Allows profits to drain away)"
+          ],
+          "classical_verse_citation": "Manuṣyālaya Candrikā 3.11: 'Paścime bhojana-sthānam' (In the West establish the dining hall). Viśvakarma Prakāśa 2.67: 'Bhojanaṃ paścime tathā'. Bṛhat Saṃhitā 53.86.",
+          "consequence_of_defect": "Inability to convert business turnover into net profit, financial leaks, chronic arthritis, lung/respiratory afflictions."
+        },
+        {
+          "zone_code": "WNW",
+          "direction_name": "West-North-West",
+          "angular_range": "281.25° to 303.75° (Center: 292.5°)",
+          "presiding_deity": "Asura & Śoṣa (The Dryer of Moisture)",
+          "element": "Air & Space (Vāyu & Ākāśa)",
+          "planetary_ruler": "Saturn (Śani) & Moon (Candra)",
+          "cosmic_attribute": "Śoṣaṇa (Emotional detoxification, release of pent-up grief, therapeutic catharsis, purging mental burdens).",
+          "optimal_functions": [
+            "Toilet / Water closet (Excellent zone for releasing biological and psychological wastes)",
+            "Psychological counseling / Therapy room",
+            "Detoxification chamber / Sauna / Steam bath",
+            "Luggage room / Unpacking utility"
+          ],
+          "acceptable_functions": [
+            "Store room for dry non-food goods",
+            "Guest changing room"
+          ],
+          "prohibited_functions": [
+            "Master bedroom (Dries up joy; causes chronic emotional depression, endless weeping, melancholia)",
+            "Pūjā mandir (Induces feelings of spiritual desertion and nihilistic disillusionment)",
+            "Living room (Causes visitors to constantly complain and vent grievances)",
+            "Kitchen (Dries up family nourishment and culinary zest)"
+          ],
+          "classical_verse_citation": "Samarāṅgaṇa Sūtradhāra 38.52: Śoṣa-pada governance over bodily desiccation, sadness, and purification.",
+          "consequence_of_defect": "Chronic clinical depression, unresolved psychological trauma, constant feelings of victimization, thyroid disorders."
+        },
+        {
+          "zone_code": "NW",
+          "direction_name": "North-West (Vāyu)",
+          "angular_range": "303.75° to 326.25° (Center: 315.0°)",
+          "presiding_deity": "Vāyu (God of Wind) / Māruta & Roga",
+          "element": "Air (Vāyu-tattva)",
+          "planetary_ruler": "Moon (Candra)",
+          "cosmic_attribute": "Gati & Sahāya (Kinetic mobility, rapid circulation, trade movement, supportive social networks, legal allies, banking credit).",
+          "optimal_functions": [
+            "Guest bedroom (Atithi-śālā - ensures guests enjoy their stay and depart promptly without overstaying)",
+            "Finished goods inventory / Dispatch warehouse (ensures fast turnover of merchandise)",
+            "Unmarried marriageable daughter's bedroom (facilitates timely marriage and smooth transition)",
+            "Garage / Vehicular parking (promotes smooth travel)",
+            "Auxiliary outdoor toilet"
+          ],
+          "acceptable_functions": [
+            "Dining room annex",
+            "Staff quarters",
+            "Light secondary staircase (metal or cantilevered)"
+          ],
+          "prohibited_functions": [
+            "Master bedroom (Brings chronic restlessness, endless travel, inability to settle down)",
+            "Permanent heavy storage / Safe (Wealth blows away like wind; no cash stability)",
+            "Underground water sump (in Roga pada creates mental instability and respiratory asthma)",
+            "Pūjā room (Causes wavering faith and restless spiritual wandering)"
+          ],
+          "classical_verse_citation": "Manuṣyālaya Candrikā 3.12: 'Vāyavye dhānya-gehaṃ ca' (In the North-West establish the grain repository). Viśvakarma Prakāśa 2.68: 'Vāyavye paśu-mandiram' (Shelter for animals/movement). Bṛhat Saṃhitā 53.86.",
+          "consequence_of_defect": "Loss of institutional and banking support, legal betrayal by friends, delayed marriage of daughters, respiratory asthma, commercial stock stagnation."
+        },
+        {
+          "zone_code": "NNW",
+          "direction_name": "North-North-West",
+          "angular_range": "326.25° to 348.75° (Center: 337.5°)",
+          "presiding_deity": "Nāga (Serpent of Sensual Charm) & Mukhya",
+          "element": "Water & Air (Jala & Vāyu)",
+          "planetary_ruler": "Moon (Candra) & Venus (Śukra)",
+          "cosmic_attribute": "Rati & Ākarṣaṇa (Sensual attraction, romantic allure, marital passion, bodily charm, reproductive intimacy).",
+          "optimal_functions": [
+            "Newlywed couple's bedroom (sparks romantic warmth and affectionate intimacy)",
+            "Vanity / Dressing room / Makeup salon",
+            "Wardrobe for premium apparel and perfumes",
+            "Intimate couple's lounge"
+          ],
+          "acceptable_functions": [
+            "Guest bedroom",
+            "Balcony with fragrant flowering plants"
+          ],
+          "prohibited_functions": [
+            "Toilet / Commode (Flushes marital attraction; causes frigidity, sexual repulsion, extra-marital temptation)",
+            "Elderly parents' bedroom (Causes inappropriate sensual agitation in old age)",
+            "Pūjā room (Sensual vortex clashes with celibate meditation)",
+            "Kitchen (Overheats delicate sensual harmony into irritable fights)"
+          ],
+          "classical_verse_citation": "Mayamata 29.34: Nāga-pada for bedroom of newlyweds and display of cosmetics and garments. D.N. Shukla Part III Ch. II.",
+          "consequence_of_defect": "Complete loss of romantic desire between spouses, cold marriage, sexual dysfunctions, infidelity, mutual revulsion."
+        },
+        {
+          "zone_code": "BRAHMASTHANA",
+          "direction_name": "Center (Brahmasthāna / Nābhi-Hṛdaya)",
+          "angular_range": "Central 9 Padas of 81-Pada Grid (3x3 Core)",
+          "presiding_deity": "Brahmā (The Cosmic Creator)",
+          "element": "Ether (Ākāśa-tattva)",
+          "planetary_ruler": "Universal Cosmic Energy (All 9 Grahas in Equilibrium)",
+          "cosmic_attribute": "The living heart, navel, and lungs of the Vāstupuruṣa. Source of all pranic vitality, acoustic resonance, and cosmic balance.",
+          "optimal_functions": [
+            "Open central courtyard (Aṅgaṇa / Nāḍumaṭṭam open to the sky)",
+            "Luminous, clutter-free central family gathering atrium",
+            "Spiritual meditation court (clean, unencumbered floor)"
+          ],
+          "acceptable_functions": [
+            "Open passage with light movement",
+            "Completely clear central hall"
+          ],
+          "prohibited_functions": [
+            "Structural columns / Pillars (Stambha-vedha: Crushes the heart of Vāstupuruṣa; causes acute cardiac illness)",
+            "Toilet / Septic tank (The ultimate sacrilege: Excrement in Brahmā's womb; complete family ruin)",
+            "Staircase (Heavy vertical load and torsion pierces the cosmic navel; sudden bankruptcy)",
+            "Kitchen / Hearth (Burns the cosmic belly; chronic visceral disease)",
+            "Underground sump / Borewell (Drowns the spiritual core)"
+          ],
+          "classical_verse_citation": "Bṛhat Saṃhitā 53.55: 'Brahmasthānaṃ prayatnena rakṣayet sarva-doṣataḥ' (The Brahmasthāna must be preserved from all defects with utmost endeavor). Manuṣyālaya Candrikā 2.22: 'Madhyame brahmaṇaḥ padam... śūnyaṃ vidhātavyam' (The central pad of Brahmā must be kept empty/void).",
+          "consequence_of_defect": "Sudden heart attacks in family members, instant financial collapse, collapse of harmony, irrecoverable domestic ruin."
+        }
+      ],
+      "interpretation": "The House Vastu Analyzer evaluates a residential dwelling by projecting a 16-zone radial grid from the architectural centroid (Nābhi) and verifying each functional zone against the 81-pada Paramaśāyika Vāstupuruṣamaṇḍala. Classical Vedic architecture operates on three simultaneous physical and metaphysical laws: (1) The Solar Spectrum Gradient (Saura-krama), capturing soothing germicidal ultraviolet morning rays in the East/North-East while deflecting debilitating infrared thermal heat from the South/South-West; (2) The Geomagnetic Flux (Jaiva-vīthī), guiding positive prāṇic current from the cosmic dipole of the North-East toward the earth sink of the South-West; and (3) The Five Elemental States (Pañcabhūta), ensuring elemental compatibility between structural functions and presiding deities. When these guidelines are satisfied, the living environment acts as a cosmic resonant cavity that stabilizes bio-rhythms, enhances vitality, preserves wealth, and fosters deep familial peace.",
+      "variation_note": "Textual and regional traditions diverge in significant nuances: (1) The Southern / Kerala school (Manuṣyālaya Candrikā, Śilparatna, Tantrasamuccaya) focuses heavily on the inward-looking Catuḥśālā with a central open sky courtyard (Nāḍumaṭṭam) designed to manage tropical monsoons, and permits an auxiliary kitchen in the North-West (Vāyu-koṇa) if the primary South-East is constrained; (2) The Northern tradition (Samarāṅgaṇa Sūtradhāra, Viśvakarma Prakāśa) prioritizes expansive linear halls, perimeter gardens, and fortress-like stone masonry with dedicated underground grain and water vaults; (3) Modern 16-zone systems (as codified by D.N. Shukla from classical texts) refine the traditional 8 directions into 16 subtle psychological sectors of 22.5° each, mapping attributes like Manthana (ESE) and Visarjana (SSW) to address specialized contemporary apartment layouts."
+    },
+    {
+      "tool_id": "staircase-vastu",
+      "tool_name": "Staircase Vastu (Sopāna-Vidhi / Vertical Circulation Analyzer)",
+      "tradition": "Classical Vedic Vastu",
+      "source": {
+        "text": "Śilparatna, Manuṣyālaya Candrikā, Mayamata & Samarāṅgaṇa Sūtradhāra",
+        "author_translator": "Śrīkumāra (Trivandrum Sanskrit Series), Neelakanthan Musath (Dr. N.E. Muthuswamy), Bruno Dagens, King Bhoja",
+        "chapter": "Śilparatna Part I, Ch. 16; Manuṣyālaya Candrikā Ch. 3; Mayamata Ch. 25 & 29; Samarāṅgaṇa Sūtradhāra Ch. 55",
+        "verse": "Śilparatna I.16.1-32; Manuṣyālaya Candrikā 3.28-34; Mayamata 25.40-48, 29.22-26; Samarāṅgaṇa Sūtradhāra 55.12-25"
+      },
+      "inputs": [
+        {
+          "name": "staircase_location_zone",
+          "type": "enum",
+          "options": [
+            "SW",
+            "S",
+            "W",
+            "NW",
+            "SE",
+            "N",
+            "E",
+            "NE",
+            "BRAHMASTHANA"
+          ],
+          "description": "The macro-zone in the building plan where the staircase core is positioned. Optimal in heavy grounding zones (SW, S, W); strictly prohibited in spiritual/open zones (NE, Brahmasthāna)."
+        },
+        {
+          "name": "staircase_type",
+          "type": "enum",
+          "options": [
+            "internal_core",
+            "external_perimeter",
+            "cantilevered_floating",
+            "spiral_helical",
+            "dog_legged",
+            "bifurcated"
+          ],
+          "description": "Structural morphology of the staircase. External staircases have distinct placement rules from internal staircases."
+        },
+        {
+          "name": "turning_direction",
+          "type": "enum",
+          "options": [
+            "clockwise_pradakshina",
+            "counter_clockwise_apradakshina"
+          ],
+          "description": "Direction of rotational turn at intermediate landings as one ascends from ground to upper floor. Must strictly be clockwise (Pradakṣiṇāvarta)."
+        },
+        {
+          "name": "start_facing_direction",
+          "type": "enum",
+          "options": [
+            "East",
+            "North",
+            "South",
+            "West"
+          ],
+          "description": "Cardinal direction the user faces when stepping onto the first riser at the bottom of the flight. Starting while facing East or North is traditionally favored."
+        },
+        {
+          "name": "total_step_count_per_flight",
+          "type": "integer",
+          "range": "3 to 45",
+          "unit": "steps (risers)",
+          "description": "Exact number of steps in a continuous flight of stairs between landings."
+        },
+        {
+          "name": "total_step_count_per_floor",
+          "type": "integer",
+          "range": "7 to 60",
+          "unit": "steps (risers)",
+          "description": "Cumulative step count between finished floor levels, evaluated against Modulo 3 (Indu-Jaya-Vyaya) and Odd Parity criteria."
+        },
+        {
+          "name": "under_stair_usage",
+          "type": "enum",
+          "options": [
+            "puja_mandir",
+            "toilet_wc",
+            "drinking_water_sump_pump",
+            "study_desk",
+            "sleeping_bed",
+            "enclosed_dry_storage",
+            "completely_open_and_clean"
+          ],
+          "description": "Utilization of the triangular volume beneath the inclined waist slab. Under-stair toilets, altars, and water bodies are severe violations."
+        },
+        {
+          "name": "door_and_brahma_clearance",
+          "type": "object",
+          "properties": {
+            "directly_faces_main_door": "boolean",
+            "touches_brahmasthana_perimeter": "boolean",
+            "distance_from_house_center_meters": "float"
+          },
+          "description": "Spatial clearance verifying that the staircase does not create Dvāra-vedha (directly confronting main entrance) or pierce the Brahmasthāna boundary."
+        }
+      ],
+      "formula_and_matrix_logic": {
+        "modulo_3_rhythm_formula": {
+          "formula": "Rhythm_State = Total_Steps % 3",
+          "states": {
+            "remainder_1": {
+              "name": "Indu (Moon / Sovereign / Peace)",
+              "verdict": "AUSPICIOUS",
+              "attribute": "Brings mental tranquility, steady lineage sustenance, and peaceful stability.",
+              "valid_odd_numbers": [
+                7,
+                13,
+                19,
+                25,
+                31
+              ]
+            },
+            "remainder_2": {
+              "name": "Jaya (Victory / Triumph / Expansion)",
+              "verdict": "SUPREMELY AUSPICIOUS",
+              "attribute": "Brings dynamic triumph over obstacles, professional ascent, fame, and compounding prosperity.",
+              "valid_odd_numbers": [
+                5,
+                11,
+                17,
+                23,
+                29,
+                35
+              ]
+            },
+            "remainder_0": {
+              "name": "Vyaya / Mṛtyu (Loss / Depletion / Expenditure / Death)",
+              "verdict": "STRICTLY INAUSPICIOUS (AVOID)",
+              "attribute": "Causes continuous financial depletion, health attrition, setbacks, and unexpected losses.",
+              "defective_numbers": [
+                9,
+                15,
+                21,
+                27,
+                33
+              ]
+            }
+          }
+        },
+        "parity_rule": {
+          "formula": "Parity = Total_Steps % 2 == 1 (Odd / Viṣama)",
+          "biomechanical_and_spiritual_principle": "Ascending human locomotion traditionally begins with the right foot (Dakṣiṇa-pāda). An odd number of steps ensures that the climber lands upon the upper floor destination with the right foot, ensuring muscular equilibrium, biomechanical stability, and psychological victory."
+        },
+        "composite_step_rule": "A step count is considered optimal ONLY IF it satisfies both conditions: (1) Total_Steps is Odd (Total_Steps % 2 == 1), AND (2) Total_Steps % 3 != 0 (Yields Indu or Jaya). Numbers like 15 and 21, while odd, fail the modulo 3 test (15 % 3 = 0, 21 % 3 = 0) and represent Vyaya. The golden counts are 11, 17, 19, and 23."
+      },
+      "rules_matrix": [
+        {
+          "category": "Location Quadrant Evaluation",
+          "evaluations": [
+            {
+              "zone": "SW (South-West / Nairṛtya)",
+              "rank": 1,
+              "suitability": "SUPREME (Optimal)",
+              "vastu_score": 100,
+              "elemental_rationale": "Earth (Pṛthvī) element. Staircases constitute the heaviest structural dead and live load in a residence. Locating maximum physical mass and height in the South-West anchors the entire building, stabilizing patriarchal authority and preventing seismic/thermal destabilization.",
+              "classical_text_citation": "Śilparatna I.16.2: 'Nairṛte vā samācaret' (Staircases should preferably be placed in the South-West). Manuṣyālaya Candrikā 3.28."
+            },
+            {
+              "zone": "S (South / Dakṣiṇa)",
+              "rank": 2,
+              "suitability": "EXCELLENT",
+              "vastu_score": 90,
+              "elemental_rationale": "Yama quadrant. Dense vertical concrete/stone walls shield the domestic interior from harsh southern solar radiation and thermal heat islands, acting as an optimal thermodynamic buffer.",
+              "classical_text_citation": "Śilparatna I.16.1: 'Dakṣiṇe paścime vāpi... sopānam'."
+            },
+            {
+              "zone": "W (West / Paścima)",
+              "rank": 3,
+              "suitability": "EXCELLENT",
+              "vastu_score": 85,
+              "elemental_rationale": "Varuṇa quadrant. Solid vertical massing in the West provides an effective barrier against intense late-afternoon infrared rays and anchors long-term material gains.",
+              "classical_text_citation": "Śilparatna I.16.1: Paścima-sopāna approved for all classes of residences."
+            },
+            {
+              "zone": "NW (North-West / Vāyu)",
+              "rank": 4,
+              "suitability": "ACCEPTABLE / NEUTRAL",
+              "vastu_score": 60,
+              "elemental_rationale": "Air (Vāyu) element. Acceptable for external secondary staircases, emergency fire escapes, or lightweight cantilevered metal stairs. Heavy concrete monolithic stairs here should be avoided to prevent blocking movement.",
+              "classical_text_citation": "Mayamata 25.42: Secondary vertical access permitted in Vāyu sector."
+            },
+            {
+              "zone": "SE (South-East / Agni)",
+              "rank": 5,
+              "suitability": "TOLERABLE WITH CORRECTION",
+              "vastu_score": 40,
+              "elemental_rationale": "Fire (Agni) element. Permissible strictly for external service stairs on the eastern flank of the southern wing. Internal heavy stairs here clash with subtle culinary fire and may trigger family impatience.",
+              "classical_text_citation": "Samarāṅgaṇa Sūtradhāra 55.18."
+            },
+            {
+              "zone": "N (North / Uttara)",
+              "rank": 6,
+              "suitability": "INAUSPICIOUS (Defect)",
+              "vastu_score": -60,
+              "elemental_rationale": "Water / Kubera quadrant. Imposes an oppressive structural load over the gateway of financial opportunity and prāṇic inflow, causing continuous financial obstruction.",
+              "classical_text_citation": "Viśvakarma Prakāśa 7.42."
+            },
+            {
+              "zone": "E (East / Pūrva)",
+              "rank": 7,
+              "suitability": "INAUSPICIOUS (Defect)",
+              "vastu_score": -70,
+              "elemental_rationale": "Solar / Indra quadrant. Casts massive early-morning structural shadows over the house, denying inhabitants the life-affirming ultraviolet rays essential for cellular health and prestige.",
+              "classical_text_citation": "Manuṣyālaya Candrikā 3.30."
+            },
+            {
+              "zone": "NE (North-East / Īśāna)",
+              "rank": 8,
+              "suitability": "FATAL MAHĀ-DOṢA (Strictly Prohibited)",
+              "vastu_score": -100,
+              "elemental_rationale": "Supreme spiritual consciousness quadrant. Crushes the delicate skull of the Vāstupuruṣa with immense dead-load. Generates relentless mental agitation, neuroses, loss of children, and financial annihilation.",
+              "classical_text_citation": "Śilparatna I.16.2: 'Varjayed īśāne madhye ca sopānam sarvathā budhaḥ' (The wise must strictly and completely avoid stairs in the North-East and in the Center). Bṛhat Saṃhitā 53.56."
+            },
+            {
+              "zone": "BRAHMASTHANA (Center / Madhyama-pada)",
+              "rank": 9,
+              "suitability": "FATAL MAHĀ-DOṢA (Strictly Prohibited)",
+              "vastu_score": -100,
+              "elemental_rationale": "Cosmic Ether (Ākāśa) core. Constructing a staircase in the central 9 padas pierces the vital heart (Hṛdaya-vedha) and navel (Nābhi-vedha) of the cosmic being, inducing heart ailments, insolvency, and domestic chaos.",
+              "classical_text_citation": "Śilparatna I.16.2: 'Varjayed... madhye ca'. Bṛhat Saṃhitā 53.55: Marma-vedha doctrine."
+            }
+          ]
+        },
+        {
+          "category": "Direction of Ascent & Rotational Turn",
+          "evaluations": [
+            {
+              "direction": "Clockwise Rotation (Pradakṣiṇāvarta / Right-Hand Turn)",
+              "suitability": "MANDATORY & HIGHLY AUSPICIOUS",
+              "vastu_score": 100,
+              "biomechanical_and_cosmic_rationale": "The ascending human body turns toward the right, following the natural cosmic path of the Sun (Sūryāvarta) and harmonious Coriolis vorticity. This generates an uplifting centripetal pranic vortex that strengthens vitality and mental resolve.",
+              "classical_text_citation": "Śilparatna I.16.8: 'Pradakṣiṇāvarta-gataṃ sopānam śubhadaṃ bhavet' (A staircase turning clockwise confers immense auspiciousness). Manuṣyālaya Candrikā 3.32."
+            },
+            {
+              "direction": "Counter-Clockwise Rotation (Apradakṣiṇāvarta / Left-Hand Turn)",
+              "suitability": "STRICTLY PROHIBITED (Major Defect)",
+              "vastu_score": -100,
+              "biomechanical_and_cosmic_rationale": "Turning left against the sun creates a retrograde (Vāmāvarta) torsional drag. Inhabitants climbing counter-clockwise experience subtle neuro-vestibular friction, leading to disorientation, professional blockages, and family discord.",
+              "classical_text_citation": "Śilparatna I.16.9: 'Apradakṣiṇam aśubham' (Counter-clockwise is inauspicious and brings destruction)."
+            },
+            {
+              "direction": "Initial Ascent Vector (Starting Direction)",
+              "suitability": "EAST TO WEST OR NORTH TO SOUTH",
+              "vastu_score": 90,
+              "biomechanical_and_cosmic_rationale": "The climber should step onto the first riser facing East (toward solar illumination) or North (toward magnetic polarity), progressing upward into the heavy grounding quadrants of South and West.",
+              "classical_text_citation": "Samarāṅgaṇa Sūtradhāra 55.15."
+            }
+          ]
+        },
+        {
+          "category": "Detailed Step Count Matrix (Modulo 3 and Parity Analysis)",
+          "step_evaluations": [
+            {
+              "step_count": 9,
+              "parity": "Odd",
+              "modulo_3": "0 (Vyaya / Loss)",
+              "verdict": "AVOID",
+              "vastu_score": -60,
+              "notes": "Although odd, 9 is divisible by 3 (Vyaya). Causes financial drain and depleted physical energy."
+            },
+            {
+              "step_count": 11,
+              "parity": "Odd",
+              "modulo_3": "2 (Jaya / Victory)",
+              "verdict": "OPTIMAL / SUPREME",
+              "vastu_score": 100,
+              "notes": "Ideal flight count for single-run or residential split-level stairs. Endows occupants with triumph and steady growth."
+            },
+            {
+              "step_count": 13,
+              "parity": "Odd",
+              "modulo_3": "1 (Indu / Moon)",
+              "verdict": "CLASSICALLY AUSPICIOUS",
+              "vastu_score": 85,
+              "notes": "Fully auspicious in classical Sanskrit śāstras (Indu remainder confers peaceful sustenance). Note: Modern clients influenced by Western triskaidekaphobia may request 11 or 15/17 instead; classically, 13 is thoroughly valid."
+            },
+            {
+              "step_count": 15,
+              "parity": "Odd",
+              "modulo_3": "0 (Vyaya / Loss)",
+              "verdict": "DEFECTIVE (Avoid)",
+              "vastu_score": -60,
+              "notes": "Commonly misidentified by folk practitioners as good simply because it is odd. Fails modulo 3 (15 % 3 = 0, Vyaya). Results in unexpected expenditure. Rectify by adding 2 steps to make 17."
+            },
+            {
+              "step_count": 17,
+              "parity": "Odd",
+              "modulo_3": "2 (Jaya / Victory)",
+              "verdict": "OPTIMAL / SUPREME",
+              "vastu_score": 100,
+              "notes": "The most widely recommended classical residential floor-to-floor count. Accommodates standard 9.5-foot to 10-foot floor heights (17 risers of ~6.8 to 7 inches). Conveys immense victory and prosperity."
+            },
+            {
+              "step_count": 19,
+              "parity": "Odd",
+              "modulo_3": "1 (Indu / Moon)",
+              "verdict": "HIGHLY AUSPICIOUS",
+              "vastu_score": 95,
+              "notes": "Excellent for 10.5-foot to 11-foot ceilings. Combines odd parity with Indu sovereignty, fostering tranquility and mental health."
+            },
+            {
+              "step_count": 21,
+              "parity": "Odd",
+              "modulo_3": "0 (Vyaya / Loss)",
+              "verdict": "DEFECTIVE (Avoid)",
+              "vastu_score": -60,
+              "notes": "Frequently chosen erroneously due to the sacred number 21 in rituals; however, for staircase steps, 21 % 3 = 0 (Vyaya / Death/Loss). Leads to stagnation and business loss. Adjust flight to 23 steps."
+            },
+            {
+              "step_count": 23,
+              "parity": "Odd",
+              "modulo_3": "2 (Jaya / Victory)",
+              "verdict": "OPTIMAL / SUPREME",
+              "vastu_score": 100,
+              "notes": "Superb count for grand duplexes or tall 12-foot floor heights. Jaya remainder yields compounding success and honors."
+            }
+          ]
+        },
+        {
+          "category": "Under-Stair Space Prohibitions (Sopāna-Adhastāt Niyama)",
+          "prohibitions": [
+            {
+              "usage": "Pūjā Mandir / Divine Altar",
+              "status": "EXTREME SACRILEGE (Mahā-Doṣa)",
+              "vastu_score": -100,
+              "impact": "Walking over the heads of sacred devatās creates intense negative karma (Devatā-avajñā). Leads to spiritual destruction, psychiatric unrest, and sudden reversals of fortune.",
+              "classical_injunction": "Manuṣyālaya Candrikā 3.34: Sacred shrines must always enjoy unencumbered vertical space up to the sky."
+            },
+            {
+              "usage": "Toilet / Water Closet (WC)",
+              "status": "SEVERE DEFECT (Mahā-Doṣa)",
+              "vastu_score": -100,
+              "impact": "Trap for stagnant, compressed waste prāṇa. The downward gravitational thrust of the staircase combined with the foul emanation of excrement creates a toxic tāmasic vortex, causing chronic abdominal diseases, hormonal collapse, and family acrimony.",
+              "classical_injunction": "Śilparatna I.16.14: The under-stair void must never be tainted with bodily waste."
+            },
+            {
+              "usage": "Drinking Water Sump / Borewell / Water Pump",
+              "status": "SEVERE ELEMENTAL CONFLICT",
+              "vastu_score": -100,
+              "impact": "Water beneath heavy stone/concrete steps creates an elemental clash (crushed Jala-tattva). Leads to emotional instability, kidney disorders, and wealth leakage.",
+              "classical_injunction": "Mayamata 25.46: Water springs and reservoirs must never be positioned under vertical transit."
+            },
+            {
+              "usage": "Bed for Sleeping / Master Bedroom",
+              "status": "OPPRESSIVE HEALTH HAZARD",
+              "vastu_score": -85,
+              "impact": "The inclined diagonal waist slab creates a continuous sharp gravitational knife effect (Śiro-vedha). Inhabitants sleeping underneath suffer chronic migraines, nightmares, claustrophobia, and spinal compressions.",
+              "classical_injunction": "Samarāṅgaṇa Sūtradhāra 55.22."
+            },
+            {
+              "usage": "Study Desk / Work Station",
+              "status": "COGNITIVE RESTRICTION",
+              "vastu_score": -80,
+              "impact": "Downward angular slab pressure suppresses the crown cakra, inducing severe mental fatigue, poor academic retention, and intellectual blockages.",
+              "classical_injunction": "D.N. Shukla Vol. I Part III."
+            },
+            {
+              "usage": "Enclosed Inactive Dry Storage / Pantry",
+              "status": "PERMISSIBLE & FUNCTIONAL",
+              "vastu_score": 75,
+              "impact": "Acceptable if used solely for inert household items (suitcases, seasonal blankets, maintenance tools). Must be enclosed with neat wooden doors and kept meticulously clean and vermin-free.",
+              "classical_injunction": "Manuṣyālaya Candrikā 3.33."
+            },
+            {
+              "usage": "Completely Open, Well-Lit, and Clean",
+              "status": "IDEAL BEST PRACTICE",
+              "vastu_score": 95,
+              "impact": "Leaves air circulating freely without any stagnant pockets of stale energy.",
+              "classical_injunction": "Śilparatna I.16.15."
+            }
+          ]
+        }
+      ],
+      "interpretation": "Staircase Vastu (Sopāna-Vidhi) governs the vertical circulation cores that bridge floor diaphragms and transport energy vertically throughout a multi-storey structure. Mechanically, a staircase represents one of the most substantial dead loads in a building, concentrating severe shear forces and torsional loads at its base stringers. According to the foundational dictum 'Nairṛtye Guru, Īśāne Laghu' (Heavy in the South-West, Light in the North-East), staircases must anchor the terrestrial quadrants (SW, S, W) to counteract overturning moments and preserve the sacred lightness of the North-East and Brahmasthāna. Furthermore, human biomechanics during vertical climbing require that movement follow a clockwise (Pradakṣiṇā) direction, which works cooperatively with the Earth's geomagnetic rotational field. The number of steps must terminate on an odd number so that the ascent concludes with the auspicious right foot, and must yield a remainder of 1 (Indu) or 2 (Jaya) when divided by 3, avoiding the depleting zero remainder of Vyaya (loss).",
+      "variation_note": "Regional traditions reveal subtle structural adaptations: (1) In Kerala's timber architecture (Manuṣyālaya Candrikā), internal stairs were historically rare in single-storey homes and were built as steep wooden companion ladders (Sopāna-paṭṭikā) leading to attic granaries (Taṭṭu), often oriented externally along the veranda perimeter; (2) In North Indian stone and palace architecture (Samarāṅgaṇa Sūtradhāra), broad monumental masonry flights with intermediate resting landings (Sthagitaka) and carved balustrades (Hasti-hasta) were standard, mandating odd counts per individual flight; (3) Folk Vastu often asserts that 'any odd number of steps is acceptable', whereas classical Agamic texts insist on the rigorous modulo 3 filter (excluding 9, 15, and 21 as Vyaya-doṣa); (4) For modern multi-storey buildings with mid-landing turns, classical scholars treat each continuous flight between landings as a distinct energetic movement, while computing the floor-to-floor total for cumulative vibrational harmony."
+    }
+  ],
+  "tools_by_id": {
+    "house-vastu-analyzer": {
+      "ref": "#/tools/0"
+    },
+    "staircase-vastu": {
+      "ref": "#/tools/1"
+    }
+  }
+}

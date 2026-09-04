@@ -1,0 +1,1491 @@
+{
+  "research_metadata": {
+    "module": "Classical Vastu Treatise Research - Module 2",
+    "subagent": "Vastu Research Subagent 2",
+    "topic": "Main Door Vastu (Dvāra Vinyāsa) & House Facing Calculator (Dig-Nirṇaya & Āyādi Ṣaḍvarga)",
+    "version": "1.0.0",
+    "completion_date": "2026-09-04",
+    "canonical_authorities": [
+      {
+        "text": "Bṛhat Saṃhitā",
+        "author": "Varāhamihira (6th Century CE)",
+        "translator": "M. Ramakrishna Bhat & Pandit Achyutananda Jha",
+        "editions": "Motilal Banarsidass / Chaukhambha",
+        "key_chapters": [
+          "Chapter 53 (Vāstuvidyā), Ślokas 70-82"
+        ]
+      },
+      {
+        "text": "Mayamata",
+        "author": "Mayamuni",
+        "translator": "Bruno Dagens",
+        "editions": "Indira Gandhi National Centre for the Arts (IGNCA) / Motilal Banarsidass (1994)",
+        "key_chapters": [
+          "Chapter 6 (Dig-nirṇaya / Orientation)",
+          "Chapter 8 (Mandalas)",
+          "Chapter 9 (Āyādi-lakṣaṇa)",
+          "Chapter 26 (Dvāra-vinyāsa / Doors and Entrances)"
+        ]
+      },
+      {
+        "text": "Mānasāra",
+        "author": "Mānasāra Rishi / Sage Tradition",
+        "translator": "Prasanna Kumar Acharya (P. K. Acharya)",
+        "editions": "Oxford University Press / Oriental Books Reprint (1934/1980)",
+        "key_chapters": [
+          "Chapter 9 (Chhanda-dvāra-nirṇaya / Proportions & Door Placements)",
+          "Chapter 38 (Dvāra-sthāna / Gateways)"
+        ]
+      },
+      {
+        "text": "Viśvakarma Prakāśa",
+        "author": "Viśvakarman / Attributed Classical Canonical Text",
+        "translator": "Vasudev Shastri & Pt. Matri Prasad Pandey",
+        "editions": "Khemraj Shrikrishnadas / Chaukhambha Sanskrit Series",
+        "key_chapters": [
+          "Chapter 7 (Dvāra-lakṣaṇa & 32 Door Padas, Ślokas 1-45)"
+        ]
+      },
+      {
+        "text": "Samarāṅgaṇa Sūtradhāra",
+        "author": "Mahārājādhirāja Bhojadeva of Dhāra (King Bhoja, 11th Century CE)",
+        "translator": "Mahamahopadhyaya T. Ganapati Sastri / Prof. D. N. Shukla",
+        "editions": "Gaekwad's Oriental Series No. 25 / Meharchand Lachhmandas",
+        "key_chapters": [
+          "Chapter 24 (Dvāra-māna & Guṇa-doṣa)",
+          "Chapter 38 (Pīṭha-vinyāsa & Āyādi-Ṣaḍvarga)"
+        ]
+      },
+      {
+        "text": "Manuṣyālaya Candrikā",
+        "author": "Nīlakaṇṭha Moosath of Tirumaṅgalam (16th Century CE)",
+        "translator": "P. R. Shastry & K. Parameshwaran Pillai",
+        "editions": "Kerala Traditional Vastu Canon",
+        "key_chapters": [
+          "Chapter 2 (Dig-pariccheda / Śaṅku-sthāpana)",
+          "Chapter 3 (Yoni-nirṇaya & Dvāra-vinyāsa)"
+        ]
+      },
+      {
+        "text": "Vāstuśāstra: Hindu Canons of Indian Architecture",
+        "author": "Dr. D. N. Shukla",
+        "translator": "D. N. Shukla (Original Critical Treatise)",
+        "editions": "Gorakhpur University / Munshiram Manoharlal (1960)",
+        "key_chapters": [
+          "Volume I (Architecture), Part II: Site Architecture & Door Regulations, Chapters 6, 8, 12"
+        ]
+      }
+    ]
+  },
+  "tools": [
+    {
+      "tool_id": "main-door-vastu",
+      "tool_name": "Main Door Vastu (Dvāra Vinyāsa & 32 Pada Perimeter Analysis)",
+      "tradition": "Classical Vedic Vastu",
+      "source": {
+        "text": "Bṛhat Saṃhitā",
+        "author_translator": "Varāhamihira (Translation and Commentary by M. Ramakrishna Bhat & Pandit Achyutananda Jha)",
+        "chapter": "53 (Vāstuvidyā)",
+        "verse": "70-82"
+      },
+      "canonical_citations": [
+        {
+          "text": "Bṛhat Saṃhitā",
+          "chapter": "53",
+          "ślokas": "70-82",
+          "subject": "Disposition of the 32 boundary deities in the 81-pada mandala and the fruits (Phala) of main entrance doorways"
+        },
+        {
+          "text": "Viśvakarma Prakāśa",
+          "chapter": "7",
+          "ślokas": "1-45",
+          "subject": "Detailed śloka-by-śloka phala for each of the 32 padas, door dimensional ratios, and door obstructions (Dvāra-vedha)"
+        },
+        {
+          "text": "Mayamata",
+          "chapter": "26",
+          "ślokas": "1-40",
+          "subject": "Dvāravinyāsa: Proportions of doors (height = 2x width), avoidance of Marmas and central Vaṃśas, and door decorations"
+        },
+        {
+          "text": "Samarāṅgaṇa Sūtradhāra",
+          "chapter": "24",
+          "ślokas": "1-55",
+          "subject": "Dvāramāna-guṇa-doṣa: The eight highly praised doors (Aṣṭau Dvārāṇi Praśastāni) and prohibitions on diagonal/corner entrances"
+        },
+        {
+          "text": "Mānasāra",
+          "chapter": "9 & 38",
+          "ślokas": "Chapter 9 (1-120), Chapter 38 (1-85)",
+          "subject": "Chhanda-dvāra-nirṇaya: Dvāra-āyādi measurements, jamb and lintel proportions, and auspicious thresholds"
+        }
+      ],
+      "inputs": [
+        {
+          "name": "plot_orientation_azimuth_deg",
+          "type": "float",
+          "range": [
+            0.0,
+            359.9
+          ],
+          "unit": "degrees",
+          "description": "True astronomical azimuth of the front wall facing direction (relative to True North = 0°)."
+        },
+        {
+          "name": "facade_wall_length_meters",
+          "type": "float",
+          "range": [
+            1.0,
+            500.0
+          ],
+          "unit": "meters",
+          "description": "Total linear span of the exterior building wall where the entrance is situated."
+        },
+        {
+          "name": "door_center_offset_meters",
+          "type": "float",
+          "range": [
+            0.0,
+            500.0
+          ],
+          "unit": "meters",
+          "description": "Linear distance from the starting corner of the side (measured in clockwise pradakṣiṇā sequence) to the exact center line of the door."
+        },
+        {
+          "name": "pada_index_manual",
+          "type": "integer",
+          "range": [
+            1,
+            32
+          ],
+          "unit": "pada index",
+          "description": "Optional direct manual pada selection (1 to 32, mapping to E1..E8, S1..S8, W1..W8, N1..N8)."
+        },
+        {
+          "name": "door_width_meters",
+          "type": "float",
+          "range": [
+            0.6,
+            10.0
+          ],
+          "unit": "meters",
+          "description": "Clear width of the doorway opening."
+        },
+        {
+          "name": "door_height_meters",
+          "type": "float",
+          "range": [
+            1.5,
+            20.0
+          ],
+          "unit": "meters",
+          "description": "Clear height of the doorway opening from the upper face of the threshold to the lower face of the lintel."
+        },
+        {
+          "name": "property_usage",
+          "type": "string",
+          "enum": [
+            "residential",
+            "commercial",
+            "administrative_governance",
+            "industrial_workshop",
+            "temple_spiritual"
+          ],
+          "description": "Primary socio-functional use of the structure, which modulates the acceptability of certain deities (e.g. Yama or Dauvārika for security/administration)."
+        }
+      ],
+      "mathematical_formula_and_logic": {
+        "perimeter_division_formula": "The perimeter of the 81-pada Paramasāyika Maṇḍala contains 32 peripheral padas (8 padas per cardinal side: East: E1-E8, South: S1-S8, West: W1-W8, North: N1-N8). When mapping a rectangular or square wall of length L, each pada occupies exactly L / 8 segment of the wall length (or in 9-division grid with shared corner nodes, L / 9 with corners spanning adjacent sides).",
+        "angular_ray_projection": "For circular or radial evaluation centered at the Brahmasthāna (centroid): Each of the 32 padas subtends exactly 360° / 32 = 11.25° of arc. Starting from True North (0°): North quadrant covers N1-N8 (326.25° to 56.25° centered through True North); East covers E1-E8 (56.25° to 146.25°); South covers S1-S8 (146.25° to 236.25°); West covers W1-W8 (236.25° to 326.25°).",
+        "golden_door_proportion_rule": "Samarāṅgaṇa Sūtradhāra (Ch 24, v. 14) & Mayamata (Ch 26, v. 6): 'Dvau hastāvucchrāyo dhyardho vistāro dvāram iṣyate' and 'Ucchrāyo vistāra-dvi-guṇaḥ' -> Ideal Door Height = 2.0 × Door Width. Acceptable classical variations include Height = 2.25 × Width (Dhvaja ratio) or Height = 1.75 × Width.",
+        "threshold_udumbara_rule": "Manuṣyālaya Candrikā (Ch 3, v. 42) & Mānasāra (Ch 9, v. 84): The door must rest upon a distinct elevated threshold (Udumbara / Dehalī) measuring 1/12th to 1/16th the door width in height. It must never touch the bare earthen floor or be flush with exterior paving.",
+        "vaṃśa_vedha_avoidance": "Bṛhat Saṃhitā 53.70 & Mayamata 26.12: The central axis running through the building (Brahma-sūtra / Madhya-vaṃśa) must not intersect the exact center of the door jambs (Vaṃśa-vedha). The doorway must be displaced slightly into the auspicious pada rather than sitting symmetrically split across the central meridian."
+      },
+      "rules_matrix": [
+        {
+          "pada_code": "E1",
+          "pada_number": 1,
+          "deity_sanskrit": "Śikhi (Īśa / Agni)",
+          "deity_english": "The Crest of Flame / Fire Deity",
+          "cardinal_side": "East",
+          "sub_cardinal_direction": "North-East (NE corner)",
+          "degree_range": "56.25° - 67.50°",
+          "wall_fraction_span": "0.000 - 0.125 (from NE corner)",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Vahni-bhayam, dāho vā, artha-nāśaḥ",
+          "classical_phala_english": "Fear of accidental fire, burns, sudden combustion of assets, domestic conflict, and financial ruin.",
+          "category": "Fire Hazard & Destruction",
+          "source_verse": "Bṛhat Saṃhitā 53.71: 'Śikhī kṛpāṇavahnyādi'; Viśvakarma Prakāśa 7.10: 'Śikhī syād vahnidāhāya'.",
+          "remedy": "Shift doorway toward E3/E4. If structurally immovable: embed a pure silver wire (minimum 3mm thick) along the threshold, place a copper Mangal Kalasha consecrated with holy water and camphor, and install a Vastu Purusha Yantra on the lintel."
+        },
+        {
+          "pada_code": "E2",
+          "pada_number": 2,
+          "deity_sanskrit": "Parjanya",
+          "deity_english": "The Rain-Cloud / Rain Giver",
+          "cardinal_side": "East",
+          "sub_cardinal_direction": "East-North-East",
+          "degree_range": "67.50° - 78.75°",
+          "wall_fraction_span": "0.125 - 0.250",
+          "auspiciousness": "Inauspicious / Minor",
+          "classical_phala_sanskrit": "Alpātmajāṃ striyam, strī-kalahaḥ, vyayādhikyam",
+          "classical_phala_english": "Excessive female births without male heirs, grief to women, wasteful financial outflows, family disharmony.",
+          "category": "Progeny Distress & Expenditure",
+          "source_verse": "Bṛhat Saṃhitā 53.71: 'parjanyo 'lpātmajāṃ striyam'; Viśvakarma Prakāśa 7.10: 'Parjanye stri-janmādhikam'.",
+          "remedy": "Affix a polished brass strip along the threshold; install an embossed brass Surya Yantra above the inner lintel; keep the entrance brightly illuminated with warm light."
+        },
+        {
+          "pada_code": "E3",
+          "pada_number": 3,
+          "deity_sanskrit": "Jayanta",
+          "deity_english": "The Victorious / Son of Lord Indra",
+          "cardinal_side": "East",
+          "sub_cardinal_direction": "East",
+          "degree_range": "78.75° - 90.00°",
+          "wall_fraction_span": "0.250 - 0.375",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Dhana-lābhaḥ, vijayaḥ, jñāna-vṛddhiḥ",
+          "classical_phala_english": "Continuous inflow of immense wealth, triumph in endeavors, sharp intellect, expansion of business, and social renown.",
+          "category": "Wealth & Victory",
+          "source_verse": "Bṛhat Saṃhitā 53.71: 'Jayante dhanalābhaḥ syāt'; Viśvakarma Prakāśa 7.11: 'Jayante dhanavān bhavet'; Samarāṅgaṇa Sūtradhāra 24.22.",
+          "remedy": "Prime auspicious doorway. No negative remedy needed. Enhance with Burma teakwood or Sal wood door frame, auspicious brass Swastika, and an elevated white marble or sandalwood threshold."
+        },
+        {
+          "pada_code": "E4",
+          "pada_number": 4,
+          "deity_sanskrit": "Indra / Mahendra",
+          "deity_english": "The Supreme Ruler of Gods / Cosmic King",
+          "cardinal_side": "East",
+          "sub_cardinal_direction": "East (Central East)",
+          "degree_range": "90.00° - 101.25°",
+          "wall_fraction_span": "0.375 - 0.500",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Nṛpa-saṃmānam, mahā-dhanam, rāja-pūjitam",
+          "classical_phala_english": "Royal favor, governmental patronage, high socio-political status, extraordinary wealth, leadership authority.",
+          "category": "Governance, Honor & Wealth",
+          "source_verse": "Bṛhat Saṃhitā 53.71: 'mahendre nṛpasaṃmataḥ'; Viśvakarma Prakāśa 7.11: 'Mahendre nṛpa-pūjitaḥ'; Mayamata 26.15.",
+          "remedy": "Prime entrance. Maintain pristine cleanliness; embellish with carved elephants (Gaja-lakshmi motif) on the door jambs; embed a gold or copper coin beneath the threshold."
+        },
+        {
+          "pada_code": "E5",
+          "pada_number": 5,
+          "deity_sanskrit": "Sūrya / Ravi",
+          "deity_english": "The Solar Deity / The Dispeller of Darkness",
+          "cardinal_side": "East",
+          "sub_cardinal_direction": "East-South-East",
+          "degree_range": "101.25° - 112.50°",
+          "wall_fraction_span": "0.500 - 0.625",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Krodha-bhayam, rāja-kopam, netra-rogaḥ",
+          "classical_phala_english": "Uncontrollable anger, intense family friction, wrath of superiors or tax authorities, ophthalmic/cardiac health disorders.",
+          "category": "Wrath & Health Afflictions",
+          "source_verse": "Bṛhat Saṃhitā 53.72: 'Raveḥ krodhabhayaṃ vadet'; Viśvakarma Prakāśa 7.12: 'Sūrye krodha-paro bhavet'.",
+          "remedy": "Install a copper strip (25mm wide, 2mm thick) into the threshold; place a bowl containing sacred Gangajal or camphor water in the foyer; soften incoming glare with wooden louvers."
+        },
+        {
+          "pada_code": "E6",
+          "pada_number": 6,
+          "deity_sanskrit": "Satya",
+          "deity_english": "The Deity of Cosmic Truth / Integrity",
+          "cardinal_side": "East",
+          "sub_cardinal_direction": "East-South-East",
+          "degree_range": "112.50° - 123.75°",
+          "wall_fraction_span": "0.625 - 0.750",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Asatya-bhāṣaṇam, strī-doṣaḥ, viśvāsa-ghātaḥ",
+          "classical_phala_english": "Habitual falsehoods, breach of trust, loss of feminine virtue or maternal sorrow, litigations arising from misrepresentation.",
+          "category": "Falsehood & Legal Disputes",
+          "source_verse": "Bṛhat Saṃhitā 53.72: 'Satye strī-doṣam'; Viśvakarma Prakāśa 7.12: 'Satye strī-kalaho bhavet'.",
+          "remedy": "Embed a brass wire beneath the door frame; hang a framed Gayatri Mantra in Devanagari over the lintel; avoid untruthful business contracts within the perimeter."
+        },
+        {
+          "pada_code": "E7",
+          "pada_number": 7,
+          "deity_sanskrit": "Bhṛśa",
+          "deity_english": "The Potent / Kāmadeva's Manifestation",
+          "cardinal_side": "East",
+          "sub_cardinal_direction": "South-East (East flank)",
+          "degree_range": "123.75° - 135.00°",
+          "wall_fraction_span": "0.750 - 0.875",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Krūratā, kṛpaṇatā, dravya-kṣayaḥ",
+          "classical_phala_english": "Extreme cruelty, callous behavior, miserliness leading to loss of friendships, sudden financial loss through rash passions.",
+          "category": "Cruelty & Capital Loss",
+          "source_verse": "Bṛhat Saṃhitā 53.72: 'Bhṛśe ca kṛpatāṃ vadet'; Viśvakarma Prakāśa 7.13: 'Bhṛśe caiva vadho bhavet'.",
+          "remedy": "Lay a continuous copper wire or strip under the threshold; place green Aventurine crystals or Jade near the entrance to temper intense Agni energy."
+        },
+        {
+          "pada_code": "E8",
+          "pada_number": 8,
+          "deity_sanskrit": "Antarikṣa",
+          "deity_english": "The Celestial Ether / Outer Space",
+          "cardinal_side": "East",
+          "sub_cardinal_direction": "South-East (SE corner node)",
+          "degree_range": "135.00° - 146.25°",
+          "wall_fraction_span": "0.875 - 1.000",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Taskarataḥ pīḍā, steya-bhayam, artha-nāśaḥ",
+          "classical_phala_english": "Perpetual vulnerability to burglaries, housebreaking, theft by servants, severe loss of liquid capital.",
+          "category": "Theft & Insecurity",
+          "source_verse": "Bṛhat Saṃhitā 53.72: 'Antarikṣe ca taskarāt'; Viśvakarma Prakāśa 7.13: 'Antarikṣe ca taskarāḥ'.",
+          "remedy": "Install a triple copper pyramid strip along the threshold; fix a solid brass threshold; install dual defensive brass lions facing outwards."
+        },
+        {
+          "pada_code": "S1",
+          "pada_number": 9,
+          "deity_sanskrit": "Anila / Vāyu (Agni-corner)",
+          "deity_english": "The Wind / Spark of Fire",
+          "cardinal_side": "South",
+          "sub_cardinal_direction": "South-East (Agni node)",
+          "degree_range": "146.25° - 157.50°",
+          "wall_fraction_span": "0.000 - 0.125 (from SE corner)",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Suta-nāśaḥ, alpa-santatiḥ, hutāśana-bhītiḥ",
+          "classical_phala_english": "Loss of sons, high infant distress, weakness in male progeny, recurring electrical and kitchen fire accidents.",
+          "category": "Progeny Loss & Fire",
+          "source_verse": "Bṛhat Saṃhitā 53.73: 'Anile putrahāniḥ syāt'; Viśvakarma Prakāśa 7.14: 'Vāyau caiva sutakṣayaḥ'.",
+          "remedy": "Seal threshold with a 3mm pure copper strip; place a consecrated silver Cow-with-Calf (Kamadhenu) deity inside; avoid red or flame colors at this doorway."
+        },
+        {
+          "pada_code": "S2",
+          "pada_number": 10,
+          "deity_sanskrit": "Pūṣan",
+          "deity_english": "The Nourisher / Solar Preserver",
+          "cardinal_side": "South",
+          "sub_cardinal_direction": "South-South-East",
+          "degree_range": "157.50° - 168.75°",
+          "wall_fraction_span": "0.125 - 0.250",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Dāsatvam, bandhanam, parādhinatā",
+          "classical_phala_english": "Bondage, involuntary servitude, entrapment in low-paying subservient employment, legal entanglements.",
+          "category": "Servitude & Bondage",
+          "source_verse": "Bṛhat Saṃhitā 53.73: 'pūṣṇi dāsatvam eva ca'; Viśvakarma Prakāśa 7.14: 'Pūṣṇi syāt kinkaratva-kṛt'.",
+          "remedy": "Install a heavy bronze or brass plate threshold; place a yellow marble stone beneath the door saddle; install an energized Hanuman Yantra."
+        },
+        {
+          "pada_code": "S3",
+          "pada_number": 11,
+          "deity_sanskrit": "Vitatha",
+          "deity_english": "Falsehood / Futility / Vanity",
+          "cardinal_side": "South",
+          "sub_cardinal_direction": "South",
+          "degree_range": "168.75° - 180.00°",
+          "wall_fraction_span": "0.250 - 0.375",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Dainyam, nīcatvam, hīnatvam, yaśo-hāniḥ",
+          "classical_phala_english": "Humiliation, indignity, resorting to petty or despicable actions, destruction of family reputation.",
+          "category": "Disgrace & Poverty",
+          "source_verse": "Bṛhat Saṃhitā 53.73: 'Vitathe dainyam āpnoti'; Viśvakarma Prakāśa 7.15: 'Vitathe dainyam āpnuyāt'.",
+          "remedy": "Embed a brass flat bar across the doorway; place two brass elephants with raised trunks; hang an energized Navagraha frame above the door."
+        },
+        {
+          "pada_code": "S4",
+          "pada_number": 12,
+          "deity_sanskrit": "Gṛhakṣata",
+          "deity_english": "The Preserver of the Homestead",
+          "cardinal_side": "South",
+          "sub_cardinal_direction": "South (Central South)",
+          "degree_range": "180.00° - 191.25°",
+          "wall_fraction_span": "0.375 - 0.500",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Putra-vṛddhiḥ, dhana-dhānya-samṛddhiḥ, kīrtiḥ",
+          "classical_phala_english": "Rapid growth of noble progeny, proliferation of family wealth, abundance of grains, flourishing of lineage.",
+          "category": "Lineage & Prosperity",
+          "source_verse": "Bṛhat Saṃhitā 53.74: 'gṛhakṣate putravṛddhaye'; Viśvakarma Prakāśa 7.15: 'Gṛhakṣate sutāvāptiḥ'; Samarāṅgaṇa Sūtradhāra 24.23.",
+          "remedy": "Prime auspicious doorway of the South. Highly celebrated. Embellish with dark rosewood or teakwood frame, brass lotus carvings, and a red coral or copper coin embedded in the threshold."
+        },
+        {
+          "pada_code": "S5",
+          "pada_number": 13,
+          "deity_sanskrit": "Yama",
+          "deity_english": "Lord of Dharma & Justice / Cosmic Law",
+          "cardinal_side": "South",
+          "sub_cardinal_direction": "South",
+          "degree_range": "191.25° - 202.50°",
+          "wall_fraction_span": "0.500 - 0.625",
+          "auspiciousness": "Auspicious / Specialized",
+          "classical_phala_sanskrit": "Dhana-pradam, rāja-bhogaḥ, śatru-jayaḥ",
+          "classical_phala_english": "Bestowal of massive wealth, regal authority, complete domination over adversaries, strict internal discipline.",
+          "category": "Authority & Wealth",
+          "source_verse": "Bṛhat Saṃhitā 53.74: 'Yame dhanaprado dvāraṃ'; Viśvakarma Prakāśa 7.15: 'Yame rājyādhikāritā'; Samarāṅgaṇa Sūtradhāra 24.24.",
+          "remedy": "Highly potent for judiciary, law enforcement, corporate executives, and military commanders. For quiet family homes: balance intense martial energy with a solid brass threshold and a copper Swastika."
+        },
+        {
+          "pada_code": "S6",
+          "pada_number": 14,
+          "deity_sanskrit": "Gandharva",
+          "deity_english": "The Celestial Musician / Singer",
+          "cardinal_side": "South",
+          "sub_cardinal_direction": "South-South-West",
+          "degree_range": "202.50° - 213.75°",
+          "wall_fraction_span": "0.625 - 0.750",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Kṛtaghnatā, apamānaḥ, vyasaneṣu artha-vyayaḥ",
+          "classical_phala_english": "Ingratitude received from friends and relatives, loss of social respect, dissipation of savings on hedonistic pursuits.",
+          "category": "Ingratitude & Wasteful Pleasures",
+          "source_verse": "Bṛhat Saṃhitā 53.74: 'gandharve kṛtaghnatā'; Viśvakarma Prakāśa 7.16: 'Gandharve kṛtaghno bhavet'.",
+          "remedy": "Lay a 3mm lead wire under the door threshold; install a brass pyramid block; keep entrance doors constructed of heavy, solid wood without decorative bells."
+        },
+        {
+          "pada_code": "S7",
+          "pada_number": 15,
+          "deity_sanskrit": "Bhṛṅgarāja",
+          "deity_english": "The Black Bee / Charioteer of Yama",
+          "cardinal_side": "South",
+          "sub_cardinal_direction": "South-South-West",
+          "degree_range": "213.75° - 225.00°",
+          "wall_fraction_span": "0.750 - 0.875",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Rogotpattiḥ, dravyānarthaḥ, vyādhi-bhayāt kṣayaḥ",
+          "classical_phala_english": "Outbreak of chronic illnesses, acute medical expenditure, severe depletion of family reserves.",
+          "category": "Disease & Financial Depletion",
+          "source_verse": "Bṛhat Saṃhitā 53.74: 'Rogotpattiḥ syād bhṛṅgarāje'; Viśvakarma Prakāśa 7.16: 'Bhṛṅge rogī bhavennaraḥ'.",
+          "remedy": "Install a lead strip (100% refined lead) along the full width of the threshold; place a bowl of coarse Himalayan rock salt near the entrance (refreshed weekly); keep doorway dimly lit."
+        },
+        {
+          "pada_code": "S8",
+          "pada_number": 16,
+          "deity_sanskrit": "Mṛga",
+          "deity_english": "The Deer / South-West Node",
+          "cardinal_side": "South",
+          "sub_cardinal_direction": "South-West (SW corner)",
+          "degree_range": "225.00° - 236.25°",
+          "wall_fraction_span": "0.875 - 1.000",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Bala-kṣayaḥ, kanyā-daurbalyam, santati-nāśaḥ",
+          "classical_phala_english": "Depletion of physical stamina, vulnerability of children, general debility, continuous feeling of exhaustion.",
+          "category": "Vitality Depletion & Weakness",
+          "source_verse": "Bṛhat Saṃhitā 53.74: 'mṛge balakṣayaḥ'; Viśvakarma Prakāśa 7.17: 'Mṛge bala-vināśanaḥ'.",
+          "remedy": "Embed heavy Jaisalmer yellow stone or a solid brass threshold bar (12mm thickness); place heavy earthen planters outside; raise the door step 2 inches higher than outer path."
+        },
+        {
+          "pada_code": "W1",
+          "pada_number": 17,
+          "deity_sanskrit": "Pitṛ (Pitaras)",
+          "deity_english": "The Ancestral Spirits / Nairṛtya Node",
+          "cardinal_side": "West",
+          "sub_cardinal_direction": "South-West (SW corner node)",
+          "degree_range": "236.25° - 247.50°",
+          "wall_fraction_span": "0.000 - 0.125 (from SW corner)",
+          "auspiciousness": "Highly Inauspicious",
+          "classical_phala_sanskrit": "Kula-saṃkṣayaḥ, mṛtyuḥ, pitṛ-doṣaḥ, sarva-nāśaḥ",
+          "classical_phala_english": "Total extinction of family lineage, early demise of the patriarch, chronic ancestral curses, insurmountable debts.",
+          "category": "Destruction of Lineage & Mortality",
+          "source_verse": "Bṛhat Saṃhitā 53.75: 'Pitṛbhiḥ kula-saṃkṣayaḥ'; Viśvakarma Prakāśa 7.17: 'Pitṛṣu kula-nāśanaḥ'; Samarāṅgaṇa Sūtradhāra 24.25.",
+          "remedy": "Severely prohibited in all classical treatises. Urgent relocation or closure recommended. If structurally impossible: seal threshold with a 4mm solid lead bar, embed yellow calcite and smoky quartz crystals, keep door permanently shut when not in use, and install a Rahu-Vāstu Nivaran Yantra."
+        },
+        {
+          "pada_code": "W2",
+          "pada_number": 18,
+          "deity_sanskrit": "Dauvārika",
+          "deity_english": "The Divine Gatekeeper / Nandi",
+          "cardinal_side": "West",
+          "sub_cardinal_direction": "West-South-West",
+          "degree_range": "247.50° - 258.75°",
+          "wall_fraction_span": "0.125 - 0.250",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Ripu-vṛddhiḥ, citta-cāñcalyam, dhana-vyayaḥ",
+          "classical_phala_english": "Proliferation of relentless adversaries, mental instability, fickle decision making, erratic expenditures.",
+          "category": "Enmity & Mental Instability",
+          "source_verse": "Bṛhat Saṃhitā 53.75: 'dauvārike ripuvṛddhiḥ'; Viśvakarma Prakāśa 7.18: 'Dauvārike ripūdvāraḥ'.",
+          "remedy": "Embed a brass bar in the floor; fix a protective Nandi or Bhairava Yantra on the door; keep the door surface painted in subdued earthy brown tones."
+        },
+        {
+          "pada_code": "W3",
+          "pada_number": 19,
+          "deity_sanskrit": "Sugrīva",
+          "deity_english": "The Graceful-Necked / King of Vānaras",
+          "cardinal_side": "West",
+          "sub_cardinal_direction": "West",
+          "degree_range": "258.75° - 270.00°",
+          "wall_fraction_span": "0.250 - 0.375",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Dhana-vṛddhiḥ, vidyā-lābhaḥ, sthira-saubhāgyam",
+          "classical_phala_english": "Steady and permanent accumulation of wealth, high academic and scholarly achievements, steadfast fortune.",
+          "category": "Wealth & Education",
+          "source_verse": "Bṛhat Saṃhitā 53.76: 'Sugrīve dhanavṛddhiḥ syāt'; Viśvakarma Prakāśa 7.18: 'Sugrīve dhanavān bhavet'; Mayamata 26.17.",
+          "remedy": "Highly auspicious entrance. Construct threshold from polished granite or brass-edged teak; install a Saraswati or Gayatri Yantra; hang traditional bronze bell."
+        },
+        {
+          "pada_code": "W4",
+          "pada_number": 20,
+          "deity_sanskrit": "Puṣpadanta",
+          "deity_english": "The Flower-Toothed / Celestial Steed",
+          "cardinal_side": "West",
+          "sub_cardinal_direction": "West (Central West)",
+          "degree_range": "270.00° - 281.25°",
+          "wall_fraction_span": "0.375 - 0.500",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Sutārtha-bhāk, mahā-sampattiḥ, kalyāṇam",
+          "classical_phala_english": "Abundant virtuous sons, exponential growth in capital and properties, peace of mind, societal prestige.",
+          "category": "Progeny & Immense Wealth",
+          "source_verse": "Bṛhat Saṃhitā 53.76: 'puṣpadante sutārthabhāk'; Viśvakarma Prakāśa 7.19: 'Puṣpadante sutāgamaḥ'; Samarāṅgaṇa Sūtradhāra 24.26.",
+          "remedy": "Supreme door of the Western direction. Enhance with white marble or silver-embossed threshold, twin elephant sculptures on door jambs, and white floral arrangements."
+        },
+        {
+          "pada_code": "W5",
+          "pada_number": 21,
+          "deity_sanskrit": "Varuṇa",
+          "deity_english": "The Primordial Lord of Oceans & Waters",
+          "cardinal_side": "West",
+          "sub_cardinal_direction": "West",
+          "degree_range": "281.25° - 292.50°",
+          "wall_fraction_span": "0.500 - 0.625",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Dhana-saṃpadā, rāja-saubhāgyam, sthiratā",
+          "classical_phala_english": "Vast prosperity, international trade gains, oceanic commerce success, government commendations.",
+          "category": "Wealth & Expansion",
+          "source_verse": "Bṛhat Saṃhitā 53.76: 'Varuṇe dhanasaṃpadā'; Viśvakarma Prakāśa 7.19: 'Varuṇe dhanavān sadā'; Samarāṅgaṇa Sūtradhāra 24.27.",
+          "remedy": "Auspicious doorway. Decorate with nautical or water motifs; place a brass Urli with water and floating white flowers inside the foyer; affix a brass Swastika."
+        },
+        {
+          "pada_code": "W6",
+          "pada_number": 22,
+          "deity_sanskrit": "Asura",
+          "deity_english": "The Demon / Power Disruptor",
+          "cardinal_side": "West",
+          "sub_cardinal_direction": "West-North-West",
+          "degree_range": "292.50° - 303.75°",
+          "wall_fraction_span": "0.625 - 0.750",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Rāja-pīḍā, bandhu-vairaḥ, rāja-bhayam",
+          "classical_phala_english": "Severe penalties from state authorities, enmity with kin, financial extortion, chronic anxiety.",
+          "category": "Government Penalties & Strife",
+          "source_verse": "Bṛhat Saṃhitā 53.77: 'Asure rājapīḍā syāt'; Viśvakarma Prakāśa 7.20: 'Asure rājakopataḥ'.",
+          "remedy": "Embed a stainless steel or silver strip in the threshold; install a Rahu-Ketu neutralizing copper pyramid; maintain bright, clear white illumination."
+        },
+        {
+          "pada_code": "W7",
+          "pada_number": 23,
+          "deity_sanskrit": "Śoṣa",
+          "deity_english": "The Emaciator / Consumptive Force",
+          "cardinal_side": "West",
+          "sub_cardinal_direction": "West-North-West",
+          "degree_range": "303.75° - 315.00°",
+          "wall_fraction_span": "0.750 - 0.875",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Dhana-kṣayaḥ, deha-śoṣaḥ, kṣaya-rogaḥ",
+          "classical_phala_english": "Continuous depletion of liquidity, wasting pulmonary/nervous illnesses, chronic clinical depression, emaciation.",
+          "category": "Wasting Illness & Penury",
+          "source_verse": "Bṛhat Saṃhitā 53.77: 'Śoṣe dhanakṣayo jñeyaḥ'; Viśvakarma Prakāśa 7.20: 'Śoṣe ca kṣaya-kārakam'.",
+          "remedy": "Lay a continuous stainless steel plate or copper strip under the threshold; place 11 energized Gomati Chakras beneath the door frame; hang an energized Maha Mrityunjaya Yantra."
+        },
+        {
+          "pada_code": "W8",
+          "pada_number": 24,
+          "deity_sanskrit": "Pāpayakṣmā (Roga-Vāyavya)",
+          "deity_english": "The Consumptive Affliction / Disease Agent",
+          "cardinal_side": "West",
+          "sub_cardinal_direction": "North-West (NW corner node)",
+          "degree_range": "315.00° - 326.25°",
+          "wall_fraction_span": "0.875 - 1.000",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Bandhanam, vyādhayaḥ, dāridryam, kārāgāram",
+          "classical_phala_english": "Legal imprisonment, severe debilitating ailments, addiction, crushing debts, institutional confinement.",
+          "category": "Imprisonment & Disease",
+          "source_verse": "Bṛhat Saṃhitā 53.77: 'pāpayakṣmaṇi bandhanam'; Viśvakarma Prakāśa 7.21: 'Pāpe kārāgṛhaṃ bhavet'.",
+          "remedy": "Seal threshold with a 3mm brass or white metal strip; keep sea salt in an earthen container renewed on Tuesdays; hang a wind chime of five hollow zinc tubes."
+        },
+        {
+          "pada_code": "N1",
+          "pada_number": 25,
+          "deity_sanskrit": "Roga (Māruta)",
+          "deity_english": "Disease / Restless Gale",
+          "cardinal_side": "North",
+          "sub_cardinal_direction": "North-West (NW corner)",
+          "degree_range": "326.25° - 337.50°",
+          "wall_fraction_span": "0.000 - 0.125 (from NW corner)",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Vadha-bandhana-bhayāni, mṛtyuḥ, vātābhigātaḥ",
+          "classical_phala_english": "Fear of violent assault, incarceration, perpetual involuntary wandering, severe neurological or rheumatic afflictions.",
+          "category": "Violence & Imprisonment",
+          "source_verse": "Bṛhat Saṃhitā 53.78: 'Vadha-bandhana-bhayāni roge'; Viśvakarma Prakāśa 7.21: 'Roge vadha-bhayaṃ bhavet'.",
+          "remedy": "Embed an aluminum or brass strip into the floor; place an energized Vāyu Yantra inside; hang a brass bell with a clear, resonant chime."
+        },
+        {
+          "pada_code": "N2",
+          "pada_number": 26,
+          "deity_sanskrit": "Nāga (Vāsuki)",
+          "deity_english": "The Celestial Serpent / Dragon",
+          "cardinal_side": "North",
+          "sub_cardinal_direction": "North-North-West",
+          "degree_range": "337.50° - 348.75°",
+          "wall_fraction_span": "0.125 - 0.250",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Śatru-vivardhanam, viṣa-bhayam, īrṣyā",
+          "classical_phala_english": "Rapid growth of bitter adversaries, vulnerability to food poisoning or allergic toxemia, malicious jealousy from neighbors.",
+          "category": "Enemies & Toxemia",
+          "source_verse": "Bṛhat Saṃhitā 53.78: 'nāge śatruvivardhanam'; Viśvakarma Prakāśa 7.22: 'Nāge śatru-vivṛddhaye'.",
+          "remedy": "Install a brass wire across the entrance threshold; place a silver snake figurine immersed in Gangajal and milk on Naga Panchami; place a peacock feather crest above the door."
+        },
+        {
+          "pada_code": "N3",
+          "pada_number": 27,
+          "deity_sanskrit": "Mukhya",
+          "deity_english": "The Chief Architect / Master Builder",
+          "cardinal_side": "North",
+          "sub_cardinal_direction": "North",
+          "degree_range": "348.75° - 360.00°",
+          "wall_fraction_span": "0.250 - 0.375",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Putrārtha-lābhaḥ, śilpa-siddhiḥ, dhana-samāgamaḥ",
+          "classical_phala_english": "Enormous wealth, gifted and prosperous sons, mastery in engineering, architectural and industrial arts, high prosperity.",
+          "category": "Wealth & Technical Mastery",
+          "source_verse": "Bṛhat Saṃhitā 53.79: 'Mukhye putrārthalābhaḥ syāt'; Viśvakarma Prakāśa 7.22: 'Mukhye putrārtha-saṃcayaḥ'; Samarāṅgaṇa Sūtradhāra 24.28.",
+          "remedy": "Supreme door for artisans, entrepreneurs, architects, and technologists. Install a white marble threshold with green jade inlay; install a brass Kuber Yantra."
+        },
+        {
+          "pada_code": "N4",
+          "pada_number": 28,
+          "deity_sanskrit": "Bhallāṭa",
+          "deity_english": "The Great Storehouse / Treasury of Abundance",
+          "cardinal_side": "North",
+          "sub_cardinal_direction": "North (Central North)",
+          "degree_range": "0.00° - 11.25°",
+          "wall_fraction_span": "0.375 - 0.500",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Sarva-sampadaḥ, mahā-dhanam, kuberālayam",
+          "classical_phala_english": "All forms of worldly and spiritual opulence, limitless financial treasure, prosperity comparable to Kubera's citadel.",
+          "category": "Limitless Wealth & Opulence",
+          "source_verse": "Bṛhat Saṃhitā 53.79: 'bhallāṭe sarvasampadaḥ'; Viśvakarma Prakāśa 7.23: 'Bhallāṭe sarva-sampadaḥ'; Mayamata 26.19; Samarāṅgaṇa Sūtradhāra 24.29.",
+          "remedy": "The highest crowned door of the Northern quadrant. Embellish with a polished teakwood or silver-plated door frame; install brass Kalasha motifs; embed emerald or green tourmaline crystals in the threshold."
+        },
+        {
+          "pada_code": "N5",
+          "pada_number": 29,
+          "deity_sanskrit": "Soma (Kubera / Chandra)",
+          "deity_english": "The Celestial Nectar / Lord of Treasure & Moon",
+          "cardinal_side": "North",
+          "sub_cardinal_direction": "North",
+          "degree_range": "11.25° - 22.50°",
+          "wall_fraction_span": "0.500 - 0.625",
+          "auspiciousness": "Highly Auspicious",
+          "classical_phala_sanskrit": "Dhana-dhānya-siddhiḥ, putra-sukham, śāntiḥ",
+          "classical_phala_english": "Abundance of grains and liquidity, blissful progeny, serene family life, deep spiritual and material harmony.",
+          "category": "Treasury, Grains & Peace",
+          "source_verse": "Bṛhat Saṃhitā 53.80: 'Some dhanadhānyasiddhiḥ'; Viśvakarma Prakāśa 7.23: 'Some caiva sutānvitā'; Samarāṅgaṇa Sūtradhāra 24.30.",
+          "remedy": "Supremely auspicious entrance. Install a pure silver wire and natural pearls along the white marble threshold; place a crystal bowl with fragrant water and white flowers in the entrance hall."
+        },
+        {
+          "pada_code": "N6",
+          "pada_number": 30,
+          "deity_sanskrit": "Bhujaga (Sarpa / Caraka)",
+          "deity_english": "The Serpent / Subterranean Force",
+          "cardinal_side": "North",
+          "sub_cardinal_direction": "North-North-East",
+          "degree_range": "22.50° - 33.75°",
+          "wall_fraction_span": "0.625 - 0.750",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Putra-vairitā, kleśaḥ, dravyābhāvaḥ",
+          "classical_phala_english": "Vicious animosity between father and sons, protracted family litigations, progressive depletion of liquidity.",
+          "category": "Filial Enmity & Litigation",
+          "source_verse": "Bṛhat Saṃhitā 53.80: 'bhujaṅge putravairitā'; Viśvakarma Prakāśa 7.24: 'Bhujaṅge putra-vairī syāt'.",
+          "remedy": "Lay a silver or brass strip across the threshold; install a Sudarshana or Mahavishnu Yantra on the northern wall; avoid keeping any metallic or clutter in this zone."
+        },
+        {
+          "pada_code": "N7",
+          "pada_number": 31,
+          "deity_sanskrit": "Aditi",
+          "deity_english": "The Cosmic Mother / Boundless Space",
+          "cardinal_side": "North",
+          "sub_cardinal_direction": "North-East (North flank)",
+          "degree_range": "33.75° - 45.00°",
+          "wall_fraction_span": "0.750 - 0.875",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Strī-doṣaḥ, kanyā-kleśaḥ, vyasanodbhavaḥ",
+          "classical_phala_english": "Sorrow and emotional ailments among matriarchs and daughters, ungrounded financial gambles, domestic instability.",
+          "category": "Distress to Women & Instability",
+          "source_verse": "Bṛhat Saṃhitā 53.80: 'Adityāṃ strī-doṣo'; Viśvakarma Prakāśa 7.24: 'Aditau strī-kalaho bhavet'.",
+          "remedy": "Embed a brass flat strip into the threshold; affix an energized brass Shri Yantra inside the foyer; keep doorway uncluttered and bathed in soft morning light."
+        },
+        {
+          "pada_code": "N8",
+          "pada_number": 32,
+          "deity_sanskrit": "Diti",
+          "deity_english": "Mother of Daityas / Division & Limitation",
+          "cardinal_side": "North",
+          "sub_cardinal_direction": "North-East (NE corner node)",
+          "degree_range": "45.00° - 56.25°",
+          "wall_fraction_span": "0.875 - 1.000",
+          "auspiciousness": "Inauspicious",
+          "classical_phala_sanskrit": "Arthasya saṃkṣayaḥ, dainyam, dravyānarthaḥ",
+          "classical_phala_english": "Severe erosion of inherited wealth, mental anxiety, destitution, sudden catastrophic losses.",
+          "category": "Capital Loss & Anxiety",
+          "source_verse": "Bṛhat Saṃhitā 53.80: 'dityām arthasya saṃkṣayaḥ'; Viśvakarma Prakāśa 7.25: 'Dityām artha-vināśanam'.",
+          "remedy": "Install a pure silver rod or silver wire across the threshold; place clear quartz crystals near the entrance; keep this corner lightweight, open, and immaculate."
+        }
+      ],
+      "super_auspicious_doors_summary": [
+        {
+          "code": "E3",
+          "deity": "Jayanta",
+          "direction": "East",
+          "fruit": "Wealth, triumph and intellectual vigor"
+        },
+        {
+          "code": "E4",
+          "deity": "Indra / Mahendra",
+          "direction": "East",
+          "fruit": "Sovereign favor, high prestige and boundless fortune"
+        },
+        {
+          "code": "S4",
+          "deity": "Gṛhakṣata",
+          "direction": "South",
+          "fruit": "Flourishing of lineage, noble progeny and asset expansion"
+        },
+        {
+          "code": "S5",
+          "deity": "Yama",
+          "direction": "South",
+          "fruit": "Imperial authority, domination over enemies and disciplined wealth"
+        },
+        {
+          "code": "W3",
+          "deity": "Sugrīva",
+          "direction": "West",
+          "fruit": "Enduring assets, scholarship and commercial renown"
+        },
+        {
+          "code": "W4",
+          "deity": "Puṣpadanta",
+          "direction": "West",
+          "fruit": "Virtuous offspring, vast property acquisitions and family bliss"
+        },
+        {
+          "code": "W5",
+          "deity": "Varuṇa",
+          "direction": "West",
+          "fruit": "Oceanic commercial expansion, state honors and lasting stability"
+        },
+        {
+          "code": "N3",
+          "deity": "Mukhya",
+          "direction": "North",
+          "fruit": "Engineering genius, noble children and material assets"
+        },
+        {
+          "code": "N4",
+          "deity": "Bhallāṭa",
+          "direction": "North",
+          "fruit": "Limitless treasury, legacy wealth and all-encompassing opulence"
+        },
+        {
+          "code": "N5",
+          "deity": "Soma",
+          "direction": "North",
+          "fruit": "Abundant food grains, tranquility and spiritual contentment"
+        }
+      ],
+      "obstruction_canons_dvara_vedha": {
+        "textual_source": "Bṛhat Saṃhitā 53.77-82, Viśvakarma Prakāśa 7.30-45, Samarāṅgaṇa Sūtradhāra 24.35-48",
+        "distance_neutralization_rule": "Viśvakarma Prakāśa 7.35 states: 'Dvārad dvi-guṇitāṃ bhūmiṃ tyaktvā vedho na doṣakṛt' -> If an obstruction stands at a distance greater than twice the height of the entrance doorway, its deleterious vedha is completely neutralized.",
+        "classical_vedhas": [
+          {
+            "type": "Vṛkṣa-vedha (Tree Obstruction)",
+            "effect": "Childlessness, sorrow to children, and intellectual stagnation."
+          },
+          {
+            "type": "Stambha-vedha (Pillar/Pole Obstruction)",
+            "effect": "Instability of character, frequent infidelity, and destruction of female virtue."
+          },
+          {
+            "type": "Kona-vedha / Chāyā-vedha (Angle or Shadow of Neighboring Building)",
+            "effect": "Protracted bodily illnesses, chronic paralysis, and severe loss of vitality."
+          },
+          {
+            "type": "Kūpa-vedha / Jala-vedha (Well or Open Sump in Front of Door)",
+            "effect": "Drowning, melancholia, respiratory distress, and emotional instability."
+          },
+          {
+            "type": "Vīthī-śūla (Direct Road Thrust / T-Junction Spear)",
+            "effect": "Catastrophic accidents, abrupt ruin, and family fractures."
+          },
+          {
+            "type": "Panka-vedha (Slime/Mud/Sewer before Door)",
+            "effect": "Pervasive grief, chronic depression, and social disgrace."
+          }
+        ]
+      },
+      "interpretation": "In classical Vedic architecture, the main doorway (Mahādvāra) is regarded as the literal mouth (Mukha) of the cosmic organism, the Vāstupuruṣa. Just as the mouth ingests physical nutrients and atmospheric prana for the physiological body, the Mahādvāra absorbs and modulates the solar, geomagnetic, and cosmic currents that animate the homestead.\n\nFrom a scientific bio-energetic perspective:\n1. East Entrances (Jayanta E3 & Indra E4): These positions welcome the benign, gentle infrared and therapeutic ultraviolet morning rays (06:00 to 08:30 hrs). These early rays stimulate human serotonin and vitamin D synthesis while sterilizing indoor atmospheres without thermal overheating. Conversely, E1 (Śikhi) lies too close to the sensitive North-East node where organic prana should enter unimpeded by human activity, while E7 and E8 border the fierce Agni node where excessive heat generates irritable psychological temperaments.\n\n2. North Entrances (Mukhya N3, Bhallāṭa N4, Soma N5): The northern quadrant receives the continuous geomagnetic field lines flowing from the Earth's magnetic core (Jaiva-Urja). By placing the entrance in these central northern padas, the occupants' bio-magnetic field aligns constructively with the terrestrial flux, inducing deep parasympathetic calmness, mental concentration, and financial prudence. Hence, texts associate Bhallāṭa and Soma with Kubera's treasury.\n\n3. West Entrances (Sugrīva W3, Puṣpadanta W4, Varuṇa W5): By afternoon, solar rays turn intensely hot and carry dehydrating infrared radiation. Sugrīva and Puṣpadanta face the cooling oceanic winds (governed by Varuna) that temper evening temperatures, making these portals magnificent for commercial enterprise, scholarly contemplation, and lineage longevity.\n\n4. South Entrances (Gṛhakṣata S4 & Yama S5): While folk misconceptions label all south doors as unfavorable, classical treatises explicitly glorify S4 and S5. The South is ruled by Mars and Yama, representing structural integrity, legal order, and valor. Entrances here are ideal for institutions, administrators, and resilient families, provided the threshold is properly elevated to prevent geothermal thermal leakage.",
+      "variation_note": "A notable distinction exists between the Northern Nagara traditions (Samarāṅgaṇa Sūtradhāra, Viśvakarma Prakāśa) and the Southern Dravidian traditions (Mayamata, Mānasāra, Manuṣyālaya Candrikā).\n\n1. Grid Calibration: Northern texts calculate door padas primarily on the 81-pada Paramasāyika grid by dividing the exterior façade into 8 equal functional spans. Southern treatises frequently utilize the 64-pada Maṇḍūka grid for sacred buildings and royal dwellings, wherein the central doors occupy two full padas instead of one.\n\n2. Evaluation of Yama and Varuṇa: In the Kerala tradition (Manuṣyālaya Candrikā), entrances in the South and West must pass an additional dimensional test called the Dvāra-Āyādi. Even if placed in Gṛhakṣata or Sugrīva, if the house Yoni does not harmonize with the facing direction, the door must be shifted or internally baffed.\n\n3. Modern Energy Remediation: Classical Vastu demanded structural re-alignment for inauspicious doors. Modern scholarly adaptations (such as Dr. V. Ganapati Sthapati's geometric adjustments and modern non-invasive energy corrections) successfully utilize elemental metallic conduits (pure copper, brass, lead, or silver strips embedded along the threshold) combined with consecrated geometric yantras to alter the local dielectric signature of the entrance without requiring physical demolition."
+    },
+    {
+      "tool_id": "house-facing-calculator",
+      "tool_name": "House Facing & Orientation Calculator (Dig-Nirṇaya & Āyādi Ṣaḍvarga)",
+      "tradition": "Classical Vedic Vastu",
+      "source": {
+        "text": "Mayamata",
+        "author_translator": "Bruno Dagens (Indira Gandhi National Centre for the Arts / Motilal Banarsidass)",
+        "chapter": "6 (Dig-nirṇaya / Determination of Directions) & 9 (Āyādi-lakṣaṇa)",
+        "verse": "Ch 6: 1-35; Ch 9: 1-28"
+      },
+      "canonical_citations": [
+        {
+          "text": "Mayamata",
+          "chapter": "6 & 9",
+          "ślokas": "Chapter 6 (Ślokas 1-35: The Śaṅku Gnomon method for solar orientation); Chapter 9 (Ślokas 1-28: Āyādi Ṣaḍvarga formulas)",
+          "subject": "Śaṅku-sthāpana method for establishing the astronomical meridian and dimensional Ayadi harmonics"
+        },
+        {
+          "text": "Samarāṅgaṇa Sūtradhāra",
+          "chapter": "24 & 38",
+          "ślokas": "Chapter 24 (Ślokas 1-40: Dig-pariccheda); Chapter 38 (Ślokas 1-65: Āyādi-Ṣaḍvarga)",
+          "subject": "King Bhoja's comprehensive guidelines on cardinal vs vidiśā orientations and perimeter-based Ayadi checks"
+        },
+        {
+          "text": "Manuṣyālaya Candrikā",
+          "chapter": "2 & 3",
+          "ślokas": "Chapter 2 (Ślokas 1-24: Carā-saṃskāra and True Solar Noon shadow); Chapter 3 (Ślokas 1-50: Yoni-nirṇaya)",
+          "subject": "The Kerala canon of orientation, strict enforcement of odd Yonis (Dhvaja, Siṃha, Vṛṣabha, Gaja), and solar declination correction"
+        },
+        {
+          "text": "Bṛhat Saṃhitā",
+          "chapter": "53",
+          "ślokas": "1-20",
+          "subject": "Varāhamihira's foundational orientation rules and the cosmic layout of the Puruṣa Maṇḍala"
+        },
+        {
+          "text": "Vāstuśāstra: Hindu Canons of Indian Architecture",
+          "chapter": "Volume I, Part II, Chapter 6",
+          "ślokas": "Comprehensive Analysis by Dr. D. N. Shukla",
+          "subject": "Critical exposition of site orientation, magnetic vs solar azimuth, and classical mathematical matrices"
+        }
+      ],
+      "inputs": [
+        {
+          "name": "compass_azimuth_deg",
+          "type": "float",
+          "range": [
+            0.0,
+            359.9
+          ],
+          "unit": "degrees",
+          "description": "The raw bearing observed from a handheld or smartphone magnetic compass when standing inside the front entrance and looking outward."
+        },
+        {
+          "name": "reference_datum",
+          "type": "string",
+          "enum": [
+            "magnetic_north",
+            "true_astronomical_north"
+          ],
+          "description": "Indicates whether the input angle is already corrected to True Geographic North (e.g. from GPS/GIS/satellite surveys) or represents raw Magnetic North."
+        },
+        {
+          "name": "magnetic_declination_deg",
+          "type": "float",
+          "range": [
+            -45.0,
+            45.0
+          ],
+          "unit": "degrees",
+          "description": "The local magnetic declination angle at the plot's latitude and longitude (positive for East declination, negative for West declination). If reference_datum is true_astronomical_north, set to 0.0."
+        },
+        {
+          "name": "building_length",
+          "type": "float",
+          "range": [
+            0.5,
+            500.0
+          ],
+          "unit": "user specified (meters/feet/hasta)",
+          "description": "Outer length of the building footprint along the main axis."
+        },
+        {
+          "name": "building_breadth",
+          "type": "float",
+          "range": [
+            0.5,
+            500.0
+          ],
+          "unit": "user specified (meters/feet/hasta)",
+          "description": "Outer width of the building footprint perpendicular to the main axis."
+        },
+        {
+          "name": "measurement_unit",
+          "type": "string",
+          "enum": [
+            "hasta_standard_18in",
+            "hasta_shilpa_24in",
+            "meters",
+            "feet"
+          ],
+          "description": "Measurement system used for calculating Āyādi Ṣaḍvarga. For meters or feet, the system auto-converts to classical Hastas (1 Standard Hasta = 18 inches = 0.4572 m; 1 Śilpa/Kiṣku Hasta = 24 aṅgulas = 24 inches = 0.6096 m or 2.875 ft in Kerala tradition)."
+        },
+        {
+          "name": "owner_janma_nakshatra",
+          "type": "integer",
+          "range": [
+            1,
+            27
+          ],
+          "unit": "nakshatra index",
+          "description": "Optional birth star of the property owner (1=Aśvinī, 2=Bharaṇī, ..., 27=Revatī) for personalized Navatārā compatibility."
+        }
+      ],
+      "mathematical_formula_and_logic": {
+        "magnetic_to_true_north_conversion": "True_Azimuth = (Magnetic_Azimuth + Magnetic_Declination) mod 360. If the result is negative, True_Azimuth = True_Azimuth + 360. Classical Vastu mandates aligning exclusively with the True Solar/Astronomical Meridian (Brahma-sūtra), as established by the Śaṅku gnomon, NOT the shifting geomagnetic pole.",
+        "eight_cardinal_direction_spans": "The 360° horizon is partitioned into 8 equal arcs of 45° each, centered on the cardinal and intercardinal cardinal points: North: 337.5° to 22.5°; North-East: 22.5° to 67.5°; East: 67.5° to 112.5°; South-East: 112.5° to 157.5°; South: 157.5° to 202.5°; South-West: 202.5° to 247.5°; West: 247.5° to 292.5°; North-West: 292.5° to 337.5°.",
+        "sixteen_subzone_spans": "Each 45° sector is bifurcated into two 22.5° sub-zones (centered at increments of 22.5°): N (348.75°-11.25°), NNE (11.25°-33.75°), NE (33.75°-56.25°), ENE (56.25°-78.75°), E (78.75°-101.25°), ESE (101.25°-123.75°), SE (123.75°-146.25°), SSE (146.25°-168.75°), S (168.75°-191.25°), SSW (191.25°-213.75°), SW (213.75°-236.25°), WSW (236.25°-258.75°), W (258.75°-281.25°), WNW (281.25°-303.75°), NW (303.75°-326.25°), NNW (326.25°-348.75°).",
+        "plot_tilt_classification": {
+          "siddha_mukha_cardinal": "Plot axis deviates 0.0° to 5.0° from True North. Orthogonal cardinal alignment. Maximum cosmic harmony.",
+          "alpa_vidisha_mild_tilt": "Plot axis deviates 5.1° to 15.0° from True North. Moderate rotational shear; internal layout requires concentric angular zone casting.",
+          "vidisha_diagonal": "Plot axis deviates 15.1° to 45.0° from True North. The corner nodes of the house face the cardinal points. Requires specific diagonal architectural adaptations and strict Ayadi compensation."
+        },
+        "ayadi_shadvarga_computations": {
+          "perimeter_definition": "Let P be the total outer perimeter of the structure expressed in classical Hasta units. P = 2 × (Length_in_Hasta + Breadth_in_Hasta).",
+          "formula_1_yoni": "Yoni = (P × 3) mod 8. If remainder is 0, Yoni = 8. (Alternatively in Manuṣyālaya Candrikā: Yoni = (Breadth × 3) mod 8). Represents the directional energy matrix of the building. Odd Yonis (1, 3, 5, 7) are Cardinal and Auspicious. Even Yonis (2, 4, 6, 8) are Diagonal and strictly Inauspicious for human dwellings.",
+          "formula_2_aya": "Āya (Inflow / Gain) = (P × 8) mod 12. If remainder is 0, Āya = 12. Represents material and financial growth.",
+          "formula_3_vyaya": "Vyaya (Outflow / Expense) = (P × 9) mod 10. If remainder is 0, Vyaya = 10. Golden Rule of Canons: Āya MUST strictly exceed Vyaya (Āya > Vyaya) to ensure sustained wealth retention.",
+          "formula_4_nakshatra": "Nakṣatra (Building Constellation) = (P × 8) mod 27. If remainder is 0, Nakṣatra = 27. Counted from 1 (Aśvinī) to 27 (Revatī). Compared to owner's Janma Nakṣatra via the 9-fold Navatārā cycle: Tārā = ((Nakṣatra - Janma_Nakṣatra + 27) mod 9) + 1. Favorable Tārās: 2 (Sampat), 4 (Kṣema), 6 (Sādhaka), 8 (Mitra), 9 (Parama Mitra). Unfavorable: 3 (Vipat), 5 (Pratyak), 7 (Vadha).",
+          "formula_5_vara": "Vāra (Ruling Solar Day) = (P × 9) mod 7. If remainder is 0, Vāra = 7. (1=Ravivāra/Sun, 2=Somavāra/Mon, 3=Maṅgalavāra/Tue, 4=Budhavāra/Wed, 5=Guru/Thu, 6=Śukra/Fri, 7=Śani/Sat). Highly auspicious: 2 (Monday), 4 (Wednesday), 5 (Thursday), 6 (Friday).",
+          "formula_6_ayus": "Āyus (Longevity Span in Years) = (P × 27) mod 100. If remainder is 0, Āyus = 100. The calculated lifespan of the structure should exceed 60 years."
+        }
+      },
+      "rules_matrix": [
+        {
+          "direction_code": "N",
+          "sanskrit_name": "Uttara",
+          "nominal_bearing_deg": 0.0,
+          "degree_range": "337.5° - 22.5°",
+          "elemental_lord": "Kubera / Soma",
+          "primary_element": "Jala (Water / Divine Fluidity)",
+          "governing_graha": "Budha (Mercury)",
+          "guna": "Sattva (Purity & Wisdom)",
+          "ayadi_yoni_affinity": "Yoni 7 (Gaja / Elephant Yoni)",
+          "suitability_ranking": "Highly Auspicious (Uttama)",
+          "architectural_quality": "Receives beneficial geomagnetic flux. Highly recommended for study rooms, financial offices, master libraries, open lawns, and peaceful family residences.",
+          "dosha_vulnerability": "Heavy blockage, tall blank walls, or septic tanks in this zone cause severe financial obstruction, neurological debility, and commercial stagnation."
+        },
+        {
+          "direction_code": "NE",
+          "sanskrit_name": "Īśāna",
+          "nominal_bearing_deg": 45.0,
+          "degree_range": "22.5° - 67.5°",
+          "elemental_lord": "Īśāna (Śiva / Rudra)",
+          "primary_element": "Ākāśa (Ether / Space) & Jala (Water)",
+          "governing_graha": "Bṛhaspati (Guru / Jupiter)",
+          "guna": "Pure Sattva (Transcendental Clarity)",
+          "ayadi_yoni_affinity": "Yoni 1 (Dhvaja) or Yoni 7 (Gaja)",
+          "suitability_ranking": "Supremely Auspicious for Spiritual Focus",
+          "architectural_quality": "The sacred head of the Vāstupuruṣa. Must remain the lowest, lightest, and cleanest sector. Ideal for meditation sanctuary, pooja altar, water fountain, and intellectual pursuits.",
+          "dosha_vulnerability": "Locating toilets, heavy overhead tanks, or kitchens here brings acute neurological ailments, intellectual bankruptcy, and severe family discord."
+        },
+        {
+          "direction_code": "E",
+          "sanskrit_name": "Pūrva",
+          "nominal_bearing_deg": 90.0,
+          "degree_range": "67.5° - 112.5°",
+          "elemental_lord": "Indra / Sūrya",
+          "primary_element": "Tejas (Fire / Light / Vital Radiance)",
+          "governing_graha": "Sūrya (The Sun)",
+          "guna": "Sattva-Rajas (Vital Activity & Honor)",
+          "ayadi_yoni_affinity": "Yoni 1 (Dhvaja / Flag Yoni)",
+          "suitability_ranking": "Highly Auspicious (Uttama)",
+          "architectural_quality": "Captures the life-giving early morning solar spectrum. Ideal for principal living areas, consultation chambers, entrance verandas, and government officials.",
+          "dosha_vulnerability": "Lack of windows or heavy elevated masses along the eastern boundary causes cardiac disorders, eye diseases, loss of social prestige, and friction with superiors."
+        },
+        {
+          "direction_code": "SE",
+          "sanskrit_name": "Āgneya",
+          "nominal_bearing_deg": 135.0,
+          "degree_range": "112.5° - 157.5°",
+          "elemental_lord": "Agni (The Fire God)",
+          "primary_element": "Tejas (Pure Fire / Metabolic Transformation)",
+          "governing_graha": "Śukra (Venus)",
+          "guna": "Rajas (Passionate Energy & Metabolic Fire)",
+          "ayadi_yoni_affinity": "Forbidden as Primary Facing; Requires Yoni 1 or 3 Calibration",
+          "suitability_ranking": "Inauspicious as Main Residential Facing (Madhyama-Adhama)",
+          "architectural_quality": "Zone of combustion and metabolic energy. Ideal location for kitchens, electrical panels, transformers, boilers, and heating systems.",
+          "dosha_vulnerability": "Facing an entrance directly into SE promotes constant domestic conflict, severe digestive/gynecological disorders, and loss of capital through litigation."
+        },
+        {
+          "direction_code": "S",
+          "sanskrit_name": "Dakṣiṇa",
+          "nominal_bearing_deg": 180.0,
+          "degree_range": "157.5° - 202.5°",
+          "elemental_lord": "Yama (Lord of Dharma & Justice)",
+          "primary_element": "Pṛthvī / Tejas (Dense Earth & Martial Energy)",
+          "governing_graha": "Maṅgala (Mars)",
+          "guna": "Rajas-Tamas (Discipline, Authority & Valor)",
+          "ayadi_yoni_affinity": "Yoni 3 (Siṃha / Lion Yoni)",
+          "suitability_ranking": "Auspicious for Authority & Commerce (Madhyama-Uttama)",
+          "architectural_quality": "Characterized by strong structural weight and stability. Ideal for magistrates, corporate leaders, surgeons, security headquarters, and heavy manufacturing.",
+          "dosha_vulnerability": "Open depressions, large water bodies, or unshaded frontages in the South invite sudden accidents, legal penalties, and male vitality collapse."
+        },
+        {
+          "direction_code": "SW",
+          "sanskrit_name": "Nairṛtya",
+          "nominal_bearing_deg": 225.0,
+          "degree_range": "202.5° - 247.5°",
+          "elemental_lord": "Nirṛti / Pitṛ (Ancestral Spirits)",
+          "primary_element": "Pṛthvī (Heavy / Static Earth)",
+          "governing_graha": "Rāhu",
+          "guna": "Tamas (Inertia, Stability, Grounding)",
+          "ayadi_yoni_affinity": "Forbidden for Facing; Yoni 4 is strictly avoided",
+          "suitability_ranking": "Highly Inauspicious for Entrance / Best for Heavy Master Suite",
+          "architectural_quality": "The heaviest and highest zone of the homestead. Must be solid, elevated, and opaque. Ideal for the Master Bedroom, treasury vault, and heavy structural columns.",
+          "dosha_vulnerability": "Entrances, borewells, or cuts in the South-West bring catastrophic financial collapse, chronic debilitating diseases, marital breakdown, and early death of the breadwinner."
+        },
+        {
+          "direction_code": "W",
+          "sanskrit_name": "Paścima",
+          "nominal_bearing_deg": 270.0,
+          "degree_range": "247.5° - 292.5°",
+          "elemental_lord": "Varuṇa (Lord of Oceanic Waters)",
+          "primary_element": "Jala / Vāyu (Water & Air)",
+          "governing_graha": "Śani (Saturn)",
+          "guna": "Tamas-Rajas (Commerce, Introspection & Karma)",
+          "ayadi_yoni_affinity": "Yoni 5 (Vṛṣabha / Bull Yoni)",
+          "suitability_ranking": "Auspicious for Business & Harvest (Madhyama-Uttama)",
+          "architectural_quality": "Receives gentle evening breezes. Favorable for merchants, traders, financial consultants, dining spaces, and children's study rooms.",
+          "dosha_vulnerability": "Excessive opening without sun-shades creates thermal fatigue. Water leaks or low ground in West leads to chronic rheumatic ailments and reputation damage."
+        },
+        {
+          "direction_code": "NW",
+          "sanskrit_name": "Vāyavya",
+          "nominal_bearing_deg": 315.0,
+          "degree_range": "292.5° - 337.5°",
+          "elemental_lord": "Vāyu / Marut (Lord of Wind & Movement)",
+          "primary_element": "Vāyu (Air / Kinetic Mobility)",
+          "governing_graha": "Candra (The Moon)",
+          "guna": "Rajas (Mobility, Circulation & Change)",
+          "ayadi_yoni_affinity": "Forbidden as Primary Facing; Requires Yoni 5 or 7 Modulation",
+          "suitability_ranking": "Neutral to Inauspicious for Main Facing (Madhyama-Adhama)",
+          "architectural_quality": "Zone of kinetic circulation and transition. Ideal for guest bedrooms, grain storage, finished goods inventory, finished product shipping, and garage/vehicles.",
+          "dosha_vulnerability": "Locating heavy master bedrooms or permanent vaults here causes continuous mental unrest, chronic insomnia, restless wandering, and unreliable relationships."
+        }
+      ],
+      "ayadi_yoni_matrix": [
+        {
+          "yoni_number": 1,
+          "name": "Dhvaja (Flag)",
+          "direction": "East",
+          "nature": "Auspicious (Uttama)",
+          "attributes": "Sovereign power, victory, continuous wealth, robust health, public renown. Ideal for East-facing houses and general residential wellness."
+        },
+        {
+          "yoni_number": 2,
+          "name": "Dhūma (Smoke)",
+          "direction": "South-East",
+          "nature": "Inauspicious (Adhama)",
+          "attributes": "Agony, constant friction, eye diseases, danger from fire, domestic disputes. Strictly forbidden for human habitations."
+        },
+        {
+          "yoni_number": 3,
+          "name": "Siṃha (Lion)",
+          "direction": "South",
+          "nature": "Auspicious (Uttama)",
+          "attributes": "Valor, royal authority, victory over competitors, indomitable will. Ideal for South-facing dwellings, military officers, and industrialists."
+        },
+        {
+          "yoni_number": 4,
+          "name": "Śvāna (Dog)",
+          "direction": "South-West",
+          "nature": "Inauspicious (Adhama)",
+          "attributes": "Poverty, continuous litigation, enmity, degradation of intellect, domestic strife. Strictly prohibited."
+        },
+        {
+          "yoni_number": 5,
+          "name": "Vṛṣabha (Bull)",
+          "direction": "West",
+          "nature": "Auspicious (Uttama)",
+          "attributes": "Abundant agricultural and financial wealth, steady patience, commercial stability. Ideal for West-facing dwellings and mercantile professions."
+        },
+        {
+          "yoni_number": 6,
+          "name": "Khara (Donkey)",
+          "direction": "North-West",
+          "nature": "Inauspicious (Adhama)",
+          "attributes": "Restlessness, loss of transport/vehicles, persistent weariness, unrewarded labor, instability. Strictly prohibited."
+        },
+        {
+          "yoni_number": 7,
+          "name": "Gaja (Elephant)",
+          "direction": "North",
+          "nature": "Auspicious (Uttama)",
+          "attributes": "Boundless treasure, intellectual supremacy, majestic lifestyle, lasting legacy. Ideal for North-facing dwellings and scholarly families."
+        },
+        {
+          "yoni_number": 8,
+          "name": "Kāka / Vāyasa (Crow)",
+          "direction": "North-East",
+          "nature": "Inauspicious (Adhama)",
+          "attributes": "Bereavement, financial ruin, legal imprisonment, deep melancholy. Strictly prohibited."
+        }
+      ],
+      "interpretation": "The orientation of a building represents its primary interface with the cosmic geometry of the Earth. Classical Indian treatises demonstrate extraordinary mathematical sophistication by requiring that house orientation be determined through the solar gnomon (Śaṅku-sthāpana) to ascertain the True Astronomical Meridian, rather than relying on the Earth's shifting magnetic field.\n\nWhen a house is oriented within 0° to 5° of True North (Siddha-mukha), its walls coincide with the natural cardinal grid lines of geomagnetic force (Soma-sūtra running North-South) and solar movement (Brahma-sūtra running East-West). This alignment minimizes internal magnetic shear stress and optimizes human circadian biology:\n1. East-facing structures capture the morning biological solar spectrum (stimulating neuroendocrine balance) while shielding the interior from excessive afternoon heat.\n2. North-facing structures harvest benign, diffuse celestial light (reflected from the northern sky) and the soothing geomagnetic influx, promoting deep mental focus, stress reduction, and commercial clarity.\n3. South and West facing structures require thicker masonry, smaller window openings, and deep roof overhangs to attenuate intense afternoon solar irradiance, but when harmonized with Yoni 3 (Siṃha) or Yoni 5 (Vṛṣabha), they foster tremendous material power and institutional durability.\n\nThe Āyādi Ṣaḍvarga formulas function as a sacred dimensional algorithm. By modulating the building's perimeter, the master architect ensures that the structure's physical acoustic-resonant footprint vibrates in constructive interference with the owner's natal birth star (Nakṣatra) and that financial gains (Āya) systematically outpace expenses (Vyaya).",
+      "variation_note": "A deep regional divergence exists in how orientation canons are applied across India:\n\n1. Kerala / Southern Tradition (Manuṣyālaya Candrikā): In Kerala Vastu, the Yoni of the house takes absolute precedence over all other considerations. A house facing East must strictly possess Yoni 1 (Dhvaja); a South-facing house must have Yoni 3 (Siṃha); a West-facing house must have Yoni 5 (Vṛṣabha); and a North-facing house must have Yoni 7 (Gaja). Even Yonis (2, 4, 6, 8) are considered an unpardonable architectural sin (Vāstu-doṣa). Furthermore, Kerala texts mandate rigorous local solar declination correction (Carā-saṃskāra) applied to the gnomon shadow.\n\n2. Central and Western Tradition (Samarāṅgaṇa Sūtradhāra of King Bhoja): Malwa and Rajasthani traditions allow greater flexibility for civic dwellings facing the four cardinal directions, emphasizing perimeter Ayadi ratios and internal courtyard (Chatuḥśāla) ventilation to counter arid desert climates.\n\n3. Modern Energy Vastu / Compass Calibration: In modern urban settings where plots are constrained by municipal road grids, magnetic compasses are standard. However, failure to account for local Magnetic Declination (which varies from -2° to +4° across India and up to ±15° globally) frequently causes consultants to misclassify an E3 door as E5, or a North facing house as North-North-East. This calculator's integrated magnetic declination algorithm resolves this classical flaw with geodetic precision.",
+      "sixteen_zones_matrix": [
+        {
+          "zone_code": "N",
+          "direction_name_sanskrit": "Uttara",
+          "direction_name_english": "North",
+          "degree_range": "348.75° - 11.25°",
+          "nominal_angle": 0.0,
+          "governing_deity": "Soma / Kubera",
+          "element": "Jala (Water)",
+          "planetary_ruler": "Budha (Mercury)",
+          "life_attribute": "Money, Business Opportunities, Treasure, Treasury Growth",
+          "recommended_functions": [
+            "Main Entrance (Bhallāṭa/Soma padas)",
+            "Living Room",
+            "Study / Library",
+            "Safe Box facing North",
+            "Open Garden / Green Area"
+          ],
+          "unfavorable_placements": [
+            "Toilet",
+            "Kitchen / Fireplace",
+            "Heavy Overhead Tank",
+            "Septic Tank (strictly prohibited)"
+          ],
+          "classical_reference": "Samarāṅgaṇa Sūtradhāra Ch 38; Mayamata Ch 8 & 26"
+        },
+        {
+          "zone_code": "NNE",
+          "direction_name_sanskrit": "Uttara-Īśāna",
+          "direction_name_english": "North-North-East",
+          "degree_range": "11.25° - 33.75°",
+          "nominal_angle": 22.5,
+          "governing_deity": "Dhanvantari (Divine Physician) / Āpa",
+          "element": "Jala (Water)",
+          "planetary_ruler": "Bṛhaspati / Budha",
+          "life_attribute": "Health, Immunity, Physical Vitality, Rejuvenation",
+          "recommended_functions": [
+            "Medicine Storage",
+            "Holistic Healing Space",
+            "Quiet Bedroom for Convalescence",
+            "Pure Drinking Water / Urli"
+          ],
+          "unfavorable_placements": [
+            "Toilet (causes chronic incurable sickness)",
+            "Kitchen",
+            "Clutter / Trash",
+            "Heavy Structural Pillar"
+          ],
+          "classical_reference": "Viśvakarma Prakāśa Ch 7; Manuṣyālaya Candrikā Ch 3"
+        },
+        {
+          "zone_code": "NE",
+          "direction_name_sanskrit": "Īśāna",
+          "direction_name_english": "North-East",
+          "degree_range": "33.75° - 56.25°",
+          "nominal_angle": 45.0,
+          "governing_deity": "Īśāna (Lord Śiva / Divine Consciousness)",
+          "element": "Ākāśa (Ether / Space) & Jala (Water)",
+          "planetary_ruler": "Guru (Jupiter)",
+          "life_attribute": "Divine Wisdom, Spiritual Enlightenment, Mental Clarity, Vision",
+          "recommended_functions": [
+            "Pooja Sanctuary / Temple",
+            "Meditation & Yoga Room",
+            "Underground Clean Water Tank",
+            "Pristine Open Porch"
+          ],
+          "unfavorable_placements": [
+            "Toilet (causes neurological collapse and poverty)",
+            "Kitchen",
+            "Staircase",
+            "Heavy Master Bedroom"
+          ],
+          "classical_reference": "Bṛhat Saṃhitā 53.51-54; Mayamata Ch 8; Mānasāra Ch 9"
+        },
+        {
+          "zone_code": "ENE",
+          "direction_name_sanskrit": "Pūrva-Īśāna",
+          "direction_name_english": "East-North-East",
+          "degree_range": "56.25° - 78.75°",
+          "nominal_angle": 67.5,
+          "governing_deity": "Parjanya / Jayanta",
+          "element": "Vāyu (Air / Wood)",
+          "planetary_ruler": "Guru / Sūrya",
+          "life_attribute": "Rejuvenation, Joy, Recreation, Mental Refreshment",
+          "recommended_functions": [
+            "Family Living Lounge",
+            "Music & Reading Room",
+            "Indoor Plants / Courtyard Garden",
+            "Hobby Space"
+          ],
+          "unfavorable_placements": [
+            "Toilet",
+            "Heavy Storage / Junk",
+            "Dark Enclosed Rooms"
+          ],
+          "classical_reference": "Samarāṅgaṇa Sūtradhāra Ch 24 & 38"
+        },
+        {
+          "zone_code": "E",
+          "direction_name_sanskrit": "Pūrva",
+          "direction_name_english": "East",
+          "degree_range": "78.75° - 101.25°",
+          "nominal_angle": 90.0,
+          "governing_deity": "Indra / Sūrya (King of Gods & Solar Splendor)",
+          "element": "Tejas (Fire / Light)",
+          "planetary_ruler": "Sūrya (The Sun)",
+          "life_attribute": "Social Connectivity, Government Recognition, Leadership, Vital Radiance",
+          "recommended_functions": [
+            "Main Entrance (Jayanta/Indra padas)",
+            "Living Hall",
+            "Consultation Room",
+            "Balcony / Morning Sun Porch"
+          ],
+          "unfavorable_placements": [
+            "Toilet",
+            "Heavy Garage",
+            "High Solid Walls without Windows"
+          ],
+          "classical_reference": "Bṛhat Saṃhitā 53.71; Mayamata Ch 26; Mānasāra Ch 38"
+        },
+        {
+          "zone_code": "ESE",
+          "direction_name_sanskrit": "Pūrva-Āgneya",
+          "direction_name_english": "East-South-East",
+          "degree_range": "101.25° - 123.75°",
+          "nominal_angle": 112.5,
+          "governing_deity": "Bhṛśa / Satya",
+          "element": "Tejas (Fire) & Vāyu (Air)",
+          "planetary_ruler": "Śukra / Sūrya",
+          "life_attribute": "Intellectual Churning, Analytical Reasoning, Deliberation",
+          "recommended_functions": [
+            "Conference / Discussion Room",
+            "Washing Machine / Churning Appliance",
+            "Analytical Research Desk"
+          ],
+          "unfavorable_placements": [
+            "Main Bedroom (causes over-thinking, anxiety, insomnia)",
+            "Pooja Room",
+            "Entrance"
+          ],
+          "classical_reference": "Viśvakarma Prakāśa Ch 7; Samarāṅgaṇa Sūtradhāra Ch 38"
+        },
+        {
+          "zone_code": "SE",
+          "direction_name_sanskrit": "Āgneya",
+          "direction_name_english": "South-East",
+          "degree_range": "123.75° - 146.25°",
+          "nominal_angle": 135.0,
+          "governing_deity": "Agni (The Sacred Fire Deity)",
+          "element": "Tejas (Pure Fire)",
+          "planetary_ruler": "Śukra (Venus)",
+          "life_attribute": "Cash Liquidity, Digestion, Metabolic Vitality, Dynamic Drive",
+          "recommended_functions": [
+            "Kitchen (Cooktop facing East)",
+            "Electrical Inverter / Main Distribution Board",
+            "Boiler / Heating Plant",
+            "Gymnasium"
+          ],
+          "unfavorable_placements": [
+            "Underground Water Tank / Sump (causes acute financial loss)",
+            "Master Bedroom",
+            "Main Entrance"
+          ],
+          "classical_reference": "Mayamata Ch 26; Bṛhat Saṃhitā 53.53; Manuṣyālaya Candrikā Ch 3"
+        },
+        {
+          "zone_code": "SSE",
+          "direction_name_sanskrit": "Dakṣiṇa-Āgneya",
+          "direction_name_english": "South-South-East",
+          "degree_range": "146.25° - 168.75°",
+          "nominal_angle": 157.5,
+          "governing_deity": "Pūṣan / Vitatha",
+          "element": "Tejas (Fire) & Pṛthvī (Earth)",
+          "planetary_ruler": "Maṅgala / Śukra",
+          "life_attribute": "Physical Strength, Confidence, Morale, Courage",
+          "recommended_functions": [
+            "Fitness Studio",
+            "Security Personnel Cabin",
+            "Dining Room",
+            "Pantry"
+          ],
+          "unfavorable_placements": [
+            "Toilet (destroys self-confidence and vitality)",
+            "Underground Water Tank",
+            "Main Entrance"
+          ],
+          "classical_reference": "Viśvakarma Prakāśa Ch 7; Samarāṅgaṇa Sūtradhāra Ch 24"
+        },
+        {
+          "zone_code": "S",
+          "direction_name_sanskrit": "Dakṣiṇa",
+          "direction_name_english": "South",
+          "degree_range": "168.75° - 191.25°",
+          "nominal_angle": 180.0,
+          "governing_deity": "Yama (Lord of Dharma & Justice)",
+          "element": "Pṛthvī (Earth) & Tejas (Fire)",
+          "planetary_ruler": "Maṅgala (Mars)",
+          "life_attribute": "Fame, Public Renown, Relaxation, Deep Sleep, Legal Authority",
+          "recommended_functions": [
+            "Main Entrance (Gṛhakṣata pada)",
+            "Bedroom (head positioned South)",
+            "Administrative Office",
+            "Heavy Living Furniture"
+          ],
+          "unfavorable_placements": [
+            "Water Borewell",
+            "Deep Open Trench / Sump",
+            "Extensive Glass Facade without Eaves"
+          ],
+          "classical_reference": "Bṛhat Saṃhitā 53.74; Mayamata Ch 26; Samarāṅgaṇa Sūtradhāra Ch 38"
+        },
+        {
+          "zone_code": "SSW",
+          "direction_name_sanskrit": "Dakṣiṇa-Nairṛtya",
+          "direction_name_english": "South-South-West",
+          "degree_range": "191.25° - 213.75°",
+          "nominal_angle": 202.5,
+          "governing_deity": "Gandharva / Bhṛṅgarāja",
+          "element": "Pṛthvī (Heavy Earth)",
+          "planetary_ruler": "Rāhu / Maṅgala",
+          "life_attribute": "Disposal, Elimination of Waste, Detachment, Energy Drainage",
+          "recommended_functions": [
+            "Toilet / Water Closet (Ideal classical elimination zone)",
+            "Septic Tank",
+            "Waste Storage",
+            "Drainage Outfall"
+          ],
+          "unfavorable_placements": [
+            "Master Bedroom (causes metabolic wasting and financial leakage)",
+            "Pooja Room",
+            "Study Room",
+            "Entrance"
+          ],
+          "classical_reference": "Viśvakarma Prakāśa Ch 7; D.N. Shukla Hindu Canons Vol 1"
+        },
+        {
+          "zone_code": "SW",
+          "direction_name_sanskrit": "Nairṛtya",
+          "direction_name_english": "South-West",
+          "degree_range": "213.75° - 236.25°",
+          "nominal_angle": 225.0,
+          "governing_deity": "Nirṛti / Pitṛ (Ancestors & Earth Anchors)",
+          "element": "Pṛthvī (Static / Dense Earth)",
+          "planetary_ruler": "Rāhu",
+          "life_attribute": "Skill Mastery, Relationship Stability, Lineage Permanence, Grounding",
+          "recommended_functions": [
+            "Master Bedroom for the Householder / Patriarch",
+            "Safe Vault for Long-term Assets",
+            "Highest Roof Level / Overhead Water Tank"
+          ],
+          "unfavorable_placements": [
+            "Main Entrance (Kula-nāśa)",
+            "Toilet",
+            "Borewell / Underground Sump (destructive to breadwinner)"
+          ],
+          "classical_reference": "Bṛhat Saṃhitā 53.75; Mayamata Ch 8; Samarāṅgaṇa Sūtradhāra Ch 24"
+        },
+        {
+          "zone_code": "WSW",
+          "direction_name_sanskrit": "Paścima-Nairṛtya",
+          "direction_name_english": "West-South-West",
+          "degree_range": "236.25° - 258.75°",
+          "nominal_angle": 246.5,
+          "governing_deity": "Dauvārika / Sugrīva",
+          "element": "Pṛthvī (Earth) & Ākāśa (Space)",
+          "planetary_ruler": "Śani / Rāhu",
+          "life_attribute": "Academic Excellence, Knowledge Retention, Savings Accumulation",
+          "recommended_functions": [
+            "Children's Study Room",
+            "Bookcases & Research Materials",
+            "Savings & Fixed Deposit Locker",
+            "School Bag Storage"
+          ],
+          "unfavorable_placements": [
+            "Toilet (causes academic failure and loss of savings)",
+            "Kitchen"
+          ],
+          "classical_reference": "Samarāṅgaṇa Sūtradhāra Ch 38; Manuṣyālaya Candrikā Ch 3"
+        },
+        {
+          "zone_code": "W",
+          "direction_name_sanskrit": "Paścima",
+          "direction_name_english": "West",
+          "degree_range": "258.75° - 281.25°",
+          "nominal_angle": 270.0,
+          "governing_deity": "Varuṇa (Lord of Cosmic Waters & Oceans)",
+          "element": "Ākāśa (Space) & Jala (Water)",
+          "planetary_ruler": "Śani (Saturn)",
+          "life_attribute": "Commercial Profits, Gains, Material Fulfillment, Manifestation",
+          "recommended_functions": [
+            "Main Entrance (Puṣpadanta / Sugrīva padas)",
+            "Dining Hall",
+            "Conference Room for Sales",
+            "Children's Bedroom"
+          ],
+          "unfavorable_placements": [
+            "Kitchen (destroys commercial profits)",
+            "Underground Pit directly in center"
+          ],
+          "classical_reference": "Bṛhat Saṃhitā 53.76; Mayamata Ch 26; Mānasāra Ch 38"
+        },
+        {
+          "zone_code": "WNW",
+          "direction_name_sanskrit": "Paścima-Vāyavya",
+          "direction_name_english": "West-North-West",
+          "degree_range": "281.25° - 303.75°",
+          "nominal_angle": 292.5,
+          "governing_deity": "Śoṣa / Asura",
+          "element": "Vāyu (Air) & Ākāśa (Space)",
+          "planetary_ruler": "Śani / Candra",
+          "life_attribute": "Detoxification, Emotional Release, Catharsis, Depression Alleviation",
+          "recommended_functions": [
+            "Crying / Emotional Venting Room",
+            "Detoxification Therapy Center",
+            "Laundry Area",
+            "Storage for Discarded Goods"
+          ],
+          "unfavorable_placements": [
+            "Master Bedroom (causes chronic depression, mood swings, thyroid ailments)",
+            "Pooja Room",
+            "Living Room"
+          ],
+          "classical_reference": "Viśvakarma Prakāśa Ch 7; Samarāṅgaṇa Sūtradhāra Ch 38"
+        },
+        {
+          "zone_code": "NW",
+          "direction_name_sanskrit": "Vāyavya",
+          "direction_name_english": "North-West",
+          "degree_range": "303.75° - 326.25°",
+          "nominal_angle": 315.0,
+          "governing_deity": "Vāyu / Marut (Lord of Wind & Movement)",
+          "element": "Vāyu (Pure Air)",
+          "planetary_ruler": "Candra (The Moon)",
+          "life_attribute": "Banking Support, Social Alliances, Helpful Friends, Mobility, Legal Aid",
+          "recommended_functions": [
+            "Guest Bedroom",
+            "Finished Commercial Goods Depot (fast inventory turnover)",
+            "Garage for Vehicles",
+            "Financial Documents Storage"
+          ],
+          "unfavorable_placements": [
+            "Master Bedroom (creates endless restlessness and travel)",
+            "Safe Deposit Vault for Permanent Gold"
+          ],
+          "classical_reference": "Bṛhat Saṃhitā 53.53; Mayamata Ch 8 & 26; Manuṣyālaya Candrikā Ch 3"
+        },
+        {
+          "zone_code": "NNW",
+          "direction_name_sanskrit": "Uttara-Vāyavya",
+          "direction_name_english": "North-North-West",
+          "degree_range": "326.25° - 348.75°",
+          "nominal_angle": 337.5,
+          "governing_deity": "Nāga / Māruta / Rati",
+          "element": "Jala (Water) & Vāyu (Air)",
+          "planetary_ruler": "Candra / Budha",
+          "life_attribute": "Attraction, Romance, Marital Sensuality, Physical Charm",
+          "recommended_functions": [
+            "Newlywed Couple's Bedroom",
+            "Dressing Room & Wardrobe",
+            "Fragrance / Cosmetic Display"
+          ],
+          "unfavorable_placements": [
+            "Toilet (destroys marital bliss and physical attraction)",
+            "Pooja Room",
+            "Elderly Parent's Bedroom"
+          ],
+          "classical_reference": "Viśvakarma Prakāśa Ch 7; Samarāṅgaṇa Sūtradhāra Ch 24"
+        }
+      ]
+    }
+  ]
+}

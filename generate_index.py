@@ -1,0 +1,2269 @@
+# -*- coding: utf-8 -*-
+"""
+Build script for D:\builds\index.html
+Integrates the complete Vastu Divine consultation platform:
+- Celestial Sun Astrolabe (astrolabe.js + astrolabe.css)
+- 3D Interactive Luxury Sketchbook (sketchbook.js + sketchbook.css)
+- 20 Interactive Calculators Hub (vastu-engine.js + numerology-engine.js)
+- Canonical 6-field result cards, print, and copy actions
+- Consultation paths & booking modal
+- Methodology, Case studies, and FAQs
+"""
+
+import os
+import sys
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+html_content = """<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vastu Divine (वD / VASTU डिवाइन) — Vedic Spatial Architecture &amp; Sacred Vibrational Mathematics</title>
+    <meta name="description" content="Harmonize living space and decode vibrational destiny. Twenty defensive calculation tools rooted in classical Sanskrit treatises (Mānasāra, Mayamata, Bṛhat Saṃhitā) and historic numerological traditions.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="alternate icon" type="image/png" href="assets/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Core Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/astrolabe.css">
+    <link rel="stylesheet" href="css/sketchbook.css">
+
+    <style>
+        /* Additional page-specific enhancements */
+        .top-benediction-bar {
+            background-color: var(--clr-black);
+            color: #FAF8F5;
+            padding: 9px 20px;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--clr-gold);
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .top-benediction-bar {
+                flex-direction: column;
+                gap: 4px;
+                text-align: center;
+            }
+        }
+        .header-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(179, 121, 30, 0.22);
+            box-shadow: 0 4px 20px rgba(109, 10, 29, 0.04);
+            padding: 14px 24px;
+        }
+        .header-nav-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+        .nav-link {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--clr-text-main);
+            text-decoration: none;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+        .nav-link:hover {
+            color: var(--clr-maroon);
+        }
+        .nav-link.active {
+            color: var(--clr-maroon);
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--clr-gold);
+            border-radius: 2px;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: 1px solid var(--clr-maroon);
+            color: var(--clr-maroon);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        @media (max-width: 960px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #FFFFFF;
+                padding: 20px;
+                border-bottom: 2px solid var(--clr-gold);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                gap: 16px;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+        .astrolabe-controls-overlay {
+            margin-top: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .astrolabe-btn {
+            background: #FFFFFF;
+            border: 1px solid var(--clr-gold-border);
+            color: var(--clr-maroon);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .astrolabe-btn:hover {
+            background: var(--clr-maroon);
+            color: #FFFFFF;
+            border-color: var(--clr-maroon);
+        }
+        .tools-filter-bar {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .tools-filter-btn {
+            background: #FFFFFF;
+            border: 1px solid var(--clr-maroon-border);
+            color: var(--clr-text-main);
+            padding: 10px 24px;
+            border-radius: 9999px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .tools-filter-btn:hover, .tools-filter-btn.active {
+            background: var(--clr-maroon);
+            color: #FFFFFF;
+            border-color: var(--clr-maroon);
+            box-shadow: 0 4px 14px rgba(109, 10, 29, 0.25);
+        }
+        .tools-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .tool-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(179, 121, 30, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--clr-gold);
+        }
+        .tool-card-category {
+            display: inline-block;
+            align-self: flex-start;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+        }
+        .tool-card-category.vastu {
+            background: var(--clr-maroon-soft);
+            color: var(--clr-maroon);
+        }
+        .tool-card-category.num {
+            background: var(--clr-gold-soft);
+            color: #8C5B09;
+        }
+        .tool-card-category.modern {
+            background: rgba(20, 20, 20, 0.08);
+            color: #333333;
+        }
+        .tool-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--clr-maroon);
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        .tool-card-subtitle {
+            font-size: 0.82rem;
+            color: var(--clr-gold);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .tool-card-desc {
+            font-size: 0.88rem;
+            color: var(--clr-text-muted);
+            line-height: 1.55;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+        .tool-card-source {
+            font-size: 0.78rem;
+            color: var(--clr-text-dim);
+            border-top: 1px dashed rgba(109, 10, 29, 0.12);
+            padding-top: 10px;
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        .tool-card-btn {
+            width: 100%;
+            background: #FFFFFF;
+            border: 1.5px solid var(--clr-maroon);
+            color: var(--clr-maroon);
+            padding: 10px 18px;
+            border-radius: 9999px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+        .tool-card-btn:hover {
+            background: var(--clr-maroon);
+            color: #FFFFFF;
+        }
+
+        /* Workbench Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(20, 20, 20, 0.72);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-window {
+            background: #FFFFFF;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 820px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 2px solid var(--clr-gold-border);
+            box-shadow: 0 20px 60px rgba(109, 10, 29, 0.25);
+            animation: modalSlideUp 0.3s var(--ease-smooth);
+            position: relative;
+        }
+        @keyframes modalSlideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .modal-header {
+            background: linear-gradient(135deg, var(--clr-maroon-dark) 0%, var(--clr-maroon) 100%);
+            color: #FFFFFF;
+            padding: 20px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .modal-header h3 {
+            color: #FFFFFF;
+            font-size: 1.25rem;
+            margin: 0;
+        }
+        .modal-close-btn {
+            background: none;
+            border: none;
+            color: #FFFFFF;
+            font-size: 1.6rem;
+            cursor: pointer;
+            padding: 0 6px;
+            line-height: 1;
+            transition: transform 0.2s ease;
+        }
+        .modal-close-btn:hover {
+            transform: scale(1.15);
+            color: var(--clr-gold-pale);
+        }
+        .modal-body {
+            padding: 28px;
+        }
+        .modal-form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        /* Standardized 6-field Result Card in Modal */
+        .result-card-container {
+            margin-top: 24px;
+            background: #FAF7F2;
+            border: 1px solid var(--clr-gold-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: none;
+            box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .result-card-container.visible {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .result-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+            border-bottom: 1px solid rgba(179, 121, 30, 0.25);
+            padding-bottom: 12px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .result-field-name {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            color: var(--clr-maroon);
+            font-weight: 700;
+        }
+        .result-score-badge {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .score-auspicious {
+            background: var(--clr-auspicious-bg);
+            color: var(--clr-auspicious);
+            border: 1px solid rgba(27, 115, 64, 0.3);
+        }
+        .score-moderate {
+            background: var(--clr-neutral-bg);
+            color: var(--clr-neutral);
+            border: 1px solid rgba(138, 109, 20, 0.3);
+        }
+        .score-inauspicious {
+            background: var(--clr-inauspicious-bg);
+            color: var(--clr-inauspicious);
+            border: 1px solid rgba(163, 28, 36, 0.3);
+        }
+        .result-schema-item {
+            margin-bottom: 12px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        .result-schema-label {
+            font-weight: 700;
+            color: var(--clr-maroon);
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+        .result-disclaimer-box {
+            margin-top: 16px;
+            padding: 12px 14px;
+            background: #FFFFFF;
+            border-left: 3px solid var(--clr-gold);
+            font-size: 0.82rem;
+            color: var(--clr-text-muted);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-style: italic;
+        }
+        .result-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .visualizer-preview-box {
+            margin: 16px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #FFFFFF;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(179, 121, 30, 0.2);
+        }
+
+        /* FAQ Accordion */
+        .faq-item {
+            background: #FFFFFF;
+            border: 1px solid rgba(109, 10, 29, 0.12);
+            border-radius: var(--radius-md);
+            margin-bottom: 14px;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+        .faq-item:hover {
+            border-color: var(--clr-gold);
+        }
+        .faq-question {
+            padding: 18px 24px;
+            font-family: var(--font-heading);
+            font-size: 1.05rem;
+            color: var(--clr-maroon);
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .faq-answer {
+            padding: 0 24px 20px;
+            font-size: 0.92rem;
+            color: var(--clr-text-muted);
+            line-height: 1.65;
+            display: none;
+            border-top: 1px dashed rgba(109, 10, 29, 0.08);
+            padding-top: 14px;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .faq-icon {
+            font-size: 1.2rem;
+            color: var(--clr-gold);
+            transition: transform 0.2s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. Top Benediction Bar -->
+    <div class="top-benediction-bar">
+        <div>
+            <strong>ॐ वास्तोष्पते प्रति जानीह्यस्मान् स्वावेशो अनमीवो भवा नः।</strong> (Rigveda 7.54.1)
+        </div>
+        <div>
+            Canonical Sthapatya Veda &bull; Unadulterated Chaldean &amp; Pythagorean Numerology &bull; 100% Zero-Demolition Architecture
+        </div>
+    </div>
+
+    <!-- 2. Sticky Header Navigation -->
+    <header class="header-sticky">
+        <div class="header-nav-container">
+            <a href="#hero" class="brand-lockup" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
+                <img src="assets/logo-icon.png" alt="Vastu Divine Logo" style="width: 44px; height: 44px; object-fit: contain;">
+                <div>
+                    <div style="font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; color: var(--clr-maroon); letter-spacing: 1.2px; line-height: 1.1;">VASTU DIVINE</div>
+                    <div style="font-size: 0.72rem; color: var(--clr-gold); font-weight: 600; letter-spacing: 2.5px;">वD / VASTU डिवाइन</div>
+                </div>
+            </a>
+            
+            <nav class="nav-links" id="primary-nav">
+                <a href="#tools-suite" class="nav-link active">20 Sacred Tools</a>
+                <a href="#four-pillars" class="nav-link">Four Pillars</a>
+                <a href="#consultation-paths" class="nav-link">Consultations</a>
+                <a href="pages/methodology.html" class="nav-link">Treatises &amp; Texts</a>
+                <a href="#case-studies" class="nav-link">Case Studies</a>
+                <a href="#faqs" class="nav-link">FAQs</a>
+                <a href="#consultation-paths" class="btn btn-primary" style="padding: 8px 22px; font-size: 0.85rem;">Book Consultation</a>
+            </nav>
+
+            <button class="mobile-menu-btn" id="mobile-toggle" aria-label="Toggle Navigation">☰</button>
+        </div>
+    </header>
+
+    <!-- 3. Hero Section with Live Celestial Sun Astrolabe -->
+    <section class="hero-section" id="hero" style="padding: 70px 20px 80px; background: radial-gradient(circle at 80% 20%, rgba(179, 121, 30, 0.08) 0%, transparent 60%), #FAF7F2; border-bottom: 1px solid rgba(179, 121, 30, 0.2);">
+        <div class="container hero-grid" style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items: center; max-width: 1240px; margin: 0 auto;">
+            
+            <!-- Hero Left Column -->
+            <div class="hero-content">
+                <div class="hero-eyebrow" style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: var(--clr-maroon); background: var(--clr-maroon-soft); border: 1px solid var(--clr-maroon-border); padding: 6px 18px; border-radius: 9999px; display: inline-block; margin-bottom: 20px;">
+                    Vedic Spatial Architecture &amp; Sacred Vibrational Mathematics
+                </div>
+                <h1 class="hero-headline" style="font-size: clamp(2.2rem, 4.5vw, 3.4rem); line-height: 1.18; margin-bottom: 18px; color: var(--clr-maroon);">
+                    Harmonize Living Space. <br>Decode Vibrational Destiny.
+                </h1>
+                <p class="hero-desc" style="font-size: 1.15rem; color: var(--clr-text-muted); line-height: 1.7; margin-bottom: 30px; max-width: 580px;">
+                    Where ancient <em>Sthapatya Veda</em> meets mathematical precision. Twenty defensive calculation tools rooted in classical Sanskrit treatises and historic numerological traditions.
+                </p>
+
+                <div class="hero-actions" style="display: flex; gap: 16px; margin-bottom: 40px; flex-wrap: wrap;">
+                    <a href="#tools-suite" class="btn btn-gold" style="padding: 14px 30px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                        Explore 20 Sacred Tools →
+                    </a>
+                    <a href="#consultation-paths" class="btn btn-outline" style="padding: 14px 28px; font-size: 0.95rem; font-weight: 600;">
+                        Book Master Consultation
+                    </a>
+                </div>
+
+                <!-- Trust Indicators Grid -->
+                <div class="trust-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+                    <div style="background: #FFFFFF; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(109, 10, 29, 0.12); box-shadow: var(--shadow-sm);">
+                        <strong style="color: var(--clr-maroon); font-size: 0.92rem; display: block; margin-bottom: 2px;">Mānasāra &amp; Mayamata Citations</strong>
+                        <span style="font-size: 0.8rem; color: var(--clr-text-muted);">Exact chapter and verse concordance on every tool.</span>
+                    </div>
+                    <div style="background: #FFFFFF; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(179, 121, 30, 0.2); box-shadow: var(--shadow-sm);">
+                        <strong style="color: #8C5B09; font-size: 0.92rem; display: block; margin-bottom: 2px;">Strict Tradition Separation</strong>
+                        <span style="font-size: 0.8rem; color: var(--clr-text-muted);">Chaldean (1–8) never conflated with Pythagorean (1–9).</span>
+                    </div>
+                    <div style="background: #FFFFFF; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(27, 115, 64, 0.2); box-shadow: var(--shadow-sm);">
+                        <strong style="color: var(--clr-auspicious); font-size: 0.92rem; display: block; margin-bottom: 2px;">100% Zero-Demolition Cures</strong>
+                        <span style="font-size: 0.8rem; color: var(--clr-text-muted);">Elemental metal waveguides &amp; optical harmonization.</span>
+                    </div>
+                    <div style="background: #FFFFFF; padding: 14px 18px; border-radius: 12px; border: 1px solid rgba(109, 10, 29, 0.12); box-shadow: var(--shadow-sm);">
+                        <strong style="color: var(--clr-maroon); font-size: 0.92rem; display: block; margin-bottom: 2px;">16-Zone Energy Radar</strong>
+                        <span style="font-size: 0.8rem; color: var(--clr-text-muted);">Micro-quadrant analysis across 45 Paramashayika deities.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Right Column: Celestial Sun Astrolabe -->
+            <div class="hero-astrolabe-wrapper" style="display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                <div style="position: relative; width: 100%; max-width: 520px; aspect-ratio: 1/1; background: #FFFFFF; border-radius: 50%; padding: 16px; box-shadow: 0 16px 50px rgba(109, 10, 29, 0.1), inset 0 0 30px rgba(179, 121, 30, 0.08); border: 2px solid var(--clr-gold-border);">
+                    <div id="hero-astrolabe" class="astrolabe-container" style="width: 100%; height: 100%;"></div>
+                </div>
+
+                <!-- Astrolabe Controls -->
+                <div class="astrolabe-controls-overlay">
+                    <button class="astrolabe-btn" id="astrolabe-pause-play">⏸ Pause Rotation</button>
+                    <button class="astrolabe-btn" id="astrolabe-speed-half">0.5x Harmonic</button>
+                    <button class="astrolabe-btn" id="astrolabe-speed-1x">1x Normal</button>
+                    <button class="astrolabe-btn" id="astrolabe-speed-2x">2x Cosmic</button>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--clr-text-dim); margin-top: 8px;">
+                    5 Opposing Harmonic Velocity Rings &bull; Stationary Classical Sun Face &bull; GPU Acceleration
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Four Pillars of Personal Alignment (3D Interactive Sketchbook) -->
+    <section class="section" id="four-pillars" style="padding: 90px 20px; background: #FFFFFF; border-bottom: 1px solid rgba(109, 10, 29, 0.1);">
+        <div class="container" style="max-width: 1240px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 780px; margin: 0 auto 50px;">
+                <span class="hero-eyebrow" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--clr-gold); background: var(--clr-gold-soft); padding: 5px 16px; border-radius: 9999px; display: inline-block; margin-bottom: 14px;">
+                    Sequential Spiritual Architecture
+                </span>
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--clr-maroon); margin-bottom: 12px;">
+                    The Four Pillars of Personal Alignment
+                </h2>
+                <p style="font-size: 1.05rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Turn the gilded pages of the <em>Sacred Sketchbook</em> to explore our fourfold journey: from instant self-discovery diagnostics to deep numerological blueprints, zero-demolition spatial rectifications, and master consultations.
+                </p>
+            </div>
+
+            <!-- Sketchbook Component Container -->
+            <div style="display: flex; justify-content: center; width: 100%;">
+                <div id="sketchbook-pillars" style="width: 100%; max-width: 960px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Exactly 20 Sacred Interactive Calculators Hub -->
+    <section class="section" id="tools-suite" style="padding: 90px 20px; background: #FAF7F2; border-bottom: 1px solid rgba(179, 121, 30, 0.2);">
+        <div class="container" style="max-width: 1240px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 820px; margin: 0 auto 40px;">
+                <span class="hero-eyebrow" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--clr-maroon); background: var(--clr-maroon-soft); padding: 5px 16px; border-radius: 9999px; display: inline-block; margin-bottom: 14px;">
+                    Interactive Computational Engines
+                </span>
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--clr-maroon); margin-bottom: 12px;">
+                    Twenty Sacred Computational Calculators
+                </h2>
+                <p style="font-size: 1.05rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Every tool is powered by our mathematically verified JavaScript calculation engines. Select any calculator below to open the interactive workbench, enter your parameters, and receive a complete canonical diagnostic dossier.
+                </p>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="tools-filter-bar">
+                <button class="tools-filter-btn active" data-filter="all">All 20 Sacred Tools</button>
+                <button class="tools-filter-btn" data-filter="vastu">Classical Vastu (10)</button>
+                <button class="tools-filter-btn" data-filter="numerology">Sacred Numerology (10)</button>
+            </div>
+
+            <!-- Tools Cards Grid -->
+            <div class="tools-card-grid" id="tools-grid">
+                <!-- Javascript will populate all 20 cards -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Universal Calculation Workbench Modal -->
+    <div class="modal-overlay" id="tool-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-window">
+            <div class="modal-header">
+                <div>
+                    <h3 id="modal-title">Tool Calculator</h3>
+                    <div id="modal-subtitle" style="font-size: 0.8rem; color: var(--clr-gold-pale); margin-top: 2px;">Canonical Engine</div>
+                </div>
+                <button class="modal-close-btn" id="modal-close" aria-label="Close Modal">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <!-- Form Container -->
+                <form id="tool-form">
+                    <div class="modal-form-grid" id="modal-form-fields">
+                        <!-- Dynamic fields injected via JS -->
+                    </div>
+
+                    <div style="display: flex; gap: 12px; align-items: center; justify-content: flex-end; margin-top: 20px;">
+                        <button type="button" class="btn btn-outline" id="modal-reset-btn" style="padding: 10px 20px; font-size: 0.9rem;">Reset</button>
+                        <button type="submit" class="btn btn-gold" id="modal-calc-btn" style="padding: 10px 26px; font-size: 0.9rem; font-weight: 700;">Calculate Sacred Alignment →</button>
+                    </div>
+                </form>
+
+                <!-- Visualizer Box (Compass / Mandala / Number Breakdown) -->
+                <div id="modal-visualizer" class="visualizer-preview-box" style="display: none;"></div>
+
+                <!-- Standardized 6-Field Canonical Result Card -->
+                <div class="result-card-container" id="modal-result-card">
+                    <div class="result-header-row">
+                        <div>
+                            <div class="result-field-name" id="res-element-name">Element Assessment</div>
+                            <div style="font-size: 0.82rem; color: var(--clr-gold); font-weight: 600; margin-top: 3px;" id="res-system-named">Classical Vedic Vastu</div>
+                        </div>
+                        <div class="result-score-badge score-auspicious" id="res-assessment-badge">Highly Auspicious</div>
+                    </div>
+
+                    <div class="result-schema-item">
+                        <span class="result-schema-label">1. Primary Assessment</span>
+                        <div id="res-assessment-text" style="font-weight: 600; color: var(--clr-maroon);">Auspicious alignment</div>
+                    </div>
+
+                    <div class="result-schema-item">
+                        <span class="result-schema-label">2. Source Reference &amp; Canon</span>
+                        <div id="res-source-ref" style="font-style: italic; color: #444;">Bṛhat Saṃhitā Ch. 53; Mayamata Ch. 26</div>
+                    </div>
+
+                    <div class="result-schema-item">
+                        <span class="result-schema-label">3. Plain-Language Rule &amp; Spatial Physics</span>
+                        <div id="res-plain-rule" style="color: var(--clr-text-muted);">Detailed explanation...</div>
+                    </div>
+
+                    <div class="result-schema-item" id="res-remedy-block">
+                        <span class="result-schema-label">4. Canonical Non-Demolition Remedy</span>
+                        <div id="res-remedy" style="color: #6D0A1D; font-weight: 500;">Remedy description...</div>
+                    </div>
+
+                    <div class="result-disclaimer-box" id="res-disclaimer">
+                        Traditional architectural philosophy; regional texts and local climate conditions may prescribe variations.
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="result-actions">
+                        <button type="button" class="btn btn-outline" id="btn-copy-result" style="padding: 8px 18px; font-size: 0.85rem;">📋 Copy Dossier</button>
+                        <button type="button" class="btn btn-outline" id="btn-print-result" style="padding: 8px 18px; font-size: 0.85rem;">🖨️ Print Dossier</button>
+                        <a href="#consultation-paths" class="btn btn-gold" id="btn-book-from-result" style="padding: 8px 18px; font-size: 0.85rem;">Book Master Remedy Review →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Bespoke Consultation Paths Section -->
+    <section class="section" id="consultation-paths" style="padding: 90px 20px; background: #FFFFFF; border-bottom: 1px solid rgba(109, 10, 29, 0.1);">
+        <div class="container" style="max-width: 1240px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 780px; margin: 0 auto 50px;">
+                <span class="hero-eyebrow" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--clr-gold); background: var(--clr-gold-soft); padding: 5px 16px; border-radius: 9999px; display: inline-block; margin-bottom: 14px;">
+                    Architectural Engagements
+                </span>
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--clr-maroon); margin-bottom: 12px;">
+                    Dedicated Master Consultation Paths
+                </h2>
+                <p style="font-size: 1.05rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Whether evaluating a luxury residence, structuring a corporate headquarters, optimizing industrial machinery, or neutralizing persistent spatial doshas without demolition.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-bottom: 50px;">
+                
+                <!-- Path 1: Griha Vastu -->
+                <div style="background: #FAF8F5; border: 1px solid rgba(109, 10, 29, 0.15); border-radius: var(--radius-lg); padding: 32px 26px; display: flex; flex-direction: column;">
+                    <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; color: var(--clr-maroon); text-transform: uppercase; margin-bottom: 8px;">Path 01</span>
+                    <h3 style="font-size: 1.4rem; color: var(--clr-maroon); margin-bottom: 8px;">Griha Vastu</h3>
+                    <div style="font-size: 0.85rem; color: var(--clr-gold); font-weight: 600; margin-bottom: 16px;">Luxury Residential &amp; Domicile Harmony</div>
+                    <p style="font-size: 0.92rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">
+                        Comprehensive 16-zone evaluation of villas, penthouses, and apartments. Aligns master bedchambers, Agni hearths, and subterranean water veins for domestic tranquility, generational vitality, and restorative rest.
+                    </p>
+                    <button class="btn btn-outline select-consult-path" data-path="Griha Vastu (Residential)" style="width: 100%;">Inquire for Residential →</button>
+                </div>
+
+                <!-- Path 2: Vanijya Vastu -->
+                <div style="background: #FAF8F5; border: 1px solid rgba(179, 121, 30, 0.25); border-radius: var(--radius-lg); padding: 32px 26px; display: flex; flex-direction: column;">
+                    <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; color: var(--clr-gold); text-transform: uppercase; margin-bottom: 8px;">Path 02</span>
+                    <h3 style="font-size: 1.4rem; color: var(--clr-maroon); margin-bottom: 8px;">Vanijya Vastu</h3>
+                    <div style="font-size: 0.85rem; color: var(--clr-gold); font-weight: 600; margin-bottom: 16px;">Commercial, Corporate &amp; Retail Growth</div>
+                    <p style="font-size: 0.92rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">
+                        Specialized architectural layout for executive cabins, boardrooms, client acquisition portals, and financial treasuries. Calibrates Kubera (North) and Varuna (West) zones to sustain high transaction velocity.
+                    </p>
+                    <button class="btn btn-outline select-consult-path" data-path="Vanijya Vastu (Commercial)" style="width: 100%;">Inquire for Commercial →</button>
+                </div>
+
+                <!-- Path 3: Udyog Vastu -->
+                <div style="background: #FAF8F5; border: 1px solid rgba(109, 10, 29, 0.15); border-radius: var(--radius-lg); padding: 32px 26px; display: flex; flex-direction: column;">
+                    <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; color: var(--clr-maroon); text-transform: uppercase; margin-bottom: 8px;">Path 03</span>
+                    <h3 style="font-size: 1.4rem; color: var(--clr-maroon); margin-bottom: 8px;">Udyog Vastu</h3>
+                    <div style="font-size: 0.85rem; color: var(--clr-gold); font-weight: 600; margin-bottom: 16px;">Industrial, Factory &amp; Logistics Plants</div>
+                    <p style="font-size: 0.92rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">
+                        Thermodynamic and kinetic layout analysis for heavy manufacturing, boilers, raw material staging, and logistics bays. Anchors heavy machinery in Southwest Nairṛtya while opening Northeast for prana intake.
+                    </p>
+                    <button class="btn btn-outline select-consult-path" data-path="Udyog Vastu (Industrial)" style="width: 100%;">Inquire for Industrial →</button>
+                </div>
+
+                <!-- Path 4: Dosh Nivarana -->
+                <div style="background: #FAF8F5; border: 1px solid rgba(27, 115, 64, 0.25); border-radius: var(--radius-lg); padding: 32px 26px; display: flex; flex-direction: column;">
+                    <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; color: var(--clr-auspicious); text-transform: uppercase; margin-bottom: 8px;">Path 04</span>
+                    <h3 style="font-size: 1.4rem; color: var(--clr-maroon); margin-bottom: 8px;">Dosh Nivarana</h3>
+                    <div style="font-size: 0.85rem; color: var(--clr-auspicious); font-weight: 600; margin-bottom: 16px;">100% Zero-Demolition Elemental Cures</div>
+                    <p style="font-size: 0.92rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 20px; flex-grow: 1;">
+                        Non-invasive corrections for structural flaws in rented or finished properties. Deploys brass, copper, lead and silver metallic threshold strips, elemental pyra-crystals, and geometric mirrors to redirect energy flows.
+                    </p>
+                    <button class="btn btn-outline select-consult-path" data-path="Dosh Nivarana (Non-Demolition Cures)" style="width: 100%;">Inquire for Non-Demolition →</button>
+                </div>
+
+            </div>
+
+            <!-- Interactive Inquiry Form -->
+            <div style="background: #FAF7F2; border: 1px solid var(--clr-gold-border); border-radius: var(--radius-lg); padding: 40px; max-width: 820px; margin: 0 auto; box-shadow: var(--shadow-sm);">
+                <h3 style="text-align: center; color: var(--clr-maroon); font-size: 1.6rem; margin-bottom: 6px;">Initiate Master Engagement</h3>
+                <p style="text-align: center; font-size: 0.95rem; color: var(--clr-text-muted); margin-bottom: 30px;">
+                    Submit your architectural floor plan or numerological profiles for private archival assessment.
+                </p>
+
+                <form id="consultation-form" onsubmit="handleConsultationSubmit(event)">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-bottom: 20px;">
+                        <div>
+                            <label class="form-label" for="client-name">Your Full Name *</label>
+                            <input type="text" id="client-name" class="form-control" placeholder="e.g. Vikramaditya Sharma" required>
+                        </div>
+                        <div>
+                            <label class="form-label" for="client-email">Email Address *</label>
+                            <input type="email" id="client-email" class="form-control" placeholder="e.g. vikram@domain.com" required>
+                        </div>
+                        <div>
+                            <label class="form-label" for="client-phone">Mobile Contact (with Country Code) *</label>
+                            <input type="tel" id="client-phone" class="form-control" placeholder="+91 98765 43210" required>
+                        </div>
+                        <div>
+                            <label class="form-label" for="client-category">Consultation Category *</label>
+                            <select id="client-category" class="form-control" required>
+                                <option value="Griha Vastu (Residential)">Griha Vastu (Residential Harmony)</option>
+                                <option value="Vanijya Vastu (Commercial)">Vanijya Vastu (Commercial / Corporate)</option>
+                                <option value="Udyog Vastu (Industrial)">Udyog Vastu (Industrial / Manufacturing)</option>
+                                <option value="Dosh Nivarana (Non-Demolition Cures)">Dosh Nivarana (Zero-Demolition Cures)</option>
+                                <option value="Complete Vastu + Numerology Synthesis">Complete Vastu + Numerology Synthesis</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 24px;">
+                        <label class="form-label" for="client-notes">Property Details or Focal Questions</label>
+                        <textarea id="client-notes" class="form-control" rows="3" placeholder="Describe the layout, facing direction (if known), city/location, and primary objectives..."></textarea>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn btn-gold" style="padding: 14px 36px; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                            Request Confidential Consultation Dossier →
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Classical Treatises & Textual Transparency Banner -->
+    <section class="section" id="methodology" style="padding: 80px 20px; background: linear-gradient(135deg, var(--clr-maroon-dark) 0%, var(--clr-maroon) 100%); color: #FFFFFF; border-bottom: 3px solid var(--clr-gold);">
+        <div class="container" style="max-width: 1240px; margin: 0 auto; text-align: center;">
+            <span class="hero-eyebrow" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--clr-gold-light); background: rgba(179, 121, 30, 0.2); border: 1px solid var(--clr-gold-border); padding: 5px 16px; border-radius: 9999px; display: inline-block; margin-bottom: 14px;">
+                Canonical Sanskrit Authorities
+            </span>
+            <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: #FFFFFF; margin-bottom: 14px;">
+                Rooted in 8 Authoritative Treatises
+            </h2>
+            <p style="font-size: 1.05rem; color: rgba(255, 255, 255, 0.88); max-width: 760px; margin: 0 auto 36px; line-height: 1.6;">
+                We reject speculative internet superstitions. Every algorithmic rule is cross-referenced with academic translations of the <em>Mānasāra</em>, <em>Mayamata</em>, <em>Bṛhat Saṃhitā</em>, <em>Samarāṅgaṇa Sūtradhāra</em>, <em>Viśvakarma Prakāśa</em>, and <em>Manuṣyālaya Candrikā</em>.
+            </p>
+
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 30px;">
+                <span style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 9999px; font-size: 0.85rem;">Mānasāra (P.K. Acharya)</span>
+                <span style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 9999px; font-size: 0.85rem;">Mayamata (Bruno Dagens)</span>
+                <span style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 9999px; font-size: 0.85rem;">Bṛhat Saṃhitā (Varāhamihira)</span>
+                <span style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 9999px; font-size: 0.85rem;">Samarāṅgaṇa Sūtradhāra (King Bhoja)</span>
+                <span style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 8px 18px; border-radius: 9999px; font-size: 0.85rem;">Manuṣyālaya Candrikā (Kerala Canon)</span>
+            </div>
+
+            <div>
+                <a href="pages/methodology.html" class="btn btn-gold" style="padding: 12px 30px; font-size: 0.92rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;">
+                    Read Complete Treatise &amp; Concordance Guide →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. Authentic Case Studies -->
+    <section class="section" id="case-studies" style="padding: 90px 20px; background: #FAF7F2; border-bottom: 1px solid rgba(179, 121, 30, 0.2);">
+        <div class="container" style="max-width: 1240px; margin: 0 auto;">
+            <div style="text-align: center; max-width: 780px; margin: 0 auto 50px;">
+                <span class="hero-eyebrow" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--clr-maroon); background: var(--clr-maroon-soft); padding: 5px 16px; border-radius: 9999px; display: inline-block; margin-bottom: 14px;">
+                    Empirical Spatial Transformations
+                </span>
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--clr-maroon); margin-bottom: 12px;">
+                    Real-World Architectural Outcomes
+                </h2>
+                <p style="font-size: 1.05rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Explore verified client transformations executed strictly through non-demolition spatial recalibrations and vibrational acoustic harmony.
+                </p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                
+                <!-- Case 1 -->
+                <div style="background: #FFFFFF; border: 1px solid rgba(109, 10, 29, 0.12); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-sm);">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--clr-maroon); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Luxury Penthouse &bull; Gurugram</div>
+                    <h3 style="font-size: 1.25rem; color: var(--clr-maroon); margin-bottom: 10px;">North-East Water &amp; South-West Bed Realignment</h3>
+                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 14px;">
+                        <strong>Challenge:</strong> Persistent sleep disturbances and erratic decision-making caused by a master bed facing North and an inverted water reservoir.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 14px;">
+                        <strong>Zero-Demolition Cure:</strong> Reoriented bedstead to South, installed pure copper threshold boundary across the doorway, and balanced water mass with silver foil insulation.
+                    </p>
+                    <div style="background: var(--clr-auspicious-bg); color: var(--clr-auspicious); padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;">
+                        ✓ Restored restful sleep within 14 days; leadership focus renewed without single tile altered.
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div style="background: #FFFFFF; border: 1px solid rgba(179, 121, 30, 0.2); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-sm);">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--clr-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">FinTech Headquarters &bull; Bengaluru</div>
+                    <h3 style="font-size: 1.25rem; color: var(--clr-maroon); margin-bottom: 10px;">Entrance Calibration to Jayanta Pada (E3)</h3>
+                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 14px;">
+                        <strong>Challenge:</strong> High employee attrition and unclosed venture funding rounds linked to portal positioned in inauspicious E5 (Surya/Wrath) zone.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 14px;">
+                        <strong>Zero-Demolition Cure:</strong> Shifted operational flow to Jayanta (E3) pada via internal acoustic baffle wall and aligned corporate brand name to Chaldean 24.
+                    </p>
+                    <div style="background: var(--clr-auspicious-bg); color: var(--clr-auspicious); padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;">
+                        ✓ Successfully closed Series B funding within 4 months; cross-team collaboration stabilized.
+                    </div>
+                </div>
+
+                <!-- Case 3 -->
+                <div style="background: #FFFFFF; border: 1px solid rgba(109, 10, 29, 0.12); border-radius: var(--radius-md); padding: 28px; box-shadow: var(--shadow-sm);">
+                    <div style="font-size: 0.75rem; font-weight: 700; color: var(--clr-maroon); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px;">Manufacturing Plant &bull; Pune</div>
+                    <h3 style="font-size: 1.25rem; color: var(--clr-maroon); margin-bottom: 10px;">SE Heavy Heating &amp; NW Exhaust Recalibration</h3>
+                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 14px;">
+                        <strong>Challenge:</strong> Recurrent furnace breakdowns and supply chain delays caused by water cooling system encroaching into Agni quadrant.
+                    </p>
+                    <p style="font-size: 0.9rem; color: var(--clr-text-muted); line-height: 1.6; margin-bottom: 14px;">
+                        <strong>Zero-Demolition Cure:</strong> Installed red jasper and brass isolation strips along the floor meridian; redirected air exhaust to northwest Vāyu quadrant.
+                    </p>
+                    <div style="background: var(--clr-auspicious-bg); color: var(--clr-auspicious); padding: 10px 14px; border-radius: 8px; font-size: 0.85rem; font-weight: 600;">
+                        ✓ Zero unplanned downtime recorded over consecutive 12 months; throughput rose 22%.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Comprehensive Vedic & Vibrational FAQs -->
+    <section class="section" id="faqs" style="padding: 90px 20px; background: #FFFFFF;">
+        <div class="container" style="max-width: 960px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="hero-eyebrow" style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--clr-maroon); background: var(--clr-maroon-soft); padding: 5px 16px; border-radius: 9999px; display: inline-block; margin-bottom: 14px;">
+                    Erudite Clarity
+                </span>
+                <h2 style="font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--clr-maroon); margin-bottom: 12px;">
+                    Frequently Asked Questions
+                </h2>
+                <p style="font-size: 1.05rem; color: var(--clr-text-muted); line-height: 1.6;">
+                    Direct, thoughtful answers regarding our mathematical formulas, classical citations, non-demolition cures, and ethical standards.
+                </p>
+            </div>
+
+            <!-- FAQ Accordion Container -->
+            <div class="faq-accordion">
+                
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        <span>How can severe Vastu doshas be neutralized without structural demolition?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Classical treatises like the <em>Samarāṅgaṇa Sūtradhāra</em> and <em>Viśvakarma Prakāśa</em> explicitly recognize that once a physical foundation is poured, destructive demolition often introduces greater structural violence than the original defect. Spatial energy is vibrational: embedding elemental metal strips (copper for Agni in SE, lead for Nairṛtya in SW, zinc for Vāyu in NW, silver for Īśāna in NE) creates electromagnetic threshold barriers that seal energetic leaks and redirect environmental prāṇa without tearing down walls.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Why does Vastu Divine strictly separate Chaldean and Pythagorean numerology?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Chaldean numerology is an ancient Babylonian oral tradition based on the phonetic acoustic sound vibration of spoken letters, assigning numbers from 1 to 8 (omitting 9 as a sacred unmanifest archetype). Pythagorean numerology, originating with Pythagoras in Greece, is based on a sequential 1–9 Western alphabetical grid and preserves Master Numbers (11, 22, 33). Conflating these two distinct mathematical models destroys the internal coherence of both systems. We calculate both with uncompromised historical fidelity.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are tools like Mobile Number and Vehicle Numerology mentioned in the ancient Vedas?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        No. We maintain absolute academic and spiritual honesty: telecommunications, cellular technology, automobiles, and modern joint-stock companies did not exist in Vedic antiquity. These four tools are classified under <strong>Modern Practitioner Methodology</strong>—developed in the 20th and 21st centuries by contemporary practitioners who mapped ancient planetary friendship matrices (<em>Mitra-Shatru Chakra</em>) onto modern technological and kinetic artifacts.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is the fundamental difference between Vastu Shastra and Feng Shui?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        While both disciplines honor natural balance, Vastu Shastra is rooted in solar thermodynamics and the Earth's geomagnetic axis (North-South magnetic flux and East-West solar radiation), governed by universal mathematical mandalas (the 64-pada and 81-pada cosmic blueprints). Feng Shui is an environmental philosophy centered on the directional flow of wind and water (Qi), utilizing dynamic annual star shifts and the Bagua map. Vastu provides permanent structural alignment, while Feng Shui frequently adjusts movable decor.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Why is sleeping with one's head towards the North strictly prohibited?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        According to <em>Bṛhat Saṃhitā</em> (Ch. 53, v. 122) and the Ayurvedic medical classic <em>Suśruta Saṃhitā</em>, the human body acts as a magnetic dipole with the positive pole at the head. The Earth's northern geographic pole represents magnetic positive charge. When two identical poles align (head to North), geomagnetic repulsion creates subtle intracranial vascular pressure, disrupting deep delta-wave sleep, increasing cortisol, and accelerating cardiovascular fatigue. Sleeping with the head to the South (or East) aligns biological polarity naturally with the Earth's field.
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Master Luminous Footer -->
+    <footer style="background: #141414; color: #FAF7F2; padding: 70px 20px 40px; border-top: 4px solid var(--clr-gold);">
+        <div class="container" style="max-width: 1240px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px;" class="footer-grid">
+                
+                <!-- Column 1: Brand & Rigvedic Benediction -->
+                <div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                        <img src="assets/logo-alternative-white.png" alt="Vastu Divine Lockup" style="height: 48px; object-fit: contain;">
+                    </div>
+                    <p style="color: #A09A93; font-size: 0.88rem; line-height: 1.65; max-width: 380px; margin-bottom: 20px;">
+                        Harmonizing space and decoding destiny through the uncompromised geometry of <em>Sthapatya Veda</em> and classical vibrational mathematics.
+                    </p>
+                    <div style="font-family: var(--font-heading); font-size: 0.82rem; color: var(--clr-gold-light); line-height: 1.6; border-left: 2px solid var(--clr-gold); padding-left: 12px;">
+                        "वास्तोष्पते प्रतरणो न एधि गयस्फानो गोभिरश्वेभिरिन्दो।"<br>
+                        <span style="font-size: 0.75rem; color: #888;">Rigveda 7.54.2 — "O Guardian of the Dwelling, nourish our family, expand our abundance, and grant us enduring peace."</span>
+                    </div>
+                </div>
+
+                <!-- Column 2: Classical Vastu Tools -->
+                <div>
+                    <h4 style="color: var(--clr-gold-light); font-size: 0.95rem; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px;">Classical Vastu</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 2;">
+                        <li><a href="#tools-suite" onclick="openToolDirectly('house-vastu-analyzer')" style="color: #CCCCCC;">16-Zone House Analyzer</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('plot-vastu-analyzer')" style="color: #CCCCCC;">Plot Vastu (Bhūmi-Parīkṣā)</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('main-door-vastu')" style="color: #CCCCCC;">Main Door (32 Padas)</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('house-facing-calculator')" style="color: #CCCCCC;">House Facing &amp; Orientation</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('bedroom-vastu')" style="color: #CCCCCC;">Bedroom &amp; Sleeping Direction</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('kitchen-vastu')" style="color: #CCCCCC;">Kitchen &amp; Agni Hearth</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('toilet-bathroom-vastu')" style="color: #CCCCCC;">Toilet &amp; Drainage Vastu</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('puja-room-vastu')" style="color: #CCCCCC;">Puja Room Sanctum</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('water-vastu')" style="color: #CCCCCC;">Subterranean Water Vastu</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('staircase-vastu')" style="color: #CCCCCC;">Staircase &amp; Vertical Ascent</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Sacred Numerology Tools -->
+                <div>
+                    <h4 style="color: var(--clr-gold-light); font-size: 0.95rem; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px;">Sacred Numerology</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 2;">
+                        <li><a href="#tools-suite" onclick="openToolDirectly('name-number')" style="color: #CCCCCC;">Chaldean Name Number</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('name-analysis')" style="color: #CCCCCC;">Chaldean Name Analysis</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('life-path')" style="color: #CCCCCC;">Pythagorean Life Path</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('birth-number')" style="color: #CCCCCC;">Birth Day Number</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('destiny-number')" style="color: #CCCCCC;">Destiny / Expression</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('lucky-number')" style="color: #CCCCCC;">Harmonic Lucky Number</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('mobile-number')" style="color: #CCCCCC;">Mobile Phone Analyzer</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('vehicle-number')" style="color: #CCCCCC;">Vehicle Plate Dynamics</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('business-name')" style="color: #CCCCCC;">Corporate Brand Name</a></li>
+                        <li><a href="#tools-suite" onclick="openToolDirectly('name-dob-compatibility')" style="color: #CCCCCC;">Name + DOB Synastry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Treatises & Academic Directory -->
+                <div>
+                    <h4 style="color: var(--clr-gold-light); font-size: 0.95rem; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 1px;">Treatise Lineage</h4>
+                    <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.85rem; line-height: 2;">
+                        <li><a href="pages/methodology.html" style="color: #CCCCCC;">Mānasāra (P.K. Acharya)</a></li>
+                        <li><a href="pages/methodology.html" style="color: #CCCCCC;">Mayamata (Bruno Dagens)</a></li>
+                        <li><a href="pages/methodology.html" style="color: #CCCCCC;">Bṛhat Saṃhitā (Varāhamihira)</a></li>
+                        <li><a href="pages/methodology.html" style="color: #CCCCCC;">Samarāṅgaṇa Sūtradhāra</a></li>
+                        <li><a href="pages/methodology.html" style="color: #CCCCCC;">Viśvakarma Prakāśa</a></li>
+                        <li><a href="pages/methodology.html" style="color: #CCCCCC;">Manuṣyālaya Candrikā</a></li>
+                        <li><a href="pages/methodology.html" style="color: #CCCCCC;">Cheiro's Book of Numbers</a></li>
+                        <li><a href="pages/methodology.html" style="color: #CCCCCC;">Dr. David Phillips (Pythagorean)</a></li>
+                        <li><a href="pages/methodology.html" style="color: var(--clr-gold-light); font-weight: 600;">View Table of Concordance →</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Legal & Copyright -->
+            <div style="border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-size: 0.8rem; color: #777;">
+                <div>
+                    &copy; 2026 Vastu Divine (वD / VASTU डिवाइन). All rights reserved. Built with mathematical precision.
+                </div>
+                <div>
+                    Traditional esoteric belief systems &bull; Regional texts and local conditions prescribe variations.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Interactive Engines -->
+    <script src="js/vastu-engine.js"></script>
+    <script src="js/numerology-engine.js"></script>
+    <script src="js/astrolabe.js"></script>
+    <script src="js/sketchbook.js"></script>
+
+    <!-- Page Logic & Workbench Manager -->
+    <script>
+        // 20 Tools Database Definition for UI Rendering
+        const ALL_20_TOOLS = [
+            // Classical Vastu Tools (1-10)
+            {
+                id: 'house-vastu-analyzer',
+                name: 'House Vastu Analyzer',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Full 16 Zones / 8 Directions Comprehensive Audit',
+                desc: 'Diagnostic deconstruction mapping functional spaces (Master Bed, Kitchen, Toilet, Puja) across all 16 directional quadrants of the dwelling.',
+                source: 'Mayamata Ch. 25; D.N. Shukla Vol. I; Bṛhat Saṃhitā Ch. 53'
+            },
+            {
+                id: 'plot-vastu-analyzer',
+                name: 'Plot Vastu Analyzer',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Bhūmi-Parīkṣā, Geometry & Slope Diagnostics',
+                desc: 'Evaluates land geometry (Square, Rectangle, Gomukhi, Shermukhi), directional water slope, soil resonance, and road encounters (Vīthī-śūla).',
+                source: 'Mānasāra Ch. 3–5; Mayamata Ch. 3–4; Bṛhat Saṃhitā Ch. 53'
+            },
+            {
+                id: 'main-door-vastu',
+                name: 'Main Door Vastu',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Dvāra Vinyāsa & 32 Perimeter Padas',
+                desc: 'Pinpoints entrance placement among the 32 boundary deities of the Paramashayika grid. Identifies highly praised portals (Jayanta, Mahendra, Pushpadanta, Mukhya).',
+                source: 'Bṛhat Saṃhitā 53.70–82; Mayamata Ch. 26; Viśvakarma Prakāśa Ch. 7'
+            },
+            {
+                id: 'house-facing-calculator',
+                name: 'House Facing Calculator',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Dig-Nirṇaya & Āyādi Ṣaḍvarga Alignment',
+                desc: 'Determines true astronomical facing orientation with magnetic declination correction, cardinal quadrant lord, and Āyādi Yoni compatibility.',
+                source: 'Mayamata Ch. 6 & 9; Manuṣyālaya Candrikā Ch. 2'
+            },
+            {
+                id: 'bedroom-vastu',
+                name: 'Bedroom Vastu',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Śayanālaya & Geomagnetic Sleep Orientation',
+                desc: 'Analyzes bedchamber suitability by occupant, bedstead positioning, mirror reflection, and biological head direction (South/East optimal; North forbidden).',
+                source: 'Mayamata 25.75–88; Bṛhat Saṃhitā Ch. 53; Manuṣyālaya Candrikā Ch. 3'
+            },
+            {
+                id: 'kitchen-vastu',
+                name: 'Kitchen Vastu',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Pākaśālā / Agnyāgāra & Thermal Balance',
+                desc: 'Calibrates the sacred Agni hearth in South-East (or North-West secondary). Evaluates stove placement, water sink separation, and cook facing.',
+                source: 'Mayamata 25.75–80; Mānasāra 36.45–52; Viśvakarma Prakāśa Ch. 5'
+            },
+            {
+                id: 'toilet-bathroom-vastu',
+                name: 'Toilet & Bathroom Vastu',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Śauca, Snāna & Utsarga Waste Dispersion',
+                desc: 'Evaluates waste commode placement in safe depletion zones (WNW, NW, SSW). Enforces strict prohibition in North-East (Īśāna) and central Brahmasthan.',
+                source: 'Viśvakarma Prakāśa 5.88–95; Mayamata Ch. 25'
+            },
+            {
+                id: 'puja-room-vastu',
+                name: 'Puja Room Vastu',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Devagṛha & Sacred Īśāna Sanctum',
+                desc: 'Aligns the household shrine in the tranquil North-East (Īśāna). Evaluates deity facing, altar clearance from perimeter walls, and prayer orientation.',
+                source: 'Mayamata 25.75; Mānasāra 36.38–44; Manuṣyālaya Candrikā Ch. 3 & 7'
+            },
+            {
+                id: 'water-vastu',
+                name: 'Water Vastu',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Jala-Vinyāsa & Subterranean Dakārgala',
+                desc: 'Differential mass analysis: subterranean borewells/sumps in North-East vs static overhead tanks in Southwest/West for structural equilibrium.',
+                source: 'Bṛhat Saṃhitā Ch. 54 (Dakārgala); Mayamata Ch. 25'
+            },
+            {
+                id: 'staircase-vastu',
+                name: 'Staircase Vastu',
+                category: 'vastu',
+                categoryLabel: 'Classical Vastu',
+                subtitle: 'Sopāna-Vidhi & Clockwise Vertical Ascent',
+                desc: 'Analyzes heavy vertical circulation in South, West, or Southwest. Checks clockwise turn (Pradakshina), odd step counts, and under-stair usage.',
+                source: 'Samarāṅgaṇa Sūtradhāra 49.65–72; Śilparatna Ch. 16; Mānasāra Ch. 30'
+            },
+
+            // Sacred Numerology Tools (11-20)
+            {
+                id: 'name-number',
+                name: 'Chaldean Name Number',
+                category: 'numerology',
+                categoryLabel: 'Chaldean Numerology',
+                subtitle: 'Cheiro 1–8 Phonetic Single & Compound Sum',
+                desc: 'Calculates the pure acoustical vibration of your calling name using the historic 1–8 cipher (excluding 9) and reveals compound occult meanings (10–52).',
+                source: "Cheiro's Book of Numbers (1926), Part I & II"
+            },
+            {
+                id: 'name-analysis',
+                name: 'Chaldean Name Analysis',
+                category: 'numerology',
+                categoryLabel: 'Chaldean Numerology',
+                subtitle: 'Vowel (Soul Urge) vs Consonant (Personality)',
+                desc: 'Deconstructs names into vowel frequency (internal heart desire) and consonant frequency (outward social expression), identifying cornerstone and capstone letters.',
+                source: "Cheiro's Book of Numbers (Cheiro Tradition)"
+            },
+            {
+                id: 'life-path',
+                name: 'Life Path Number',
+                category: 'numerology',
+                categoryLabel: 'Pythagorean System',
+                subtitle: 'The Ruling Number (Birth Ephemeris)',
+                desc: 'Synthesizes your complete date of birth using the Pythagorean triple-reduction method while preserving sacred Master Numbers 11, 22, and 33.',
+                source: "Dr. David A. Phillips, The Complete Book of Numerology (Ch. 5)"
+            },
+            {
+                id: 'birth-number',
+                name: 'Birth Day Number',
+                category: 'numerology',
+                categoryLabel: 'Pythagorean System',
+                subtitle: 'Day of Month Solar Vibration (Moolank)',
+                desc: 'Extracts the direct solar archetype of the day you entered the world (1–31), mapping your core instinctive traits and governing planetary lord.',
+                source: "Dr. David A. Phillips (Ch. 4); Harish Johari"
+            },
+            {
+                id: 'destiny-number',
+                name: 'Destiny / Expression Number',
+                category: 'numerology',
+                categoryLabel: 'Pythagorean System',
+                subtitle: 'Full Birth Certificate Name Expression',
+                desc: 'Calculates your lifelong karmic mission and talents using the complete sequential 1–9 Western cipher with Master Number 11/22/33 preservation.',
+                source: "Dr. David A. Phillips (Ch. 9); Florence Campbell (1931)"
+            },
+            {
+                id: 'lucky-number',
+                name: 'Lucky Number Matrix',
+                category: 'numerology',
+                categoryLabel: 'Pythagorean System',
+                subtitle: 'Harmonic Triad Cross-Tabulation',
+                desc: 'Determines harmonic, neutral, and conflicting numbers by synthesizing your Life Path ruler, Birth Day frequency, and expression vibrations.',
+                source: "Pythagorean Harmonic Quadrivium & Tetrabiblos"
+            },
+            {
+                id: 'mobile-number',
+                name: 'Mobile Number Analyzer',
+                category: 'numerology',
+                categoryLabel: 'Modern Practitioner',
+                subtitle: '10-Digit Telecommunication Vibration',
+                desc: 'Modern Practitioner Methodology: Evaluates total digit sum, terminal calling aura, and consecutive pair transitions using planetary friendship (Mitra-Shatru).',
+                source: "Modern Practitioner Methodology (Telecommunications)"
+            },
+            {
+                id: 'vehicle-number',
+                name: 'Vehicle Number Analyzer',
+                category: 'numerology',
+                categoryLabel: 'Modern Practitioner',
+                subtitle: 'Automotive Kinetic Dynamics & Safety',
+                desc: 'Modern Practitioner Methodology: Deconstructs license plate registration characters into kinetic vibrational roots aligned with the owner’s Life Path.',
+                source: "Modern Practitioner Methodology (Automotive Dynamics)"
+            },
+            {
+                id: 'business-name',
+                name: 'Business Name Numerology',
+                category: 'numerology',
+                categoryLabel: 'Modern Practitioner',
+                subtitle: 'Corporate Trademark & Industry Category',
+                desc: 'Modern Practitioner Methodology: Evaluates commercial company brand names against industry sectors (Tech, Finance, Luxury, Media, Real Estate).',
+                source: "Modern Practitioner Methodology (Corporate Nomenclature)"
+            },
+            {
+                id: 'name-dob-compatibility',
+                name: 'Name + DOB Compatibility',
+                category: 'numerology',
+                categoryLabel: 'Modern Practitioner',
+                subtitle: 'Interpersonal Synchronicity (0–100%)',
+                desc: 'Modern Practitioner Methodology: Evaluates relationship resonance between two individuals by cross-referencing Life Path (60%) and Name Expression (40%).',
+                source: "Modern Practitioner Methodology (Synastry Matrix)"
+            }
+        ];
+
+        // Populate 20 Cards in Grid
+        function renderToolsGrid(filter = 'all') {
+            const container = document.getElementById('tools-grid');
+            container.innerHTML = '';
+
+            const filtered = ALL_20_TOOLS.filter(tool => {
+                if (filter === 'all') return true;
+                if (filter === 'vastu') return tool.category === 'vastu';
+                if (filter === 'numerology') return tool.category === 'numerology';
+                return true;
+            });
+
+            filtered.forEach(tool => {
+                const card = document.createElement('div');
+                card.className = 'tool-card';
+                
+                let catClass = 'vastu';
+                if (tool.category === 'numerology') {
+                    catClass = tool.categoryLabel.includes('Modern') ? 'modern' : 'num';
+                }
+
+                card.innerHTML = `
+                    <div class="tool-card-category ${catClass}">${tool.categoryLabel}</div>
+                    <h3 class="tool-card-title">${tool.name}</h3>
+                    <div class="tool-card-subtitle">${tool.subtitle}</div>
+                    <p class="tool-card-desc">${tool.desc}</p>
+                    <div class="tool-card-source">${tool.source}</div>
+                    <button class="tool-card-btn" onclick="openToolDirectly('${tool.id}')">Launch Calculator →</button>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Filter button handlers
+        document.querySelectorAll('.tools-filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tools-filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderToolsGrid(btn.getAttribute('data-filter'));
+            });
+        });
+
+        // Initialize Tools Grid
+        renderToolsGrid('all');
+
+        // Modal Management
+        const modal = document.getElementById('tool-modal');
+        const modalClose = document.getElementById('modal-close');
+        let currentActiveTool = null;
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        // Open Tool Directly
+        function openToolDirectly(toolId) {
+            const tool = ALL_20_TOOLS.find(t => t.id === toolId);
+            if (!tool) return;
+            currentActiveTool = tool;
+
+            document.getElementById('modal-title').textContent = tool.name;
+            document.getElementById('modal-subtitle').textContent = `${tool.subtitle} &bull; ${tool.categoryLabel}`;
+
+            // Reset results
+            document.getElementById('modal-result-card').classList.remove('visible');
+            const visualizer = document.getElementById('modal-visualizer');
+            visualizer.style.display = 'none';
+            visualizer.innerHTML = '';
+
+            // Generate Form Fields
+            generateToolForm(toolId);
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Form Fields Generator for All 20 Tools
+        function generateToolForm(toolId) {
+            const container = document.getElementById('modal-form-fields');
+            container.innerHTML = '';
+
+            // 1. house-vastu-analyzer
+            if (toolId === 'house-vastu-analyzer') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Primary Entrance Zone *</label>
+                        <select id="inp-entrance" class="form-control">
+                            <option value="E3">East (Jayanta - Auspicious)</option>
+                            <option value="E4">East (Mahendra - Auspicious)</option>
+                            <option value="N3">North (Mukhya - Auspicious)</option>
+                            <option value="N4">North (Bhallata - Auspicious)</option>
+                            <option value="W4">West (Pushpadanta - Auspicious)</option>
+                            <option value="S4">South (Grihakshata - Auspicious)</option>
+                            <option value="E1">North-East (Shikhi - Inauspicious)</option>
+                            <option value="S5">South (Yama - Severe Dosha)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Master Bedchamber Zone *</label>
+                        <select id="inp-masterbed" class="form-control">
+                            <option value="SW" selected>South-West (Nairṛtya - Optimal)</option>
+                            <option value="South">South</option>
+                            <option value="West">West</option>
+                            <option value="NW">North-West</option>
+                            <option value="NE">North-East (Major Affliction)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Kitchen Hearth Zone *</label>
+                        <select id="inp-kitchen" class="form-control">
+                            <option value="SE" selected>South-East (Agni - Prime)</option>
+                            <option value="NW">North-West (Vāyu - Alternate)</option>
+                            <option value="NE">North-East (Water Conflict)</option>
+                            <option value="SW">South-West</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Primary Washroom / Toilet Zone *</label>
+                        <select id="inp-toilet" class="form-control">
+                            <option value="WNW" selected>West-North-West (Disposal)</option>
+                            <option value="SSW">South-South-West</option>
+                            <option value="NW">North-West</option>
+                            <option value="NE">North-East (Catastrophic)</option>
+                            <option value="Center">Center / Brahmasthan (Fatal)</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 2. plot-vastu-analyzer
+            else if (toolId === 'plot-vastu-analyzer') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Plot Shape (Ākāra) *</label>
+                        <select id="inp-plot-shape" class="form-control">
+                            <option value="Square" selected>Caturaśra (Square 1:1 - Auspicious)</option>
+                            <option value="Rectangle">Āyatāsra (Rectangle 1:1.5 - Auspicious)</option>
+                            <option value="Gomukhi">Gomukhi (Cow-faced, narrow front - Good for Residential)</option>
+                            <option value="Shermukhi">Shermukhi (Lion-faced, wide front - Commercial)</option>
+                            <option value="Triangular">Trikona (Triangular - Inauspicious)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Ground Slope Gradient (Jala-Plavana) *</label>
+                        <select id="inp-plot-slope" class="form-control">
+                            <option value="NE_Low" selected>Slope down toward North-East (Prime Auspicious)</option>
+                            <option value="East_Low">Slope down toward East</option>
+                            <option value="North_Low">Slope down toward North</option>
+                            <option value="SW_Low">Slope down toward South-West (Severe Drain)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Soil Quality &amp; Resonance *</label>
+                        <select id="inp-plot-soil" class="form-control">
+                            <option value="WhiteSweet" selected>White / Golden, Sweet/Fragrant (Brāhmaṇa/Kṣatriya)</option>
+                            <option value="RedPungent">Red, Pungent (Courage &amp; Industry)</option>
+                            <option value="YellowAstringent">Yellow, Astringent (Trade &amp; Wealth)</option>
+                            <option value="BlackFoul">Black, Marshy or Foul Odor (Inauspicious)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Main Road Encounters (Vīthī-Śūla) *</label>
+                        <select id="inp-plot-road" class="form-control">
+                            <option value="East" selected>Road on East (Surya Energy)</option>
+                            <option value="North">Road on North (Kubera Wealth)</option>
+                            <option value="EastNorthCorner">Corner Plot: North and East (Raja-Yoga)</option>
+                            <option value="SouthOnly">Road on South Only</option>
+                            <option value="WestOnly">Road on West Only</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 3. main-door-vastu
+            else if (toolId === 'main-door-vastu') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Direct 32 Pada Selection *</label>
+                        <select id="inp-pada-select" class="form-control" onchange="previewSelectedPada(this.value)">
+                            <optgroup label="East Perimeter (Pūrva)">
+                                <option value="E1">E1 - Śikhi (Fire / Agni) - Severe Dosha</option>
+                                <option value="E2">E2 - Parjanya (Rain Clouds) - Minor</option>
+                                <option value="E3" selected>E3 - Jayanta (Victory / Wealth) - Highly Auspicious</option>
+                                <option value="E4">E4 - Indra / Mahendra (Royal Favor) - Highly Auspicious</option>
+                                <option value="E5">E5 - Sūrya (Sun / Anger) - Moderate</option>
+                                <option value="E6">E6 - Satya (Dharma) - Inauspicious</option>
+                                <option value="E7">E7 - Bhṛśa (Gravity) - Severe Dosha</option>
+                                <option value="E8">E8 - Antarikṣa (Theft) - Severe Dosha</option>
+                            </optgroup>
+                            <optgroup label="South Perimeter (Dakṣiṇa)">
+                                <option value="S1">S1 - Anila (Wind) - Severe Dosha</option>
+                                <option value="S2">S2 - Pūṣan (Servitude) - Inauspicious</option>
+                                <option value="S3">S3 - Vitatha (Pretense) - Moderate</option>
+                                <option value="S4">S4 - Gṛhakṣata (Progeny &amp; Wealth) - Highly Auspicious</option>
+                                <option value="S5">S5 - Yama (Mortality) - Severe Dosha</option>
+                                <option value="S6">S6 - Gandharva (Depletion) - Inauspicious</option>
+                                <option value="S7">S7 - Bhṛṅgarāja (Illness) - Inauspicious</option>
+                                <option value="S8">S8 - Mṛga (Loss of strength) - Severe Dosha</option>
+                            </optgroup>
+                            <optgroup label="West Perimeter (Paścima)">
+                                <option value="W1">W1 - Pitṛ (Ancestors / Grief) - Severe Dosha</option>
+                                <option value="W2">W2 - Dauvārika (Instability) - Moderate</option>
+                                <option value="W3">W3 - Sugrīva (Gold &amp; Education) - Auspicious</option>
+                                <option value="W4">W4 - Puṣpadanta (Splendor &amp; Abundance) - Highly Auspicious</option>
+                                <option value="W5">W5 - Varuṇa (Commercial Ocean) - Moderate</option>
+                                <option value="W6">W6 - Asura (Opposition) - Inauspicious</option>
+                                <option value="W7">W7 - Śoṣa (Depletion) - Severe Dosha</option>
+                                <option value="W8">W8 - Pāpayakṣmā (Disease) - Severe Dosha</option>
+                            </optgroup>
+                            <optgroup label="North Perimeter (Uttara)">
+                                <option value="N1">N1 - Roga (Fear) - Severe Dosha</option>
+                                <option value="N2">N2 - Nāga (Hostility) - Inauspicious</option>
+                                <option value="N3">N3 - Mukhya (Commander / Riches) - Highly Auspicious</option>
+                                <option value="N4">N4 - Bhallāṭa (Immense Prosperity) - Highly Auspicious</option>
+                                <option value="N5">N5 - Soma / Kubera (Nectar &amp; Assets) - Auspicious</option>
+                                <option value="N6">N6 - Bhujanga (Strife) - Inauspicious</option>
+                                <option value="N7">N7 - Diti (Anxiety) - Moderate</option>
+                                <option value="N8">N8 - Aditi (Distress) - Moderate</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Exterior Wall Length (Meters)</label>
+                        <input type="number" id="inp-wall-length" class="form-control" value="12" min="2" max="100">
+                    </div>
+                    <div>
+                        <label class="form-label">Door Center Distance from Corner (Meters)</label>
+                        <input type="number" id="inp-door-offset" class="form-control" value="4" min="0" max="100">
+                    </div>
+                `;
+            }
+            // 4. house-facing-calculator
+            else if (toolId === 'house-facing-calculator') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Compass Azimuth Angle (Degrees &deg;) *</label>
+                        <input type="number" id="inp-facing-deg" class="form-control" value="90" min="0" max="359.9" step="0.1" oninput="previewCompassNeedle(this.value)">
+                    </div>
+                    <div>
+                        <label class="form-label">Cardinal Facing Direction *</label>
+                        <select id="inp-facing-dir" class="form-control">
+                            <option value="East" selected>East (Pūrva — 90&deg;)</option>
+                            <option value="North">North (Uttara — 0&deg; / 360&deg;)</option>
+                            <option value="North-East">North-East (Īśāna — 45&deg;)</option>
+                            <option value="South-East">South-East (Āgneya — 135&deg;)</option>
+                            <option value="South">South (Dakṣiṇa — 180&deg;)</option>
+                            <option value="South-West">South-West (Nairṛtya — 225&deg;)</option>
+                            <option value="West">West (Paścima — 270&deg;)</option>
+                            <option value="North-West">North-West (Vāyavya — 315&deg;)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Local Magnetic Declination (&plusmn;&deg;)</label>
+                        <input type="number" id="inp-declination" class="form-control" value="0.5" step="0.1">
+                    </div>
+                `;
+            }
+            // 5. bedroom-vastu
+            else if (toolId === 'bedroom-vastu') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Bedroom Quadrant *</label>
+                        <select id="inp-bed-zone" class="form-control">
+                            <option value="SW" selected>South-West (Nairṛtya — Prime)</option>
+                            <option value="West">West (Paścima — Students/Children)</option>
+                            <option value="NW">North-West (Vāyavya — Guests/Daughters)</option>
+                            <option value="East">East (Pūrva — Unmarried Youth)</option>
+                            <option value="NE">North-East (Īśāna — Major Affliction)</option>
+                            <option value="SE">South-East (Agni — Anger &amp; Friction)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Head Direction while Sleeping *</label>
+                        <select id="inp-bed-head" class="form-control">
+                            <option value="South" selected>Head to South (Dakṣiṇa-śiraḥ — Vitality &amp; Longevity)</option>
+                            <option value="East">Head to East (Pūrva-śiraḥ — Memory &amp; Intellect)</option>
+                            <option value="West">Head to West (Paścima-śiraḥ — Neutral)</option>
+                            <option value="North">Head to North (Uttara-śiraḥ — STRICTLY FORBIDDEN)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Occupant Demographic *</label>
+                        <select id="inp-bed-occupant" class="form-control">
+                            <option value="head_of_family" selected>Master / Head of Family (Gṛhastha)</option>
+                            <option value="married_couple">Married Couple</option>
+                            <option value="children">Students / Children</option>
+                            <option value="guests">Guests / Temporary Visitors</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Mirror Reflecting Bed?</label>
+                        <select id="inp-bed-mirror" class="form-control">
+                            <option value="No" selected>No (Concealed or not facing mattress)</option>
+                            <option value="Yes">Yes (Directly reflects sleeping posture — Doṣa)</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 6. kitchen-vastu
+            else if (toolId === 'kitchen-vastu') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Kitchen Room Quadrant *</label>
+                        <select id="inp-kitch-zone" class="form-control">
+                            <option value="SE" selected>South-East (Āgneya — Primary Agni Lord)</option>
+                            <option value="NW">North-West (Vāyavya — Secondary Air-Fire)</option>
+                            <option value="East">East (Pūrva — Tolerable)</option>
+                            <option value="NE">North-East (Īśāna — Water-Fire Warfare / Severe)</option>
+                            <option value="SW">South-West (Nairṛtya — Marital Strain)</option>
+                            <option value="North">North (Kubera — Wealth Drain)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Direction Cook Faces while Preparing Food *</label>
+                        <select id="inp-kitch-cook" class="form-control">
+                            <option value="East" selected>East (Pūrva — Optimal Solar Reception)</option>
+                            <option value="North">North (Tolerable)</option>
+                            <option value="South">South (Inauspicious / Restlessness)</option>
+                            <option value="West">West (Inauspicious / Eye strain)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Cooking Stove / Burner Position</label>
+                        <select id="inp-kitch-stove" class="form-control">
+                            <option value="SE" selected>South-East Corner of Kitchen</option>
+                            <option value="East">East Platform</option>
+                            <option value="North">North Platform</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Water Sink / Tap Position</label>
+                        <select id="inp-kitch-sink" class="form-control">
+                            <option value="NE" selected>North-East Corner of Kitchen</option>
+                            <option value="North">North Wall</option>
+                            <option value="AdjacentStove">Directly Adjacent to Stove (Agni-Jala Clash)</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 7. toilet-bathroom-vastu
+            else if (toolId === 'toilet-bathroom-vastu') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Toilet Commode Zonal Placement *</label>
+                        <select id="inp-toilet-zone" class="form-control">
+                            <option value="WNW" selected>West-North-West (Depletion / Ideal)</option>
+                            <option value="SSW">South-South-West (Expenditure Drain)</option>
+                            <option value="NW">North-West (Vāyu Airflow)</option>
+                            <option value="ESE">East-South-East (Overthinking Flush)</option>
+                            <option value="NE">North-East (Īśāna — CATASTROPHIC DOṢA)</option>
+                            <option value="Center">Center / Brahmasthan (FATAL / COLLAPSE)</option>
+                            <option value="SW">South-West (Nairṛtya — Loss of Stability)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Commode User Facing Orientation *</label>
+                        <select id="inp-toilet-facing" class="form-control">
+                            <option value="North" selected>Facing North (Optimal Geomagnetic Flow)</option>
+                            <option value="South">Facing South (Auspicious)</option>
+                            <option value="East">Facing East (Avoid Solar Meridian)</option>
+                            <option value="West">Facing West</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 8. puja-room-vastu
+            else if (toolId === 'puja-room-vastu') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Puja Room Zonal Placement *</label>
+                        <select id="inp-puja-zone" class="form-control">
+                            <option value="NE" selected>North-East (Īśāna — Divine Mind Sanctum)</option>
+                            <option value="North">North (Kubera / Spiritual Focus)</option>
+                            <option value="East">East (Solar Enlightenment)</option>
+                            <option value="Center">Brahmasthan (Pure Ether)</option>
+                            <option value="SE">South-East (Agni Agitation)</option>
+                            <option value="SW">South-West (Material Stagnation)</option>
+                            <option value="UnderStairs">Underneath Staircase (Desecration)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Devotee Facing Direction during Prayer *</label>
+                        <select id="inp-puja-devotee" class="form-control">
+                            <option value="East" selected>Facing East (Solar Prana)</option>
+                            <option value="North">Facing North (Kubera Consciousness)</option>
+                            <option value="South">Facing South</option>
+                            <option value="West">Facing West</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 9. water-vastu
+            else if (toolId === 'water-vastu') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Subterranean Water (Borewell / Sump) Zone *</label>
+                        <select id="inp-water-borewell" class="form-control">
+                            <option value="NE" selected>North-East (Īśāna — Supreme Wealth &amp; Health)</option>
+                            <option value="North">North (Commercial Flow)</option>
+                            <option value="East">East (Vitality)</option>
+                            <option value="SW">South-West (Catastrophic Depression / Bankruptcy)</option>
+                            <option value="SE">South-East (Fire-Water Warfare)</option>
+                            <option value="Center">Brahmasthan (Severe Heart Attack Doṣa)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Overhead Rooftop Water Tank Zone *</label>
+                        <select id="inp-water-overhead" class="form-control">
+                            <option value="SW" selected>South-West (Optimal Heavy Mass Anchor)</option>
+                            <option value="West">West (Heavy Mass)</option>
+                            <option value="South">South (Massive Load)</option>
+                            <option value="NE">North-East (CRIPPLING WEIGHT IN LIGHT ZONE)</option>
+                            <option value="Center">Brahmasthan (Crushing Central Axis)</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 10. staircase-vastu
+            else if (toolId === 'staircase-vastu') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Staircase Zonal Placement *</label>
+                        <select id="inp-stair-zone" class="form-control">
+                            <option value="SW" selected>South-West (Nairṛtya — Ideal Heavy Mass)</option>
+                            <option value="South">South (Excellent)</option>
+                            <option value="West">West (Favorable)</option>
+                            <option value="NW">North-West (Permissible)</option>
+                            <option value="NE">North-East (CRITICAL VASTU DOṢA)</option>
+                            <option value="Center">Brahmasthan (Forbidden)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Turn of Flight (Ascent Direction) *</label>
+                        <select id="inp-stair-turn" class="form-control">
+                            <option value="Clockwise" selected>Clockwise (Pradakṣiṇā — Cosmic Harmony)</option>
+                            <option value="CounterClockwise">Counter-Clockwise (Apradakṣiṇā — Inauspicious)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="form-label">Total Step Count (Odd number recommended) *</label>
+                        <input type="number" id="inp-stair-steps" class="form-control" value="17" min="3" max="51" step="1">
+                    </div>
+                    <div>
+                        <label class="form-label">Under-Stair Usage</label>
+                        <select id="inp-stair-under" class="form-control">
+                            <option value="dry_storage" selected>Dry Storage / Vacant (Standard)</option>
+                            <option value="toilet">Toilet / Restroom (Severe Doṣa)</option>
+                            <option value="puja">Puja Altar (Desecration)</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 11. name-number (Chaldean)
+            else if (toolId === 'name-number') {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1;">
+                        <label class="form-label">Full Calling Name (Chaldean 1–8 Phonetic Cipher) *</label>
+                        <input type="text" id="inp-num-name" class="form-control" value="Katherine Vance" placeholder="Enter given and surname..." oninput="previewChaldeanBreakdown(this.value)">
+                        <div class="form-hint" style="font-size: 0.8rem; color: var(--clr-text-dim); margin-top: 4px;">
+                            Strict Chaldean vibration: 9 is sacred and omitted from the alphabet. Values: A=1, B=2, C=3, D=4, E=5, F=8, G=3, H=5, etc.
+                        </div>
+                    </div>
+                `;
+            }
+            // 12. name-analysis (Chaldean)
+            else if (toolId === 'name-analysis') {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1;">
+                        <label class="form-label">Full Name for Dual Soul/Outer Analysis *</label>
+                        <input type="text" id="inp-analysis-name" class="form-control" value="Alexander Wright" placeholder="Enter full name...">
+                        <div class="form-hint" style="font-size: 0.8rem; color: var(--clr-text-dim); margin-top: 4px;">
+                            Bifurcates vowels (Soul Urge / Inner Desire) from consonants (Personality / Outer Perception).
+                        </div>
+                    </div>
+                `;
+            }
+            // 13. life-path (Pythagorean)
+            else if (toolId === 'life-path') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Date of Birth (Full Date) *</label>
+                        <input type="date" id="inp-lifepath-date" class="form-control" value="1990-05-14" required>
+                    </div>
+                    <div>
+                        <label class="form-label">System Applied</label>
+                        <input type="text" class="form-control" value="Pythagorean Harmonic Quadrivium" disabled>
+                        <div class="form-hint" style="font-size: 0.8rem; color: var(--clr-text-dim); margin-top: 4px;">
+                            Preserves Master Numbers (11, 22, 33) without premature single-digit reduction.
+                        </div>
+                    </div>
+                `;
+            }
+            // 14. birth-number (Pythagorean)
+            else if (toolId === 'birth-number') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Day of Birth (1 to 31) *</label>
+                        <input type="number" id="inp-birth-day" class="form-control" value="14" min="1" max="31" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Tradition Attributed</label>
+                        <input type="text" class="form-control" value="Pythagorean &amp; Vedic Sankhya (Moolank)" disabled>
+                    </div>
+                `;
+            }
+            // 15. destiny-number (Pythagorean)
+            else if (toolId === 'destiny-number') {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1;">
+                        <label class="form-label">Full Birth Certificate Name (Pythagorean 1–9 Cipher) *</label>
+                        <input type="text" id="inp-destiny-name" class="form-control" value="Jonathan Edward Vance" placeholder="Full name as registered on birth record..." required>
+                        <div class="form-hint" style="font-size: 0.8rem; color: var(--clr-text-dim); margin-top: 4px;">
+                            Sequential Western alphabet: A=1, B=2 ... I=9, J=1 ... Preserves Master Expressions 11, 22, and 33.
+                        </div>
+                    </div>
+                `;
+            }
+            // 16. lucky-number (Pythagorean)
+            else if (toolId === 'lucky-number') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Date of Birth *</label>
+                        <input type="date" id="inp-lucky-dob" class="form-control" value="1988-11-22" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Full Calling Name</label>
+                        <input type="text" id="inp-lucky-name" class="form-control" value="David Miller">
+                    </div>
+                `;
+            }
+            // 17. mobile-number (Modern Practitioner)
+            else if (toolId === 'mobile-number') {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1;">
+                        <div style="background: rgba(179, 121, 30, 0.1); border-left: 3px solid var(--clr-gold); padding: 8px 12px; margin-bottom: 12px; font-size: 0.8rem; color: #5C3B07;">
+                            <strong>Note:</strong> Modern Practitioner Methodology; not derived from ancient Vedic texts which predated telecommunications.
+                        </div>
+                        <label class="form-label">10-Digit Mobile Telephone Number *</label>
+                        <input type="text" id="inp-mobile-digits" class="form-control" value="9876543210" placeholder="e.g. 9876543210" maxlength="15" required>
+                    </div>
+                `;
+            }
+            // 18. vehicle-number (Modern Practitioner)
+            else if (toolId === 'vehicle-number') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Vehicle Registration Number *</label>
+                        <input type="text" id="inp-veh-reg" class="form-control" value="MH 12 AB 5555" placeholder="e.g. DL 01 AB 1234" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Owner Date of Birth (Optional)</label>
+                        <input type="date" id="inp-veh-dob" class="form-control" value="1992-07-18">
+                    </div>
+                `;
+            }
+            // 19. business-name (Modern Practitioner)
+            else if (toolId === 'business-name') {
+                container.innerHTML = `
+                    <div>
+                        <label class="form-label">Company / Brand Name *</label>
+                        <input type="text" id="inp-biz-name" class="form-control" value="Lumina Technologies" placeholder="e.g. Acme Corp" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Industry Category *</label>
+                        <select id="inp-biz-cat" class="form-control">
+                            <option value="technology" selected>Technology, Software &amp; Innovation (Sun/Mercury)</option>
+                            <option value="finance">Finance, Banking &amp; Accounting (Jupiter/Mercury)</option>
+                            <option value="hospitality">Hospitality, Luxury &amp; Lifestyle (Venus)</option>
+                            <option value="real_estate">Real Estate, Construction &amp; Heavy Industry (Saturn)</option>
+                            <option value="media">Media, Arts &amp; Publishing (Jupiter/Moon)</option>
+                            <option value="healthcare">Healthcare &amp; Pharmaceuticals (Sun/Moon)</option>
+                        </select>
+                    </div>
+                `;
+            }
+            // 20. name-dob-compatibility (Modern Practitioner)
+            else if (toolId === 'name-dob-compatibility') {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1;">
+                        <div style="background: rgba(179, 121, 30, 0.1); border-left: 3px solid var(--clr-gold); padding: 8px 12px; margin-bottom: 12px; font-size: 0.8rem; color: #5C3B07;">
+                            <strong>Note:</strong> Modern Practitioner Methodology; relational synchronicity model.
+                        </div>
+                    </div>
+                    <div>
+                        <label class="form-label">Person 1 Full Name *</label>
+                        <input type="text" id="inp-comp-n1" class="form-control" value="Arya Sen" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Person 1 Date of Birth *</label>
+                        <input type="date" id="inp-comp-d1" class="form-control" value="1991-03-15" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Person 2 Full Name *</label>
+                        <input type="text" id="inp-comp-n2" class="form-control" value="Devika Nair" required>
+                    </div>
+                    <div>
+                        <label class="form-label">Person 2 Date of Birth *</label>
+                        <input type="date" id="inp-comp-d2" class="form-control" value="1993-08-24" required>
+                    </div>
+                `;
+            }
+        }
+
+        // Live SVG Visualizer Helpers
+        function previewSelectedPada(padaId) {
+            const visualizer = document.getElementById('modal-visualizer');
+            if (window.VastuEngine && window.VastuEngine.generatePadaMandalaSVG) {
+                visualizer.style.display = 'flex';
+                visualizer.innerHTML = window.VastuEngine.generatePadaMandalaSVG(padaId);
+            }
+        }
+
+        function previewCompassNeedle(deg) {
+            const visualizer = document.getElementById('modal-visualizer');
+            const angle = parseFloat(deg) || 0;
+            if (window.VastuEngine && window.VastuEngine.generateCompassSVG) {
+                visualizer.style.display = 'flex';
+                visualizer.innerHTML = window.VastuEngine.generateCompassSVG(angle, 'East');
+            }
+        }
+
+        function previewChaldeanBreakdown(name) {
+            if (!name || name.trim().length === 0) return;
+            const visualizer = document.getElementById('modal-visualizer');
+            if (window.NumerologyEngine && window.NumerologyEngine.calculateNameNumber) {
+                const res = window.NumerologyEngine.calculateNameNumber(name);
+                visualizer.style.display = 'block';
+                let breakdownHTML = '<div style="font-size:0.85rem; text-align:center; color:#6D0A1D; font-weight:bold; margin-bottom:8px;">Live Chaldean Vibration Matrix</div>';
+                breakdownHTML += '<div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap;">';
+                res.breakdown.forEach(item => {
+                    breakdownHTML += `<div style="background:#FAF7F2; border:1px solid #B3791E; border-radius:6px; padding:4px 8px; text-align:center;">
+                        <div style="font-weight:bold; font-size:1rem; color:#6D0A1D;">${item.letter}</div>
+                        <div style="font-size:0.8rem; color:#B3791E;">${item.value}</div>
+                    </div>`;
+                });
+                breakdownHTML += `</div><div style="text-align:center; font-size:0.9rem; margin-top:8px; color:#141414;">Compound Sum: <strong>${res.compoundNumber}</strong> &bull; Single Root: <strong>${res.singleRoot}</strong> (${res.planetLord})</div>`;
+                visualizer.innerHTML = breakdownHTML;
+            }
+        }
+
+        // Form Submission Calculation Dispatcher
+        document.getElementById('tool-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            if (!currentActiveTool) return;
+            const tid = currentActiveTool.id;
+
+            let resultObj = null;
+
+            try {
+                // 1. house-vastu-analyzer
+                if (tid === 'house-vastu-analyzer') {
+                    const ent = document.getElementById('inp-entrance').value;
+                    const mbed = document.getElementById('inp-masterbed').value;
+                    const kit = document.getElementById('inp-kitchen').value;
+                    const toi = document.getElementById('inp-toilet').value;
+                    resultObj = window.VastuEngine.calculateHouseVastu({
+                        entrance: ent,
+                        masterBedroom: mbed,
+                        kitchen: kit,
+                        toilet: toi
+                    });
+                }
+                // 2. plot-vastu-analyzer
+                else if (tid === 'plot-vastu-analyzer') {
+                    const shape = document.getElementById('inp-plot-shape').value;
+                    const slope = document.getElementById('inp-plot-slope').value;
+                    const soil = document.getElementById('inp-plot-soil').value;
+                    const road = document.getElementById('inp-plot-road').value;
+                    resultObj = window.VastuEngine.calculatePlotVastu({ shape, slope, soil, roadFacing: road });
+                }
+                // 3. main-door-vastu
+                else if (tid === 'main-door-vastu') {
+                    const pada = document.getElementById('inp-pada-select').value;
+                    const wallLen = parseFloat(document.getElementById('inp-wall-length').value) || 12;
+                    const offset = parseFloat(document.getElementById('inp-door-offset').value) || 4;
+                    resultObj = window.VastuEngine.calculateMainDoorVastu({ pada, wallLength: wallLen, doorOffset: offset });
+                }
+                // 4. house-facing-calculator
+                else if (tid === 'house-facing-calculator') {
+                    const deg = parseFloat(document.getElementById('inp-facing-deg').value) || 90;
+                    const dir = document.getElementById('inp-facing-dir').value;
+                    const dec = parseFloat(document.getElementById('inp-declination').value) || 0;
+                    resultObj = window.VastuEngine.calculateFacing({ degrees: deg, direction: dir, declination: dec });
+                }
+                // 5. bedroom-vastu
+                else if (tid === 'bedroom-vastu') {
+                    const zone = document.getElementById('inp-bed-zone').value;
+                    const head = document.getElementById('inp-bed-head').value;
+                    const occ = document.getElementById('inp-bed-occupant').value;
+                    const mirror = document.getElementById('inp-bed-mirror').value === 'Yes';
+                    resultObj = window.VastuEngine.calculateBedroomVastu({ zone, headDirection: head, occupant: occ, mirrorReflection: mirror });
+                }
+                // 6. kitchen-vastu
+                else if (tid === 'kitchen-vastu') {
+                    const zone = document.getElementById('inp-kitch-zone').value;
+                    const cook = document.getElementById('inp-kitch-cook').value;
+                    const stove = document.getElementById('inp-kitch-stove').value;
+                    const sink = document.getElementById('inp-kitch-sink').value;
+                    resultObj = window.VastuEngine.calculateKitchenVastu({ zone, cookFacing: cook, stoveLocation: stove, sinkLocation: sink });
+                }
+                // 7. toilet-bathroom-vastu
+                else if (tid === 'toilet-bathroom-vastu') {
+                    const zone = document.getElementById('inp-toilet-zone').value;
+                    const facing = document.getElementById('inp-toilet-facing').value;
+                    resultObj = window.VastuEngine.calculateToiletVastu({ zone, commodeFacing: facing });
+                }
+                // 8. puja-room-vastu
+                else if (tid === 'puja-room-vastu') {
+                    const zone = document.getElementById('inp-puja-zone').value;
+                    const devotee = document.getElementById('inp-puja-devotee').value;
+                    resultObj = window.VastuEngine.calculatePujaVastu({ zone, devoteeFacing: devotee });
+                }
+                // 9. water-vastu
+                else if (tid === 'water-vastu') {
+                    const bore = document.getElementById('inp-water-borewell').value;
+                    const over = document.getElementById('inp-water-overhead').value;
+                    resultObj = window.VastuEngine.calculateWaterVastu({ borewellZone: bore, overheadTankZone: over });
+                }
+                // 10. staircase-vastu
+                else if (tid === 'staircase-vastu') {
+                    const zone = document.getElementById('inp-stair-zone').value;
+                    const turn = document.getElementById('inp-stair-turn').value;
+                    const steps = parseInt(document.getElementById('inp-stair-steps').value, 10) || 17;
+                    const under = document.getElementById('inp-stair-under').value;
+                    resultObj = window.VastuEngine.calculateStaircaseVastu({ zone, turnDirection: turn, stepCount: steps, underStairsUsage: under });
+                }
+                // 11. name-number
+                else if (tid === 'name-number') {
+                    const name = document.getElementById('inp-num-name').value;
+                    resultObj = window.NumerologyEngine.calculateNameNumber(name);
+                }
+                // 12. name-analysis
+                else if (tid === 'name-analysis') {
+                    const name = document.getElementById('inp-analysis-name').value;
+                    resultObj = window.NumerologyEngine.calculateNameAnalysis(name);
+                }
+                // 13. life-path
+                else if (tid === 'life-path') {
+                    const dob = document.getElementById('inp-lifepath-date').value;
+                    resultObj = window.NumerologyEngine.calculateLifePath(dob);
+                }
+                // 14. birth-number
+                else if (tid === 'birth-number') {
+                    const day = parseInt(document.getElementById('inp-birth-day').value, 10) || 1;
+                    resultObj = window.NumerologyEngine.calculateBirthNumber(day);
+                }
+                // 15. destiny-number
+                else if (tid === 'destiny-number') {
+                    const name = document.getElementById('inp-destiny-name').value;
+                    resultObj = window.NumerologyEngine.calculateDestinyNumber(name);
+                }
+                // 16. lucky-number
+                else if (tid === 'lucky-number') {
+                    const dob = document.getElementById('inp-lucky-dob').value;
+                    const name = document.getElementById('inp-lucky-name').value;
+                    resultObj = window.NumerologyEngine.calculateLuckyNumber(dob, name);
+                }
+                // 17. mobile-number
+                else if (tid === 'mobile-number') {
+                    const mobile = document.getElementById('inp-mobile-digits').value;
+                    resultObj = window.NumerologyEngine.calculateMobileNumber(mobile);
+                }
+                // 18. vehicle-number
+                else if (tid === 'vehicle-number') {
+                    const plate = document.getElementById('inp-veh-reg').value;
+                    const dob = document.getElementById('inp-veh-dob').value;
+                    resultObj = window.NumerologyEngine.calculateVehicleNumber(plate, dob);
+                }
+                // 19. business-name
+                else if (tid === 'business-name') {
+                    const bname = document.getElementById('inp-biz-name').value;
+                    const cat = document.getElementById('inp-biz-cat').value;
+                    resultObj = window.NumerologyEngine.calculateBusinessName(bname, cat);
+                }
+                // 20. name-dob-compatibility
+                else if (tid === 'name-dob-compatibility') {
+                    const n1 = document.getElementById('inp-comp-n1').value;
+                    const d1 = document.getElementById('inp-comp-d1').value;
+                    const n2 = document.getElementById('inp-comp-n2').value;
+                    const d2 = document.getElementById('inp-comp-d2').value;
+                    resultObj = window.NumerologyEngine.calculateCompatibility(
+                        { name: n1, birthDate: d1 },
+                        { name: n2, birthDate: d2 }
+                    );
+                }
+
+                if (resultObj) {
+                    displayCanonicalResult(resultObj);
+                }
+            } catch (err) {
+                console.error("Calculation execution error:", err);
+                const card = document.getElementById('modal-result-card');
+                card.classList.add('visible');
+                document.getElementById('res-element-name').textContent = currentActiveTool.title;
+                document.getElementById('res-system-named').textContent = 'Calculation Notice';
+                const badge = document.getElementById('res-assessment-badge');
+                badge.textContent = 'Notice';
+                badge.className = 'result-score-badge score-moderate';
+                document.getElementById('res-assessment-text').textContent = err.message || 'Please check input parameters.';
+            }
+        });
+
+        // Display Canonical 6-Field Result
+        function displayCanonicalResult(res) {
+            const card = document.getElementById('modal-result-card');
+            card.classList.add('visible');
+
+            // 1. Element / Parameter Name
+            document.getElementById('res-element-name').textContent = res.elementName || res.toolName;
+            
+            // System named
+            const systemText = res.tradition || res.system || 'Canonical Tradition';
+            document.getElementById('res-system-named').textContent = systemText;
+
+            // Assessment Badge
+            const badge = document.getElementById('res-assessment-badge');
+            const assessText = res.assessment || 'Harmonic';
+            badge.textContent = assessText;
+
+            badge.className = 'result-score-badge';
+            if (assessText.includes('Auspicious') || assessText.includes('High') || assessText.includes('Optimal') || (res.score && res.score >= 75)) {
+                badge.classList.add('score-auspicious');
+            } else if (assessText.includes('Inauspicious') || assessText.includes('Dosha') || assessText.includes('Conflict') || (res.score && res.score < 50)) {
+                badge.classList.add('score-inauspicious');
+            } else {
+                badge.classList.add('score-moderate');
+            }
+
+            // Assessment Text
+            let fullAssess = assessText;
+            if (res.score !== undefined) {
+                fullAssess += ` (Score: ${res.score} / 100)`;
+            }
+            if (res.planetLord) {
+                fullAssess += ` &bull; Ruling Lord: ${res.planetLord}`;
+            }
+            document.getElementById('res-assessment-text').innerHTML = fullAssess;
+
+            // Source Reference
+            document.getElementById('res-source-ref').textContent = res.sourceReference || 'Canonical Sanskrit Treatises';
+
+            // Plain-Language Rule
+            document.getElementById('res-plain-rule').textContent = res.plainRule || '';
+
+            // Remedy (if present)
+            const remedyBlock = document.getElementById('res-remedy-block');
+            if (res.remedy) {
+                remedyBlock.style.display = 'block';
+                document.getElementById('res-remedy').textContent = res.remedy;
+            } else {
+                remedyBlock.style.display = 'none';
+            }
+
+            // Disclaimer / Regional Variation Note
+            const discText = res.variationNote || res.disclaimer || 'Traditional architectural philosophy; regional texts, climate variations, and sthapatya traditions prescribe contextual adaptations.';
+            document.getElementById('res-disclaimer').textContent = discText;
+
+            // Scroll modal to result card
+            card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Copy Result Action
+        document.getElementById('btn-copy-result').addEventListener('click', function () {
+            const elName = document.getElementById('res-element-name').textContent;
+            const assess = document.getElementById('res-assessment-text').textContent;
+            const sys = document.getElementById('res-system-named').textContent;
+            const src = document.getElementById('res-source-ref').textContent;
+            const rule = document.getElementById('res-plain-rule').textContent;
+            const disc = document.getElementById('res-disclaimer').textContent;
+
+            const text = `VASTU DIVINE — CANONICAL DOSSIER\\n` +
+                         `Tool / Element: ${elName}\\n` +
+                         `Tradition: ${sys}\\n` +
+                         `Assessment: ${assess}\\n` +
+                         `Authority Cited: ${src}\\n` +
+                         `Canonical Rule: ${rule}\\n` +
+                         `Note / Disclaimer: ${disc}\\n` +
+                         `Generated via Vastu Divine (वD / VASTU डिवाइन)`;
+
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Diagnostic dossier copied to clipboard!');
+            }).catch(err => {
+                console.error('Clipboard copy error:', err);
+            });
+        });
+
+        // Print Result Action
+        document.getElementById('btn-print-result').addEventListener('click', function () {
+            window.print();
+        });
+
+        // Reset Button
+        document.getElementById('modal-reset-btn').addEventListener('click', function () {
+            if (currentActiveTool) {
+                generateToolForm(currentActiveTool.id);
+                document.getElementById('modal-result-card').classList.remove('visible');
+                document.getElementById('modal-visualizer').style.display = 'none';
+            }
+        });
+
+        // Consultation Form Submission Handler
+        function handleConsultationSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('client-name').value;
+            const email = document.getElementById('client-email').value;
+            const cat = document.getElementById('client-category').value;
+
+            alert(`Thank you, ${name}. Your consultation inquiry for "${cat}" has been recorded. Our master architectural team will contact you at ${email} with your private preparation packet.`);
+            document.getElementById('consultation-form').reset();
+        }
+
+        // Consultation path buttons
+        document.querySelectorAll('.select-consult-path').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const pathName = this.getAttribute('data-path');
+                const catSelect = document.getElementById('client-category');
+                if (catSelect) {
+                    for (let i = 0; i < catSelect.options.length; i++) {
+                        if (catSelect.options[i].value === pathName) {
+                            catSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+                }
+                document.getElementById('consultation-form').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // FAQ Accordion Interaction
+        document.querySelectorAll('.faq-question').forEach(q => {
+            q.addEventListener('click', function () {
+                const item = this.parentElement;
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Mobile Nav Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const primaryNav = document.getElementById('primary-nav');
+        if (mobileToggle && primaryNav) {
+            mobileToggle.addEventListener('click', () => {
+                primaryNav.classList.toggle('open');
+            });
+        }
+
+        // Initialize Live Celestial Sun Astrolabe in Hero
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof initAstrolabe === 'function') {
+                const astrolabe = initAstrolabe({
+                    containerId: 'hero-astrolabe',
+                    autoStart: true
+                });
+
+                if (astrolabe) {
+                    const btnPause = document.getElementById('astrolabe-pause-play');
+                    if (btnPause) {
+                        btnPause.addEventListener('click', function () {
+                            const isPaused = astrolabe.togglePause();
+                            btnPause.textContent = isPaused ? '▶ Resume Rotation' : '⏸ Pause Rotation';
+                        });
+                    }
+
+                    const btnHalf = document.getElementById('astrolabe-speed-half');
+                    if (btnHalf) btnHalf.addEventListener('click', () => astrolabe.setSpeed(0.5));
+
+                    const btnNormal = document.getElementById('astrolabe-speed-1x');
+                    if (btnNormal) btnNormal.addEventListener('click', () => astrolabe.setSpeed(1.0));
+
+                    const btnDouble = document.getElementById('astrolabe-speed-2x');
+                    if (btnDouble) btnDouble.addEventListener('click', () => astrolabe.setSpeed(2.0));
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>
+"""
+
+with open("index.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
+
+print(f"Successfully generated D:\\builds\\index.html ({len(html_content)} bytes)")

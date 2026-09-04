@@ -1,0 +1,1150 @@
+[
+  {
+    "tool_id": "bedroom-vastu",
+    "tool_name": "Bedroom Vastu (Śayanālaya & Śayana-vidhi)",
+    "tradition": "Classical Vedic Vastu",
+    "source": {
+      "text": "Mayamata",
+      "author_translator": "Bruno Dagens",
+      "chapter": "Chapter 25 (Gṛha-vinyāsa / Arrangement of Residential Quarters)",
+      "verse": "Ślokas 75-88 (Nairṛtyāṃ śayana-gṛhaṃ gṛhasthasya vidhīyate)"
+    },
+    "canonical_citations": [
+      {
+        "text": "Mayamata",
+        "author_translator": "Bruno Dagens (Indira Gandhi National Centre for the Arts / Motilal Banarsidass)",
+        "chapter": "Chapter 25 (Gṛha-vinyāsa)",
+        "verses": "Ślokas 75-92",
+        "subject": "Master bedchamber (Śayana-gṛha) of the householder allocated to the Nairṛtya (South-West) quarter; guest quarters and unmarried daughters in Vāyavya (North-West); sons and students in Paścima (West) and Pūrva (East)."
+      },
+      {
+        "text": "Mayamata",
+        "author_translator": "Bruno Dagens",
+        "chapter": "Chapter 26 (Śayyā-vinyāsa & Śayyā-lakṣaṇa)",
+        "verses": "Ślokas 12-32",
+        "subject": "Selection of auspicious timber for bedstead (Śāla, Asana, Khadira, Mahuā; avoidance of lightning-struck or bird-infested trees), proportional dimensions conforming to Ayādi-ṣaḍvarga, clearance from structural masonry walls."
+      },
+      {
+        "text": "Bṛhat Saṃhitā",
+        "author_translator": "Varāhamihira (M. Ramakrishna Bhat translation)",
+        "chapter": "Chapter 53 (Vāstuvidyā)",
+        "verses": "Ślokas 68-75 & 119-125",
+        "subject": "Biological effects of sleeping head orientation (Śayana-dik-phala): South for longevity (āyus) and physical vigor (balam); East for intellect (buddhi) and memory (smṛti); West neutral/active; North strictly prohibited (varjita) causing disease, nightmares, and chronic exhaustion due to magnetic repulsion."
+      },
+      {
+        "text": "Mānasāra",
+        "author_translator": "P. K. Acharya (Oxford University Press / Oriental Books)",
+        "chapter": "Chapter 36 (Gṛha-vinyāsa) & Chapter 37 (Śayanālaya-vidhāna)",
+        "verses": "Chapter 36: Ślokas 15-42; Chapter 37: Ślokas 22-60",
+        "subject": "Master bedchamber elevation and structural weightiness in South-West (highest floor level, thickest masonry); guest pavilions in North-West; children in West/East; prohibition of overhead beams (Tulā-doṣa) directly spanning the bed."
+      },
+      {
+        "text": "Manuṣyālaya Candrikā",
+        "author_translator": "T. C. N. Somayaji / K. P. Radhakrishna Pisharody (Kerala Vāstu tradition)",
+        "chapter": "Chapter 3 (Śālā-vinyāsa) & Chapter 6 (Antaḥ-pradeśa-vibhāga)",
+        "verses": "Chapter 3: Ślokas 34-52; Chapter 6: Ślokas 10-38",
+        "subject": "Sanctity of Kanni-mūla (South-West) as ancestral earth seat; prohibition of sleeping with head to the North; mitigation of Tulā-doṣa (overhead structural tie-beams) and Darpaṇa-vedha (mirror reflection of sleeping body)."
+      },
+      {
+        "text": "Samarāṅgaṇa Sūtradhāra",
+        "author_translator": "King Bhoja of Dhārā (D. N. Shukla edition)",
+        "chapter": "Chapter 38 (Gṛha-vinyāsa) & Chapter 48 (Śayanāgāra-lakṣaṇa)",
+        "verses": "Chapter 38: Ślokas 22-45; Chapter 48: Ślokas 10-35",
+        "subject": "Allocation of Pitṛ, Dauvārika, and Sugrīva padas for the master suite; strict prohibition of master bedroom in Īśāna (North-East, causing asceticism and poverty) and Āgneya (South-East, causing domestic strife and disease)."
+      },
+      {
+        "text": "Viśvakarma Prakāśa",
+        "author_translator": "Vasudeva Sastri / K. S. Charak",
+        "chapter": "Chapter 5 (Gṛhārambha & Vāstu-vinyāsa)",
+        "verses": "Ślokas 88-92",
+        "subject": "Yāmye śayana-mandiram - Bedchamber located in the Southern/South-Western sector for householder stability, vigor, and protection against premature mortality."
+      }
+    ],
+    "inputs": [
+      {
+        "field_id": "plot_orientation_deg",
+        "label": "Plot Orientation (Degrees from True North)",
+        "type": "float",
+        "unit": "degrees",
+        "range": [
+          0.0,
+          360.0
+        ],
+        "default": 0.0,
+        "description": "The exact angular bearing of the building layout relative to geographic/true North (0° = True North, 90° = East, 180° = South, 270° = West)."
+      },
+      {
+        "field_id": "occupant_type",
+        "label": "Bedroom Occupant / Role",
+        "type": "enum",
+        "allowed_values": [
+          "master_householder",
+          "eldest_son_heir",
+          "growing_children_students",
+          "unmarried_daughters",
+          "guests_visitors",
+          "elderly_retired_parents",
+          "newborn_infant_nursery"
+        ],
+        "default": "master_householder",
+        "description": "Primary occupant of the bedroom, determining required psychological resonance and elemental attributes."
+      },
+      {
+        "field_id": "bedroom_zone_16",
+        "label": "Bedroom 16-Zone Location",
+        "type": "enum",
+        "allowed_values": [
+          "N",
+          "NNE",
+          "NE",
+          "ENE",
+          "E",
+          "ESE",
+          "SE",
+          "SSE",
+          "S",
+          "SSW",
+          "SW",
+          "WSW",
+          "W",
+          "WNW",
+          "NW",
+          "NNW",
+          "Brahmasthan"
+        ],
+        "default": "SW",
+        "description": "The macro-zone of the house within which the bedroom is placed according to the 16-directional radial Vāstu grid."
+      },
+      {
+        "field_id": "pada_32_placement",
+        "label": "32 Peripheral Deity Pada Placement",
+        "type": "enum",
+        "allowed_values": [
+          "Pitṛ",
+          "Dauvārika",
+          "Sugrīva",
+          "Puṣpadanta",
+          "Varuṇa",
+          "Asura",
+          "Śoṣa",
+          "Pāpayakṣmā",
+          "Roga",
+          "Vāyu",
+          "Nāga",
+          "Mukhya",
+          "Bhallāṭa",
+          "Soma",
+          "Carakī",
+          "Aditi",
+          "Diti",
+          "Īśa",
+          "Parjanya",
+          "Jayanta",
+          "Indra",
+          "Sūrya",
+          "Satya",
+          "Bhṛśa",
+          "Antarikṣa",
+          "Agni",
+          "Pūṣan",
+          "Vitatha",
+          "Gṛhakṣata",
+          "Yama",
+          "Gandharva",
+          "Bhṛṅgarāja",
+          "Mṛga",
+          "Brahma"
+        ],
+        "default": "Pitṛ",
+        "description": "Specific deity square (Pada) in the 81-pada (Paramaśāyika) or 64-pada (Maṇḍūka) Vāstu Puruṣa Maṇḍala where the bedroom is anchored."
+      },
+      {
+        "field_id": "sleeping_head_direction",
+        "label": "Head Direction While Sleeping",
+        "type": "enum",
+        "allowed_values": [
+          "South",
+          "East",
+          "West",
+          "North"
+        ],
+        "default": "South",
+        "description": "The cardinal direction towards which the sleeper's vertex/crown (Śiras) points while lying on the bed."
+      },
+      {
+        "field_id": "bed_quadrant_in_room",
+        "label": "Bedstead Placement Within the Room",
+        "type": "enum",
+        "allowed_values": [
+          "SW_quadrant",
+          "South_wall_center",
+          "West_wall_center",
+          "NW_quadrant",
+          "NE_quadrant",
+          "SE_quadrant",
+          "Center_of_room_floating"
+        ],
+        "default": "SW_quadrant",
+        "description": "Micro-placement of the bedstead within the four walls of the bedroom."
+      },
+      {
+        "field_id": "overhead_beam_above_bed",
+        "label": "Overhead Structural Beam (Tulā) Above Mattress",
+        "type": "boolean",
+        "default": false,
+        "description": "Whether an exposed structural concrete or timber beam, joist, or drop ceiling edge spans directly over the sleeper's body."
+      },
+      {
+        "field_id": "mirror_reflecting_bed",
+        "label": "Mirror / Reflective Surface Directly Facing Bed",
+        "type": "boolean",
+        "default": false,
+        "description": "Whether a mirror, mirrored wardrobe, or television screen reflects any portion of the sleeper's body while reclining."
+      },
+      {
+        "field_id": "bed_door_alignment",
+        "label": "Bed Alignment Relative to Bedroom Entrance",
+        "type": "enum",
+        "allowed_values": [
+          "directly_opposite_foot_of_bed",
+          "directly_opposite_side_of_bed",
+          "offset_with_clearance",
+          "shielded_by_partition"
+        ],
+        "default": "offset_with_clearance",
+        "description": "Spatial relationship between the bedroom entrance doorway and the bedstead (evaluating Dvāra-vedha)."
+      },
+      {
+        "field_id": "attached_bathroom_zone",
+        "label": "Attached Bathroom Location Relative to Bedroom",
+        "type": "enum",
+        "allowed_values": [
+          "none",
+          "NW_zone",
+          "WNW_zone",
+          "SSW_zone",
+          "NE_zone",
+          "SW_zone",
+          "SE_zone"
+        ],
+        "default": "NW_zone",
+        "description": "Micro-zone within the bedroom suite where the attached ensuite toilet/bathroom is installed."
+      },
+      {
+        "field_id": "floor_elevation_relative",
+        "label": "Relative Floor Elevation of Bedroom",
+        "type": "enum",
+        "allowed_values": [
+          "higher_elevated",
+          "equal_level",
+          "lower_sunken"
+        ],
+        "default": "higher_elevated",
+        "description": "The plinth/floor finish level of the master bedroom relative to the adjacent central hall and North-East sector."
+      }
+    ],
+    "rules_matrix": [
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "South-West (SW / Nairṛtya)",
+        "padas": [
+          "Pitṛ",
+          "Dauvārika"
+        ],
+        "element": "Earth (Pṛthvī-tattva)",
+        "presiding_deity": "Nirṛti / Pitṛs (Ancestral Guardians)",
+        "suitability_by_occupant": {
+          "master_householder": {
+            "suitability": "Optimal / Supreme",
+            "score": 100,
+            "status": "Prescribed"
+          },
+          "eldest_son_heir": {
+            "suitability": "Highly Auspicious",
+            "score": 85,
+            "status": "Approved"
+          },
+          "elderly_retired_parents": {
+            "suitability": "Excellent",
+            "score": 90,
+            "status": "Approved"
+          },
+          "growing_children_students": {
+            "suitability": "Inappropriate",
+            "score": 40,
+            "status": "Avoid (Induces stubbornness and domineering defiance)"
+          },
+          "unmarried_daughters": {
+            "suitability": "Forbidden",
+            "score": 25,
+            "status": "Strictly Inauspicious (Delays marriage, creates excessive attachment to parental home)"
+          },
+          "guests_visitors": {
+            "suitability": "Forbidden",
+            "score": 20,
+            "status": "Strictly Inauspicious (Guests usurp household control and overstay welcome)"
+          }
+        },
+        "classical_effects": "Establishes supreme authority, psychological stability, financial grounding, marital loyalty, deep restorative sleep, and protection of the household lineage.",
+        "classical_citation": "Mayamata Ch. 25, vv. 75-80; Mānasāra Ch. 36, vv. 18-25; Samarāṅgaṇa Sūtradhāra Ch. 38, v. 28.",
+        "remedial_measures": "Maintain highest floor elevation, thickest masonry walls, smallest exterior windows, and solid dark-wood furnishings. No remedial intervention needed when occupied by Master."
+      },
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "South (S / Dakṣiṇa) & South-South-West (SSW)",
+        "padas": [
+          "Gṛhakṣata",
+          "Yama",
+          "Gandharva"
+        ],
+        "element": "Earth-Fire Transition (Pṛthvī-Agni)",
+        "presiding_deity": "Yama (Lord of Dharma and Cosmic Order)",
+        "suitability_by_occupant": {
+          "master_householder": {
+            "suitability": "Highly Auspicious",
+            "score": 85,
+            "status": "Approved"
+          },
+          "eldest_son_heir": {
+            "suitability": "Optimal",
+            "score": 90,
+            "status": "Approved"
+          },
+          "growing_children_students": {
+            "suitability": "Acceptable",
+            "score": 65,
+            "status": "Permissible"
+          },
+          "unmarried_daughters": {
+            "suitability": "Moderate",
+            "score": 50,
+            "status": "Permissible"
+          },
+          "guests_visitors": {
+            "suitability": "Acceptable",
+            "score": 60,
+            "status": "Permissible"
+          }
+        },
+        "classical_effects": "Promotes disciplined habits, physical vigor, longevity, sound slumber, and emotional resilience. In SSW (Mṛga pada), sleep may become excessively heavy or energy-draining; avoid placing bed exactly on the SSW axis.",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, v. 89 (Yāmye śayana-mandiram); Bṛhat Saṃhitā Ch. 53, v. 72.",
+        "remedial_measures": "Keep head to South; avoid mirrors facing bed; balance lighting with warm ambient illumination."
+      },
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "West (W / Paścima) & West-South-West (WSW)",
+        "padas": [
+          "Varuṇa",
+          "Mitra",
+          "Puṣpadanta",
+          "Sugrīva"
+        ],
+        "element": "Water-Space Transition (Varuṇa-tattva)",
+        "presiding_deity": "Varuṇa (Lord of Waters and Cosmic Law)",
+        "suitability_by_occupant": {
+          "master_householder": {
+            "suitability": "Auspicious",
+            "score": 80,
+            "status": "Approved (Second-best alternative to SW)"
+          },
+          "growing_children_students": {
+            "suitability": "Optimal",
+            "score": 95,
+            "status": "Highly Prescribed (WSW/West enhances academic retention, discipline, and study focus)"
+          },
+          "eldest_son_heir": {
+            "suitability": "Auspicious",
+            "score": 85,
+            "status": "Approved"
+          },
+          "guests_visitors": {
+            "suitability": "Acceptable",
+            "score": 70,
+            "status": "Permissible"
+          }
+        },
+        "classical_effects": "Bestows structured intelligence, academic achievements, commercial prosperity, and stability in trade relations.",
+        "classical_citation": "Mayamata Ch. 25, vv. 85-88; Mānasāra Ch. 36, vv. 35-40.",
+        "remedial_measures": "Study desk in WSW facing East; bed headboard to South or East; earth-toned wall palettes."
+      },
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "North-West (NW / Vāyavya)",
+        "padas": [
+          "Vāyu",
+          "Roga",
+          "Pāpayakṣmā"
+        ],
+        "element": "Air (Vāyu-tattva / Cala-svabhāva)",
+        "presiding_deity": "Vāyu (Wind Lord / Cosmic Prāṇa)",
+        "suitability_by_occupant": {
+          "master_householder": {
+            "suitability": "Inauspicious",
+            "score": 35,
+            "status": "Forbidden for Master (Causes relentless wandering, erratic travels, mental unrest, financial instability)"
+          },
+          "guests_visitors": {
+            "suitability": "Optimal / Supreme",
+            "score": 100,
+            "status": "Prescribed (Encourages cordial, harmonious, and temporary stay without overstaying)"
+          },
+          "unmarried_daughters": {
+            "suitability": "Optimal",
+            "score": 95,
+            "status": "Prescribed (Mobile air element facilitates timely marriage and harmonious transition to matrimonial home)"
+          },
+          "growing_children_students": {
+            "suitability": "Acceptable",
+            "score": 60,
+            "status": "Tolerable (May induce lack of concentration and restlessness)"
+          }
+        },
+        "classical_effects": "Harnesses dynamic kinetic energy. Ideal for temporary dwellers, visitors, and daughters awaiting matrimony. Disastrous for head of family who requires immovable grounding.",
+        "classical_citation": "Mayamata Ch. 25, v. 90; Mānasāra Ch. 36, vv. 50-55; Manuṣyālaya Candrikā Ch. 3, v. 42.",
+        "remedial_measures": "If master is forced to occupy NW: place heavy brass artifacts in SW corner of the room; sleep strictly with head to South; use cream or almond hues; avoid wind chimes."
+      },
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "East (E / Pūrva) & East-North-East (ENE)",
+        "padas": [
+          "Indra",
+          "Jayanta",
+          "Parjanya"
+        ],
+        "element": "Solar Fire / Atmospheric Light (Sūrya-Indra)",
+        "presiding_deity": "Indra / Sūrya (Lord of Light, Awakening, and Vital Energy)",
+        "suitability_by_occupant": {
+          "growing_children_students": {
+            "suitability": "Optimal",
+            "score": 95,
+            "status": "Highly Prescribed (Sharpens neuroplasticity, memory retention, and early rising)"
+          },
+          "unmarried_daughters": {
+            "suitability": "Auspicious",
+            "score": 80,
+            "status": "Approved"
+          },
+          "master_householder": {
+            "suitability": "Sub-optimal",
+            "score": 50,
+            "status": "Avoid (Master loses commanding authority, becomes overly subordinate to social opinions)"
+          },
+          "elderly_retired_parents": {
+            "suitability": "Auspicious",
+            "score": 75,
+            "status": "Approved"
+          }
+        },
+        "classical_effects": "Awakens intellect, promotes dawn vitality, and stimulates cerebral clarity. Head must point East.",
+        "classical_citation": "Mayamata Ch. 25, v. 82; Bṛhat Saṃhitā Ch. 53, v. 70.",
+        "remedial_measures": "Ensure morning sunlight reaches the room; light green or pale yellow wall tones; wooden furniture."
+      },
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "North (N / Uttara)",
+        "padas": [
+          "Soma / Kubera",
+          "Bhallāṭa",
+          "Mukhya"
+        ],
+        "element": "Water / Mercury (Jala / Budha)",
+        "presiding_deity": "Kubera (Lord of Wealth) & Soma (Nectar of Vitality)",
+        "suitability_by_occupant": {
+          "young_unmarried_adults": {
+            "suitability": "Auspicious",
+            "score": 80,
+            "status": "Approved (Stimulates career ambitions and entrepreneurial drives)"
+          },
+          "growing_children_students": {
+            "suitability": "Auspicious",
+            "score": 75,
+            "status": "Approved"
+          },
+          "master_householder": {
+            "suitability": "Mediocre",
+            "score": 55,
+            "status": "Avoid (Overly cool and energetic; diminishes grounding and domestic leadership)"
+          }
+        },
+        "classical_effects": "Fosters commercial opportunities and mental agility, but can induce cool emotional detachment if occupied by newlyweds or masters.",
+        "classical_citation": "Mānasāra Ch. 36, vv. 42-46.",
+        "remedial_measures": "Sleep with head to East or South; use warm off-white or pastel hues; avoid blue/green dark drapes."
+      },
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "South-East (SE / Āgneya)",
+        "padas": [
+          "Agni",
+          "Antarikṣa",
+          "Pūṣan"
+        ],
+        "element": "Fire (Agni-tattva)",
+        "presiding_deity": "Agni (Lord of Sacrificial Fire)",
+        "suitability_by_occupant": {
+          "master_householder": {
+            "suitability": "Strictly Inauspicious / Major Doṣa",
+            "score": 15,
+            "status": "Forbidden (Causes ferocious marital conflicts, hyperacidity, insomnia, and financial volatility)"
+          },
+          "newlyweds": {
+            "suitability": "Dangerous",
+            "score": 10,
+            "status": "Forbidden (Leads to aggressive tempers, acute marital friction, and risk of divorce)"
+          },
+          "all_occupants": {
+            "suitability": "Harmful",
+            "score": 20,
+            "status": "Strongly Discouraged"
+          }
+        },
+        "classical_effects": "Continuous stimulation of Pitta dosha; insomnia, nervous exhaustion, aggressive verbal arguments, hypertension, and potential heart strain.",
+        "classical_citation": "Samarāṅgaṇa Sūtradhāra Ch. 38, v. 32; Viśvakarma Prakāśa Ch. 5, v. 90.",
+        "remedial_measures": "If bedroom cannot be moved: shift bed away from SE corner into SW part of the room; paint walls cooling pearl-white or ivory (absolutely no red, pink, or orange); place a bronze bowl filled with water in NE corner during the day; use pure cotton soothing fabrics."
+      },
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "North-East (NE / Īśāna)",
+        "padas": [
+          "Īśa / Śiva",
+          "Apavatsa",
+          "Diti"
+        ],
+        "element": "Ether & Sacred Water (Ākāśa-Jala)",
+        "presiding_deity": "Īśāna (Lord Śiva / Supreme Consciousness)",
+        "suitability_by_occupant": {
+          "master_householder": {
+            "suitability": "Strictly Forbidden / Severe Doṣa",
+            "score": 5,
+            "status": "Forbidden (Induces ascetic detachment, extinguishes marital intimacy, causes chronic financial depletion and reproductive failure)"
+          },
+          "newlyweds": {
+            "suitability": "Catastrophic",
+            "score": 0,
+            "status": "Forbidden (Total loss of conjugal desire, infertility, emotional frigidity)"
+          },
+          "elderly_devotees_ascetics": {
+            "suitability": "Permissible for Dhyāna/Meditation only",
+            "score": 60,
+            "status": "Permissible solely for meditation and prayer"
+          }
+        },
+        "classical_effects": "The sacred Īśāna corner is the crown/head of the Vāstu Puruṣa. Lying here for physical sleep and marital intimacy desecrates the spiritual vortex, precipitating neurological disorders, memory decline, financial bankruptcy, and failure of progeny.",
+        "classical_citation": "Samarāṅgaṇa Sūtradhāra Ch. 38, v. 34; Mayamata Ch. 25, v. 94; Bṛhat Saṃhitā Ch. 53, v. 75.",
+        "remedial_measures": "Convert the room into a prayer hall, meditation chamber, or library; if immovable, sleep strictly with head to South; ensure no heavy furniture is placed in the NE corner of the room; install a Jupiter/Guru Yantra and keep space immaculately spotless."
+      },
+      {
+        "rule_category": "Zonal Suitability by Occupant",
+        "zone": "Brahmasthāna (Center of House)",
+        "padas": [
+          "Brahma (9 Central Padas)"
+        ],
+        "element": "Pure Ether (Śuddha Ākāśa)",
+        "presiding_deity": "Lord Brahmā (Cosmic Creator)",
+        "suitability_by_occupant": {
+          "all_occupants": {
+            "suitability": "Strictly Forbidden / Mahā-doṣa",
+            "score": 0,
+            "status": "Prohibited"
+          }
+        },
+        "classical_effects": "Suffocation of the cosmic navel and lungs of the house; severe sleep fragmentation, heart palpitations, chronic gastric distress, and systemic failure of domestic harmony.",
+        "classical_citation": "Bṛhat Saṃhitā Ch. 53, vv. 60-64; Manuṣyālaya Candrikā Ch. 3, vv. 18-22.",
+        "remedial_measures": "Immediate relocation of bed out of the 9 central padas; Brahmasthāna must remain completely open, light, and unburdened."
+      },
+      {
+        "rule_category": "Sleeping Direction (Śayana-dik-phala)",
+        "direction": "Head Towards South (Dakṣiṇa-śiraḥ)",
+        "alignment": "Vertex / Crown pointing South, Feet pointing North",
+        "suitability": "Optimal / Supreme Standard",
+        "score": 100,
+        "classical_status": "Highly Prescribed",
+        "classical_verse": "Dakṣiṇe tu śiraḥ kṛtvā dīrgham āyur avāpnuyāt | Ārogyaṃ balam aiśvaryaṃ sarva-kāma-samṛddhaye ||",
+        "classical_citation": "Bṛhat Saṃhitā Ch. 53, v. 119; Viṣṇu Purāṇa Bk. 3, Ch. 11, v. 115; Suśruta Saṃhitā Cikitsā-sthāna Ch. 24, v. 68.",
+        "physiological_scientific_rationale": "The Earth behaves as a giant magnetic dipole with its magnetic North located near geographic South and magnetic South near geographic North. The human body is also an energetic dipole, where the head represents the positive/North pole and the feet represent the negative/South pole. When sleeping with the head to the South, opposite magnetic poles attract (Human North Head to Earth's Geomagnetic South). This eliminates magnetic repulsion, minimizes resistance in the cardiovascular circuit, allows ferromagnetic hemoglobin in the blood to flow smoothly without micro-capillary hypertension, stabilizes the autonomic nervous system, and induces deep non-REM restorative sleep.",
+        "benefits": "Longevity (Āyus), profound restorative sleep, cardiovascular stability, reduction of morning blood pressure spikes, cellular rejuvenation."
+      },
+      {
+        "rule_category": "Sleeping Direction (Śayana-dik-phala)",
+        "direction": "Head Towards East (Pūrva-śiraḥ)",
+        "alignment": "Vertex / Crown pointing East, Feet pointing West",
+        "suitability": "Optimal for Intellectuals, Students, and Spiritual Seekers",
+        "score": 95,
+        "classical_status": "Highly Prescribed",
+        "classical_verse": "Pūrvaṃ śiraḥ kṛtvā vidyāvān bhavati mānavaḥ | Medhāsmṛti-samāyukto dharmajñaś ca prajāyate ||",
+        "classical_citation": "Bṛhat Saṃhitā Ch. 53, v. 120; Manu Smṛti Ch. 2, v. 52; Caraka Saṃhitā Sūtra-sthāna Ch. 8, v. 19.",
+        "physiological_scientific_rationale": "Sleeping with head to the East aligns the cranial bio-field with the Earth's west-to-east axial rotational momentum and the primary solar prāṇic vector. The positive electromagnetic charge of the dawn solar axis stimulates the pineal and pituitary glands, optimizing melatonin-serotonin circadian rhythms, enhancing synaptic neuroplasticity, memory retention (Smṛti), and cognitive sharpness.",
+        "benefits": "Superior scholastic performance, intellectual clarity, enhanced memory retention, meditative tranquility, and neurological balance."
+      },
+      {
+        "rule_category": "Sleeping Direction (Śayana-dik-phala)",
+        "direction": "Head Towards West (Paścima-śiraḥ)",
+        "alignment": "Vertex / Crown pointing West, Feet pointing East",
+        "suitability": "Neutral / Acceptable for Trade and Active Life",
+        "score": 70,
+        "classical_status": "Permissible (Madhyama)",
+        "classical_verse": "Paścime tu śiraḥ kṛtvā cintā-vyākula-mānasam | Dhana-dhānya-samāyuktaṃ rājasika-phalapradaḥ ||",
+        "classical_citation": "Bṛhat Saṃhitā Ch. 53, v. 121; Manuṣyālaya Candrikā Ch. 6, v. 14.",
+        "physiological_scientific_rationale": "Sleeping with the head to the West opposes the Earth's rotational vector. It stimulates active Rājasika metabolic processes, increasing dream activity and mental churning. While it does not trigger acute magnetic clash like the North, it provides lighter, more dream-dense sleep. Acceptable for businessmen, traveling professionals, and active commercial workers.",
+        "benefits": "Commercial drive and ambition; potential drawback of increased REM dreaming and occasional morning restlessness."
+      },
+      {
+        "rule_category": "Sleeping Direction (Śayana-dik-phala)",
+        "direction": "Head Towards North (Uttara-śiraḥ)",
+        "alignment": "Vertex / Crown pointing North, Feet pointing South",
+        "suitability": "Strictly Forbidden / Major Doṣa",
+        "score": 0,
+        "classical_status": "Prohibited (Varjita)",
+        "classical_verse": "Uttare tu śiraḥ kṛtvā mṛtyur bhavati niścitam | Rogāś ca dāruṇā ghorāḥ sarva-hānir dine dine ||",
+        "classical_citation": "Bṛhat Saṃhitā Ch. 53, v. 122; Viṣṇu Purāṇa Bk. 3, Ch. 11, v. 116; Suśruta Saṃhitā Cikitsā Ch. 24, v. 69; Manuṣyālaya Candrikā Ch. 6, v. 16.",
+        "physiological_scientific_rationale": "The human head is the biological North magnetic pole, and geographic North is the Earth's magnetic North pole. Fundamental physics dictates that identical magnetic poles violently repel each other (Like poles repel). Sleeping with the head to the North subjects the delicate vascular beds of the cerebral cortex to continuous geomagnetic repulsion. This increases intracranial pressure, elevates cortisol levels, accelerates arterial plaque accumulation, causes chronic insomnia, sleep fragmentation, frightening nightmares (Duḥsvapna), and accelerates cellular degeneration. In Hindu funerary rites, only dead bodies (Śava) are laid with head to the North, signifying permanent release of the prāṇa from the physical coil.",
+        "benefits": "None. Causes chronic insomnia, severe migraines, anxiety, emotional instability, cardiovascular strain, and immune exhaustion."
+      },
+      {
+        "rule_category": "Bed Placement & Room Geometry",
+        "aspect": "Bedstead Position within Room",
+        "rule_description": "The bedstead must be anchored in the South-West, South, or West sub-quadrant of the bedroom. The headboard should be placed against a solid South or West wall, maintaining a mandatory breathing clearance of 2 to 4 inches (4 to 8 aṅgulas) from the wall surface. The bed must never touch the wall directly (to prevent dampness and energetic stagnation) and must never be placed flush against the North or East wall.",
+        "classical_citation": "Mayamata Ch. 26, vv. 18-24; Mānasāra Ch. 37, vv. 28-35.",
+        "merit": "Grounded emotional security, solid psychic support, protection against phantom drafts and boundary coldness."
+      },
+      {
+        "rule_category": "Architectural Affliction (Doṣa)",
+        "aspect": "Overhead Beam (Tulā-doṣa / Dhāraṇī-doṣa)",
+        "rule_description": "Sleeping directly beneath an exposed load-bearing ceiling beam, girder, joist, or concrete lintel is a severe structural affliction. The concentrated downward gravitational load and compressed prāṇic shear waves radiate continuous stress into the sleeper's bio-magnetic aura.",
+        "classical_citation": "Mānasāra Ch. 37, vv. 40-45; Manuṣyālaya Candrikā Ch. 6, vv. 20-25.",
+        "pathology": "If the beam spans horizontally across the chest: induces cardiac palpitations and respiratory oppression. If across the head/neck: causes chronic cervical spondylosis, migraines, and cognitive fog. If across the abdomen/pelvis: triggers persistent gastrointestinal ulcers and reproductive ailments.",
+        "remedial_measures": "1. Preferred remedy: Install a seamless false ceiling (Gypsum/POP) to completely conceal and level the beam. 2. Non-demolition remedy: Suspend two hollow bamboo flutes with red ribbons angled at 45° towards each other from the beam to deflect downward pressure. 3. Fix brass/copper pyramid strips along the bottom face of the beam. 4. Physically move the bedstead entirely clear of the beam's vertical shadow."
+      },
+      {
+        "rule_category": "Architectural Affliction (Doṣa)",
+        "aspect": "Mirror Reflection of Bed (Darpaṇa-vedha / Pratibimba-doṣa)",
+        "rule_description": "No mirror, dressing table mirror, mirrored wardrobe panel, or reflective TV screen must directly reflect the reclining body or the bedstead while asleep.",
+        "classical_citation": "Manuṣyālaya Candrikā Ch. 6, vv. 26-30; Samarāṅgaṇa Sūtradhāra Ch. 48, v. 22.",
+        "pathology": "During deep sleep, the human physical body releases subtle psychic fatigue and discharges spent prāṇic currents. A mirror acts as an active optical and electromagnetic bounce board, reflecting spent bio-waste directly back into the sleeper's auric field. This prevents cellular recovery, causes restless awakenings, chronic morning exhaustion, and generates psychological discord between married partners.",
+        "remedial_measures": "1. Relocate all mirrors to the North or East interior walls where they reflect positive cosmic energy without capturing the bed. 2. If wardrobe mirrors cannot be removed, cover them completely with an opaque, non-sheer cloth or drape every night before sleeping. 3. Never install mirrored ceiling panels above the bed."
+      },
+      {
+        "rule_category": "Architectural Affliction (Doṣa)",
+        "aspect": "Door Piercing Bed (Dvāra-vedha / Śūla-prāṇa)",
+        "rule_description": "The bed must never be placed directly in line with the bedroom entrance door, especially with the foot of the bed pointing straight out through the open door ('the coffin posture').",
+        "classical_citation": "Mānasāra Ch. 37, vv. 32-38; Mayamata Ch. 26, vv. 25-28.",
+        "pathology": "Doorways act as pressurized prāṇic conduits where kinetic energy rushes through constantly. When the bed lies directly on this axis, the sleeper's nervous system remains in an involuntary state of subconscious hyper-vigilance, preventing progression into delta-wave deep restorative sleep.",
+        "remedial_measures": "1. Reposition the bed diagonally or offset from the door swing path. 2. Place a solid wooden screen, chest of drawers, or thick curtain between the door opening and the bed to buffer rushing airflow."
+      },
+      {
+        "rule_category": "Ensuite Attachment",
+        "aspect": "Attached Bathroom Location Relative to Bedroom",
+        "rule_description": "If an attached toilet/bathroom is incorporated into the master bedroom suite, it must be constructed strictly in the North-West (Vāyavya) or West-North-West (WNW) sub-quadrant of the bedroom. It must never be placed in the North-East, South-West, or directly behind the sleeper's headboard.",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, vv. 91-94; Mayamata Ch. 25, vv. 88-92.",
+        "pathology": "A toilet sharing a headboard wall radiates dampness, microbial contamination, and sewer prāṇa directly into the cranial vault, leading to chronic migraines, sinusitis, and persistent nightmares.",
+        "remedial_measures": "1. Keep attached bathroom door perpetually shut; install an automatic door closer. 2. Never align bed headboard on the common wall shared with toilet commode or plumbing stacks. 3. Place a bowl of sea salt crystals inside the bathroom to neutralize negative bio-effluents."
+      },
+      {
+        "rule_category": "Structural Physics & Geometry",
+        "aspect": "Floor Elevation & Wall Massing in Nairṛtya",
+        "rule_description": "The master bedchamber in the South-West must maintain the highest floor plinth elevation in the entire residence (or at minimum equal to other rooms, never sunken). The exterior walls in the South and West must be the thickest, and exterior window openings must be smaller than those in the North and East.",
+        "classical_citation": "Mānasāra Ch. 36, vv. 20-28; Mayamata Ch. 25, vv. 76-80.",
+        "merit": "Preserves thermal inertia against hot afternoon solar radiation, anchors the building's center of gravity against seismic and wind loads, and retains the subtle magnetic charge accumulated across the diagonal axis from the North-East."
+      }
+    ],
+    "interpretation": "Bedroom Vastu in classical Sanskrit treatises represents an exquisite convergence of bio-geomagnetism, environmental psychology, circadian neurobiology, and structural architecture. The human head functions as the positive magnetic pole of the physical body. Aligning the head towards the South establishes an attractive magnetic circuit with the Earth's geomagnetic South, which stabilizes arterial blood pressure, reduces cardiac workload during sleep, and allows uninterrupted delta-wave brain states essential for cellular repair and immune regeneration. Conversely, pointing the head towards the North sets up a violent repulsive magnetic dynamic that causes micro-vascular tension in cerebral blood vessels, elevated cortisol, chronic insomnia, and psychological agitation. In terms of spatial zoning, the South-West (Nairṛtya) is ruled by the Earth element (Pṛthvī) and the ancestral Pitṛs, signifying maximum mass, thermal inertia, and immobility. Anchoring the master bedroom in the South-West provides the head of the family with foundational leadership authority, emotional equilibrium, and economic stability. Rooms for youth, guests, and daughters are strategically mapped to dynamic zones: the North-West (governed by Vāyu / Air) facilitates mobility, cordial temporary stays for visitors, and timely matrimonial transition for daughters without creating stagnation. Architectural elements such as overhead beams (Tulā-doṣa) and reflective mirrors (Darpaṇa-vedha) are rigorously regulated to shield the sleeper's vulnerable astral and biological field from gravitational shear stress and reflective energetic exhaustion.",
+    "variation_note": "Textual and regional traditions exhibit distinct specialized nuances while upholding core axioms. In the South Indian Dravidian tradition (Mayamata and Mānasāra), great emphasis is placed on multi-storey royal suites, structural heaviness, and botanical timber selection (Śayyā-lakṣaṇa), where specific sacred hard woods (such as Śāla, Asana, and Khadira) are mandated for the bedstead to harmonize with planetary vibrations. In the Kerala vernacular tradition (Manuṣyālaya Candrikā), the master suite is anchored in the Kanni-mūla (South-West corner) of the timber Nālukettu courtyard system; it mandates strict adherence to the avoidance of Tulā-doṣa (overhead structural tie-beams) and prohibits bedrooms in the Vaṭakkini (Northern block) for elders. In the Western and Central Indian classical traditions (Samarāṅgaṇa Sūtradhāra of King Bhoja and Viśvakarma Prakāśa), room allocations are tightly linked to the 81-pada Paramaśāyika grid, detailing planetary rulerships and warning against the severe ascetic and financial ruin caused by master bedchambers in the North-East (Īśāna). In modern high-rise apartments where homeowners cannot alter structural concrete columns or exterior walls, classical Vastu applies micro-zoning (allocating the master bed to the SW sector of the apartment, and the bed to the SW sub-quadrant of that room), utilizing false ceilings to encase concrete beams and wooden screening partitions to neutralize door-piercing (Dvāra-vedha)."
+  },
+  {
+    "tool_id": "toilet-bathroom-vastu",
+    "tool_name": "Toilet and Bathroom Vastu (Śauca, Snāna & Utsarga-sthāna)",
+    "tradition": "Classical Vedic Vastu",
+    "source": {
+      "text": "Viśvakarma Prakāśa",
+      "author_translator": "Vasudeva Sastri / K. S. Charak",
+      "chapter": "Chapter 5 (Gṛhārambha & Vāstu-vinyāsa)",
+      "verse": "Ślokas 88-95 (Pūrve snāna-gṛhaṃ kuryāt... Vāyavye śauca-mandiram)"
+    },
+    "canonical_citations": [
+      {
+        "text": "Viśvakarma Prakāśa",
+        "author_translator": "Vasudeva Sastri / K. S. Charak (Delhi: Vedic Astrology Publishers)",
+        "chapter": "Chapter 5 (Gṛhārambha & Vāstu-vinyāsa)",
+        "verses": "Ślokas 88-105",
+        "subject": "Clear spatial bifurcation: Pūrve snāna-gṛhaṃ kuryāt (East for bathing) and Vāyavye śauca-mandiram (North-West for latrine/toilet). Catastrophic curses of latrines in Īśāna (NE causes lineage destruction and brain disease), Nairṛtya (SW causes bankruptcy and premature death), and Brahmasthāna (Center causes total family annihilation)."
+      },
+      {
+        "text": "Mayamata",
+        "author_translator": "Bruno Dagens (IGNCA / Motilal Banarsidass)",
+        "chapter": "Chapter 25 (Gṛha-vinyāsa - Outbuildings & Sanitary Drainage)",
+        "verses": "Ślokas 82-96",
+        "subject": "Disposal of bodily waste (Utsarga) relegated to the outer perimeter (Bahir-vīthī) in the North-West (Vāyavya) or West-North-West. Segregation of clean bathwater drainage (flowing North/East) from foul sewage effluents (exiting towards West/North-West)."
+      },
+      {
+        "text": "Mānasāra",
+        "author_translator": "P. K. Acharya (Oxford University Press)",
+        "chapter": "Chapter 36 (Gṛha-vinyāsa & Śauca-gṛha-vidhāna)",
+        "verses": "Ślokas 65-82",
+        "subject": "Detailed design of auxiliary outhouses (Utsarga-gṛha) in the Vāyu sector; mandate for North-South bodily posture during excretion; isolation of cesspools from domestic water bodies."
+      },
+      {
+        "text": "Samarāṅgaṇa Sūtradhāra",
+        "author_translator": "King Bhoja (ed. D. N. Shukla, Meharchand Lachhmandas)",
+        "chapter": "Chapter 38 (Gṛha-vinyāsa) & Chapter 49 (Jala-sañcāra / Praṇāla)",
+        "verses": "Chapter 38: Ślokas 40-58; Chapter 49: Ślokas 12-30",
+        "subject": "Drainage gradients (Praṇāla) and protection of Marmasthānas (vital energy nodes) against noxious pits, privies, and decomposing waste."
+      },
+      {
+        "text": "Bṛhat Saṃhitā",
+        "author_translator": "Varāhamihira (M. Ramakrishna Bhat)",
+        "chapter": "Chapter 53 (Vāstuvidyā)",
+        "verses": "Ślokas 70-86 & 112-118",
+        "subject": "Elemental water purity hierarchies; strict prohibition of excavating soak pits, latrine trenches, or septic pits on the 9 Mahā-marmas (vital organ crossings of Vāstu Puruṣa)."
+      },
+      {
+        "text": "Manuṣyālaya Candrikā",
+        "author_translator": "T. C. N. Somayaji (Kerala Vāstu Tradition)",
+        "chapter": "Chapter 3 & Chapter 7",
+        "verses": "Chapter 3: Ślokas 45-55; Chapter 7: Ślokas 18-32",
+        "subject": "Detached outhouse toilets in Kerala architecture (Kākṣi-veśma); positioning in the outer Vāyu-koṇa away from the sacred Ayana and drinking water well (Kiṇaru) in the North-East."
+      },
+      {
+        "text": "Dharmaśāstra Injunctions (Manu Smṛti & Yājñavalkya Smṛti)",
+        "author_translator": "Various Canonical Redactions",
+        "chapter": "Manu Smṛti Ch. 4, v. 50; Yājñavalkya Smṛti Ch. 1, v. 16; Viṣṇu Smṛti Ch. 60, vv. 1-2",
+        "verses": "Prāṅmukho nānnam aśnīyān noccared dakṣiṇāmukhaḥ / Divā kuryāt prāṅmukhaḥ śaucaṃ rātrau kuryād udaṅmukhaḥ",
+        "subject": "Strict injunctions governing bodily orientation during excretion: face North (Udaṅmukha) or South (Dakṣiṇāmukha); never face the rising or setting Sun (East or West) during urination or defecation."
+      }
+    ],
+    "inputs": [
+      {
+        "field_id": "plot_orientation_deg",
+        "label": "Plot Orientation (Degrees from True North)",
+        "type": "float",
+        "unit": "degrees",
+        "range": [
+          0.0,
+          360.0
+        ],
+        "default": 0.0,
+        "description": "True geographic orientation of the site/building relative to true North."
+      },
+      {
+        "field_id": "facility_type",
+        "label": "Sanitary Facility Type",
+        "type": "enum",
+        "allowed_values": [
+          "water_closet_commode_only",
+          "dry_bathroom_shower_only",
+          "combined_toilet_and_bathroom",
+          "underground_septic_tank",
+          "soak_pit_cesspool"
+        ],
+        "default": "combined_toilet_and_bathroom",
+        "description": "Functional nature of the sanitary unit being analyzed."
+      },
+      {
+        "field_id": "toilet_zone_16",
+        "label": "Facility 16-Zone Location",
+        "type": "enum",
+        "allowed_values": [
+          "N",
+          "NNE",
+          "NE",
+          "ENE",
+          "E",
+          "ESE",
+          "SE",
+          "SSE",
+          "S",
+          "SSW",
+          "SW",
+          "WSW",
+          "W",
+          "WNW",
+          "NW",
+          "NNW",
+          "Brahmasthan"
+        ],
+        "default": "WNW",
+        "description": "Macro-zone of the house where the commode/toilet or bathroom is positioned."
+      },
+      {
+        "field_id": "pada_32_placement",
+        "label": "32 Pada Deity Square Placement",
+        "type": "enum",
+        "allowed_values": [
+          "Asura",
+          "Śoṣa",
+          "Pāpayakṣmā",
+          "Roga",
+          "Vāyu",
+          "Mṛga",
+          "Bhṛṅgarāja",
+          "Pitṛ",
+          "Dauvārika",
+          "Sugrīva",
+          "Puṣpadanta",
+          "Varuṇa",
+          "Īśa",
+          "Parjanya",
+          "Jayanta",
+          "Indra",
+          "Sūrya",
+          "Satya",
+          "Bhṛśa",
+          "Antarikṣa",
+          "Agni",
+          "Pūṣan",
+          "Vitatha",
+          "Gṛhakṣata",
+          "Yama",
+          "Gandharva",
+          "Brahma"
+        ],
+        "default": "Śoṣa",
+        "description": "Specific pada in the Vāstu Puruṣa Maṇḍala housing the commode or wastewater pit."
+      },
+      {
+        "field_id": "commode_facing_direction",
+        "label": "Commode User Facing Direction",
+        "type": "enum",
+        "allowed_values": [
+          "North",
+          "South",
+          "East",
+          "West"
+        ],
+        "default": "North",
+        "description": "The cardinal direction faced by the person while seated upon the water closet/commode."
+      },
+      {
+        "field_id": "shower_bath_placement_in_room",
+        "label": "Shower / Wet Bathing Area Location Within Room",
+        "type": "enum",
+        "allowed_values": [
+          "NE_corner",
+          "East_wall",
+          "North_wall",
+          "West_wall",
+          "South_wall",
+          "SW_corner"
+        ],
+        "default": "NE_corner",
+        "description": "Micro-placement of the clean water shower/bath tub inside the bathroom enclosure."
+      },
+      {
+        "field_id": "drainage_water_outlet_direction",
+        "label": "Wastewater Drainage Pipe Exit Direction",
+        "type": "enum",
+        "allowed_values": [
+          "North",
+          "East",
+          "North_East",
+          "North_West",
+          "West",
+          "South",
+          "South_West"
+        ],
+        "default": "North_East",
+        "description": "The cardinal direction along which the wastewater pipe leaves the bathroom floor and foundation."
+      },
+      {
+        "field_id": "septic_tank_zone_16",
+        "label": "Septic Tank / Soak Pit Zone (16 Zones)",
+        "type": "enum",
+        "allowed_values": [
+          "WNW",
+          "NW",
+          "SSW",
+          "ESE",
+          "NE",
+          "SW",
+          "SE",
+          "North",
+          "East",
+          "Brahmasthan"
+        ],
+        "default": "WNW",
+        "description": "Zonal location of the subterranean septic tank or waste retention pit outside the foundation line."
+      },
+      {
+        "field_id": "adjacent_wall_sharing",
+        "label": "Common Wall Shared With Adjacent Space",
+        "type": "enum",
+        "allowed_values": [
+          "none_standalone_or_passage",
+          "shares_wall_with_kitchen_stove",
+          "shares_wall_with_pooja_room",
+          "shares_wall_with_bed_headboard",
+          "shares_wall_with_dining_area"
+        ],
+        "default": "none_standalone_or_passage",
+        "description": "Proximity check for common walls shared between toilet plumbing and sanctified domestic functions."
+      }
+    ],
+    "rules_matrix": [
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "West-North-West (WNW)",
+        "padas": [
+          "Asura",
+          "Śoṣa"
+        ],
+        "element": "Air-Water Transition (Purging Element)",
+        "presiding_deity": "Asura (Discharger of Heaviness) & Śoṣa (The Dryer / Emaciator)",
+        "suitability": "Optimal / Supreme Standard",
+        "score": 100,
+        "classical_status": "Prescribed (Paramottama)",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, vv. 88-95; Mayamata Ch. 25, vv. 82-86.",
+        "classical_effects": "WNW is the classical zone of depression, grief, and emotional baggage removal (Śoṣa-sthāna). Placing the toilet commode here discharges physical and psychological waste effortlessly, preventing mental depression and detoxifying the household without harming any positive life quadrant.",
+        "remedial_measures": "None required. Use white, cream, or light grey floor tiles; keep commode lid closed after flush."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "South-South-West (SSW)",
+        "padas": [
+          "Mṛga",
+          "Bhṛṅgarāja (outer perimeter)"
+        ],
+        "element": "Earth-Fire Transition (Biological Excretion / Visarga)",
+        "presiding_deity": "Mṛga (The Wandering Seeker) & Gandharva / Yama periphery",
+        "suitability": "Optimal / Canonical Disposal Zone",
+        "score": 95,
+        "classical_status": "Prescribed (Utsarga-kṣetra)",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, v. 92; Samarāṅgaṇa Sūtradhāra Ch. 38, v. 45.",
+        "classical_effects": "SSW is the natural zone of biological expenditure, de-accumulation, and waste voiding (Visarga / Utsarga). A commode placed here eliminates bodily toxins, stabilizes gastrointestinal digestion, and flushes away spent bio-energies without disturbing wealth or stability.",
+        "remedial_measures": "None required. Paint walls yellow, beige, or warm earth tones; ensure smooth outward drainage."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "North-West (NW / Vāyavya)",
+        "padas": [
+          "Vāyu",
+          "Roga",
+          "Pāpayakṣmā"
+        ],
+        "element": "Air (Vāyu-tattva)",
+        "presiding_deity": "Vāyu (Lord of Winds) / Pāpayakṣmā",
+        "suitability": "Auspicious / Classical Default Zone",
+        "score": 85,
+        "classical_status": "Prescribed in Root Text",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, v. 90 (Vāyavye śauca-mandiram); Mānasāra Ch. 36, v. 68.",
+        "classical_effects": "Vāyu represents continuous airflow and dynamic dispersal. Odours and foul bio-gases are swiftly swept away and oxidized by the prevailing winds, ensuring sanitary cleanliness. Must be positioned slightly away from the exact 45° diagonal axis to avoid harming the Vāyu-marma.",
+        "remedial_measures": "Ensure robust mechanical exhaust ventilation; keep toilet floor clean and dry."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "East-South-East (ESE)",
+        "padas": [
+          "Pūṣan (outer boundary)",
+          "Vitatha transition"
+        ],
+        "element": "Air-Fire Churning (Manthana-tattva)",
+        "presiding_deity": "Pūṣan / Savitā transition",
+        "suitability": "Acceptable with balancing",
+        "score": 65,
+        "classical_status": "Permissible (Tolerable)",
+        "classical_citation": "Samarāṅgaṇa Sūtradhāra Ch. 38, v. 48.",
+        "classical_effects": "ESE governs excessive mental churning and obsessive anxiety. A commode in this zone flushes away compulsive overthinking and emotional panic, but if improperly balanced can induce digestive restlessness.",
+        "remedial_measures": "Use stainless steel or off-white floor borders around the commode base; place sea salt in a ceramic bowl."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "West (W / Paścima)",
+        "padas": [
+          "Varuṇa",
+          "Mitra"
+        ],
+        "element": "Water (Jala-tattva)",
+        "presiding_deity": "Varuṇa (Lord of Commercial Gains)",
+        "suitability": "Mediocre / Problematic if Centered",
+        "score": 50,
+        "classical_status": "Avoid Direct Center (Permissible only if shifted to WNW)",
+        "classical_citation": "Mayamata Ch. 25, v. 84.",
+        "classical_effects": "Placing a commode directly on the central West axis (Varuṇa pada) drains business profits, creates financial leakage, and causes stagnation in personal assets.",
+        "remedial_measures": "If fixed in West: embed a white marble or brass strip into the floor around the commode perimeter to seal energy leakage; shift the commode seat as far toward WNW as possible."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "North-North-West (NNW)",
+        "padas": [
+          "Nāga",
+          "Gandharva / Rati transition"
+        ],
+        "element": "Water-Air Transition",
+        "presiding_deity": "Soma periphery / Rati",
+        "suitability": "Inauspicious",
+        "score": 40,
+        "classical_status": "Strongly Discouraged",
+        "classical_citation": "Samarāṅgaṇa Sūtradhāra Ch. 38, v. 50.",
+        "classical_effects": "NNW is the zone of attraction, marital affection, and romantic intimacy. A toilet here cools conjugal passion, causes mutual indifference between partners, and damages social charm.",
+        "remedial_measures": "Install a blue or white crystal strip around the commode; keep a pair of brass swans or lovebird motifs outside the bathroom."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "East (E / Pūrva)",
+        "padas": [
+          "Indra",
+          "Sūrya",
+          "Satya"
+        ],
+        "element": "Solar Fire & Prāṇa (Āditya)",
+        "presiding_deity": "Sūrya / Indra",
+        "suitability": "Major Doṣa (Severe Affliction)",
+        "score": 15,
+        "classical_status": "Prohibited for Fecal Waste (Clean bathing permitted, latrine strictly forbidden)",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, v. 98; Bṛhat Saṃhitā Ch. 53, v. 74.",
+        "classical_effects": "East is the sacred gateway of ultraviolet and visible solar radiation that vitalizes human physiology. A fecal toilet in the East pollutes this solar conduit, causing loss of social reputation, friction with government authorities, hepatic/liver ailments, ocular diseases, and severe chronic fatigue.",
+        "remedial_measures": "If unavoidable: install a 1-inch copper strip embedded flush into the tile floor completely encircling the commode; burn camphor daily; place live spider plants inside; ensure commode is kept spotless."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "North (N / Uttara)",
+        "padas": [
+          "Kubera / Soma",
+          "Bhallāṭa"
+        ],
+        "element": "Sacred Water / Magnetic Flow (Jala)",
+        "presiding_deity": "Kubera (Lord of Wealth)",
+        "suitability": "Severe Doṣa (Severe Affliction)",
+        "score": 10,
+        "classical_status": "Prohibited",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, v. 99; Mānasāra Ch. 36, v. 72.",
+        "classical_effects": "North is the receiving station of positive geomagnetic energy and cosmic wealth (Kubera-sthāna). Flushing bodily waste in the North flushes away cash liquidity, stalls business growth, causes career stagnation, and brings chronic kidney or lymphatic disorders.",
+        "remedial_measures": "Embed a continuous blue or aluminium metal strip in the floor around the commode; place a mirror on the North wall outside the toilet; place green fluorite or selenite crystals inside."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "South-East (SE / Āgneya)",
+        "padas": [
+          "Agni",
+          "Antarikṣa"
+        ],
+        "element": "Fire (Agni-tattva)",
+        "presiding_deity": "Agni (Lord of Fire)",
+        "suitability": "Severe Doṣa (Elemental War: Fire vs Water/Waste)",
+        "score": 10,
+        "classical_status": "Prohibited (Agni-Jala-Virodha)",
+        "classical_citation": "Samarāṅgaṇa Sūtradhāra Ch. 38, v. 52; Viśvakarma Prakāśa Ch. 5, v. 96.",
+        "classical_effects": "SE is the realm of metabolic and financial fire. Placing water closet drainage in the fire corner extinguishes prosperity, triggers sudden cash crashes, debt burdens, severe gynecological complications in women, acute digestive ulcers, and legal disputes.",
+        "remedial_measures": "Embed a pure copper strip (1/2 inch wide) into the floor around the commode to energetically isolate the fire zone; paint the bathroom light pastel peach/ivory (no blue or black); keep red jasper stones inside."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "South-West (SW / Nairṛtya)",
+        "padas": [
+          "Pitṛ",
+          "Dauvārika"
+        ],
+        "element": "Earth (Pṛthvī-tattva / Sthirata)",
+        "presiding_deity": "Nirṛti / Pitṛs",
+        "suitability": "Catastrophic Doṣa (Mahā-doṣa)",
+        "score": 0,
+        "classical_status": "Strictly Forbidden (Varjita)",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, v. 101; Mayamata Ch. 25, v. 92; Samarāṅgaṇa Sūtradhāra Ch. 38, v. 54.",
+        "classical_effects": "Desecrates the earth foundation and ancestral stability of the entire domicile. Causes irreversible marital breakdown, divorce, severe bone/musculoskeletal diseases, paralysis, crippling business debts, sudden bankruptcy, and total abandonment of paternal support.",
+        "remedial_measures": "1. Strongly recommend decommissioning the commode entirely. 2. If physically impossible to decommission (e.g. rented apartment): embed a heavy lead wire/strip (Nāga-dhātu) completely around the commode base in the floor; install yellow Jaisalmer marble or brass strips; place three brass Vāstu energy helixes; keep a large crystal bowl of rock salt replaced every 7 days."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "North-East (NE / Īśāna)",
+        "padas": [
+          "Īśa / Śiva",
+          "Apavatsa",
+          "Parjanya"
+        ],
+        "element": "Ether & Holy Water (Ākāśa-Jala)",
+        "presiding_deity": "Īśāna (Lord Śiva / Divine Intelligence)",
+        "suitability": "Catastrophic Doṣa / Lineage Curse",
+        "score": 0,
+        "classical_status": "Strictly Forbidden (Ghora-doṣa)",
+        "classical_verse": "Īśāne śauca-kṛt yena tasya vaṃśaḥ praṇaśyati | Dāridryaṃ vyādhi-pīḍā ca maraṇaṃ ca na saṃśayaḥ ||",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, vv. 96-97; Bṛhat Saṃhitā Ch. 53, v. 75; Manuṣyālaya Candrikā Ch. 3, v. 48.",
+        "classical_effects": "North-East is the sacred crown and brain of the Vāstu Puruṣa, the cosmic antenna through which all spiritual and solar grace enters. A toilet in Īśāna is the most destructive affliction in Vāstu Shastra: it causes terminal brain/neurological diseases, memory loss, brain strokes, childhood developmental disabilities, sudden cancer, total wipeout of family lineage (Vaṃśa-nāśa), and absolute financial despair.",
+        "remedial_measures": "1. Must be demolished or physically disconnected immediately. 2. If trapped in an immovable multi-storey flat: completely cease using the commode (cap the pipes and convert to dry storage). 3. If use is forced: embed continuous zinc or bronze wire around the toilet perimeter; place a North-East Vāstu Yantra outside the door; burn sacred frankincense/guggulu daily; install multiple bowls of raw sea salt; place spider plants under full-spectrum grow lights to absorb foul ammoniacal radiation."
+      },
+      {
+        "rule_category": "Commode (WC) Zonal Placement",
+        "zone": "Brahmasthāna (Center of House)",
+        "padas": [
+          "Brahma (9 Central Padas)"
+        ],
+        "element": "Pure Ether (Śuddha Ākāśa)",
+        "presiding_deity": "Lord Brahmā (Cosmic Creator)",
+        "suitability": "Catastrophic / Fatal Doṣa",
+        "score": 0,
+        "classical_status": "Strictly Forbidden (Sarva-nāśa)",
+        "classical_verse": "Brahma-sthāne kṛte śauce sarva-nāśaḥ prajāyate | Kula-kṣayo mahā-ghoro rogo vā jāyate dhruvam ||",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, v. 102; Bṛhat Saṃhitā Ch. 53, v. 64.",
+        "classical_effects": "Drilling a toilet waste pipe through the cosmic heart and navel of the Vāstu Puruṣa produces devastating systemic collapse: fatal heart attacks, severe intestinal cancers, complete annihilation of family wealth, and tragic premature fatalities.",
+        "remedial_measures": "Non-negotiable immediate removal. No chemical, crystal, or metal remedy can compensate for a toilet in the Brahmasthāna."
+      },
+      {
+        "rule_category": "Commode User Facing Orientation (Śauca-mukha)",
+        "orientation": "Facing North (Uttaramukha)",
+        "suitability": "Optimal Canonical Standard",
+        "score": 100,
+        "classical_status": "Prescribed in Dharmaśāstras",
+        "classical_citation": "Manu Smṛti Ch. 4, v. 50; Yājñavalkya Smṛti Ch. 1, v. 16; Mānasāra Ch. 36, vv. 74-76.",
+        "classical_effects": "Facing North aligns the torso along the North-South geomagnetic meridian, optimizing parasympathetic peristalsis and visceral elimination without expending metabolic energy.",
+        "benefits": "Healthy autonomic peristalsis, energetic compliance with cosmic magnetic lines."
+      },
+      {
+        "rule_category": "Commode User Facing Orientation (Śauca-mukha)",
+        "orientation": "Facing South (Dakṣiṇamukha)",
+        "suitability": "Auspicious / Canonical Alternate",
+        "score": 95,
+        "classical_status": "Approved in Dharmaśāstras",
+        "classical_citation": "Manu Smṛti Ch. 4, v. 50; Viṣṇu Smṛti Ch. 60, v. 2.",
+        "classical_effects": "Prescribed as the prime alternate orientation along the cardinal North-South meridian; fully avoids solar disrespect.",
+        "benefits": "Smooth evacuation, full compliance with traditional hygiene protocols."
+      },
+      {
+        "rule_category": "Commode User Facing Orientation (Śauca-mukha)",
+        "orientation": "Facing East (Pūrvamukha)",
+        "suitability": "Strictly Forbidden / Canonical Violation",
+        "score": 0,
+        "classical_status": "Prohibited (Sūrya-tiraskāra)",
+        "classical_citation": "Manu Smṛti Ch. 4, v. 50; Yājñavalkya Smṛti Ch. 1, v. 16; Viśvakarma Prakāśa Ch. 5, v. 104.",
+        "classical_effects": "Facing the rising Sun during urination or defecation is a severe transgression of solar reverence (Sūrya-tiraskāra). Classic texts caution that exposing human excretory organs directly towards the morning solar rays disrupts ocular prāṇa, causes digestive disturbances, and incurs karmic degradation.",
+        "remedial_measures": "Rotate commode plumbing 90 degrees to face North or South."
+      },
+      {
+        "rule_category": "Commode User Facing Orientation (Śauca-mukha)",
+        "orientation": "Facing West (Paścimamukha)",
+        "suitability": "Forbidden",
+        "score": 10,
+        "classical_status": "Prohibited",
+        "classical_citation": "Manu Smṛti Ch. 4, v. 50; Mānasāra Ch. 36, v. 75.",
+        "classical_effects": "Facing the setting solar horizon while voiding waste is expressly forbidden by smṛti injunctions.",
+        "remedial_measures": "Reorient commode seat to North or South."
+      },
+      {
+        "rule_category": "Clean Bathing vs Waste Segregation",
+        "aspect": "Snāna-sthāna (Clean Bathing) vs Śauca-mandira (Toilet)",
+        "rule_description": "Classical Vāstu maintains an absolute philosophical, biological, and spatial segregation between Snāna (sacred ritual bathing with clean water) and Śauca (voiding of fecal matter). While the toilet commode is restricted to WNW, NW, or SSW, the shower and bathing area (Snāna-gṛha) is ideally situated in the East, North-East, or North. In modern combined bathrooms, the wet bathing area should occupy the North-East or East sector of the room, segregated from the commode by a glass partition or curtain.",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, v. 88 (Pūrve snāna-gṛhaṃ kuryāt); Mayamata Ch. 25, vv. 82-88.",
+        "merit": "Preserves the spiritual purity of water (Jala-tattva), maximizes morning solar absorption during bathing, and prevents cross-contamination of bio-aerosols."
+      },
+      {
+        "rule_category": "Underground Waste Storage",
+        "aspect": "Septic Tank (Śauca-garta / Mala-kuṇḍa) Placement",
+        "rule_description": "The underground septic tank or soak pit must be installed outside the plinth line of the residence in the West-North-West (WNW) or North-West (NW) sector. It creates an subterranean void/depression filled with foul matter.",
+        "classical_citation": "Bṛhat Saṃhitā Ch. 53, vv. 80-86; Mayamata Ch. 25, vv. 90-95.",
+        "prohibitions": "STRICTLY FORBIDDEN IN: 1. North-East (Causes sudden deaths, neurological breakdown, financial extinction). 2. South-West (Violates the law of elevation: SW must be the highest and heaviest solid ground; an underground waste pit in SW brings fatal accidents, bankruptcy, and loss of life). 3. South (Destroys social fame and causes female health crises). 4. Brahmasthāna (Catastrophic).",
+        "remedial_measures": "If septic tank is trapped in SW or NE: construct a new septic tank in NW/WNW, pump out and decontaminate the old pit, fill it completely with river sand and consecrated clay, and seal with a concrete slab."
+      },
+      {
+        "rule_category": "Drainage Hydraulics",
+        "aspect": "Wastewater Drainage Slope & Outflow (Praṇāla)",
+        "rule_description": "Bathroom floor slopes must guide wastewater towards the North, North-East, or East. Drainage outflow pipes must exit the building towards the North or East before entering external perimeter inspection chambers that route sewage toward the municipal main or NW septic tank.",
+        "classical_citation": "Samarāṅgaṇa Sūtradhāra Ch. 49, vv. 12-25; Mayamata Ch. 25, vv. 85-89.",
+        "merit": "Aligns physical water drainage with cosmic gradient slopes (Jala-plava), ensuring rapid drainage and preventing stagnation of foul effluents under the floorboards."
+      },
+      {
+        "rule_category": "Architectural Proximity & Adjacency",
+        "aspect": "Wall Sharing Restrictions",
+        "rule_description": "A toilet must NEVER share a common wall with: 1. The Kitchen cooking stove (Agni-Aśauca conflict: causes severe food contamination, chronic digestive disorders, and family strife). 2. The Pooja / Shrine room (Deva-vedha: creates profound spiritual pollution and karmic obstruction). 3. The Master Bed headboard (radiates dampness, pathogenic bio-gases, and sewer prāṇa directly into the brain). Furthermore, the toilet door must never directly face the dining table, kitchen entrance, or main entrance door.",
+        "classical_citation": "Viśvakarma Prakāśa Ch. 5, vv. 100-105; Manuṣyālaya Candrikā Ch. 7, vv. 20-25.",
+        "remedial_measures": "Install double-walled drywall with sound and moisture insulation; keep toilet doors permanently closed with pneumatic closers; fix mirrors on the exterior facing wall to deflect negative sightlines."
+      }
+    ],
+    "interpretation": "Toilet and bathroom design in classical Vāstu Shastra represents one of the world's earliest systematic codes of preventive epidemiology, environmental sanitation, and bio-energetic zoning. Classical Sanskrit treatises make a fundamental ontological distinction between Snāna (sacred purification through clean, living water) and Śauca (the sanitary voiding of human metabolic waste). Pure water bathing belongs to the solar East and North-East, where early ultraviolet rays sterilize the damp atmosphere and stimulate human endocrine vitality. Conversely, human waste disposal (Utṣarga-sthāna) is strictly relegated to zones designed for detoxification and dispersal: West-North-West (WNW, ruled by Asura and Śoṣa, the deities of biological release and drying), South-South-West (SSW, the zone of metabolic excretion and expenditure), and North-West (Vāyavya, where the kinetic wind element rapidly dilutes and sweeps away foul ammoniacal gases and methane). Classical texts pronounce severe prohibitions against locating toilets in the North-East (Īśāna, the cosmic crown and spiritual receptor), the South-West (Nairṛtya, the earth foundation and marital anchor), and the Brahmasthāna (the cosmic navel and heart). Polluting these sensitive nodes with human excreta causes severe systemic pathologies: neurological disorders, financial ruin, relationship breakdown, and chronic morbidity. The mandatory alignment for the commode user—facing North or South—harmonizes the human colon with the Earth's geomagnetic meridians, assisting natural peristalsis while strictly honoring the sacred solar trajectory.",
+    "variation_note": "Traditional and regional architectural practices reveal fascinating evolutionary adaptations across India's geographical zones. In the traditional Kerala timber architecture documented in Manuṣyālaya Candrikā and Tantrasamuccaya, toilets were never permitted inside the main residential wooden dwelling (Nālukettu or Ettukettu). Instead, they were constructed as completely detached outdoor privies (Kākṣi-veśma) in the outer Vāyavya (North-West) compound, safely separated from the central Ayana and positioned downstream from the sacred domestic well (Kiṇaru) situated in the North-East. In the arid and rocky terrains of Western India and the Deccan palaces documented in Samarāṅgaṇa Sūtradhāra and Aparājitapṛcchā, elaborate gravity-assisted stone conduits (Praṇāla) and ventilated turrets were engineered on outer ramparts in the North-West, discharging waste into deep exterior subterranean soakways (Gartas) away from internal aquifers. In contemporary 21st-century multi-storey apartments where bathrooms are embedded inside bedrooms and plumbing stacks are structurally fixed by civil engineers, classical Vastu adapts through micro-zoning: sub-dividing the master bedroom suite into 16 micro-zones to place the commode in the micro-WNW or micro-NW, using non-invasive elemental boundary remedies (copper, brass, lead, or aluminium floor strips), maintaining pneumatic door closures, and physically decoupling wet bathing zones from dry water closets."
+  }
+]

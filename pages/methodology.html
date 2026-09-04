@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology, Treatises & Textual Transparency — Vastu Divine (वD / VASTU डिवाइन)</title>
+    <meta name="description" content="Explore the authoritative classical Sanskrit manuscripts, translation lineages, mathematical formulations, and textual concordance powering all 20 diagnostic tools of Vastu Divine.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    <link rel="alternate icon" type="image/png" href="../assets/favicon.png">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        .methodology-page {
+            background-color: var(--clr-bg-cream);
+            color: var(--clr-text-main);
+            padding-bottom: 80px;
+        }
+        .page-header-banner {
+            background: linear-gradient(135deg, var(--clr-maroon-dark) 0%, var(--clr-maroon) 55%, #480612 100%);
+            color: var(--clr-white);
+            padding: 70px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 4px solid var(--clr-gold);
+        }
+        .page-header-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle at 50% 30%, rgba(179, 121, 30, 0.25) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .page-header-banner .eyebrow {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--clr-gold-light);
+            background: rgba(179, 121, 30, 0.18);
+            border: 1px solid var(--clr-gold-border);
+            padding: 6px 18px;
+            border-radius: var(--radius-full);
+            margin-bottom: 18px;
+        }
+        .page-header-banner h1 {
+            color: var(--clr-white);
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+        .page-header-banner p {
+            color: rgba(255, 255, 255, 0.88);
+            max-width: 820px;
+            margin: 0 auto 24px;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        .header-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--clr-gold-pale);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+        .header-back-link:hover {
+            color: var(--clr-white);
+            text-decoration: underline;
+        }
+        .methodology-content {
+            max-width: 1180px;
+            margin: -30px auto 0;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        .canon-section {
+            background: var(--clr-white);
+            border: 1px solid var(--clr-gold-border);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-md);
+        }
+        .canon-section-header {
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--clr-gold-soft);
+            padding-bottom: 16px;
+        }
+        .canon-section-header h2 {
+            font-size: 1.8rem;
+            color: var(--clr-maroon);
+            margin-bottom: 8px;
+        }
+        .canon-section-header p {
+            font-size: 1.05rem;
+            color: var(--clr-text-muted);
+            margin: 0;
+        }
+        .manuscript-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+        .manuscript-card {
+            border: 1px solid rgba(109, 10, 29, 0.12);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            background: #FCFAF8;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .manuscript-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--clr-gold);
+        }
+        .manuscript-badge {
+            align-self: flex-start;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: var(--clr-maroon-soft);
+            color: var(--clr-maroon);
+            padding: 4px 10px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 12px;
+        }
+        .manuscript-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            color: var(--clr-maroon);
+            margin-bottom: 6px;
+        }
+        .manuscript-author {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--clr-gold);
+            margin-bottom: 12px;
+        }
+        .manuscript-meta {
+            font-size: 0.85rem;
+            color: var(--clr-text-dim);
+            margin-bottom: 12px;
+            border-left: 2px solid var(--clr-gold-border);
+            padding-left: 10px;
+        }
+        .manuscript-desc {
+            font-size: 0.92rem;
+            color: var(--clr-text-muted);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+        .manuscript-chapters {
+            background: var(--clr-white);
+            border: 1px dashed var(--clr-gold-border);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            font-size: 0.82rem;
+            color: var(--clr-maroon);
+            font-family: monospace;
+        }
+        .table-concordance {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.92rem;
+            margin-top: 20px;
+        }
+        .table-concordance th {
+            background: var(--clr-maroon);
+            color: var(--clr-white);
+            font-family: var(--font-heading);
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+        .table-concordance td {
+            padding: 12px 16px;
+            border-bottom: 1px solid rgba(109, 10, 29, 0.08);
+            vertical-align: top;
+        }
+        .table-concordance tr:nth-child(even) td {
+            background: #FAF7F4;
+        }
+        .table-concordance tr:hover td {
+            background: #F5EEE6;
+        }
+        .tag-vastu {
+            background: rgba(109, 10, 29, 0.1);
+            color: var(--clr-maroon);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-block;
+        }
+        .tag-num {
+            background: rgba(179, 121, 30, 0.15);
+            color: #8C5B09;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-block;
+        }
+        .tag-modern {
+            background: rgba(20, 20, 20, 0.08);
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-block;
+        }
+        .policy-callout {
+            background: linear-gradient(135deg, rgba(109, 10, 29, 0.04) 0%, rgba(179, 121, 30, 0.08) 100%);
+            border-left: 4px solid var(--clr-maroon);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            padding: 24px 28px;
+            margin: 24px 0;
+        }
+        .policy-callout h4 {
+            color: var(--clr-maroon);
+            margin-bottom: 8px;
+        }
+        .policy-callout p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body class="methodology-page">
+
+    <!-- Top Notice Bar -->
+    <div class="top-banner" style="background: #141414; color: #FAF7F2; padding: 8px 20px; font-size: 0.82rem; text-align: center; letter-spacing: 1px; border-bottom: 1px solid #B3791E;">
+        Canonical Sthapatya Veda &amp; Ancient Vibrational Epistemology | 100% Zero-Demolition Solutions
+    </div>
+
+    <!-- Header Navigation -->
+    <header style="background: #FFFFFF; border-bottom: 1px solid rgba(179, 121, 30, 0.25); padding: 14px 24px; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 16px rgba(0,0,0,0.04);">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;">
+            <a href="../index.html" class="brand-lockup" style="display: flex; align-items: center; gap: 14px; text-decoration: none;">
+                <img src="../assets/logo-icon.png" alt="Vastu Divine Icon" style="height: 68px; width: auto; object-fit: contain;">
+                <div>
+                    <div style="font-family: var(--font-heading); font-size: 1.6rem; font-weight: 800; color: #6D0A1D; letter-spacing: 1.2px; line-height: 1.1;">VASTU DIVINE</div>
+                    <div style="font-size: 0.82rem; color: #B3791E; font-weight: 600; letter-spacing: 2.6px; margin-top: 3px;">वD / VASTU डिवाइन</div>
+                </div>
+            </a>
+            <nav style="display: flex; align-items: center; gap: 24px;">
+                <a href="../index.html#tools-suite" style="font-size: 0.92rem; font-weight: 600; color: #141414;">20 Sacred Tools</a>
+                <a href="../index.html#four-pillars" style="font-size: 0.92rem; font-weight: 600; color: #141414;">Four Pillars</a>
+                <a href="../index.html#consultation-paths" style="font-size: 0.92rem; font-weight: 600; color: #141414;">Consultations</a>
+                <a href="methodology.html" style="font-size: 0.92rem; font-weight: 700; color: #6D0A1D; border-bottom: 2px solid #6D0A1D; padding-bottom: 2px;">Methodology</a>
+                <a href="../index.html#consultation-paths" class="btn btn-primary" style="background: #6D0A1D; color: #FFF; padding: 8px 18px; border-radius: 9999px; font-size: 0.85rem; font-weight: 600;">Book Consultation</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-header-banner">
+        <div class="eyebrow">Textual Lineage &amp; Mathematical Rigor</div>
+        <h1>Methodology, Treatises &amp; Concordance</h1>
+        <p>Every diagnostic algorithm, directional rule, elemental assignment, and vibrational calculation on Vastu Divine is traceable to classical Sanskrit treatises or historically recognized numerological traditions.</p>
+        <a href="../index.html" class="header-back-link">← Return to Interactive Homepage &amp; Tools</a>
+    </section>
+
+    <!-- Main Container -->
+    <main class="methodology-content">
+
+        <!-- SECTION 1: CORE PHILOSOPHICAL FOUNDATIONS -->
+        <section class="canon-section">
+            <div class="canon-section-header">
+                <h2>1. Philosophical &amp; Epistemological Framework</h2>
+                <p>Harmonizing human bio-energetic resonance with cosmic geometry and structural mechanics.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                <div style="background: #FAF8F5; padding: 24px; border-radius: var(--radius-md); border: 1px solid rgba(179, 121, 30, 0.2);">
+                    <h3 style="font-size: 1.15rem; color: #6D0A1D; margin-bottom: 10px;">Structure is Form; Energy is Frequency</h3>
+                    <p style="font-size: 0.92rem; line-height: 1.6; margin: 0;">In classical Indian architecture (*Sthapatya Veda*), space (*Akasha*) is not empty nothingness; it is an active quantum acoustic field permeated by solar radiation, telluric magnetic flux, and gravitational currents. When four walls enclose space, a distinct vibrational vortex (*Vastu Purusha*) is created.</p>
+                </div>
+                <div style="background: #FAF8F5; padding: 24px; border-radius: var(--radius-md); border: 1px solid rgba(179, 121, 30, 0.2);">
+                    <h3 style="font-size: 1.15rem; color: #6D0A1D; margin-bottom: 10px;">The 100% Zero-Demolition Principle</h3>
+                    <p style="font-size: 0.92rem; line-height: 1.6; margin: 0;">Classical treatises like the *Samarāṅgaṇa Sūtradhāra* explicitly advocate non-destructive remedies (*Doṣa-Śamana*). Spatial discord is neutralized through physical transmutation: metallic threshold waveguides, elemental mass realignment, optical mirrors, and geometric yantras—eliminating the need for traumatic structural demolition.</p>
+                </div>
+                <div style="background: #FAF8F5; padding: 24px; border-radius: var(--radius-md); border: 1px solid rgba(179, 121, 30, 0.2);">
+                    <h3 style="font-size: 1.15rem; color: #6D0A1D; margin-bottom: 10px;">Strict Esoteric &amp; Empirical Demarcation</h3>
+                    <p style="font-size: 0.92rem; line-height: 1.6; margin: 0;">We hold an unbending commitment to intellectual transparency. Tools derived from millennia-old palm-leaf manuscripts are distinguished from 20th-century practitioner frameworks. We never present esoteric divination as empirical medical or financial science.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE 8 CLASSICAL VASTU CANONS -->
+        <section class="canon-section">
+            <div class="canon-section-header">
+                <h2>2. Primary Classical Vastu Treatises Cited</h2>
+                <p>Authentic editions, scholarly translators, and exact chapters underpinning our 10 Classical Vastu Tools.</p>
+            </div>
+            <div class="manuscript-grid">
+                
+                <!-- Mayamata -->
+                <div class="manuscript-card">
+                    <span class="manuscript-badge">South Indian Canon</span>
+                    <h3 class="manuscript-title">Mayamata (मयमतम्)</h3>
+                    <div class="manuscript-author">Author: Sage Maya (Mayasura) | Epoch: c. 9th–12th Cent. CE</div>
+                    <div class="manuscript-meta">
+                        <strong>Translation:</strong> Bruno Dagens (IGNCA / Motilal Banarsidass, 1994, 2 vols.)
+                    </div>
+                    <p class="manuscript-desc">The master architectural treatise of the Dravidian Agamic tradition. Prescribes precise cardinal orientation using the gnomon (*Śaṅku*), the 81-paduka *Paramashayika Mandala*, Ayadi calculations, and the internal distribution of residential rooms.</p>
+                    <div class="manuscript-chapters">Cited: Ch. 6 (Orientation), Ch. 8 (Mandalas), Ch. 25 (Room Zoning), Ch. 26 (Doors)</div>
+                </div>
+
+                <!-- Manasara -->
+                <div class="manuscript-card">
+                    <span class="manuscript-badge">Architectural Standard</span>
+                    <h3 class="manuscript-title">Mānasāra (मानसार)</h3>
+                    <div class="manuscript-author">Author: Sage Mānasāra | Epoch: c. 5th–7th Cent. CE</div>
+                    <div class="manuscript-meta">
+                        <strong>Translation:</strong> Dr. Prasanna Kumar Acharya (Oxford University Press, 1934)
+                    </div>
+                    <p class="manuscript-desc">Comprehensive encyclopedia of Indian architecture defining standardized measurement units (Angula, Hasta, Danda), proportioning systems (*Talamana*), residential portals, and site evaluation (*Bhūmi-Parīkṣā*).</p>
+                    <div class="manuscript-chapters">Cited: Ch. 3 (Site Testing), Ch. 4 (Soil), Ch. 9 (Doors), Ch. 36 (Dwellings)</div>
+                </div>
+
+                <!-- Brihat Samhita -->
+                <div class="manuscript-card">
+                    <span class="manuscript-badge">Astrological &amp; Spatial Canon</span>
+                    <h3 class="manuscript-title">Bṛhat Saṃhitā (बृहत्संहिता)</h3>
+                    <div class="manuscript-author">Author: Acharya Varāhamihira | Epoch: 6th Cent. CE</div>
+                    <div class="manuscript-meta">
+                        <strong>Translation:</strong> M. Ramakrishna Bhat (Motilal Banarsidass, 1981 critical edition)
+                    </div>
+                    <p class="manuscript-desc">Celebrated monumental encyclopedia of celestial and earthly phenomena. Chapter 53 (*Vāstuvidyā*) establishes the 32 boundary perimeter door deities and their exact fruits (*Phala*). Chapter 54 (*Dakārgala*) details subterranean water discovery through botanical indicators.</p>
+                    <div class="manuscript-chapters">Cited: Ch. 53, Ślokas 70–88 (Dvāra Phala); Ch. 54 (Dakārgala Water Veins)</div>
+                </div>
+
+                <!-- Samarangana Sutradhara -->
+                <div class="manuscript-card">
+                    <span class="manuscript-badge">Royal Nagara Architecture</span>
+                    <h3 class="manuscript-title">Samarāṅgaṇa Sūtradhāra</h3>
+                    <div class="manuscript-author">Author: Maharaja Bhoja of Dhara | Epoch: 11th Cent. CE (1000–1055)</div>
+                    <div class="manuscript-meta">
+                        <strong>Translation:</strong> T. Ganapati Sastri / Prof. Pushpendra Kumar (2004)
+                    </div>
+                    <p class="manuscript-desc">Written by the polymath King Bhoja of the Paramara dynasty. Discusses spatial aesthetics, the eight praised doors (*Aṣṭau Dvārāṇi Praśastāni*), cross-ventilation dynamics (*Vāyu-Vicāraṇa*), and environmental thermal adaptations.</p>
+                    <div class="manuscript-chapters">Cited: Ch. 10 (Towns &amp; Homes), Ch. 24 (Entrances), Ch. 38 (Pada Layouts)</div>
+                </div>
+
+                <!-- Vishvakarma Prakasha -->
+                <div class="manuscript-card">
+                    <span class="manuscript-badge">Universal Northern Canon</span>
+                    <h3 class="manuscript-title">Viśvakarma Prakāśa</h3>
+                    <div class="manuscript-author">Author: Sage Viśvakarmā | Epoch: c. 10th–14th Cent. CE</div>
+                    <div class="manuscript-meta">
+                        <strong>Critical Edition:</strong> Khemraj Shrikrishnadas (Varanasi / Mumbai, 1913)
+                    </div>
+                    <p class="manuscript-desc">Authoritative treatise detailing household domestic arrangements, kitchen hearth alignments (*Agnyāgāra*), domestic well excavation, and door obstructions (*Dvāra-Vedha*).</p>
+                    <div class="manuscript-chapters">Cited: Ch. 2 &amp; 7 (Door Padas), Ch. 5 (Kitchen &amp; Water Reservoirs)</div>
+                </div>
+
+                <!-- Manushyalaya Chandrika -->
+                <div class="manuscript-card">
+                    <span class="manuscript-badge">Kerala Domestic Vastu</span>
+                    <h3 class="manuscript-title">Manuṣyālaya Candrikā</h3>
+                    <div class="manuscript-author">Author: Nīlakaṇṭha Moosath | Epoch: 16th Cent. CE</div>
+                    <div class="manuscript-meta">
+                        <strong>Translation:</strong> P. R. Shastry &amp; Dr. N. E. Muthuswamy (Kerala Canon)
+                    </div>
+                    <p class="manuscript-desc">Focuses purely on residential human habitation (*Manuṣyālaya*), detailing timber joinery, staircase ascent rules (*Sopāna-Vidhi*), elevated thresholds (*Udumbara*), and perimeter courtyard geometry (*Nālukettu*).</p>
+                    <div class="manuscript-chapters">Cited: Ch. 2 (Orientation &amp; Yoni), Ch. 3 (Interior Allocation &amp; Stairs)</div>
+                </div>
+
+                <!-- Silparatna -->
+                <div class="manuscript-card">
+                    <span class="manuscript-badge">Classical Kerala Treatise</span>
+                    <h3 class="manuscript-title">Śilparatna (शिल्परत्न)</h3>
+                    <div class="manuscript-author">Author: Śrīkumāra | Epoch: 16th Cent. CE (Travancore)</div>
+                    <div class="manuscript-meta">
+                        <strong>Critical Edition:</strong> T. Ganapati Sastri (Trivandrum Sanskrit Series)
+                    </div>
+                    <p class="manuscript-desc">A key manual of southern temple and domestic planning. Sets the canonical rules for clockwise staircase turns (*Pradakṣiṇā-vartana*), odd step numbers, and the absolute inviolability of the central *Brahmasthāna*.</p>
+                    <div class="manuscript-chapters">Cited: Part I, Ch. 16 (Stairways &amp; Vertical Circulation)</div>
+                </div>
+
+                <!-- D.N. Shukla -->
+                <div class="manuscript-card">
+                    <span class="manuscript-badge">Modern Academic Authority</span>
+                    <h3 class="manuscript-title">Hindu Canons of Architecture</h3>
+                    <div class="manuscript-author">Author: Dr. D. N. Shukla | Epoch: 1960 (Gorakhpur Univ.)</div>
+                    <div class="manuscript-meta">
+                        <strong>Critical Edition:</strong> Vāstu-Śāstra Vol. I &amp; II (Munshiram Manoharlal)
+                    </div>
+                    <p class="manuscript-desc">Dr. D. N. Shukla's seminal comparative doctoral treatise synthesizing Northern and Southern canons, establishing modern mathematical models for 16-zone energy projections and the socio-biological logic of Sanskrit building codes.</p>
+                    <div class="manuscript-chapters">Cited: Vol. I, Part II: Site Selection, Slopes &amp; House Planning</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: NUMEROLOGICAL TRADITIONS & RIGID SEPARATION -->
+        <section class="canon-section">
+            <div class="canon-section-header">
+                <h2>3. Numerological Systems &amp; Strict Mathematical Demarcation</h2>
+                <p>We preserve the historical purity of each tradition with zero cross-contamination.</p>
+            </div>
+
+            <div class="policy-callout">
+                <h4>Methodological Purity: Chaldean vs. Pythagorean</h4>
+                <p>A frequent error in commercial numerology is mixing the <strong>Chaldean alphabet table</strong> (1 to 8, where 9 is excluded from single letters because it represents the cosmic unmanifest) with <strong>Pythagorean single-root reduction</strong> (1 to 9). At Vastu Divine, our calculation engines strictly enforce total separation. Chaldean tools utilize Cheiro's phonetic letter cipher and compound meanings (10–52). Pythagorean tools utilize sequential Greek-derived 1–9 ciphers and retain Master Numbers (11, 22, 33).</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-top: 24px;">
+                <div style="border: 1px solid rgba(109, 10, 29, 0.15); border-radius: var(--radius-md); padding: 24px; background: #FFF;">
+                    <span class="tag-num" style="margin-bottom: 8px;">Ancient Babylonian / Mesopotamian</span>
+                    <h3 style="color: #6D0A1D; font-size: 1.25rem; margin-bottom: 8px;">The Chaldean Acoustical System</h3>
+                    <p style="font-size: 0.9rem; color: #555; line-height: 1.5; margin-bottom: 12px;"><strong>Source:</strong> Cheiro (Count Louis Hamon), <em>Cheiro's Book of Numbers</em> (1926).</p>
+                    <ul style="font-size: 0.88rem; color: #444; padding-left: 20px; line-height: 1.6;">
+                        <li><strong>Alphabet Cipher:</strong> 1 to 8 only. 9 is NOT assigned to any single letter (sacred unnameable sphere).</li>
+                        <li><strong>Primary Focus:</strong> Compound Numbers (10 to 52) which reveal the hidden occult/karmic forces operating behind the name.</li>
+                        <li><strong>Application:</strong> Single &amp; Compound Name Sums, Vowel (Soul) vs Consonant (Outer) expression.</li>
+                    </ul>
+                </div>
+
+                <div style="border: 1px solid rgba(179, 121, 30, 0.2); border-radius: var(--radius-md); padding: 24px; background: #FFF;">
+                    <span class="tag-num" style="margin-bottom: 8px;">Greek Harmonic Quadrivium</span>
+                    <h3 style="color: #6D0A1D; font-size: 1.25rem; margin-bottom: 8px;">The Pythagorean System</h3>
+                    <p style="font-size: 0.9rem; color: #555; line-height: 1.5; margin-bottom: 12px;"><strong>Source:</strong> Dr. David A. Phillips, <em>The Complete Book of Numerology</em> (1992); Pythagoras of Samos.</p>
+                    <ul style="font-size: 0.88rem; color: #444; padding-left: 20px; line-height: 1.6;">
+                        <li><strong>Alphabet Cipher:</strong> Continuous 1 to 9 sequential mapping (A=1, B=2 ... I=9, J=1 ...).</li>
+                        <li><strong>Master Numbers:</strong> 11, 22, and 33 are preserved as higher octaves of consciousness and never reduced.</li>
+                        <li><strong>Application:</strong> Life Path Number, Birth Number, Destiny/Expression Number, and Harmonic Lucky Numbers.</li>
+                    </ul>
+                </div>
+
+                <div style="border: 1px solid rgba(20, 20, 20, 0.15); border-radius: var(--radius-md); padding: 24px; background: #FFF;">
+                    <span class="tag-modern" style="margin-bottom: 8px;">20th/21st-Century Adaptations</span>
+                    <h3 style="color: #141414; font-size: 1.25rem; margin-bottom: 8px;">Modern Practitioner Methodology</h3>
+                    <p style="font-size: 0.9rem; color: #555; line-height: 1.5; margin-bottom: 12px;"><strong>Explicit Textual Disclaimer:</strong> Not found in ancient Sanskrit texts or antique manuscripts.</p>
+                    <ul style="font-size: 0.88rem; color: #444; padding-left: 20px; line-height: 1.6;">
+                        <li>Developed by contemporary practitioners to address telecommunications, automotive transport, and modern incorporation.</li>
+                        <li>Applies classic planetary friendship matrices (*Mitra-Shatru Chakra*) to digital strings and alphanumeric license plates.</li>
+                        <li><strong>Application:</strong> Mobile Number, Vehicle Number, Business/Company Name, Name + DOB Synastry.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TABLE OF CONCORDANCE (ALL 20 TOOLS) -->
+        <section class="canon-section">
+            <div class="canon-section-header">
+                <h2>4. Table of Concordance: All 20 Computational Tools</h2>
+                <p>Exhaustive mapping of input parameters, underlying mathematical formulas, and authoritative textual citations.</p>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="table-concordance">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">#</th>
+                            <th style="width: 200px;">Tool Name</th>
+                            <th style="width: 140px;">Tradition</th>
+                            <th>Inputs Required</th>
+                            <th>Underlying Mathematical &amp; Spatial Formula</th>
+                            <th style="width: 240px;">Primary Treatise &amp; Verse Citation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 1 -->
+                        <tr>
+                            <td><strong>01</strong></td>
+                            <td><strong>Plot Vastu Analyzer</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Geometry, Slope (Jala-plavana), Soil attributes, Road encounters (Vīthī-śūla)</td>
+                            <td>Proportional Aspect Ratio Check (L:W &le; 1:2) + Vector Elevation Differential ($\Delta H_{SW} > \Delta H_{NE}$)</td>
+                            <td><em>Mānasāra</em> Ch. 3–5; <em>Mayamata</em> Ch. 3–4; <em>Bṛhat Saṃhitā</em> Ch. 53</td>
+                        </tr>
+                        <!-- 2 -->
+                        <tr>
+                            <td><strong>02</strong></td>
+                            <td><strong>Main Door Vastu</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Wall azimuth (degrees), Facade span, Door offset, or Pada Index (1–32)</td>
+                            <td>32-Pada Paramashayika Perimeter Matrix ($P_i = \lfloor (\theta \bmod 360) / 11.25^\circ \rfloor$)</td>
+                            <td><em>Bṛhat Saṃhitā</em> 53.70–82; <em>Mayamata</em> Ch. 26; <em>Viśvakarma Prakāśa</em> Ch. 7</td>
+                        </tr>
+                        <!-- 3 -->
+                        <tr>
+                            <td><strong>03</strong></td>
+                            <td><strong>House Facing Calculator</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Astronomical Azimuth (&deg;), Magnetic Declination (&plusmn;&deg;)</td>
+                            <td>True North Azimuth Adjustment ($\theta_{true} = \theta_{mag} + \delta$) + Āyādi Ṣaḍvarga Yoni Calculation</td>
+                            <td><em>Mayamata</em> Ch. 6 &amp; 9; <em>Manuṣyālaya Candrikā</em> Ch. 2</td>
+                        </tr>
+                        <!-- 4 -->
+                        <tr>
+                            <td><strong>04</strong></td>
+                            <td><strong>House Vastu Analyzer</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>16-Zone Activity Mapping (Master Bed, Kitchen, Toilet, Puja, Brahmasthan)</td>
+                            <td>16-Directional Vector Superposition ($22.5^\circ$ angular sectors) + Elemental Compatibility Matrix</td>
+                            <td><em>Mayamata</em> Ch. 25; <em>D.N. Shukla</em> Vol. I; <em>Bṛhat Saṃhitā</em> Ch. 53</td>
+                        </tr>
+                        <!-- 5 -->
+                        <tr>
+                            <td><strong>05</strong></td>
+                            <td><strong>Kitchen Vastu</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Kitchen zone, Cook facing orientation, Stove quadrant, Sink position</td>
+                            <td>Agni-Jala Polarity Check: Fire placed in SE ($112.5^\circ - 157.5^\circ$), Water in NE; Strict Cook East Facing</td>
+                            <td><em>Mayamata</em> 25.75–80; <em>Mānasāra</em> 36.45–52; <em>Viśvakarma Prakāśa</em> Ch. 5</td>
+                        </tr>
+                        <!-- 6 -->
+                        <tr>
+                            <td><strong>06</strong></td>
+                            <td><strong>Bedroom Vastu</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Room quadrant, Occupant demographic, Bedstead orientation, Mirror placement</td>
+                            <td>Prithvi Stability Vector in SW ($202.5^\circ - 247.5^\circ$) + Magnetic Polarity ($H_{head} \neq North$)</td>
+                            <td><em>Mayamata</em> 25.75–88; <em>Bṛhat Saṃhitā</em> Ch. 53; <em>Manuṣyālaya Candrikā</em> Ch. 3</td>
+                        </tr>
+                        <!-- 7 -->
+                        <tr>
+                            <td><strong>07</strong></td>
+                            <td><strong>Toilet / Bathroom Vastu</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Room quadrant, Commode orientation, Drainage slope direction</td>
+                            <td>Utṣarga Depletion Zones (NW/SSW/WNW); Absolute exclusion from NE ($45^\circ$) &amp; Brahmasthan</td>
+                            <td><em>Viśvakarma Prakāśa</em> 5.88–95; <em>Mayamata</em> Ch. 25</td>
+                        </tr>
+                        <!-- 8 -->
+                        <tr>
+                            <td><strong>08</strong></td>
+                            <td><strong>Puja Room Vastu</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Room quadrant, Altar orientation, Idol placement relative to walls</td>
+                            <td>Ishana Celestial Sanctum ($22.5^\circ - 67.5^\circ$) + Devotee Facing East/North during prayer</td>
+                            <td><em>Mayamata</em> 25.75; <em>Mānasāra</em> 36.38–44; <em>Manuṣyālaya Candrikā</em> Ch. 3 &amp; 7</td>
+                        </tr>
+                        <!-- 9 -->
+                        <tr>
+                            <td><strong>09</strong></td>
+                            <td><strong>Water Vastu</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Subterranean borewell/sump zone vs Overhead rooftop water tank zone</td>
+                            <td>Mass-Depression Differential: Subterranean water in NE; Overhead static weight in SW/West</td>
+                            <td><em>Bṛhat Saṃhitā</em> Ch. 54 (Dakārgala); <em>Mayamata</em> Ch. 25</td>
+                        </tr>
+                        <!-- 10 -->
+                        <tr>
+                            <td><strong>10</strong></td>
+                            <td><strong>Staircase Vastu</strong></td>
+                            <td><span class="tag-vastu">Classical Vastu</span></td>
+                            <td>Staircase zone, Turn direction (Pradakshina), Step count, Under-stair usage</td>
+                            <td>Gravity Loading in S/SW/W + Clockwise Ascent ($\circlearrowright$) + Odd Step Count ($S \equiv 1 \pmod 2$)</td>
+                            <td><em>Samarāṅgaṇa Sūtradhāra</em> 49.65–72; <em>Śilparatna</em> Ch. 16; <em>Mānasāra</em> Ch. 30</td>
+                        </tr>
+                        <!-- 11 -->
+                        <tr>
+                            <td><strong>11</strong></td>
+                            <td><strong>Chaldean Name Number</strong></td>
+                            <td><span class="tag-num">Chaldean Numerology</span></td>
+                            <td>Full Given Name / Professional Name</td>
+                            <td>Chaldean 1–8 Phonetic Cipher $\to$ Sum Compound $N \to$ Single Root ($1-9$)</td>
+                            <td><em>Cheiro's Book of Numbers</em> (1926), Part II (Chapters 13–17)</td>
+                        </tr>
+                        <!-- 12 -->
+                        <tr>
+                            <td><strong>12</strong></td>
+                            <td><strong>Chaldean Name Analysis</strong></td>
+                            <td><span class="tag-num">Chaldean Numerology</span></td>
+                            <td>Full First &amp; Last Name</td>
+                            <td>Bifurcated Vowel Sum (Heart Desire) vs Consonant Sum (Personality) + Cornerstone/Capstone</td>
+                            <td><em>Cheiro's Book of Numbers</em>, Part I &amp; II (Occult Compound Meanings 10–52)</td>
+                        </tr>
+                        <!-- 13 -->
+                        <tr>
+                            <td><strong>13</strong></td>
+                            <td><strong>Life Path Number</strong></td>
+                            <td><span class="tag-num">Pythagorean</span></td>
+                            <td>Full Date of Birth (DD-MM-YYYY)</td>
+                            <td>Triple-Component Reduction: $R(DD) + R(MM) + R(YYYY)$; Preserves Master Numbers 11, 22, 33</td>
+                            <td>Dr. David A. Phillips, <em>The Complete Book of Numerology</em>, Chapter 5</td>
+                        </tr>
+                        <!-- 14 -->
+                        <tr>
+                            <td><strong>14</strong></td>
+                            <td><strong>Birth Number</strong></td>
+                            <td><span class="tag-num">Pythagorean</span></td>
+                            <td>Day of Month (1–31)</td>
+                            <td>Direct Solar Day Vibration ($R(DD)$) mapped to ruling planetary deity</td>
+                            <td>Dr. David A. Phillips, Chapter 4; Harish Johari (Moolank)</td>
+                        </tr>
+                        <!-- 15 -->
+                        <tr>
+                            <td><strong>15</strong></td>
+                            <td><strong>Destiny Number</strong></td>
+                            <td><span class="tag-num">Pythagorean</span></td>
+                            <td>Full Birth Certificate Name</td>
+                            <td>Sequential Pythagorean 1–9 Cipher $\to$ Expression Sum with Master 11/22/33 preservation</td>
+                            <td>Dr. David A. Phillips, Chapter 9; Florence Campbell (1931)</td>
+                        </tr>
+                        <!-- 16 -->
+                        <tr>
+                            <td><strong>16</strong></td>
+                            <td><strong>Lucky Number Matrix</strong></td>
+                            <td><span class="tag-num">Pythagorean</span></td>
+                            <td>Date of Birth + Full Name</td>
+                            <td>Planetary Harmonic Triad (Life Path Ruler $\cap$ Day Ruler $\cap$ Expression Ruler)</td>
+                            <td>Pythagorean Harmonic Quadrivium &amp; Astrological Tetrabiblos</td>
+                        </tr>
+                        <!-- 17 -->
+                        <tr>
+                            <td><strong>17</strong></td>
+                            <td><strong>Mobile Number Analyzer</strong></td>
+                            <td><span class="tag-modern">Modern Practitioner</span></td>
+                            <td>10-Digit Mobile Telephone Number</td>
+                            <td>Digit Sequence Compound Sum + Mitra-Shatru Pair Transitions + Total Root Energy</td>
+                            <td>Modern Practitioner Methodology (20th-century telecommunication correspondence)</td>
+                        </tr>
+                        <!-- 18 -->
+                        <tr>
+                            <td><strong>18</strong></td>
+                            <td><strong>Vehicle Number Analyzer</strong></td>
+                            <td><span class="tag-modern">Modern Practitioner</span></td>
+                            <td>Vehicle Registration Alphanumeric String</td>
+                            <td>Chaldean/Pythagorean Plate Synthesis reduced to kinetic root vs Owner's Life Path</td>
+                            <td>Modern Practitioner Methodology (Automotive kinetic resonance)</td>
+                        </tr>
+                        <!-- 19 -->
+                        <tr>
+                            <td><strong>19</strong></td>
+                            <td><strong>Business Name Evaluator</strong></td>
+                            <td><span class="tag-modern">Modern Practitioner</span></td>
+                            <td>Commercial Entity Name + Industry Sector</td>
+                            <td>Corporate Acoustic Sum cross-referenced against Industry Category Resonance Matrix</td>
+                            <td>Modern Practitioner Methodology (Corporate trademark vibrational branding)</td>
+                        </tr>
+                        <!-- 20 -->
+                        <tr>
+                            <td><strong>20</strong></td>
+                            <td><strong>Name + DOB Compatibility</strong></td>
+                            <td><span class="tag-modern">Modern Practitioner</span></td>
+                            <td>Two Profiles: Names &amp; Dates of Birth</td>
+                            <td>Dual-Matrix Synchronicity Index (Life Path Resonance 60% + Name Expression Harmony 40%)</td>
+                            <td>Modern Practitioner Methodology (Synastry harmonic cross-tabulation)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- SECTION 5: ETHICAL STANDARDS & DISCLAIMERS -->
+        <section class="canon-section">
+            <div class="canon-section-header">
+                <h2>5. Ethical Code &amp; Legal Disclaimers</h2>
+                <p>Upholding academic integrity, mental tranquility, and respectful spatial curation.</p>
+            </div>
+            <div style="line-height: 1.7; font-size: 0.95rem; color: var(--clr-text-muted);">
+                <p><strong>1. Zero Fear-Mongering:</strong> Vastu Divine categorically denounces fear-based consultations, claims of generational curses (*Kula-Doṣa*), or dire superstitions. Spatial and numerological friction is viewed strictly as a misalignment of environmental waveforms that can be corrected through architectural mindfulness.</p>
+                <p><strong>2. Traditional Esoteric Context:</strong> Numerology and Vastu Shastra are traditional spiritual, metaphysical, and philosophical belief systems developed over centuries. They are not empirical sciences, nor are they intended to replace certified structural engineering, licensed architectural plans, professional medical diagnostics, or fiduciary financial advice.</p>
+                <p><strong>3. Regional Adaptability:</strong> Classical treatises explicitly recognize that local climate, seismic geography, family culture, and structural materials require contextual adaptations (*Deśa-Kāla-Pātra*). Our calculators provide foundational canonical baselines to be interpreted by experienced human practitioners.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background: #141414; color: #FAF7F2; padding: 50px 20px 30px; border-top: 3px solid #B3791E; font-size: 0.9rem;">
+        <div class="container" style="max-width: 1180px; margin: 0 auto; text-align: center;">
+            <div style="font-family: var(--font-heading); font-size: 1.3rem; color: #FAF7F2; margin-bottom: 8px;">VASTU DIVINE</div>
+            <div style="color: #B3791E; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 20px;">वD / VASTU डिवाइन • CANONICAL VEDIC ARCHITECTURE</div>
+            <p style="color: #8E847D; max-width: 680px; margin: 0 auto 24px; font-size: 0.85rem; line-height: 1.6;">
+                <em>"ॐ वास्तोष्पते प्रति जानीह्यस्मान् स्वावेशो अनमीवो भवा नः।"</em><br>
+                (Rigveda 7.54.1 — "O Lord of the Home, recognize us; grant us a dwelling free from affliction and abundant in harmony.")
+            </p>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; color: #666; font-size: 0.8rem;">
+                &copy; 2026 Vastu Divine. All rights reserved. Classical citations verified against critical editions of <em>Mānasāra</em>, <em>Mayamata</em>, and <em>Bṛhat Saṃhitā</em>.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

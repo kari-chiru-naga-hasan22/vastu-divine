@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celestial Sun Astrolabe — Sacred Geometry Motion Test</title>
+    <!-- Brand Typography Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/astrolabe.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #FAF6F3;
+            color: #141414;
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            max-width: 720px;
+        }
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #6D0A1D;
+            background: rgba(109, 10, 29, 0.08);
+            border: 1px solid rgba(109, 10, 29, 0.2);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            color: #6D0A1D;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        p.subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            color: #5C3B07;
+            line-height: 1.4;
+        }
+
+        /* Test Section & Stage */
+        .stage-container {
+            width: 100%;
+            max-width: 620px;
+            background: #FFFFFF;
+            border: 1px solid rgba(179, 121, 30, 0.25);
+            border-radius: 24px;
+            padding: 40px 20px;
+            box-shadow: 0 16px 48px rgba(109, 10, 29, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        /* Controls Panel */
+        .controls-panel {
+            width: 100%;
+            max-width: 620px;
+            background: #FFFFFF;
+            border: 1px solid rgba(109, 10, 29, 0.15);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 8px 24px rgba(109, 10, 29, 0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .controls-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #6D0A1D;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        button {
+            background: #6D0A1D;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 18px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13.5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(109, 10, 29, 0.15);
+        }
+        button:hover {
+            background: #8E0E27;
+            transform: translateY(-1px);
+        }
+        button.secondary {
+            background: #FAF2EC;
+            color: #6D0A1D;
+            border: 1px solid rgba(109, 10, 29, 0.2);
+        }
+        button.secondary:hover {
+            background: #F4E4D9;
+        }
+        .slider-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            font-size: 13.5px;
+            color: #141414;
+        }
+        .slider-row input[type="range"] {
+            flex: 1;
+            accent-color: #B3791E;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+            background: #FDFBF9;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(179, 121, 30, 0.15);
+        }
+        .metric-card {
+            font-size: 12px;
+            color: #555;
+        }
+        .metric-card strong {
+            display: block;
+            font-size: 13px;
+            color: #6D0A1D;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* Mobile 320px emulation test box */
+        .mobile-test-wrapper {
+            margin-top: 30px;
+            text-align: center;
+            width: 100%;
+            max-width: 320px;
+            border: 2px dashed rgba(109, 10, 29, 0.3);
+            border-radius: 18px;
+            padding: 16px;
+            background: #FFF;
+        }
+        .mobile-test-wrapper h3 {
+            font-size: 13px;
+            color: #6D0A1D;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <span class="eyebrow">Sacred Geometry Motion Engine</span>
+        <h1>Celestial Sun Astrolabe</h1>
+        <p class="subtitle">Concentric harmonic rings rotating around the classical Vedic Sun face with Devanagari Sanskrit syllables &amp; Zodiac constellations</p>
+    </div>
+
+    <!-- MAIN ASTROLABE STAGE -->
+    <div class="stage-container">
+        <!-- The container can be initially empty; initAstrolabe() automatically injects the SVG! -->
+        <div id="hero-astrolabe" class="astrolabe-container"></div>
+    </div>
+
+    <!-- CONTROLLER PANEL -->
+    <div class="controls-panel">
+        <div class="controls-title">
+            <span>Harmonic Controller API</span>
+            <span id="status-badge" style="font-size: 12px; color: #B3791E; font-weight: normal;">Running (CSS/GPU Engine)</span>
+        </div>
+
+        <div class="btn-group">
+            <button id="btn-toggle">Pause / Play</button>
+            <button id="btn-reduced" class="secondary">Toggle Reduced Motion</button>
+            <button id="btn-1x" class="secondary">1x Normal Speed</button>
+            <button id="btn-2x" class="secondary">2x Fast Motion</button>
+            <button id="btn-5x" class="secondary">5x Harmonic Whirl</button>
+        </div>
+
+        <div class="slider-row">
+            <span>Speed Multiplier:</span>
+            <input type="range" id="speed-slider" min="0.2" max="5.0" step="0.1" value="1.0">
+            <span id="speed-value" style="font-weight: 700; width: 40px; text-align: right;">1.0x</span>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <strong>Outer Ring (CW)</strong>
+                Zodiac: ~65s cycle
+            </div>
+            <div class="metric-card">
+                <strong>Inner Ring (CCW)</strong>
+                Sanskrit: ~48s cycle
+            </div>
+            <div class="metric-card">
+                <strong>Orbits (CCW)</strong>
+                Chords: ~85s cycle
+            </div>
+            <div class="metric-card">
+                <strong>Planets (CW)</strong>
+                Spheres: ~32s cycle
+            </div>
+            <div class="metric-card">
+                <strong>Ambient (CW)</strong>
+                Stars: ~120s cycle
+            </div>
+            <div class="metric-card">
+                <strong>Central Sun</strong>
+                Stationary (7s Breath)
+            </div>
+        </div>
+    </div>
+
+    <!-- 320px MOBILE VIEWPORT TEST CONTAINER -->
+    <div class="mobile-test-wrapper">
+        <h3>Mobile Viewport (320px Width Test)</h3>
+        <div id="mobile-astrolabe" class="astrolabe-container"></div>
+    </div>
+
+    <!-- LOAD ASTROLABE ENGINE -->
+    <script src="./js/astrolabe.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize primary hero astrolabe
+            const heroAstro = initAstrolabe('#hero-astrolabe', {
+                speedMultiplier: 1.0,
+                interactive: true
+            });
+
+            // Initialize 320px mobile test container to demonstrate 100% responsiveness
+            const mobileAstro = initAstrolabe('#mobile-astrolabe', {
+                speedMultiplier: 1.0,
+                interactive: false
+            });
+
+            // Wire UI Controls
+            const btnToggle = document.getElementById('btn-toggle');
+            const btnReduced = document.getElementById('btn-reduced');
+            const speedSlider = document.getElementById('speed-slider');
+            const speedValue = document.getElementById('speed-value');
+            const statusBadge = document.getElementById('status-badge');
+
+            btnToggle.addEventListener('click', () => {
+                heroAstro.toggle();
+                const paused = heroAstro.isPaused();
+                btnToggle.textContent = paused ? 'Resume Play' : 'Pause / Play';
+                statusBadge.textContent = paused ? 'Paused' : 'Running (CSS/GPU Engine)';
+            });
+
+            let fakeReducedMotion = false;
+            btnReduced.addEventListener('click', () => {
+                fakeReducedMotion = !fakeReducedMotion;
+                document.getElementById('hero-astrolabe').classList.toggle('is-paused', fakeReducedMotion);
+                btnReduced.textContent = fakeReducedMotion ? 'Restore Full Motion' : 'Toggle Reduced Motion';
+                statusBadge.textContent = fakeReducedMotion ? 'Stationary (prefers-reduced-motion active)' : 'Running (CSS/GPU Engine)';
+            });
+
+            function updateSpeed(val) {
+                const s = parseFloat(val);
+                speedSlider.value = s;
+                speedValue.textContent = s.toFixed(1) + 'x';
+                heroAstro.setSpeed(s);
+            }
+
+            speedSlider.addEventListener('input', (e) => updateSpeed(e.target.value));
+            document.getElementById('btn-1x').addEventListener('click', () => updateSpeed(1.0));
+            document.getElementById('btn-2x').addEventListener('click', () => updateSpeed(2.0));
+            document.getElementById('btn-5x').addEventListener('click', () => updateSpeed(5.0));
+        });
+    </script>
+</body>
+</html>

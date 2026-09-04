@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Temporary & test scratch files
+scratch*
+check_*
+print_*
+search_*
+*.log
+
+# Deployment & OS
+.vercel
+.DS_Store
+Thumbs.db

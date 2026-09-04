@@ -1,0 +1,1196 @@
+[
+  {
+    "tool_id": "kitchen-vastu",
+    "tool_name": "Kitchen Vastu Calculator & Analyzer (Pākaśālā / Mahānasa / Agnyāgāra)",
+    "tradition": "Classical Vedic Vastu",
+    "source": {
+      "text": "Mayamata; Mānasāra; Bṛhat Saṃhitā; Manuṣyālaya Candrikā; Viśvakarma Prakāśa",
+      "author_translator": "Bruno Dagens (Mayamata); P. K. Acharya (Mānasāra); Varāhamihira (Bṛhat Saṃhitā); Nīlakaṇṭha (Manuṣyālaya Candrikā); Pt. Ramtej Shastri Pandey (Viśvakarma Prakāśa)",
+      "chapter": "Mayamata Ch. 25; Mānasāra Ch. 36; Bṛhat Saṃhitā Ch. 53; Manuṣyālaya Candrikā Ch. 3; Viśvakarma Prakāśa Ch. 5",
+      "verse": "Mayamata 25.75b-80a; Mānasāra 36.45-52; Bṛhat Saṃhitā 53.85-88; Manuṣyālaya Candrikā 3.12-18; Viśvakarma Prakāśa 5.1-18"
+    },
+    "inputs": [
+      {
+        "field": "kitchen_zone_16",
+        "type": "string",
+        "enum": [
+          "N",
+          "NNE",
+          "NE",
+          "ENE",
+          "E",
+          "ESE",
+          "SE",
+          "SSE",
+          "S",
+          "SSW",
+          "SW",
+          "WSW",
+          "W",
+          "WNW",
+          "NW",
+          "NNW"
+        ],
+        "description": "Macro-zone of the house where the kitchen is situated within the 16-zone Vastu Purusha Mandala.",
+        "required": true,
+        "default": "SE"
+      },
+      {
+        "field": "cook_facing_direction",
+        "type": "string",
+        "enum": [
+          "East",
+          "North",
+          "West",
+          "South"
+        ],
+        "description": "Cardinal or intercardinal orientation faced by the person cooking while standing at the primary stove.",
+        "required": true,
+        "default": "East"
+      },
+      {
+        "field": "stove_micro_position",
+        "type": "string",
+        "enum": [
+          "SE",
+          "E",
+          "S",
+          "NW",
+          "W",
+          "N",
+          "NE",
+          "SW",
+          "Center"
+        ],
+        "description": "Internal micro-location of the primary cooking stove/hob within the kitchen room.",
+        "required": true,
+        "default": "SE"
+      },
+      {
+        "field": "sink_micro_position",
+        "type": "string",
+        "enum": [
+          "NE",
+          "N",
+          "E",
+          "NW",
+          "W",
+          "S",
+          "SE",
+          "SW"
+        ],
+        "description": "Internal micro-location of the washing sink, water tap, and municipal water inlet within the kitchen room.",
+        "required": true,
+        "default": "NE"
+      },
+      {
+        "field": "fire_water_separation_distance",
+        "type": "string",
+        "enum": [
+          "adjacent_less_than_2ft_no_barrier",
+          "separated_2_to_3ft_with_barrier",
+          "separated_greater_than_3ft_different_counter"
+        ],
+        "description": "Physical distance and energetic barrier between cooking fire (Agni) and water sink (Jala).",
+        "required": true,
+        "default": "separated_greater_than_3ft_different_counter"
+      },
+      {
+        "field": "gas_cylinder_or_pipe_inlet",
+        "type": "string",
+        "enum": [
+          "SE_corner",
+          "South_counter",
+          "East_counter",
+          "NW_counter",
+          "NE_corner",
+          "SW_corner"
+        ],
+        "description": "Location of the fuel reservoir (LPG cylinder or piped natural gas valve).",
+        "required": true,
+        "default": "SE_corner"
+      },
+      {
+        "field": "refrigerator_position",
+        "type": "string",
+        "enum": [
+          "NW",
+          "SW",
+          "West",
+          "South",
+          "SE",
+          "North",
+          "NE"
+        ],
+        "description": "Position of the electric refrigerator (heavy cooling appliance combining Metal, Water, and Mechanical Agni).",
+        "required": false,
+        "default": "NW"
+      },
+      {
+        "field": "heavy_storage_position",
+        "type": "string",
+        "enum": [
+          "SW",
+          "South",
+          "West",
+          "NW",
+          "SE",
+          "East",
+          "North",
+          "NE"
+        ],
+        "description": "Location of heavy bulk grain bins, tall pantry storage units, and heavy overhead cabinets.",
+        "required": false,
+        "default": "SW"
+      },
+      {
+        "field": "exhaust_or_chimney_position",
+        "type": "string",
+        "enum": [
+          "East_wall",
+          "SE_wall",
+          "South_wall",
+          "West_wall",
+          "North_wall"
+        ],
+        "description": "Position of exhaust fan, range hood, or chimney ducting for smoke and heat evacuation.",
+        "required": false,
+        "default": "East_wall"
+      },
+      {
+        "field": "countertop_color",
+        "type": "string",
+        "enum": [
+          "Green_or_Wood",
+          "Beige_or_Earthy_Brown",
+          "Cream_or_Warm_White",
+          "Peach_or_Soft_Orange",
+          "Black_or_Dark_Granite",
+          "Blue_or_Navy",
+          "Dark_Red_or_Maroon"
+        ],
+        "description": "Dominant color of the kitchen countertop slab and splashback tiles.",
+        "required": false,
+        "default": "Green_or_Wood"
+      },
+      {
+        "field": "adjoining_structural_conflicts",
+        "type": "string",
+        "enum": [
+          "none_free_standing",
+          "shares_wall_with_toilet",
+          "shares_wall_with_puja_room",
+          "shares_wall_with_master_bedroom",
+          "located_directly_under_toilet",
+          "located_directly_over_toilet",
+          "located_under_staircase"
+        ],
+        "description": "Presence of conflicting vertical or horizontal architectural adjacencies.",
+        "required": true,
+        "default": "none_free_standing"
+      }
+    ],
+    "underlying_formula": {
+      "mathematical_model": "Vastu Kitchen Compliance Index (VKCI) = Σ (w_i * S_i) / Σ w_i, evaluated on a scale of 0 to 100 with multiplicative penalty multipliers for fatal classical doshas.",
+      "component_weights": {
+        "macro_zone_placement": 0.35,
+        "cook_facing_orientation": 0.2,
+        "stove_micro_position": 0.15,
+        "sink_micro_position": 0.1,
+        "fire_water_separation": 0.1,
+        "cylinder_and_appliances": 0.05,
+        "countertop_color_and_amenities": 0.05
+      },
+      "penalty_multipliers": {
+        "kitchen_in_NE_isana_dosha": 0.3,
+        "kitchen_in_SW_nairrtya_dosha": 0.4,
+        "cook_facing_South_yama_dosha": 0.7,
+        "shares_wall_with_toilet": 0.5,
+        "located_under_staircase": 0.6,
+        "located_directly_under_toilet": 0.3
+      },
+      "classification_thresholds": {
+        "Parama_Subha_Optimal": "85.0 - 100.0",
+        "Subha_Good": "70.0 - 84.9",
+        "Madhyama_Acceptable_with_Caution": "50.0 - 69.9",
+        "Asubha_Defective": "35.0 - 49.9",
+        "Varjya_Ghora_Dosha_Prohibited": "0.0 - 34.9"
+      }
+    },
+    "classical_citations": [
+      {
+        "text": "Mayamata",
+        "author_translator": "Bruno Dagens",
+        "chapter": "Chapter 25: Gṛhavinyāsa (Distribution of Parts of the House)",
+        "verses": "25.75b - 25.80a & 25.84",
+        "sanskrit_quote": "आग्नेय्यां दिशि कर्तव्या पाकशाला मनीषिभिः। अथवा वायवीये च महानासमुदाहृतम्॥ बहिः प्रपां तथा कुर्यात् पुरस्ताद् दक्षिणेऽपि वा। वह्नौ वह्निसमारम्भो वारुण्यां पेषणादिकम्॥",
+        "transliteration": "āgneyyāṃ diśi kartavyā pākaśālā manīṣibhiḥ | athavā vāyavīye ca mahānasamudāhṛtam || bahiḥ prapāṃ tathā kuryāt purastād dakṣiṇe'pi vā | vahnau vahnisamārambho vāruṇyāṃ peṣaṇādikam ||",
+        "english_translation": "Wise architects must establish the kitchen (pākaśālā) in the South-East (Āgneya) quarter; alternatively, the great dining and kitchen establishment (mahānasa) may be placed in the North-West (Vāyavya). In the fire-quarter within the kitchen itself, the hearth fire shall be kindled; grinding and heavy food preparation belongs to the quarter of Varuṇa (West).",
+        "scholarly_analysis": "Mayamata explicitly sanctifies the South-East as the prime station of Agni for the hearth, while simultaneously validating the North-West (Vāyavya) as the canonical alternative. This dual authorization stems from the elemental harmony between Agni (Fire) and Vāyu (Wind/Air feeds combustion). The text also outlines internal micro-zoning: fire in SE, grinding/pounding in West."
+      },
+      {
+        "text": "Mānasāra",
+        "author_translator": "Prasanna Kumar Acharya",
+        "chapter": "Chapter 36: Gṛhavinyāsa (Dwelling Houses / Allocation of Rooms)",
+        "verses": "36.45 - 36.52",
+        "sanskrit_quote": "आग्नेय्यां पाकशाला स्याद् वायव्यां वा विधीयते। ईशाने पाककरणे कुलनाशः प्रजायते। नैर्ऋत्ये स्वामिनाशः स्यात् सर्वदुःखानि नित्यशः॥",
+        "transliteration": "āgneyyāṃ pākaśālā syād vāyavyāṃ vā vidhīyate | īśāne pākakaraṇe kulanāśaḥ prajāyate | nairṛtye svāmināśaḥ syāt sarvaduḥkhāni nityaśaḥ ||",
+        "english_translation": "The kitchen should be located in the South-East, or it is ordained in the North-West. If cooking is conducted in the North-East (Īśāna), destruction of the family lineage (kulanāśa) ensues. If placed in the South-West (Nairṛtya), the demise/ruin of the master occurs, accompanied by incessant sorrow.",
+        "scholarly_analysis": "P. K. Acharya's critical edition of Mānasāra highlights the catastrophic consequences of transgressing cardinal elemental zones. The North-East, being the locus of pure water and divine consciousness, is annihilated by thermal combustion, while South-West, representing earth and ancestral stability, collapses when undermined by aggressive fire."
+      },
+      {
+        "text": "Bṛhat Saṃhitā",
+        "author_translator": "Varāhamihira (tr. M. Ramakrishna Bhat)",
+        "chapter": "Chapter 53: Vāstuvidyā (Architecture and Building)",
+        "verses": "53.85 - 53.88",
+        "sanskrit_quote": "ऐशान्यां देवगृहं हुताशनायने तथाऽग्निशालां च। भाण्डारं चोदीच्यां प्रसाधनं वारुणे भागे॥ आग्नेये वह्निकार्याणि शान्तिकं चोत्तरे तथा। नैर्ऋत्ये शयनं कुर्याद् गृहस्यास्य प्रशस्यते॥",
+        "transliteration": "aiśānyāṃ devagṛhaṃ hutāśanāyane tathā'gniśālāṃ ca | bhāṇḍāraṃ codīcyāṃ prasādhanaṃ vāruṇe bhāge || āgneye vahnikāryāṇi śāntikaṃ cottare tathā | nairṛtye śayanaṃ kuryād gṛhasyāsya praśasyate ||",
+        "english_translation": "In the North-East (Īśāna) should be the house of deities; in the quarter of Hutāśana (Agni, South-East) the fire-house (agniśālā / kitchen); in the North the treasury and storehouse; in the West the dressing/bath chamber. All fire-related activities must strictly reside in the South-East.",
+        "scholarly_analysis": "Varāhamihira establishes a rigorous cosmological diagram wherein Hutāśana (the eater of oblations / fire deity) governs the South-East. Locating combustion outside this assigned grid disrupts the elemental equilibrium (bhūta-saṃrakṣaṇa) of the dwelling."
+      },
+      {
+        "text": "Manuṣyālaya Candrikā",
+        "author_translator": "Nīlakaṇṭha of Kerala",
+        "chapter": "Chapter 3: Gṛhanirmāṇa & Śālā-vibhāga",
+        "verses": "3.12 - 3.18",
+        "sanskrit_quote": "प्राच्यां वाऽप्यथ चोत्तरेऽपि विमलं तोयं विनिर्मापयेत् आग्नेय्यां च महानासं सुविहितं वह्नेः पदे स्थापयेत्। प्राङ्मुखः पाचयेन्नित्यं पाककर्ता शुचिर्व्रती। वारुणोदकयोर्भेदः कर्तव्यः सततं गृहे॥",
+        "transliteration": "prācyāṃ vā'pyatha cottare'pi vimalaṃ toyaṃ vinirmāpayet āgneyyāṃ ca mahānāsaṃ suvihitaṃ vahneḥ pade sthāpayet | prāṅmukhaḥ pācayennityaṃ pākakartā śucirvratī | vāruṇodakayorbhedaḥ kartavyaḥ satataṃ gṛhe ||",
+        "english_translation": "In the East or North, pure water installations must be constructed. In the South-East, the kitchen (mahānāsa) shall be situated in the designated pada of Agni. The cook, pure and observing discipline, must always face East while cooking. A strict spatial separation between the fire element and water element must perpetually be maintained within the house.",
+        "scholarly_analysis": "Manuṣyālaya Candrikā provides foundational canons for domestic interior ergonomics: cook facing East (Prāṅ-mukha) to absorb beneficial morning solar rays (prāṇa-saṃcāra), and absolute segregation between Agni-tattva (stove) and Jala-tattva (sink) to prevent metabolic and domestic discord."
+      },
+      {
+        "text": "Viśvakarma Prakāśa",
+        "author_translator": "Viśvakarma (ed. Pt. Ramtej Shastri Pandey)",
+        "chapter": "Chapter 5: Gṛhavinyāsa (Directional Allocation and Fruit of Rooms)",
+        "verses": "5.1 - 5.18",
+        "sanskrit_quote": "पूर्वे च पाकशालायां दाहः स्यात् कलहो गृहे। आग्नेय्यां सर्वकामदा धान्यवृद्धिः सुतायुषम्॥ दक्षिणे च कृता शाला मरणायैव जायते। नैर्ऋते स्वामिनो नाशो दारिद्र्यं चैव जायते॥ वारुणे वित्तहानिः स्यात् कलहः स्वजनैः सह। वायव्ये व्ययबाहुल्यं द्वितीयः पक्ष इष्यते॥ उत्तरे वित्तनाशः स्यात् शोकसंतापकारिका। ऐशान्यां पुत्रहानिः स्याद् रोगो दारिद्र्यमेव च॥",
+        "transliteration": "pūrve ca pākaśālāyāṃ dāhaḥ syāt kalaho gṛhe | āgneyyāṃ sarvakāmadā dhānyavṛddhiḥ sutāyuṣam || dakṣiṇe ca kṛtā śālā maraṇāyaiva jāyate | nairṛte svāmino nāśo dāridryaṃ caiva jāyate || vāruṇe vittahāniḥ syāt kalahaḥ svajanaiḥ saha | vāyavye vyayabāhulyaṃ dvitīyaḥ pakṣa iṣyate || uttare vittanāśaḥ syāt śokasaṃtāpakārikā | aiśānyāṃ putrahāniḥ syād rogo dāridryameva ca ||",
+        "english_translation": "1. East: Kitchen causes danger of accidental fire and domestic bickering. 2. South-East: Fulfills all desires, multiplies grain stocks, grants longevity to children. 3. South: Leads to severe bodily affliction and premature death. 4. South-West: Causes destruction of the householder and unrelenting poverty. 5. West: Causes financial depletion and discord with relatives. 6. North-West: Increases expenditures, but is accepted as the recognized second choice. 7. North: Causes loss of wealth, deep grief, and distress. 8. North-East: Causes loss of sons/progeny, chronic diseases, and extreme destitution.",
+        "scholarly_analysis": "Chapter 5 provides the most rigorous and comprehensive classical enumeration of directional results (phalaśruti) for kitchen placement across all eight cardinal and intercardinal compass directions. South-East stands supreme, North-West is recognized as secondary, and North-East/South-West are unequivocally condemned as fatal."
+      }
+    ],
+    "rules_matrix": [
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "SE",
+        "cardinal_direction": "South-East",
+        "degrees_range": "123.75° - 146.25°",
+        "presiding_deity": "Agni (The Fire God)",
+        "element": "Fire (Tejas / Agni)",
+        "score": 100,
+        "classification": "Parama Śubha (Supreme Auspiciousness)",
+        "classical_effects": "Maintains digestive fire (Jāṭharāgni), robust health, female vitality, financial liquidity, joyous celebrations, abundance of grains.",
+        "classical_verse_ref": "Mayamata 25.75b; Mānasāra 36.45; Viśvakarma Prakāśa 5.2; Bṛhat Saṃhitā 53.85",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "SSE",
+        "cardinal_direction": "South-South-East",
+        "degrees_range": "146.25° - 168.75°",
+        "presiding_deity": "Pūṣan / Agni-aṃśa",
+        "element": "Fire (Agni / Tejas)",
+        "score": 88,
+        "classification": "Śubha (Auspicious)",
+        "classical_effects": "Confers physical strength, athletic vigor, stamina, strong digestion, good appetite across family members.",
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.12",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "NW",
+        "cardinal_direction": "North-West",
+        "degrees_range": "292.50° - 315.00°",
+        "presiding_deity": "Vāyu (The Wind God)",
+        "element": "Air (Vāyu)",
+        "score": 82,
+        "classification": "Dvitīya Pakṣa (Approved Canonical Alternative)",
+        "classical_effects": "Air element supports flame; quick preparation and fast turnover of meals, gracious hospitality, excellent for guests and secondary cooking; slightly elevated grocery expenditures.",
+        "classical_verse_ref": "Mānasāra 36.45; Mayamata 25.84; Viśvakarma Prakāśa 5.6",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "South",
+        "cardinal_direction": "South",
+        "degrees_range": "168.75° - 191.25°",
+        "presiding_deity": "Yama",
+        "element": "Fire / Earth",
+        "score": 68,
+        "classification": "Madhyama (Tolerable with Remediation)",
+        "classical_effects": "Dynamic drive, but potential for short tempers, hypertension, and female irritability if stove is pushed too far West along South wall.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.3",
+        "mitigation_required": true,
+        "remedy": "Shift burner to the eastern segment of South counter; use warm beige marble under the stove."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "East",
+        "cardinal_direction": "East",
+        "degrees_range": "78.75° - 101.25°",
+        "presiding_deity": "Indra / Surya",
+        "element": "Air / Solar Fire",
+        "score": 65,
+        "classification": "Madhyama (Tolerable)",
+        "classical_effects": "Morning solar rays bless food, but fire in pure East can cause acidic reflux, argumentative social behavior, and domestic friction.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.1",
+        "mitigation_required": true,
+        "remedy": "Ensure green marble or wooden chopping board buffer; cook strictly facing East."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "WNW",
+        "cardinal_direction": "West-North-West",
+        "degrees_range": "270.00° - 292.50°",
+        "presiding_deity": "Asura / Vāyu",
+        "element": "Air / Space",
+        "score": 58,
+        "classification": "Madhyama-Aśubha",
+        "classical_effects": "Can cause occasional mood swings, emotional overeating, and fluctuating culinary expenses.",
+        "classical_verse_ref": "Manuṣyālaya Candrikā 3.12",
+        "mitigation_required": true,
+        "remedy": "Keep round yellow brass accents; balance moisture."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "West",
+        "cardinal_direction": "West",
+        "degrees_range": "247.50° - 270.00°",
+        "presiding_deity": "Varuṇa",
+        "element": "Space / Water",
+        "score": 52,
+        "classification": "Madhyama-Aśubha",
+        "classical_effects": "Neutral to slow growth; kitchen here may cause insatiable culinary appetites, delayed prosperity, and high food wastage.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.5",
+        "mitigation_required": true,
+        "remedy": "White or yellow Jaisalmer slab beneath stove; ensure sink is in NE of the room."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "ESE",
+        "cardinal_direction": "East-South-East",
+        "degrees_range": "101.25° - 123.75°",
+        "presiding_deity": "Bhṛśa / Satya",
+        "element": "Fire / Air",
+        "score": 48,
+        "classification": "Aśubha (Inauspicious)",
+        "classical_effects": "Excessive mental churning, anxiety, over-analytical quarrels between spouses regarding household expenses.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.1",
+        "mitigation_required": true,
+        "remedy": "Use light green countertop; keep rock salt bowl on counter to absorb agitated prāṇa."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "NNW",
+        "cardinal_direction": "North-North-West",
+        "degrees_range": "315.00° - 337.50°",
+        "presiding_deity": "Roga / Vāyu",
+        "element": "Air / Water",
+        "score": 32,
+        "classification": "Aśubha (Defective)",
+        "classical_effects": "Food spoilage, digestive hypersensitivity, allergic reactions, restlessness among young family members.",
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.15",
+        "mitigation_required": true,
+        "remedy": "Place yellow stone under stove; install brass wind-chime."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "North",
+        "cardinal_direction": "North",
+        "degrees_range": "348.75° - 11.25°",
+        "presiding_deity": "Kubera (Lord of Wealth)",
+        "element": "Water (Jala)",
+        "score": 18,
+        "classification": "Varjya (Prohibited / Financial Drain)",
+        "classical_effects": "Thermal combustion in Kubera's treasury burns career opportunities, causes liquid cash crises, unrecoverable debts, and disputes with business partners.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.7; Bṛhat Saṃhitā 53.86",
+        "mitigation_required": true,
+        "remedy": "Place dark green Baroda marble slab beneath the stove; strictly relocate burner to SE corner of the room; introduce copper swastika."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "SSW",
+        "cardinal_direction": "South-South-West",
+        "degrees_range": "191.25° - 202.50°",
+        "presiding_deity": "Gandharva / Mṛga",
+        "element": "Earth / Waste",
+        "score": 14,
+        "classification": "Varjya (Prohibited / Waste Zone)",
+        "classical_effects": "Zone of excretion (Nisarga); food prepared here loses bio-nutritional vitality, leading to chronic female anemia, fatigue, and heavy medical drains.",
+        "classical_verse_ref": "Mānasāra 36.48",
+        "mitigation_required": true,
+        "remedy": "Place yellow Jaisalmer stone beneath stove; install brass pyramid strip."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "ENE",
+        "cardinal_direction": "East-North-East",
+        "degrees_range": "56.25° - 78.75°",
+        "presiding_deity": "Parjanya / Jayanta",
+        "element": "Air / Water",
+        "score": 12,
+        "classification": "Varjya (Severe Inauspiciousness)",
+        "classical_effects": "Destroys peace of mind, creates chronic mental lethargy, family depression, loss of refreshing joy.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.8",
+        "mitigation_required": true,
+        "remedy": "Keep green jade plant; place sea salt in bronze bowl."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "NNE",
+        "cardinal_direction": "North-North-East",
+        "degrees_range": "11.25° - 33.75°",
+        "presiding_deity": "Apavatsa (Health & Immunity)",
+        "element": "Water (Jala)",
+        "score": 8,
+        "classification": "Varjya (Severe Immunity Deficit)",
+        "classical_effects": "Fire evaporates cellular immunity; frequent hospital visits, continuous fever/inflammation, metabolic sluggishness.",
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.18",
+        "mitigation_required": true,
+        "remedy": "Place green marble slab under stove; do not cook facing North or West."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "SW",
+        "cardinal_direction": "South-West",
+        "degrees_range": "202.50° - 225.00°",
+        "presiding_deity": "Nirṛti / Pitṛ",
+        "element": "Earth (Pṛthvī)",
+        "score": 4,
+        "classification": "Mahā-Dosha (Fatal Inauspiciousness)",
+        "classical_effects": "Viśvakarma Prakāśa 5.4: 'nairṛte svāmino nāśo dāridryaṃ caiva jāyate' - Destruction of the master/owner, sudden catastrophic accidents, terminal diseases, family disintegration, insurmountable debt.",
+        "classical_verse_ref": "Mānasāra 36.46; Viśvakarma Prakāśa 5.4; Bṛhat Saṃhitā 53.88",
+        "mitigation_required": true,
+        "remedy": "Crucial structural relocation advised. If immovable: place thick yellow Jaisalmer marble slab beneath stove; fix lead helixes and brass pyramids along SW baseboard; avoid any red or black tones."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "NE",
+        "cardinal_direction": "North-East",
+        "degrees_range": "33.75° - 56.25°",
+        "presiding_deity": "Īśāna (Lord Shiva / Supreme Consciousness)",
+        "element": "Water / Ether (Jala / Ākāśa)",
+        "score": 0,
+        "classification": "Ghora Mahā-Dosha (Catastrophic Elemental Clash)",
+        "classical_effects": "Viśvakarma Prakāśa 5.8: 'aiśānyāṃ putrahāniḥ syād rogo dāridryameva ca' - Fire in water creates explosive steam: extinguishes spiritual intellect, causes neurological distress, chronic migraines, progeny afflictions (putrahāni), severe surgical interventions, financial ruin.",
+        "classical_verse_ref": "Mānasāra 36.46; Viśvakarma Prakāśa 5.8; Manuṣyālaya Candrikā 3.12",
+        "mitigation_required": true,
+        "remedy": "Mandatory relocation of cooking stove to SE or NW corner of the room. If temporarily impossible: place yellow marble or green granite slab under stove; keep bronze vessel with sacred water in NE corner; install Vāstu Dosh Nivāran Yantra; absolutely remove LPG cylinder from NE."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "Brahmasthāna",
+        "cardinal_direction": "Center of the House",
+        "degrees_range": "Central Core (1/9th to 1/16th)",
+        "presiding_deity": "Brahmā (The Creator)",
+        "element": "Ether (Ākāśa / Space)",
+        "score": 0,
+        "classification": "Ghora Mahā-Dosha (Ruin of Entire House)",
+        "classical_effects": "Burning the cosmic heart/navel of the Vāstu Purusha produces agonizing domestic chaos, complete lack of progeny growth, spiritual desolation, and total financial collapse.",
+        "classical_verse_ref": "Mayamata 25.80; Bṛhat Saṃhitā 53.85",
+        "mitigation_required": true,
+        "remedy": "Zero tolerance: Cooking stove must be removed from the central grid immediately."
+      },
+      {
+        "category": "cooking_orientation",
+        "orientation": "East",
+        "cardinal_facing": "Facing East (Prāṅ-mukha)",
+        "score": 100,
+        "classification": "Parama Śubha (Canonical Standard)",
+        "classical_effects": "Cook absorbs beneficial morning ultraviolet and infrared solar rays; harmonizes Jāṭharāgni (gastric fire); promotes mental calm, pristine hygiene, and joyous family nourishment.",
+        "classical_verse_ref": "Manuṣyālaya Candrikā 3.14; Viśvakarma Prakāśa 5.10",
+        "mitigation_required": false
+      },
+      {
+        "category": "cooking_orientation",
+        "orientation": "North",
+        "cardinal_facing": "Facing North (Udaṅ-mukha)",
+        "score": 75,
+        "classification": "Śubha / Madhyama (Acceptable Secondary)",
+        "classical_effects": "Aligns with Earth's magnetic meridian; brings intellectual clarity and commercial prudence, though lacks direct solar ultraviolet synthesis.",
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.22",
+        "mitigation_required": false
+      },
+      {
+        "category": "cooking_orientation",
+        "orientation": "West",
+        "cardinal_facing": "Facing West (Pratīcī-mukha)",
+        "score": 30,
+        "classification": "Aśubha (Defective)",
+        "classical_effects": "Cook faces harsh setting sun and heat buildup; causes chronic eye fatigue, skin eruptions, lethargy, digestive discontent, and constant financial drainage.",
+        "classical_verse_ref": "Manuṣyālaya Candrikā 3.16",
+        "mitigation_required": true,
+        "remedy": "Rearrange burner or counter placement so cook can pivot toward East or North."
+      },
+      {
+        "category": "cooking_orientation",
+        "orientation": "South",
+        "cardinal_facing": "Facing South (Dakṣiṇābhimukha)",
+        "score": 5,
+        "classification": "Varjya (Severe Inauspiciousness)",
+        "classical_effects": "Cook faces the realm of Yama; induces severe lumbar spine pain, persistent joint stiffness, irritability, domestic quarrels, and heavy medical outlays.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.12; Manuṣyālaya Candrikā 3.16",
+        "mitigation_required": true,
+        "remedy": "Install a convex mirror or polished steel sheet on the South wall to deflect negative gaze, or permanently reposition the stove onto an East-facing platform."
+      },
+      {
+        "category": "fire_water_micro_placement",
+        "item": "Stove / Burner",
+        "optimal_zone": "South-East (Āgneya corner of kitchen)",
+        "secondary_zone": "East wall or North-West corner",
+        "forbidden_zone": "North-East (causes water-fire clash) or South-West corner",
+        "score_optimal": 100,
+        "score_forbidden": 0,
+        "classical_verse_ref": "Mayamata 25.76; Manuṣyālaya Candrikā 3.14"
+      },
+      {
+        "category": "fire_water_micro_placement",
+        "item": "Sink / Tap / Dishwasher",
+        "optimal_zone": "North-East (Īśāna corner of kitchen) or North wall",
+        "secondary_zone": "East wall",
+        "forbidden_zone": "South-East (right next to stove) or South-West",
+        "score_optimal": 100,
+        "score_forbidden": 5,
+        "classical_verse_ref": "Manuṣyālaya Candrikā 3.13; Mayamata 25.78"
+      },
+      {
+        "category": "fire_water_micro_placement",
+        "item": "Fire-Water Separation",
+        "optimal_rule": "Minimum 3 feet physical distance between stove and sink, or separated on orthogonal platforms (L-shape counter).",
+        "forbidden_rule": "Stove and sink placed immediately contiguous (< 1.5 ft) on the same straight slab.",
+        "score_optimal": 100,
+        "score_forbidden": 0,
+        "classical_effects": "Agni-Jala saṅghatta (thermal explosion) creates chronic domestic disputes between mother-in-law and daughter-in-law, financial volatility, and gastrointestinal illness.",
+        "remedy": "Insert a vertical wooden cutting board or green marble divider strip between sink and stove."
+      },
+      {
+        "category": "appliance_micro_placement",
+        "item": "LPG Gas Cylinder / Pipeline Valve",
+        "optimal_zone": "South-East corner below the cooking counter",
+        "secondary_zone": "South counter",
+        "forbidden_zone": "North-East corner (causes severe accidents) or North",
+        "score_optimal": 100,
+        "score_forbidden": 0,
+        "classical_verse_ref": "Bṛhat Saṃhitā 53.86"
+      },
+      {
+        "category": "appliance_micro_placement",
+        "item": "Refrigerator",
+        "optimal_zone": "North-West or South-West corner",
+        "secondary_zone": "West or South wall",
+        "forbidden_zone": "North-East corner (chills financial flow, frequent motor breakdowns)",
+        "score_optimal": 95,
+        "score_forbidden": 10,
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.25"
+      },
+      {
+        "category": "appliance_micro_placement",
+        "item": "Heavy Provisions & Grain Storage",
+        "optimal_zone": "South-West or South wall",
+        "secondary_zone": "West wall",
+        "forbidden_zone": "North-East (weighs down the spiritual head)",
+        "score_optimal": 100,
+        "score_forbidden": 5,
+        "classical_verse_ref": "Mānasāra 36.50"
+      }
+    ],
+    "interpretation": "Classical Vedic kitchen architecture synthesizes thermodynamics, elemental physics, bio-solar hygiene, and human physiology. The kitchen represents the digestive heart (Jāṭharāgni) of the living structure (Vāstu Puruṣa). The South-East (presided over by Agni) possesses the exact solar-thermal properties required to sustain domestic fire without overheating or contaminating other dwelling quarters. The secondary allowance of North-West (Vāyavya, ruled by Wind) acknowledges the scientific principle that air sustains combustion, while also facilitating rapid preparation and guest catering. The absolute prohibition of the North-East (Īśāna, ruled by Water and Ether) prevents the disastrous conflict between water and fire, which destroys mental equanimity and ancestral lineage. Furthermore, mandating that the cook face East aligns the human bio-magnetic field with rising solar prāṇa, flooding food with life-affirming vitality while safeguarding the cook's spinal alignment and digestive vigor.",
+    "variation_note": "Regional traditions demonstrate sophisticated contextual adaptations: (1) Kerala Dravidian Tradition (Manuṣyālaya Candrikā): Kitchens (Pākaśālā) are predominantly standalone or placed in the Āgneya wing of Nalukettu courtyard compounds, emphasizing cross-ventilation, open wood-fired chulhas, and complete physical detachment from living quarters. Facing East is mandatory. (2) Tamil Nāḍu / Mayamata Tradition: Allows both SE and NW (termed auxiliary Mahānasa), mandating detailed internal zoning where grinding mortars (Ammikallu/Attukallu) occupy the West (Varuṇa) and water vessels (Kuṭa) occupy the North-East. (3) Northern Nāgara Tradition (Viśvakarma Prakāśa & Samarāṅgaṇa Sūtradhāra): Focuses heavily on the 8 directional phalas, highlighting strict financial losses if Agni is placed in North (Kubera) or North-East. (4) Modern Urban High-Rise Living: Compensates for structural constraints through micro-Vastu adjustments (relocating burner to SE quadrant of the kitchen room, inserting wooden/marble insulation between sink and stove, and neutralizing North-East kitchens with green marble slabs and Vāstu Agni Yantras)."
+  },
+  {
+    "tool_id": "puja-room-vastu",
+    "tool_name": "Puja Room Vastu Calculator & Analyzer (Devagṛha / Pūjāsthāna / Caitya)",
+    "tradition": "Classical Vedic Vastu",
+    "source": {
+      "text": "Mayamata; Mānasāra; Bṛhat Saṃhitā; Manuṣyālaya Candrikā; Viśvakarma Prakāśa",
+      "author_translator": "Bruno Dagens (Mayamata); P. K. Acharya (Mānasāra); Varāhamihira (Bṛhat Saṃhitā); Nīlakaṇṭha (Manuṣyālaya Candrikā); Pt. Ramtej Shastri Pandey (Viśvakarma Prakāśa)",
+      "chapter": "Mayamata Ch. 25; Mānasāra Ch. 36; Bṛhat Saṃhitā Ch. 53; Manuṣyālaya Candrikā Ch. 3 & 7; Viśvakarma Prakāśa Ch. 5 & 6",
+      "verse": "Mayamata 25.75a-78; Mānasāra 36.38-44; Bṛhat Saṃhitā 53.85-88; Manuṣyālaya Candrikā 3.14-20 & 7.1-15; Viśvakarma Prakāśa 5.2 & 6.1-24"
+    },
+    "inputs": [
+      {
+        "field": "puja_zone_16",
+        "type": "string",
+        "enum": [
+          "N",
+          "NNE",
+          "NE",
+          "ENE",
+          "E",
+          "ESE",
+          "SE",
+          "SSE",
+          "S",
+          "SSW",
+          "SW",
+          "WSW",
+          "W",
+          "WNW",
+          "NW",
+          "NNW",
+          "Brahmasthana"
+        ],
+        "description": "Macro-zone of the house where the dedicated prayer room or sacred home mandir is situated.",
+        "required": true,
+        "default": "NE"
+      },
+      {
+        "field": "deity_facing_direction",
+        "type": "string",
+        "enum": [
+          "West",
+          "South",
+          "East",
+          "North"
+        ],
+        "description": "Direction faced by the consecrated idols, images, or altar icons (looking outward toward the devotee).",
+        "required": true,
+        "default": "West"
+      },
+      {
+        "field": "devotee_facing_direction",
+        "type": "string",
+        "enum": [
+          "East",
+          "North",
+          "West",
+          "South"
+        ],
+        "description": "Direction faced by the worshipper/devotee while seated in meditation, japa, or pūjā.",
+        "required": true,
+        "default": "East"
+      },
+      {
+        "field": "idol_wall_clearance_inches",
+        "type": "string",
+        "enum": [
+          "touching_wall_0_inches",
+          "clearance_1_to_2_inches",
+          "clearance_greater_than_2_inches"
+        ],
+        "description": "Air gap between the back of the consecrated idols/altar frame and the supporting structural wall.",
+        "required": true,
+        "default": "clearance_1_to_2_inches"
+      },
+      {
+        "field": "altar_elevation_level",
+        "type": "string",
+        "enum": [
+          "floor_level_on_ground",
+          "low_stool_under_1_ft",
+          "raised_pedestal_chest_height_2_to_3ft",
+          "high_shelf_above_eye_level"
+        ],
+        "description": "Vertical placement height of the deity platform (Pīṭha) relative to a seated devotee.",
+        "required": true,
+        "default": "raised_pedestal_chest_height_2_to_3ft"
+      },
+      {
+        "field": "lamp_diya_placement",
+        "type": "string",
+        "enum": [
+          "SE_of_altar",
+          "East_side",
+          "NE_corner",
+          "West_side",
+          "South_side"
+        ],
+        "description": "Position of the sacred oil lamp (Dīpa), brass Nilavilakku, or Akhand Jyot on the altar.",
+        "required": true,
+        "default": "SE_of_altar"
+      },
+      {
+        "field": "water_conch_placement",
+        "type": "string",
+        "enum": [
+          "NE_corner_of_altar",
+          "North_side",
+          "East_side",
+          "South_side",
+          "West_side"
+        ],
+        "description": "Location of holy water vessel (Tīrtha kalasa), consecrated conch (Śaṅkha), or Gaṅgā-jala pot.",
+        "required": true,
+        "default": "NE_corner_of_altar"
+      },
+      {
+        "field": "incense_dhoop_placement",
+        "type": "string",
+        "enum": [
+          "SE_of_altar",
+          "East_side",
+          "South_side",
+          "NW_side"
+        ],
+        "description": "Location of burning incense (Dhūpa) and fragrance holders.",
+        "required": false,
+        "default": "SE_of_altar"
+      },
+      {
+        "field": "structural_adjacencies_and_boundaries",
+        "type": "string",
+        "enum": [
+          "independent_sacred_enclosure",
+          "shares_wall_with_toilet",
+          "located_under_staircase",
+          "located_directly_under_toilet",
+          "located_directly_over_toilet",
+          "located_inside_master_bedroom",
+          "located_in_dark_basement"
+        ],
+        "description": "Architectural boundary conditions, wall-sharing, and overhead vertical structures.",
+        "required": true,
+        "default": "independent_sacred_enclosure"
+      },
+      {
+        "field": "mandir_canopy_architecture",
+        "type": "string",
+        "enum": [
+          "pyramidal_dome_shikhara_gopura",
+          "flat_top_wooden_cabinet",
+          "open_floating_bracket_shelf"
+        ],
+        "description": "Superstructure of the home altar or wooden sanctum.",
+        "required": false,
+        "default": "pyramidal_dome_shikhara_gopura"
+      },
+      {
+        "field": "puja_room_color_palette",
+        "type": "string",
+        "enum": [
+          "pure_white_or_off_white",
+          "light_yellow_or_saffron",
+          "light_cream_or_sandalwood",
+          "dark_red_or_maroon",
+          "blue_or_grey",
+          "black_or_charcoal"
+        ],
+        "description": "Color theme of the sanctum walls, ceiling, and flooring.",
+        "required": false,
+        "default": "pure_white_or_off_white"
+      }
+    ],
+    "underlying_formula": {
+      "mathematical_model": "Vastu Puja Sanctum Index (VPSI) = Σ (w_i * S_i) / Σ w_i, evaluated on a scale of 0 to 100 with multiplicative penalty multipliers for fatal classical profanations.",
+      "component_weights": {
+        "macro_zone_placement": 0.35,
+        "deity_devotee_orientation": 0.25,
+        "structural_adjacency_purity": 0.15,
+        "micro_altar_arrangements": 0.1,
+        "wall_clearance_and_elevation": 0.1,
+        "canopy_and_color_harmonics": 0.05
+      },
+      "penalty_multipliers": {
+        "mandir_under_staircase": 0.2,
+        "shares_wall_with_toilet": 0.2,
+        "located_under_or_over_toilet": 0.15,
+        "devotee_facing_South": 0.4,
+        "located_inside_master_bedroom": 0.5,
+        "idols_touching_wall": 0.85
+      },
+      "classification_thresholds": {
+        "Parama_Pavitra_Optimal": "85.0 - 100.0",
+        "Pavitra_Good": "70.0 - 84.9",
+        "Madhyama_Acceptable_with_Remedies": "50.0 - 69.9",
+        "Apavitra_Defective": "35.0 - 49.9",
+        "Ghora_Dosha_Prohibited": "0.0 - 34.9"
+      }
+    },
+    "classical_citations": [
+      {
+        "text": "Bṛhat Saṃhitā",
+        "author_translator": "Varāhamihira (tr. M. Ramakrishna Bhat)",
+        "chapter": "Chapter 53: Vāstuvidyā",
+        "verses": "53.85 - 53.88",
+        "sanskrit_quote": "ऐशान्यां देवगृहं शान्तिकगृहं च कारयेत् प्राच्याम्। स्नानगृहं च सुविहितं हुताशने स्यान्महानसम्॥ वास्तुपुरुषस्य मूर्ध्नि स्थितं यदैशानभागमुद्दिशति। तत्र मलोत्सर्गाद्वाऽपवित्राद् विनाशो भवति निश्चितात्॥",
+        "transliteration": "aiśānyāṃ devagṛhaṃ śāntikagṛhaṃ ca kārayet prācyām | snānagṛhaṃ ca suvihitaṃ hutāśane syānmahānasam || vāstupuruṣasya mūrdhni sthitaṃ yadaiśānabhāgamuddiśati | tatra malotsargādvā'pavitrād vināśo bhavati niścitāt ||",
+        "english_translation": "In the North-East (Īśāna) one should construct the house of the gods (devagṛha) and the chamber of peace/meditation (śāntikagṛha); in the East, the bathing hall; in the quarter of Fire (Hutāśana, SE), the kitchen. Since the North-East represents the head (mūrdhan) of the Vāstu Puruṣa, defiling it with bodily wastes or impurity brings certain destruction.",
+        "scholarly_analysis": "Varāhamihira anchors the shrine of deities directly upon the coronal cranium (Śiras/Mūrdhan) of the cosmic Puruṣa in Īśāna. This zone is the focal inlet of celestial and solar-magnetic currents. Any pollution or structural degradation here injures the brain and spiritual faculties of the residents."
+      },
+      {
+        "text": "Mayamata",
+        "author_translator": "Bruno Dagens",
+        "chapter": "Chapter 25: Gṛhavinyāsa",
+        "verses": "25.75a - 25.78",
+        "sanskrit_quote": "देवानां सदनं कुर्यादैशाने विशिष्यते। अथवा मध्यभागे तु ब्रह्मस्थाने प्रकल्पयेत्॥ पूर्वायां च तथोदीच्यां देवतापूजनं शुभम्। दक्षिणस्यां न कर्तव्यं नैर्ऋत्ये तु विशेषतः॥",
+        "transliteration": "devānāṃ sadanaṃ kuryādaiśāne viśiṣyate | athavā madhyabhāge tu brahmasthāne prakalpayet || pūrvāyāṃ ca tathodīcyāṃ devatāpūjanaṃ śubham | dakṣiṇasyāṃ na kartavyaṃ nairṛtye tu viśeṣataḥ ||",
+        "english_translation": "The abode of the gods (devānāṃ sadanaṃ) should especially be made in the North-East (Īśāna); alternatively, it may be planned in the central portion in the Brahmasthāna. Worship of the gods is also auspicious in the East and in the North. It must never be established in the South, and most particularly never in the South-West.",
+        "scholarly_analysis": "Mayamata designates the North-East as pre-eminent ('viśiṣyate'), while formally permitting the Brahmasthāna (central courtyard), North (Kubera), and East (Indra) as secondary sacred loci. It places a categorical taboo on the South (Yama) and South-West (Nairṛti)."
+      },
+      {
+        "text": "Mānasāra",
+        "author_translator": "Prasanna Kumar Acharya",
+        "chapter": "Chapter 36: Gṛhavinyāsa",
+        "verses": "36.38 - 36.44",
+        "sanskrit_quote": "ऐशाने देवगृहं चैव कलशस्थापनं तथा। प्राङ्मुखः पूजयेद् देवानुदङ्मुखोऽपि वा द्विजः॥ देवतानां मुखं पश्चाद् दक्षिणे वा विधीयते। सोपानाधो न कर्तव्यं न चाशुचिस्थले भवेत्॥",
+        "transliteration": "aiśāne devagṛhaṃ caiva kalaśasthāpanaṃ tathā | prāṅmukhaḥ pūjayed devānudaṅmukho'pi vā dvijaḥ || devatānāṃ mukhaṃ paścād dakṣiṇe vā vidhīyate | sopānādho na kartavyaṃ na cāśucisthale bhavet ||",
+        "english_translation": "In the North-East is the sacred room of deities and the consecration of the sacred pot (kalaśa). The worshipper should worship the deities facing East or facing North. The face of the deities is ordained toward the West or toward the South. The shrine must never be situated under a staircase, nor in any unclean or unchaste quarter.",
+        "scholarly_analysis": "P. K. Acharya's translation delineates the exact reciprocal geometry of devotee and deity facing: devotee facing East (deity facing West) or devotee facing North (deity facing South). It explicitly outlaws placements beneath staircases (sopānādhaḥ) and adjoining foul locations."
+      },
+      {
+        "text": "Manuṣyālaya Candrikā",
+        "author_translator": "Nīlakaṇṭha of Kerala",
+        "chapter": "Chapter 3 & 7: Devatā-sthāna & Pūjā-vidhi",
+        "verses": "3.14 - 3.20 & 7.1 - 7.15",
+        "sanskrit_quote": "ऐशान्यां दिशि देवतालयरचना श्रेष्ठा समस्तानां नृणाम् भित्तेरङ्गुलमन्तरं तु विहितं मूर्तेर्विभोः पृष्ठतः। आग्नेये विनिवेशयेत् सुविमलं दीपं शिखावर्धितम् ईशाने तोयपात्रकं च निदधीद् घण्टां च वायव्यतः॥",
+        "transliteration": "aiśānyāṃ diśi devatālayaracanā śreṣṭhā samastānāṃ nṛṇām bhitteraṅgulamantaraṃ tu vihitaṃ mūrtervibhoḥ pṛṣṭhataḥ | āgneye viniveśayet suvimalaṃ dīpaṃ śikhāvardhitam īśāne toyapātrakaṃ ca nidadhīd ghaṇṭāṃ ca vāyavyataḥ ||",
+        "english_translation": "In the North-East quarter, the creation of the deity's house is best for all mortals. An interval of at least one aṅgula (1-2 inches) must be left between the wall and the back of the Lord's idol. In the South-East of the altar, place the pure oil lamp with blazing flame; in the North-East of the altar, place the sacred water vessel; and the ritual bell in the North-West.",
+        "scholarly_analysis": "Manuṣyālaya Candrikā provides micro-altar ritual layout: (1) Idols must never touch the wall directly to preserve the flow of space/ether (Ākāśa-tattva), (2) Sacred lamp (Dīpa/Nilavilakku) strictly belongs in the SE (Agni corner) of the altar, (3) Holy water belongs in the NE, and (4) Bell/sound belongs in the NW (Air/movement)."
+      },
+      {
+        "text": "Viśvakarma Prakāśa",
+        "author_translator": "Viśvakarma (ed. Pt. Ramtej Shastri Pandey)",
+        "chapter": "Chapter 5 & 6: Gṛhavinyāsa & Devatā-sthāpana",
+        "verses": "5.2 & 6.1 - 6.24",
+        "sanskrit_quote": "ऐशान्यां देवगृहं सर्वसौभाग्यदायकम्। पूर्वे च धनवृद्धिश्च शान्तिरुत्तरतो भवेत्॥ नैर्ऋते तु कृते दुर्गे राक्षसानां विवर्धनम्। दक्षिणे कलहं नित्यं स्वामिनोऽपि भयं भवेत्॥ शय्यागृहे न कर्तव्यं न चाशौचे कथञ्चन। सोपानाधः कृते देवे कुलनाशः प्रजायते॥",
+        "transliteration": "aiśānyāṃ devagṛhaṃ sarvasaubhāgyadāyakam | pūrve ca dhanavṛddhiśca śāntiruttarato bhavet || nairṛte tu kṛte durge rākṣasānāṃ vivardhanam | dakṣiṇe kalahaṃ nityaṃ svāmino'pi bhayaṃ bhavet || śayyāgṛhe na kartavyaṃ na cāśauce kathañcana | sopānādhaḥ kṛte deve kulanāśaḥ prajāyate ||",
+        "english_translation": "A puja room in the North-East bestows all auspicious fortunes. In the East it brings increase of wealth; in the North it creates peaceful serenity. In the South-West, it amplifies demonic/tāmasic energies; in the South it causes perpetual strife and mortal fear for the master. It must never be placed within a bedchamber, nor ever in an unclean quarter. Establishing the deity beneath a staircase brings extinction of the family lineage (kulanāśa).",
+        "scholarly_analysis": "Viśvakarma Prakāśa specifies the direct psycho-spiritual impacts of puja room positioning. NE is the fountainhead of fortune (saubhāgya), East multiplies spiritual prosperity, North brings tranquil peace. Conversely, South-West invokes tāmasic deterioration, while under-staircase shrines eradicate the lineage due to perpetual trampling of divine energies."
+      }
+    ],
+    "rules_matrix": [
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "NE",
+        "cardinal_direction": "North-East (Īśāna)",
+        "degrees_range": "33.75° - 56.25°",
+        "presiding_deity": "Īśāna (Sadāśiva / Supreme Consciousness)",
+        "element": "Water / Ether (Jala / Ākāśa)",
+        "score": 100,
+        "classification": "Parama Pavitra (Supreme Sanctum)",
+        "classical_effects": "Confluence of solar prāṇa and magnetic jaiva-ūrjā; awakens intuition, spiritual enlightenment (Dhyāna), purity of intellect (Sattva-buddhi), divine protection, supreme domestic tranquility.",
+        "classical_verse_ref": "Bṛhat Saṃhitā 53.85; Mayamata 25.75a; Mānasāra 36.38; Viśvakarma Prakāśa 5.2",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "Brahmasthana",
+        "cardinal_direction": "Center of House (Cosmic Nucleus)",
+        "degrees_range": "Central Core of Mandala",
+        "presiding_deity": "Brahmā (The Cosmic Source)",
+        "element": "Ether (Ākāśa / Space)",
+        "score": 96,
+        "classification": "Parama Pavitra (Auspicious Cosmic Axis)",
+        "classical_effects": "Traditional courtyard temple (Naṭumaṭṭam / Haveli sanctum); radiates harmonious spiritual frequencies equally across all eight directions of the house; requires absolute spatial cleanliness and daily ritual purity.",
+        "classical_verse_ref": "Mayamata 25.76; Manuṣyālaya Candrikā 3.15",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "NNE",
+        "cardinal_direction": "North-North-East",
+        "degrees_range": "11.25° - 33.75°",
+        "presiding_deity": "Apavatsa (Healing & Cellular Immunity)",
+        "element": "Water (Jala)",
+        "score": 94,
+        "classification": "Pavitra (Highly Auspicious)",
+        "classical_effects": "Promotes deep physical healing, mental rejuvenation, pure meditational flow, and freedom from chronic illnesses.",
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.10",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "East",
+        "cardinal_direction": "East (Pūrva)",
+        "degrees_range": "78.75° - 101.25°",
+        "presiding_deity": "Indra / Surya",
+        "element": "Air / Solar Fire",
+        "score": 92,
+        "classification": "Pavitra (Highly Auspicious)",
+        "classical_effects": "Promotes leadership, vitality, social honor, spiritual illumination, cognitive clarity, and scholarly pursuits.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.2; Mayamata 25.77",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "North",
+        "cardinal_direction": "North (Uttara)",
+        "degrees_range": "348.75° - 11.25°",
+        "presiding_deity": "Kubera / Soma",
+        "element": "Water (Jala)",
+        "score": 90,
+        "classification": "Pavitra (Highly Auspicious)",
+        "classical_effects": "Ideal for Mahālakṣmī and Kubera worship; blesses household with ethical prosperity, career growth, financial security, and divine grace.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.2; Mānasāra 36.40",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "ENE",
+        "cardinal_direction": "East-North-East",
+        "degrees_range": "56.25° - 78.75°",
+        "presiding_deity": "Parjanya / Jayanta",
+        "element": "Air / Water",
+        "score": 88,
+        "classification": "Pavitra (Auspicious)",
+        "classical_effects": "Cultivates inner joy, mental clarity, optimism, spiritual companionship, and stress relief.",
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.12",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "West",
+        "cardinal_direction": "West (Paścima)",
+        "degrees_range": "247.50° - 270.00°",
+        "presiding_deity": "Varuṇa",
+        "element": "Space / Water",
+        "score": 75,
+        "classification": "Madhyama (Acceptable Secondary)",
+        "classical_effects": "Canonical in temple architecture where sanctum deity faces East; acceptable for family shrine if devotees sit facing East; promotes steady business commitments.",
+        "classical_verse_ref": "Mānasāra 36.41; Mayamata 25.78",
+        "mitigation_required": false
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "NW",
+        "cardinal_direction": "North-West (Vāyavya)",
+        "degrees_range": "292.50° - 315.00°",
+        "presiding_deity": "Vāyu",
+        "element": "Air (Vāyu)",
+        "score": 62,
+        "classification": "Madhyama (Tolerable Alternative)",
+        "classical_effects": "Air element causes slight mental restlessness and fluttering during long meditation sessions, but acceptable if NE, North, and East are structurally unavailable.",
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.14",
+        "mitigation_required": true,
+        "remedy": "Use heavy marble altar base to anchor earth stability; chant Gayatri or Om to quiet mental vibrations."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "NNW",
+        "cardinal_direction": "North-North-West",
+        "degrees_range": "315.00° - 337.50°",
+        "presiding_deity": "Roga / Vāyu",
+        "element": "Air / Water",
+        "score": 42,
+        "classification": "Madhyama-Aśubha",
+        "classical_effects": "Zone of attraction and craving; spiritual focus tends to wander toward worldly desires and emotional clinginess.",
+        "classical_verse_ref": "Manuṣyālaya Candrikā 3.18",
+        "mitigation_required": true,
+        "remedy": "Install brass pyramid at the altar base."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "ESE",
+        "cardinal_direction": "East-South-East",
+        "degrees_range": "101.25° - 123.75°",
+        "presiding_deity": "Bhṛśa / Satya",
+        "element": "Fire / Air",
+        "score": 38,
+        "classification": "Aśubha (Defective / Mental Agitation)",
+        "classical_effects": "Excessive intellectual overthinking; worship turns into compulsive debate rather than tranquil surrender.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.3",
+        "mitigation_required": true,
+        "remedy": "Use calming sandalwood paste and crystal Sphatika yantra on altar."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "WNW",
+        "cardinal_direction": "West-North-West",
+        "degrees_range": "270.00° - 292.50°",
+        "presiding_deity": "Asura / Vāyu",
+        "element": "Air / Space",
+        "score": 30,
+        "classification": "Aśubha (Melancholy Zone)",
+        "classical_effects": "Zone of venting and grief (Rodana-sthāna); prayers may be overwhelmed by complaints, sorrow, and lack of divine ecstasy.",
+        "classical_verse_ref": "Mānasāra 36.42",
+        "mitigation_required": true,
+        "remedy": "Burn pure guggulu and camphor daily; keep altar well-illuminated with yellow light."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "SE",
+        "cardinal_direction": "South-East (Āgneya)",
+        "degrees_range": "123.75° - 146.25°",
+        "presiding_deity": "Agni",
+        "element": "Fire (Agni)",
+        "score": 20,
+        "classification": "Varjya (Severe Fiery Conflict)",
+        "classical_effects": "Excessive heat and agitation; worshippers feel irritable or distracted; suitable only for severe Tantric Havan rituals, not serene domestic devapūjā.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 5.4; Bṛhat Saṃhitā 53.86",
+        "mitigation_required": true,
+        "remedy": "Avoid installing red bulbs or heavy fire lamps; place holy water in silver cup in NE of mandir; shift altar toward East if possible."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "SSE",
+        "cardinal_direction": "South-South-East",
+        "degrees_range": "146.25° - 168.75°",
+        "presiding_deity": "Pūṣan / Agni",
+        "element": "Fire / Earth",
+        "score": 15,
+        "classification": "Varjya",
+        "classical_effects": "Restlessness, muscle spasms during prayer, impatient meditation.",
+        "classical_verse_ref": "Samarāṅgaṇa Sūtradhāra 15.20",
+        "mitigation_required": true,
+        "remedy": "Install pure white marble platform."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "South",
+        "cardinal_direction": "South (Dakṣiṇa)",
+        "degrees_range": "168.75° - 191.25°",
+        "presiding_deity": "Yama (Lord of Death / Ancestors)",
+        "element": "Fire / Earth",
+        "score": 10,
+        "classification": "Varjya (Yama Sthāna Prohibited)",
+        "classical_effects": "Viśvakarma Prakāśa 5.4: Direction of Pitṛs (departed ancestors) and mortuary rites. Devapūjā here causes legal entanglements, anxiety regarding mortality, and depression among youth.",
+        "classical_verse_ref": "Mayamata 25.77; Viśvakarma Prakāśa 5.4",
+        "mitigation_required": true,
+        "remedy": "Relocate shrine. If structurally fixed, ensure devotee faces North or East; keep sacred conch filled with water."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "SSW",
+        "cardinal_direction": "South-South-West",
+        "degrees_range": "191.25° - 202.50°",
+        "presiding_deity": "Gandharva / Mṛga",
+        "element": "Earth / Disposal",
+        "score": 5,
+        "classification": "Varjya (Spiritual Depletion)",
+        "classical_effects": "Zone of expenditure and discharge; spiritual merits (Puṇya), mantras, and prayers are energetically drained into the earth.",
+        "classical_verse_ref": "Mānasāra 36.43",
+        "mitigation_required": true,
+        "remedy": "Immediate relocation of the altar to North or East."
+      },
+      {
+        "category": "macro_zonal_placement_16_zones",
+        "zone": "SW",
+        "cardinal_direction": "South-West (Nairṛtya)",
+        "degrees_range": "202.50° - 225.00°",
+        "presiding_deity": "Nirṛti (Demonic entity / Dissolution)",
+        "element": "Earth (Pṛthvī / Heavy Tamas)",
+        "score": 0,
+        "classification": "Ghora Mahā-Dosha (Extreme Prohibition)",
+        "classical_effects": "Viśvakarma Prakāśa 5.4 & 6.8: 'nairṛte tu kṛte durge rākṣasānāṃ vivardhanam' - Worship here inflates tāmasic forces, causes mental delusion, downfall of the master of the house, heavy unresolved debts, and severe discord between family members.",
+        "classical_verse_ref": "Mayamata 25.77; Mānasāra 36.42; Viśvakarma Prakāśa 5.4",
+        "mitigation_required": true,
+        "remedy": "Absolute relocation mandated. Under no circumstance should a domestic shrine be permanently housed in Nairṛtya."
+      },
+      {
+        "category": "deity_devotee_facing_alignment",
+        "devotee_facing": "East",
+        "deity_facing": "West",
+        "score": 100,
+        "classification": "Parama Śubha (Supreme Canonical Standard)",
+        "classical_effects": "Devotee faces the rising sun, receiving direct influx of solar illumination, enhanced memory, spiritual awakening, and Sattvic purity.",
+        "classical_verse_ref": "Mānasāra 36.40; Manuṣyālaya Candrikā 3.16; Viśvakarma Prakāśa 6.5",
+        "mitigation_required": false
+      },
+      {
+        "category": "deity_devotee_facing_alignment",
+        "devotee_facing": "North",
+        "deity_facing": "South",
+        "score": 95,
+        "classification": "Parama Śubha (Highly Auspicious)",
+        "classical_effects": "Devotee faces the pole of Soma and Kubera; aligns with the positive electromagnetic currents of the Earth; brings financial wisdom, profound inner stillness, and spiritual peace.",
+        "classical_verse_ref": "Mānasāra 36.40; Samarāṅgaṇa Sūtradhāra 15.24",
+        "mitigation_required": false
+      },
+      {
+        "category": "deity_devotee_facing_alignment",
+        "devotee_facing": "West",
+        "deity_facing": "East",
+        "score": 70,
+        "classification": "Madhyama (Acceptable Temple Style)",
+        "classical_effects": "Deities radiate their divine aura toward the East; devotee faces West, which is acceptable in public temples, though slightly less potent for personal japa.",
+        "classical_verse_ref": "Mayamata 25.78",
+        "mitigation_required": false
+      },
+      {
+        "category": "deity_devotee_facing_alignment",
+        "devotee_facing": "South",
+        "deity_facing": "North",
+        "score": 0,
+        "classification": "Varjya (Strictly Prohibited for Devapūjā)",
+        "classical_effects": "Devotee faces the realm of Yama; classical texts strictly reserve South-facing worship for Pitṛ-tarpaṇa (ancestral death rituals) or specialized Tantric practices; causes fatigue, loss of vital prāṇa, and spiritual gloom.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 6.6; Manuṣyālaya Candrikā 3.17",
+        "mitigation_required": true,
+        "remedy": "Turn the devotee's seating posture 90 degrees to face East or North during prayer."
+      },
+      {
+        "category": "structural_boundary_prohibitions",
+        "prohibited_condition": "Puja Room situated directly under a staircase",
+        "score_impact": -100,
+        "classification": "Ghora Mahā-Dosha (Lineage Extinction)",
+        "classical_effects": "Viśvakarma Prakāśa 6.9: 'sopānādhaḥ kṛte deve kulanāśaḥ prajāyate' - Trampling of feet overhead directly insults divine consciousness; causes severe neurological disorders, incurable headaches, family instability, and gradual extinction of lineage.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 6.9; Mānasāra 36.44",
+        "remedy": "Mandatory removal of altar from staircase void. Never keep sacred devatās under steps."
+      },
+      {
+        "category": "structural_boundary_prohibitions",
+        "prohibited_condition": "Puja Room sharing a common wall with a toilet or bathroom",
+        "score_impact": -100,
+        "classification": "Ghora Mahā-Dosha (Profane Defilement)",
+        "classical_effects": "Bṛhat Saṃhitā 53.87: Sewage pipelines and bodily excretions corrupt the subtle auric field of the sanctum; causes sudden financial bankruptcies, spiritual hypocrisy, and foul domestic environment.",
+        "classical_verse_ref": "Bṛhat Saṃhitā 53.87; Samarāṅgaṇa Sūtradhāra 15.30",
+        "remedy": "Relocate the mandir to a clean wall. If structurally immovable, create a minimum 3-inch false wooden partition wall with acoustic/air insulation gap."
+      },
+      {
+        "category": "structural_boundary_prohibitions",
+        "prohibited_condition": "Puja Room located directly beneath or above an upper/lower floor toilet",
+        "score_impact": -100,
+        "classification": "Ghora Mahā-Dosha",
+        "classical_effects": "Downwards vertical contamination of sacred space; drains vitality and generates perpetual household unrest.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 6.11",
+        "remedy": "Shift mandir to another room or clear vertical column."
+      },
+      {
+        "category": "structural_boundary_prohibitions",
+        "prohibited_condition": "Puja Room situated inside the Master Bedroom",
+        "score_impact": -50,
+        "classification": "Aśubha (Brahmacharya Conflict)",
+        "classical_effects": "Viśvakarma Prakāśa 6.8: Domestic intimacy and sensual activities clash with the required celibate sanctity (Brahmacharya) of an open temple; creates marital discord and disturbed sleep.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 6.8",
+        "remedy": "House the altar inside a wooden cabinet with closable doors (Kavāṭa), keeping doors shut during sleep and private hours."
+      },
+      {
+        "category": "micro_altar_ritual_placement",
+        "item": "Sacred Lamp (Dīpa / Nilavilakku / Akhand Jyot)",
+        "optimal_zone": "South-East (Āgneya pada) of the altar",
+        "score": 100,
+        "classical_effects": "Agni placed in Agni pada maintains perfect elemental balance, burning away negative vibrations and providing uplifting illumination.",
+        "classical_verse_ref": "Manuṣyālaya Candrikā 7.4"
+      },
+      {
+        "category": "micro_altar_ritual_placement",
+        "item": "Holy Water / Conch / Tīrtha Kalasa",
+        "optimal_zone": "North-East (Īśāna pada) of the altar",
+        "score": 100,
+        "classical_effects": "Sustains pristine spiritual purity, radiates cooling sattvic vibrations, and empowers holy water with healing potency.",
+        "classical_verse_ref": "Manuṣyālaya Candrikā 7.6; Mānasāra 36.38"
+      },
+      {
+        "category": "micro_altar_ritual_placement",
+        "item": "Wall Clearance Gap behind Idols",
+        "rule": "Leave minimum 1 to 2 inches (2.5 to 5.0 cm) clearance between idol/altar back and the wall.",
+        "forbidden_rule": "Idols or photo frames plastered flat against the wall without gap.",
+        "score_optimal": 100,
+        "score_forbidden": 20,
+        "classical_effects": "Manuṣyālaya Candrikā 7.2: Continuous circulation of the Space element (Ākāśa-tattva) and cosmic Prāṇa around the sacred form is mandatory; touching the wall grounds out the deity's subtle field.",
+        "classical_verse_ref": "Manuṣyālaya Candrikā 7.2"
+      },
+      {
+        "category": "micro_altar_ritual_placement",
+        "item": "Altar Elevation Height",
+        "rule": "Raised platform (Pīṭha) at devotee's chest level (2.5 to 3.5 ft high).",
+        "forbidden_rule": "Idols placed directly on bare floor or mounted too high above eye level (> 5 ft).",
+        "score_optimal": 100,
+        "score_forbidden": 15,
+        "classical_effects": "Deity's feet/heart should align with the chest (Anāhata cakra) of the seated meditator. Keeping idols on bare floor is disrespectful (Apamāna), while over-elevation strains devotee's gaze.",
+        "classical_verse_ref": "Mānasāra 36.41; Samarāṅgaṇa Sūtradhāra 15.28"
+      },
+      {
+        "category": "micro_altar_ritual_placement",
+        "item": "Idol Facing Geometry (Saṃmukha-darśana)",
+        "rule": "All consecrated idols should face the worshipper/room.",
+        "forbidden_rule": "Two idols placed directly facing each other nose-to-nose (Saṃmukha).",
+        "score_optimal": 100,
+        "score_forbidden": 0,
+        "classical_effects": "Classical Agama prohibits deities gazing into each other directly in domestic altars, as it creates conflicting radial energy fields.",
+        "classical_verse_ref": "Viśvakarma Prakāśa 6.18"
+      }
+    ],
+    "interpretation": "The Puja Room (Devagṛha / Pūjāsthāna) represents the crown chakra (Sahasrāra) and third eye (Ājñā) of the domestic architecture. Situated pre-eminently in the North-East (Īśāna), it occupies the coronal vertex of the Vāstu Puruṣa, where solar ultraviolet energy from the East intersects the geomagnetic field from the North. This creates a zero-entropy spatial node of supreme tranquility, optimal for dhyāna (meditation), japa (recitation), and spiritual communion. Devotees facing East align with the cosmic dawn and solar intellect (Surya-prāṇa), while facing North aligns with the serene magnetic nectar of Soma/Kubera. The strict prohibition against placing altars under staircases, against toilet walls, or in the South-West prevents catastrophic energetic defilement of this delicate cosmic receiver. Within the altar itself, the macrocosm is mirrored in microcosm: fire (lamp) in the South-East, water (kalaśa) in the North-East, and air/sound (bell/incense) in the North-West, establishing an unbroken mandala of divine resonance.",
+    "variation_note": "Regional Vastu traditions display nuanced adaptations: (1) Kerala / Dravidian Tantric Tradition (Manuṣyālaya Candrikā & Tantrasamuccaya): Domestic shrines prioritize the standalone Padmatheertham or Vadakkini/Kizhakkani courtyard shrine, emphasizing the central multi-tiered brass Nilavilakku in the Agni pada, strictly prohibiting conjoined walls with domestic spaces. Deities face West so devotees face East toward the rising sun. (2) Northern Nāgara Tradition (Viśvakarma Prakāśa & Samarāṅgaṇa Sūtradhāra): Focuses on the pyramidal canopy (Śikhara / Gopura) above the wooden or marble home mandir to create a cosmic vortex (pyramidal energy concentration). Permissive of East and North sanctums alongside Īśāna. (3) Urban High-Rise Living: In modern compact apartments where an independent room in NE is unavailable, modern Vastu recommends creating a dedicated open wooden mandir along the North-East or East wall of the living area, fitted with double doors (Kavāṭa) that close at night, while rigorously enforcing the minimum 2-inch wall gap and maintaining a minimum 3-foot clearance from any conflicting utilities."
+  }
+]

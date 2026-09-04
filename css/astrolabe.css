@@ -1,0 +1,338 @@
+/**
+ * ==============================================================================
+ * CELESTIAL SUN ASTROLABE — SACRED GEOMETRY ANIMATION
+ * Inspired by VastuDivine Sacred Astrolabe & Classical Vedic Geometry
+ * ==============================================================================
+ *
+ * Brand Palette:
+ *   - Deep Maroon:    #6D0A1D
+ *   - Gold / Amber:   #B3791E
+ *   - White:          #FFFFFF
+ *   - Near-Black:     #141414
+ *
+ * Opposing Harmonic Velocities:
+ *   - outer-ring (Zodiac constellations):                   Clockwise (~65s cycle)
+ *   - inner-ring (Devanagari Sanskrit & sacred geometry):   Counter-Clockwise (~48s cycle)
+ *   - geometric-orbits (Harmonic chords & orbital circles): Counter-Clockwise (~85s cycle)
+ *   - planets (Celestial spheres with radial gradients):   Clockwise (~32s cycle)
+ *   - ambient-elements (Cosmic star points & beacons):      Clockwise (~120s cycle)
+ *   - central-sun (Stationary classical engraved sun face with celestial breathing glow)
+ *
+ * Responsive:
+ *   - Scalable viewBox="0 0 600 600", max-width: 100%
+ *   - Seamless scaling down to mobile screens (320px) without clipping or layout shift
+ *   - Complete support for prefers-reduced-motion
+ * ==============================================================================
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@600;700&family=Noto+Serif+Devanagari:wght@600;700&display=swap');
+
+:root {
+    /* Brand Color Palette */
+    --astro-maroon: #6D0A1D;
+    --astro-gold: #B3791E;
+    --astro-white: #FFFFFF;
+    --astro-near-black: #141414;
+
+    /* Extended Color Accents & Atmospheric Tints */
+    --astro-maroon-dark: #32030B;
+    --astro-maroon-light: #AD2038;
+    --astro-maroon-soft: #E88094;
+    --astro-gold-light: #D4A045;
+    --astro-gold-shimmer: #FAE8B8;
+    --astro-gold-dark: #5C3B07;
+    --astro-parchment: #FDFBF9;
+    --astro-parchment-warm: #FAF2EC;
+    --astro-ring-bg: rgba(248, 239, 233, 0.4);
+
+    /* Harmonic Velocity Durations (seconds) */
+    --astro-dur-outer: 65s;
+    --astro-dur-inner: 48s;
+    --astro-dur-orbits: 85s;
+    --astro-dur-planets: 32s;
+    --astro-dur-ambient: 120s;
+    --astro-dur-sun-breathe: 7s;
+
+    /* Sizing & Geometry */
+    --astro-max-width: 580px;
+    --astro-aspect-ratio: 1 / 1;
+}
+
+/* ==============================================================================
+   1. CONTAINER & LAYOUT (Zero Layout Shift, Fully Responsive)
+   ============================================================================== */
+
+.astrolabe-wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    contain: layout style;
+}
+
+.astrolabe-container,
+.mandala-container {
+    position: relative;
+    width: 100%;
+    max-width: var(--astro-max-width);
+    aspect-ratio: var(--astro-aspect-ratio);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    contain: layout style;
+}
+
+/* Atmospheric Ambient Backlight */
+.astrolabe-glow,
+.mandala-glow {
+    position: absolute;
+    inset: -14%;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(179, 121, 30, 0.18) 0%,
+        rgba(109, 10, 29, 0.08) 45%,
+        rgba(255, 255, 255, 0) 70%
+    );
+    filter: blur(48px);
+    -webkit-filter: blur(48px);
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform, opacity;
+    animation: astrolabeAuraBreathe 9s ease-in-out infinite alternate;
+}
+
+/* SVG Core Canvas */
+.astrolabe-svg,
+.mandala-svg {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+    overflow: visible;
+    filter: drop-shadow(0 14px 42px rgba(109, 10, 29, 0.09));
+    pointer-events: auto;
+    shape-rendering: geometricPrecision;
+    text-rendering: geometricPrecision;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ==============================================================================
+   2. SACRED GEOMETRY ROTATION LAYERS (Opposing Harmonic Velocities)
+   ============================================================================== */
+
+/* Local coordinate center is (0,0) inside the <g transform="translate(300,300)"> wrapper */
+#outer-ring,
+#inner-ring,
+#geometric-orbits,
+#planets,
+#ambient-elements {
+    transform-origin: 0px 0px;
+    transform-box: view-box;
+    will-change: transform;
+    pointer-events: none;
+}
+
+/* Layer: outer-ring (Zodiac constellations) -> Clockwise 65s */
+.astrolabe-css-mode #outer-ring,
+#outer-ring.astrolabe-animating {
+    animation: astrolabeRotateCW var(--astro-dur-outer) linear infinite;
+}
+
+/* Layer: inner-ring (Devanagari Sanskrit syllables & sacred geometry) -> Counter-Clockwise 48s */
+.astrolabe-css-mode #inner-ring,
+#inner-ring.astrolabe-animating {
+    animation: astrolabeRotateCCW var(--astro-dur-inner) linear infinite;
+}
+
+/* Layer: geometric-orbits (Harmonic chords & orbital circles) -> Counter-Clockwise 85s */
+.astrolabe-css-mode #geometric-orbits,
+#geometric-orbits.astrolabe-animating {
+    animation: astrolabeRotateCCW var(--astro-dur-orbits) linear infinite;
+}
+
+/* Layer: planets (Celestial spheres with radial gradients) -> Clockwise 32s */
+.astrolabe-css-mode #planets,
+#planets.astrolabe-animating {
+    animation: astrolabeRotateCW var(--astro-dur-planets) linear infinite;
+}
+
+/* Layer: ambient-elements (Star points & celestial compass beacons) -> Clockwise 120s */
+.astrolabe-css-mode #ambient-elements,
+#ambient-elements.astrolabe-animating {
+    animation: astrolabeRotateCW var(--astro-dur-ambient) linear infinite;
+}
+
+/* Layer: central-sun (STATIONARY unmoving cosmic anchor with celestial breathing glow) */
+#central-sun {
+    pointer-events: none;
+    transform-origin: 0px 0px;
+    will-change: filter, transform;
+    animation: astrolabeSunBreathe var(--astro-dur-sun-breathe) ease-in-out infinite;
+}
+
+/* Pause State (can be toggled via JS class or API) */
+.astrolabe-container.is-paused #outer-ring,
+.astrolabe-container.is-paused #inner-ring,
+.astrolabe-container.is-paused #geometric-orbits,
+.astrolabe-container.is-paused #planets,
+.astrolabe-container.is-paused #ambient-elements,
+.astrolabe-container.is-paused #central-sun,
+.astrolabe-container.is-paused .astrolabe-glow {
+    animation-play-state: paused !important;
+}
+
+/* ==============================================================================
+   3. KEYFRAME DEFINITIONS (Pure GPU-Accelerated CSS Rotations & Breathing)
+   ============================================================================== */
+
+@keyframes astrolabeRotateCW {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes astrolabeRotateCCW {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* Subtle, meditative breathing pulsation on the classical Sun face */
+@keyframes astrolabeSunBreathe {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px rgba(179, 121, 30, 0.3)) drop-shadow(0 0 20px rgba(109, 10, 29, 0.15));
+    }
+    50% {
+        transform: scale(1.022);
+        filter: drop-shadow(0 0 20px rgba(179, 121, 30, 0.55)) drop-shadow(0 0 34px rgba(109, 10, 29, 0.28));
+    }
+}
+
+/* Subtle background aura pulsation */
+@keyframes astrolabeAuraBreathe {
+    0% {
+        opacity: 0.75;
+        transform: scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+/* ==============================================================================
+   4. SVG TEXT & GEOMETRY TYPOGRAPHY
+   ============================================================================== */
+
+.astrolabe-zodiac-text {
+    font-family: 'Cormorant Garamond', 'Cinzel', serif;
+    font-size: 23px;
+    font-weight: 700;
+    fill: var(--astro-maroon);
+    text-anchor: middle;
+    dominant-baseline: central;
+    transition: fill 0.3s ease;
+}
+
+.astrolabe-sanskrit-text {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 19px;
+    font-weight: 600;
+    fill: var(--astro-maroon);
+    text-anchor: middle;
+    dominant-baseline: central;
+    letter-spacing: 0.5px;
+}
+
+/* ==============================================================================
+   5. RESPONSIVE DESIGN (320px Mobile down to Ultra-Small Screens)
+   ============================================================================== */
+
+@media (max-width: 768px) {
+    .astrolabe-container,
+    .mandala-container {
+        max-width: 440px;
+    }
+    .astrolabe-glow,
+    .mandala-glow {
+        inset: -10%;
+        filter: blur(36px);
+    }
+}
+
+@media (max-width: 480px) {
+    .astrolabe-container,
+    .mandala-container {
+        max-width: 350px;
+    }
+    .astrolabe-glow,
+    .mandala-glow {
+        inset: -8%;
+        filter: blur(28px);
+    }
+}
+
+@media (max-width: 360px) {
+    .astrolabe-container,
+    .mandala-container {
+        max-width: 296px;
+    }
+    .astrolabe-glow,
+    .mandala-glow {
+        inset: -5%;
+        filter: blur(20px);
+    }
+}
+
+/* Extreme compact constraint: ensures zero horizontal overflow or clipping */
+@media (max-width: 320px) {
+    .astrolabe-container,
+    .mandala-container {
+        max-width: 275px;
+    }
+}
+
+/* ==============================================================================
+   6. ACCESSIBILITY: PREFERS-REDUCED-MOTION
+   ============================================================================== */
+/**
+ * When prefers-reduced-motion is active:
+ * - Stop all continuous rotations completely.
+ * - Halt breathing scale transforms.
+ * - Display an unblemished, elegant stationary astrolabe.
+ */
+@media (prefers-reduced-motion: reduce) {
+    #outer-ring,
+    #inner-ring,
+    #geometric-orbits,
+    #planets,
+    #ambient-elements,
+    #central-sun,
+    .astrolabe-glow,
+    .mandala-glow {
+        animation: none !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    #central-sun {
+        filter: drop-shadow(0 0 14px rgba(179, 121, 30, 0.4)) drop-shadow(0 0 24px rgba(109, 10, 29, 0.2)) !important;
+    }
+}

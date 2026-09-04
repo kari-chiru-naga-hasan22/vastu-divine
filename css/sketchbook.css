@@ -1,0 +1,1003 @@
+/* ==========================================================================
+   VASTU DIVINE — 3D Luxury Interactive Sacred Sketchbook Component
+   Inspired by ThreeUI Meng To Sketchbook — Adapted for Classical Vedic Wisdom
+   ========================================================================== */
+
+:root {
+    --sb-burgundy: #6D0A1D;
+    --sb-burgundy-deep: #4D0714;
+    --sb-burgundy-soft: rgba(109, 10, 29, 0.08);
+    --sb-burgundy-glow: rgba(109, 10, 29, 0.22);
+    --sb-gold: #B3791E;
+    --sb-gold-light: #D4A045;
+    --sb-gold-bright: #F6E27A;
+    --sb-gold-soft: rgba(179, 121, 30, 0.12);
+    --sb-gold-glow: rgba(179, 121, 30, 0.28);
+    --sb-paper: #FDFBF7;
+    --sb-paper-dark: #F5EFE6;
+    --sb-paper-aged: #EDE6DB;
+    --sb-leather: #3D0710;
+    --sb-leather-dark: #2A040A;
+    --sb-ink: #221D1A;
+    --sb-ink-soft: #5C534D;
+    --sb-ink-faint: #968C83;
+    --sb-border: rgba(179, 121, 30, 0.26);
+    --sb-border-focus: rgba(179, 121, 30, 0.7);
+
+    --sb-font-heading: 'Cinzel', Georgia, serif;
+    --sb-font-serif: 'Cormorant Garamond', Georgia, serif;
+    --sb-font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --sb-font-deva: 'Noto Serif Devanagari', serif;
+
+    --sb-chassis-radius: 14px;
+    --sb-transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ──────────────────────────────────────────────────────
+   1. Component Wrapper & Stage Shell
+   ────────────────────────────────────────────────────── */
+.sb-component-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1260px;
+    margin: 48px auto 20px;
+    padding: 0 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.sb-component-wrapper:focus-visible {
+    outline: 2px dashed var(--sb-gold);
+    outline-offset: 8px;
+    border-radius: var(--sb-chassis-radius);
+}
+
+/* Tab Bar / Chapter Pagination */
+.sb-tabs-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.sb-tab-pill {
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid var(--sb-border);
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--sb-ink-soft);
+    padding: 7px 16px;
+    border-radius: 9999px;
+    font-family: var(--sb-font-body);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.sb-tab-pill:hover {
+    color: var(--sb-burgundy);
+    border-color: var(--sb-gold);
+    background: #FFFFFF;
+    transform: translateY(-1px);
+}
+
+.sb-tab-pill.active {
+    background: var(--sb-burgundy);
+    color: #FFFFFF;
+    border-color: var(--sb-burgundy);
+    box-shadow: 0 4px 14px var(--sb-burgundy-glow);
+}
+
+.sb-stage-frame {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    perspective: 2400px;
+    -webkit-perspective: 2400px;
+}
+
+/* Atmospheric Ground Shadow Pools */
+.sb-shadow-pool {
+    position: absolute;
+    inset: 6% 4% -3% 4%;
+    background: radial-gradient(50% 50% at 50% 68%, 
+        rgba(109, 10, 29, 0.16) 0%, 
+        rgba(58, 44, 26, 0.22) 35%, 
+        transparent 75%);
+    filter: blur(36px);
+    -webkit-filter: blur(36px);
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sb-contact-shadow {
+    position: absolute;
+    inset: 75% 8% 0 8%;
+    background: radial-gradient(50% 45% at 50% 45%, 
+        rgba(26, 15, 8, 0.42) 0%, 
+        rgba(109, 10, 29, 0.14) 45%, 
+        transparent 78%);
+    filter: blur(16px);
+    -webkit-filter: blur(16px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ──────────────────────────────────────────────────────
+   2. Realistic Book Chassis & Luxury Leather Binding
+   ────────────────────────────────────────────────────── */
+.sb-book-chassis {
+    position: relative;
+    flex: 1 1 auto;
+    max-width: 1180px;
+    width: 100%;
+    aspect-ratio: 16 / 10.6;
+    min-height: 650px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    background: var(--sb-paper);
+    border-radius: var(--sb-chassis-radius);
+    display: flex;
+    overflow: visible;
+    z-index: 2;
+    cursor: grab;
+    touch-action: pan-y;
+    /* Physical stacked book block with layered gilded page edges and leather base */
+    box-shadow: 
+        0 1px 2px rgba(58, 44, 26, 0.12),
+        0 8px 16px rgba(58, 44, 26, 0.12),
+        0 24px 48px rgba(109, 10, 29, 0.16),
+        0 0 0 1px rgba(179, 121, 30, 0.35),
+        /* Layered physical paper block underneath */
+        4px 7px 0 0 #F5EFE6,
+        4px 7px 0 1px rgba(179, 121, 30, 0.28),
+        8px 13px 0 0 #EDE6DB,
+        8px 13px 0 1px rgba(179, 121, 30, 0.22),
+        /* Outer leather book binding backing */
+        10px 16px 0 2px var(--sb-leather),
+        10px 16px 28px 4px rgba(35, 6, 12, 0.35);
+    transition: box-shadow 0.35s ease, transform 0.25s ease;
+}
+
+.sb-book-chassis:active {
+    cursor: grabbing;
+}
+
+/* Outer Leather Binding Trim & Fine Stitching */
+.sb-book-chassis::before {
+    content: '';
+    position: absolute;
+    inset: -6px;
+    border-radius: calc(var(--sb-chassis-radius) + 5px);
+    border: 1px dashed rgba(179, 121, 30, 0.55);
+    box-shadow: 
+        inset 0 0 0 4px var(--sb-leather),
+        inset 0 0 0 5px rgba(212, 160, 69, 0.4),
+        0 4px 12px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Book Interior Glow & Deckle Paper Sheen */
+.sb-book-chassis::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: var(--sb-chassis-radius);
+    pointer-events: none;
+    background: 
+        linear-gradient(135deg, rgba(255, 255, 255, 0.55) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, transparent 84%, rgba(109, 10, 29, 0.04) 100%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.85);
+    z-index: 16;
+}
+
+/* Gilded Gold Page Edges (Side metallic gilded foil sheen) */
+.sb-gilded-edge-right {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    right: -7px;
+    width: 7px;
+    background: linear-gradient(180deg, 
+        #B3791E 0%, 
+        #F6E27A 25%, 
+        #D4A045 50%, 
+        #F6E27A 75%, 
+        #B3791E 100%);
+    border-radius: 0 4px 4px 0;
+    box-shadow: 1px 0 3px rgba(0, 0, 0, 0.25);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.sb-gilded-edge-left {
+    position: absolute;
+    top: 6px;
+    bottom: 6px;
+    left: -7px;
+    width: 7px;
+    background: linear-gradient(180deg, 
+        #B3791E 0%, 
+        #F6E27A 25%, 
+        #D4A045 50%, 
+        #F6E27A 75%, 
+        #B3791E 100%);
+    border-radius: 4px 0 0 4px;
+    box-shadow: -1px 0 3px rgba(0, 0, 0, 0.25);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────────────
+   3. Sacred Spine, Rivets & Sewn Center Seam
+   ────────────────────────────────────────────────────── */
+.sb-center-spine {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 8px;
+    transform: translateX(-50%);
+    background: linear-gradient(90deg, 
+        rgba(40, 28, 18, 0.4) 0%, 
+        rgba(109, 10, 29, 0.8) 35%, 
+        rgba(179, 121, 30, 0.9) 50%, 
+        rgba(109, 10, 29, 0.8) 65%, 
+        rgba(40, 28, 18, 0.4) 100%);
+    box-shadow: 
+        0 0 10px rgba(0, 0, 0, 0.35),
+        inset 0 0 4px rgba(0, 0, 0, 0.4);
+    z-index: 22;
+    pointer-events: none;
+}
+
+/* Center Sewn Stitches */
+.sb-center-spine::before {
+    content: '';
+    position: absolute;
+    top: 14px;
+    bottom: 14px;
+    left: 50%;
+    width: 2px;
+    transform: translateX(-50%);
+    background-image: repeating-linear-gradient(180deg, 
+        #FAF6F0 0, #FAF6F0 4px, 
+        transparent 4px, transparent 10px);
+    opacity: 0.85;
+}
+
+/* Sacred Spine Rivets (Top & Bottom Brass Studs) */
+.sb-spine-rivet {
+    position: absolute;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #F6E27A 0%, #D4A045 40%, #B3791E 75%, #4D0714 100%);
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.45),
+        inset 0 1px 1px rgba(255, 255, 255, 0.8);
+    z-index: 26;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sb-spine-rivet::after {
+    content: '✦';
+    font-size: 8px;
+    color: #4D0714;
+    line-height: 1;
+    transform: translateY(-0.5px);
+}
+
+.sb-spine-rivet.top {
+    top: 10px;
+}
+
+.sb-spine-rivet.bottom {
+    bottom: 10px;
+}
+
+/* Gutter Shadows on Left and Right Pages */
+.sb-gutter-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    width: 75px;
+    background: linear-gradient(to left, 
+        rgba(35, 25, 15, 0.28) 0%, 
+        rgba(35, 25, 15, 0.12) 40%, 
+        transparent 100%);
+    pointer-events: none;
+    z-index: 18;
+}
+
+.sb-gutter-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 75px;
+    background: linear-gradient(to right, 
+        rgba(35, 25, 15, 0.26) 0%, 
+        rgba(35, 25, 15, 0.10) 40%, 
+        transparent 100%);
+    pointer-events: none;
+    z-index: 18;
+}
+
+/* ──────────────────────────────────────────────────────
+   4. Brass Ribbon Bookmark
+   ────────────────────────────────────────────────────── */
+.sb-ribbon-bookmark {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* ──────────────────────────────────────────────────────
+   5. Left & Right Page Spread Layout
+   ────────────────────────────────────────────────────── */
+.sb-page-half {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    padding: 36px 42px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    z-index: 5;
+    background-color: var(--sb-paper);
+    overflow: hidden;
+}
+
+.sb-page-half.left {
+    border-right: 1px solid rgba(43, 39, 33, 0.08);
+    justify-content: center;
+    align-items: center;
+    padding: 24px 32px;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.7) 0%, transparent 60%),
+        linear-gradient(135deg, #FAF6F0 0%, #F5EFE6 100%);
+}
+
+.sb-page-half.right {
+    justify-content: space-between;
+    padding: 26px 36px 20px;
+    background: 
+        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
+        linear-gradient(135deg, #FAF7F2 0%, #F6F0E7 100%);
+}
+
+/* ──────────────────────────────────────────────────────
+   6. LEFT PAGE: Archival Visual Plate
+   ────────────────────────────────────────────────────── */
+.sb-plate-frame {
+    position: relative;
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 1;
+    border: 1px solid var(--sb-border);
+    border-radius: 12px;
+    padding: 16px;
+    background: #FFFFFF;
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+        0 4px 18px rgba(109, 10, 29, 0.06);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+    transition: transform 0.4s var(--sb-transition-smooth), box-shadow 0.4s ease;
+}
+
+.sb-plate-frame:hover {
+    box-shadow: 
+        inset 0 0 0 1px rgba(255, 255, 255, 1),
+        0 8px 24px rgba(109, 10, 29, 0.12);
+}
+
+/* Corner Fleurons */
+.sb-plate-corner-tl,
+.sb-plate-corner-tr,
+.sb-plate-corner-bl,
+.sb-plate-corner-br {
+    position: absolute;
+    font-size: 11px;
+    color: var(--sb-gold);
+    opacity: 0.85;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.sb-plate-corner-tl { top: 7px; left: 9px; }
+.sb-plate-corner-tr { top: 7px; right: 9px; }
+.sb-plate-corner-bl { bottom: 7px; left: 9px; }
+.sb-plate-corner-br { bottom: 7px; right: 9px; }
+
+.sb-plate-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10.5px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--sb-gold);
+    font-weight: 700;
+    padding: 0 4px 8px 4px;
+    border-bottom: 1px dashed rgba(179, 121, 30, 0.28);
+}
+
+.sb-plate-canvas {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.sb-plate-vector {
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 16px rgba(109, 10, 29, 0.08));
+    transition: transform 0.5s var(--sb-transition-smooth);
+}
+
+.sb-plate-frame:hover .sb-plate-vector {
+    transform: scale(1.03);
+}
+
+.sb-plate-caption-tag {
+    font-family: var(--sb-font-serif);
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--sb-ink-soft);
+    text-align: center;
+    letter-spacing: 0.5px;
+    border-top: 1px dashed rgba(179, 121, 30, 0.28);
+    width: 100%;
+    padding-top: 8px;
+}
+
+/* ──────────────────────────────────────────────────────
+   7. RIGHT PAGE: Luxury Editorial Journal Content
+   ────────────────────────────────────────────────────── */
+.sb-editorial-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.sb-content-top {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    min-height: 0;
+    padding-right: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(179, 121, 30, 0.4) transparent;
+}
+
+.sb-content-top::-webkit-scrollbar {
+    width: 4px;
+}
+
+.sb-content-top::-webkit-scrollbar-thumb {
+    background: rgba(179, 121, 30, 0.35);
+    border-radius: 4px;
+}
+
+.sb-folio-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sb-gold);
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(179, 121, 30, 0.22);
+}
+
+.sb-badge-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    align-self: flex-start;
+    padding: 3px 12px;
+    background: var(--sb-burgundy-soft);
+    border: 1px solid rgba(109, 10, 29, 0.25);
+    border-radius: 9999px;
+    font-size: 10.5px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--sb-burgundy);
+    margin-top: 1px;
+}
+
+.sb-deva-subhead {
+    font-family: var(--sb-font-deva);
+    font-size: 14.5px;
+    color: var(--sb-gold);
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-top: -2px;
+}
+
+.sb-title {
+    font-family: var(--sb-font-heading);
+    font-size: clamp(1.25rem, 1.7vw, 1.7rem);
+    font-weight: 700;
+    color: var(--sb-ink);
+    line-height: 1.18;
+    letter-spacing: -0.3px;
+    margin: 0;
+}
+
+.sb-narrative {
+    font-family: var(--sb-font-body);
+    font-size: clamp(12px, 0.95vw, 13.5px);
+    line-height: 1.5;
+    color: var(--sb-ink-soft);
+    margin: 0;
+    font-weight: 400;
+}
+
+.sb-attributes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 4px 0 2px;
+}
+
+.sb-attr-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(179, 121, 30, 0.22);
+    border-radius: 6px;
+    font-size: 11.5px;
+    color: var(--sb-ink);
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.sb-attr-chip span {
+    color: var(--sb-gold);
+    font-weight: bold;
+}
+
+.sb-content-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(43, 39, 33, 0.12);
+    margin-top: 8px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 15;
+    background: inherit;
+}
+
+.sb-cta-btn {
+    background: var(--sb-burgundy);
+    color: #FFFFFF !important;
+    padding: 10px 24px;
+    border-radius: 9999px;
+    font-size: 13.5px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    transition: all 0.28s var(--sb-transition-smooth);
+    box-shadow: 0 4px 14px var(--sb-burgundy-glow);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    font-family: inherit;
+    outline: none;
+    flex-shrink: 0;
+}
+
+.sb-cta-btn:hover {
+    background: var(--sb-burgundy-deep);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(109, 10, 29, 0.35);
+}
+
+.sb-cta-btn:active {
+    transform: translateY(0);
+}
+
+.sb-folio-indicator {
+    font-family: var(--sb-font-serif);
+    font-size: 14.5px;
+    font-style: italic;
+    color: var(--sb-ink-faint);
+    letter-spacing: 0.5px;
+}
+
+/* ──────────────────────────────────────────────────────
+   8. 3D Flipping Leaf & Page Turn Curvature
+   ────────────────────────────────────────────────────── */
+.sb-flipping-leaf {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    height: 100%;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    z-index: 25;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.sb-flipping-leaf.flip-next {
+    left: 50%;
+    transform-origin: left center;
+}
+
+.sb-flipping-leaf.flip-prev {
+    right: 50%;
+    transform-origin: right center;
+}
+
+.sb-leaf-face {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    overflow: hidden;
+    background: var(--sb-paper);
+    box-shadow: inset 0 0 40px rgba(43, 39, 33, 0.08);
+}
+
+.sb-leaf-face.front {
+    transform: rotateY(0deg);
+}
+
+.sb-leaf-face.back {
+    transform: rotateY(180deg);
+}
+
+/* Dynamic Leaf Shading Mask Overlay during rotation */
+.sb-leaf-shadow-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+}
+
+.sb-flipping-leaf.flip-next .sb-leaf-face.front .sb-leaf-shadow-overlay {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.25) 0%, transparent 100%);
+}
+
+.sb-flipping-leaf.flip-next .sb-leaf-face.back .sb-leaf-shadow-overlay {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.25) 0%, transparent 100%);
+}
+
+.sb-flipping-leaf.flip-prev .sb-leaf-face.front .sb-leaf-shadow-overlay {
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.25) 0%, transparent 100%);
+}
+
+.sb-flipping-leaf.flip-prev .sb-leaf-face.back .sb-leaf-shadow-overlay {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.25) 0%, transparent 100%);
+}
+
+/* ──────────────────────────────────────────────────────
+   9. Navigation Controls (Flanking Brass Arrows & Toolbar)
+   ────────────────────────────────────────────────────── */
+.sb-nav-arrow {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 1px solid var(--sb-border);
+    background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #FAF6F0 100%);
+    color: var(--sb-burgundy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 
+        0 4px 16px rgba(109, 10, 29, 0.08),
+        inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    transition: all 0.25s var(--sb-transition-smooth);
+    z-index: 30;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sb-nav-arrow:hover {
+    background: var(--sb-burgundy);
+    color: #FFFFFF;
+    border-color: var(--sb-burgundy);
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px var(--sb-burgundy-glow);
+}
+
+.sb-nav-arrow:active {
+    transform: scale(0.96);
+}
+
+.sb-nav-arrow svg {
+    width: 22px;
+    height: 22px;
+    stroke-width: 2.2;
+}
+
+/* ──────────────────────────────────────────────────────
+   10. Bottom Navigation Toolbar & Plate Directory
+   ────────────────────────────────────────────────────── */
+.sb-toolbar-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+}
+
+.sb-folio-jump-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 16px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(179, 121, 30, 0.32);
+    border-radius: 9999px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.sb-jump-label {
+    font-family: var(--sb-font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--sb-burgundy);
+    white-space: nowrap;
+}
+
+.sb-jump-select {
+    background: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--sb-ink);
+    cursor: pointer;
+    outline: none;
+    padding: 2px 6px;
+    max-width: 240px;
+}
+
+.sb-plate-dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(179, 121, 30, 0.24);
+    border-radius: 9999px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sb-plate-dots::-webkit-scrollbar {
+    display: none;
+}
+
+.sb-plate-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(179, 121, 30, 0.25);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.28s var(--sb-transition-smooth);
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.sb-plate-dot:hover {
+    background: var(--sb-gold);
+    transform: scale(1.25);
+}
+
+.sb-plate-dot.active {
+    width: 28px;
+    border-radius: 9999px;
+    background: var(--sb-burgundy);
+    border-color: var(--sb-burgundy);
+    box-shadow: 0 2px 8px var(--sb-burgundy-glow);
+}
+
+.sb-nav-hint {
+    font-size: 11.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--sb-ink-faint);
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* ──────────────────────────────────────────────────────
+   11. Prefers-Reduced-Motion Accessibility Support
+   ────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+    .sb-book-chassis,
+    .sb-plate-vector,
+    .sb-plate-frame,
+    .sb-ribbon-bookmark,
+    .sb-cta-btn,
+    .sb-nav-arrow,
+    .sb-plate-dot {
+        transition: none !important;
+        transform: none !important;
+    }
+
+    .sb-flipping-leaf {
+        display: none !important;
+    }
+
+    .sb-page-half {
+        transition: opacity 0.15s ease;
+    }
+}
+
+/* ──────────────────────────────────────────────────────
+   12. Responsive Breakpoints: Tablet & Mobile
+   ────────────────────────────────────────────────────── */
+@media (max-width: 992px) {
+    .sb-page-half {
+        padding: 26px 30px;
+    }
+    .sb-page-half.left {
+        padding: 22px 26px;
+    }
+    .sb-title {
+        font-size: 1.5rem;
+    }
+    .sb-narrative {
+        font-size: 13.5px;
+    }
+    .sb-plate-vector {
+        max-height: 210px;
+    }
+    .sb-ribbon-bookmark {
+        left: calc(50% + 14px);
+        width: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .sb-component-wrapper {
+        margin: 32px auto 16px;
+        padding: 0 12px;
+    }
+    .sb-stage-frame {
+        gap: 8px;
+    }
+    .sb-book-chassis {
+        aspect-ratio: auto;
+        min-height: auto;
+        flex-direction: column;
+        border-radius: 12px;
+        box-shadow: 
+            0 2px 4px rgba(58, 44, 26, 0.1),
+            0 12px 24px rgba(58, 44, 26, 0.12),
+            0 0 0 1px rgba(179, 121, 30, 0.35);
+    }
+    .sb-center-spine,
+    .sb-gutter-left,
+    .sb-gutter-right,
+    .sb-spine-rivet,
+    .sb-gilded-edge-right,
+    .sb-gilded-edge-left {
+        display: none;
+    }
+    .sb-ribbon-bookmark {
+        top: -6px;
+        right: 28px;
+        left: auto;
+        width: 18px;
+        height: 52px;
+    }
+    .sb-page-half {
+        width: 100%;
+        padding: 26px 20px;
+    }
+    .sb-page-half.left {
+        border-right: none;
+        border-bottom: 1px dashed rgba(179, 121, 30, 0.28);
+        padding: 28px 20px 22px;
+    }
+    .sb-page-half.right {
+        padding: 24px 20px 28px;
+    }
+    .sb-plate-frame {
+        max-width: 320px;
+    }
+    .sb-plate-vector {
+        max-height: 180px;
+    }
+    .sb-nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        background: rgba(255, 255, 255, 0.95);
+    }
+    .sb-nav-arrow.prev {
+        left: -6px;
+    }
+    .sb-nav-arrow.next {
+        right: -6px;
+    }
+    .sb-title {
+        font-size: 1.35rem;
+    }
+    .sb-tabs-header {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+    }
+    .sb-tabs-header::-webkit-scrollbar {
+        display: none;
+    }
+    .sb-tab-pill {
+        white-space: nowrap;
+        font-size: 11px;
+        padding: 6px 14px;
+    }
+}
